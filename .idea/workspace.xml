@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a1f2773-12a9-4d1a-9bc1-6d16bd07d038" name="Changes" comment="Innit Commit">
+    <list default="true" id="0a1f2773-12a9-4d1a-9bc1-6d16bd07d038" name="Changes" comment="Adding HTML files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/Write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +41,11 @@
     "last_opened_file_path": "C:/Users/Aleksa Hadzic/PycharmProjects/zillowcapstone"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\templates" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -58,11 +62,26 @@
       <option name="project" value="LOCAL" />
       <updated>1677793134734</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Adding HTML files">
+      <created>1677856034644</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1677856034644</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Adding HTML files">
+      <created>1677856125074</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1677856125074</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Innit Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Innit Commit" />
+    <MESSAGE value="Adding HTML files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding HTML files" />
   </component>
 </project>
