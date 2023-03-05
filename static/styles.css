@@ -1,3 +1,107 @@
 body{
 font-family: 'Poppins', sans-serif;
 }
+
+.big-heading{
+font-family: 'Poppins';
+font-size: 4rem;
+line-height: 1.5;
+font-weight: 900;
+margin-top: 250px;
+}
+#get-started {
+  color: #6E07F3;
+  border-color: #6E07F3;
+  background-color: #f8f8f8;
+  margin-top : 340px;
+  margin-left: 250px;
+  border-radius: 22px;
+}
+
+
+#get-started:hover {
+  background-color: #6E07F3;
+  color: #fff;
+}
+    /* Default styles for all devices */
+
+.container {
+  margin-top: 20px;
+}
+
+@media (max-width: 767px) {
+  .big-heading {
+    font-size: 58px;
+  }
+
+  .col-md-6 {
+    width: 100%;
+    margin-bottom: 20px; /* Add margin to create space between heading and button */
+  }
+
+  #get-started {
+    margin-top: 20px; /* Add margin to push button below navbar */
+    width: 50%; /* Make button full width */
+    margin-left:80px;
+  }
+}
+#quote {
+  position: relative;
+  top: 300px;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6E07F3;
+  margin: 0 auto;
+}
+
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.quote-text {
+  width: 85%;
+  margin: 0;
+  color: #ffffff;
+  text-align: center;
+}
+
+.book-title {
+  color: #ffffff;
+  margin-bottom: 0;
+  text-align: center;
+  margin-top: 20px;
+}
+.books-image{
+position: relative;
+left: 380px;
+top: 200px;
+width: 170%;
+}
+#explain{
+position: relative;
+top: 450px;
+width: 100%;
+height: 400px;
+}
+#explain-text{
+text-align: center;
+position: relative;
+top: -20px;
+}
+.card{
+height: 400px;
+}
+.card-header{
+background-color: #6E07F3;
+color: #fff;
+text-align: center;
+}
+.card-body{
+text-align: center;
+}
