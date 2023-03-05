@@ -15,6 +15,7 @@ margin-top: 250px;
   background-color: #f8f8f8;
   margin-top : 340px;
   margin-left: 250px;
+  border-radius: 22px;
 }
 
 
@@ -43,4 +44,64 @@ margin-top: 250px;
     width: 50%; /* Make button full width */
     margin-left:80px;
   }
+}
+#quote {
+  position: relative;
+  top: 300px;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6E07F3;
+  margin: 0 auto;
+}
+
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.quote-text {
+  width: 85%;
+  margin: 0;
+  color: #ffffff;
+  text-align: center;
+}
+
+.book-title {
+  color: #ffffff;
+  margin-bottom: 0;
+  text-align: center;
+  margin-top: 20px;
+}
+.books-image{
+position: relative;
+left: 380px;
+top: 200px;
+width: 170%;
+}
+#explain{
+position: relative;
+top: 450px;
+width: 100%;
+height: 400px;
+}
+#explain-text{
+text-align: center;
+position: relative;
+top: -20px;
+}
+.card{
+height: 400px;
+}
+.card-header{
+background-color: #6E07F3;
+color: #fff;
+text-align: center;
+}
+.card-body{
+text-align: center;
 }

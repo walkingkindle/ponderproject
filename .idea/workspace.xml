@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a1f2773-12a9-4d1a-9bc1-6d16bd07d038" name="Changes" comment="adding styles and image files.">
+    <list default="true" id="0a1f2773-12a9-4d1a-9bc1-6d16bd07d038" name="Changes" comment="completing the front page and ajdusting the size to make the website more responsive.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Index.html" afterDir="false" />
@@ -37,14 +37,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Aleksa Hadzic/Documents/My Python Projects/TinDog"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aleksa Hadzic/Documents/My Python Projects/TinDog&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\templates" />
@@ -94,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677862609275</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="completing the front page and ajdusting the size to make the website more responsive.">
+      <created>1677942222907</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677942222907</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -102,6 +109,7 @@
     <MESSAGE value="Adding HTML files" />
     <MESSAGE value="Initiating webpage and customizing navbar." />
     <MESSAGE value="adding styles and image files." />
-    <option name="LAST_COMMIT_MESSAGE" value="adding styles and image files." />
+    <MESSAGE value="completing the front page and ajdusting the size to make the website more responsive." />
+    <option name="LAST_COMMIT_MESSAGE" value="completing the front page and ajdusting the size to make the website more responsive." />
   </component>
 </project>
