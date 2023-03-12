@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="sign up page">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="dashboard start">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
@@ -59,7 +59,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0a1f2773-12a9-4d1a-9bc1-6d16bd07d038" name="Changes" comment="" />
+      <changelist id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="dashboard start" />
       <created>1677689105388</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -114,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678456119773</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="dashboard start">
+      <created>1678531889349</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678531889349</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,6 +143,7 @@
     <MESSAGE value="completing the front page and ajdusting the size to make the website more responsive." />
     <MESSAGE value="Creating page 2 and 3 of the front page, styling for responsiveness." />
     <MESSAGE value="sign up page" />
-    <option name="LAST_COMMIT_MESSAGE" value="sign up page" />
+    <MESSAGE value="dashboard start" />
+    <option name="LAST_COMMIT_MESSAGE" value="dashboard start" />
   </component>
 </project>
