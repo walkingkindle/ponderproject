@@ -194,10 +194,13 @@ body{
 #dashboard-title2 {
   position: relative;
   top: 80px;
-  right: -50px;
-  text-align: left;
+  right: 10px;
+  text-align: center;
   font-size: 50px;
   margin-top: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 84px;
   color: black;
 }
 
@@ -206,7 +209,7 @@ body{
   position: relative;
   text-align: left;
   right: -100px;
-  font-size: 30px;
+  font-size: 25px;
   margin-top: 200px;
   margin-bottom: 400px;
   color: black;
@@ -252,7 +255,39 @@ body{
  position: relative;
  top: 20px;
 }
-#write-button:hover{
-color: #fff;
-background-color: #6E07F3;
+write-button:hover{
+  color: #fff;
+  background-color:#6E07F3;
+}
+.journal-container{
+  text-align: left;
+  position: relative;
+  height: 100px;
+  top: 150px;
+  left: 55px;
+
+}
+#ponder-text{
+ color: black;
+}
+#ponder-quote{
+ position: relative;
+ top: 50px;
+}
+.form-group{
+ position: relative;
+ top: 80px;
+ width: 60%;
+}
+#text-area{
+ height: 150px;
+}
+.submit-buttons{
+ text-align: right;
+ position: relative;
+ top: 415px;
+ right: 500px;
+}
+#submit-buttonings{
+ background-color: #8F43EE;
 }

@@ -1,0 +1,15 @@
+footer{
+ font-family: 'Poppins', sans-serif
+}
+.footer{
+ background-color: #16213E;
+ color: #fff;
+ height: 500px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+}
+.text-muted{
+ font-size: 30px;
+}
