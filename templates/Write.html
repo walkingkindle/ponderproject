@@ -8,7 +8,7 @@
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
     <!-- Main css -->
-    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <link rel="stylesheet" type="text/css" href="/static/write-styles.css">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,28 +43,34 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Log out</a>
+          <a class="nav-link" href="#">Dashboard</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">What is Ponder?</a>
+            <a class="nav-link" href="#">Log Out</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 </div>
-<div class="journal-container" class="col-md-6">
-    <h1 id="ponder-text"> Reflect and Ponder Here:</h1>
-    <h2 id="ponder-quote"> "Some quote by someone" </h2>
-    <div class="form-group">
-    <textarea class="form-control" id="text-area" rows="3" placeholder="Here are some things for you to try:
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1 id="ponder-text" class="text-center">Reflect and Ponder Here:</h1>
+      <h2 id="ponder-quote" class="text-center">"Some quote by someone"</h2>
+      <div class="form-group text-center">
+        <textarea class="form-control" id="text-area" rows="3" placeholder="Here are some things for you to try:
 1. Explain this quote to 7 year old, or try to explain it to a younger self.
 2. Do you understand this quote? What do you think of this book?
-3. If you already know the quote, how did it change the way you think."></textarea>
+3. If you already know the quote, how did it change the way you think?"></textarea>
+        <div class="submit-buttons d-flex flex-wrap justify-content-center">
+          <button type="button" class="btn btn-lg btn-primary" id="submit-buttonings">Submit</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<div class="submit-buttons">
-    <button type="button" class="btn btn-primary" id="submit-buttonings">Submit</button> or <button type="button" class="btn btn-primary" id="submit-buttonings">Get another quote</button>
-</div>
+
+
 </body>
 </html>

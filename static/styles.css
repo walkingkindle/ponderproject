@@ -20,7 +20,6 @@ body{
      background-color: #6E07F3;
      color: #fff;
 }
-/* Default styles for all devices */
  .container {
      margin-top: 20px;
 }
@@ -31,13 +30,10 @@ body{
      .col-md-6 {
          width: 100%;
          margin-bottom: 20px;
-        /* Add margin to create space between heading and button */
     }
      #get-started {
          margin-top: 20px;
-        /* Add margin to push button below navbar */
          width: 50%;
-        /* Make button full width */
          margin-left:80px;
     }
 }
@@ -111,7 +107,7 @@ body{
   background-color: #6E07F3;
   position: relative;
   top: 150px;
-  text-align: right; /* add this line */
+  text-align: right;
   display: flex;
   flex-direction: column;
   justify-content: right;
@@ -138,17 +134,6 @@ body{
   position: relative;
   top: 130px;
   background-color: black;
-}
-.vl {
-  border-left: 1px solid white;
-  height: 500px;
-  position: relative;
-  left: 700px;
-  top: -70px;
-}
-.footer-01{
-  position: relative;
-  top: 450px;
 }
 .quote-container2 {
   position: relative;
@@ -223,12 +208,12 @@ body{
 }
 
 .comment-wrapper {
-  padding-right: 800px; /* adjust the value to your desired indentation */
+  padding-right: 800px;
 }
 
 .comment-paragraph{
-  text-indent: -60px; /* make sure to use the negative value of padding-left */
-  text-align: justify; /* add this to have the text justified */
+  text-indent: -60px;
+  text-align: justify;
 }
 
 .read-more {
@@ -258,36 +243,4 @@ body{
 write-button:hover{
   color: #fff;
   background-color:#6E07F3;
-}
-.journal-container{
-  text-align: left;
-  position: relative;
-  height: 100px;
-  top: 150px;
-  left: 55px;
-
-}
-#ponder-text{
- color: black;
-}
-#ponder-quote{
- position: relative;
- top: 50px;
-}
-.form-group{
- position: relative;
- top: 80px;
- width: 60%;
-}
-#text-area{
- height: 150px;
-}
-.submit-buttons{
- text-align: right;
- position: relative;
- top: 415px;
- right: 500px;
-}
-#submit-buttonings{
- background-color: #8F43EE;
 }
