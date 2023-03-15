@@ -192,14 +192,14 @@ body{
 
 #quote-title2 {
   position: relative;
-  text-align: left;
-  right: -100px;
+  text-align: center;
   font-size: 25px;
   margin-top: 200px;
   margin-bottom: 400px;
   color: black;
   top: -30px;
 }
+
 .other-comments{
   position: relative;
   top: -800px;
@@ -208,17 +208,30 @@ body{
 }
 
 .comment-wrapper {
-  padding-right: 800px;
+  padding-right: 500px;
+  position: relative;
+  left: 200px;
+  padding-top: 20px;
 }
 
 .comment-paragraph{
-  text-indent: -60px;
   text-align: justify;
+  position: relative;
+  left: 180px;
 }
-
+@media (max-width: 767px){
+  .comment-paragraph{
+  text-align: center;
+  right: 180px;
+  width: 100%;
+  }
+  row:{
+  width: 100%;
+  }
+  }
 .read-more {
   display: block;
-  text-align: right;
+  text-align: center;
 }
 
 #quote-title3 {
