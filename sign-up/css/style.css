@@ -282,7 +282,8 @@ input {
   padding: 16px 30px 16px 140px; }
 
 .form-textbox {
-  position: relative; }
+  position: relative;
+  }
   .form-textbox label {
     position: absolute;
     left: 28px;
@@ -295,7 +296,10 @@ input {
     font-weight: 600;
     color: #888;
     font-size: 14px; }
-
+#log-in-label{
+  position: relative;
+  top: -20px;
+}
 #name {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px; }
@@ -374,29 +378,84 @@ input[type=checkbox]:not(old):checked + label > span:before {
      border-radius: 22px;
      width: 200px;
      position: relative;
+     top: 70px;
      height: 50px;
-     top: -240px;
-     right: 100px;
+     right: -270px;
 
 }
  #get-started:hover {
      background-color: #6E07F3;
      color: #fff;
+}
+.sign-up-content {
+  text-align: center;
+}
 
 .loginhere {
   text-align: center;
   color: #888;
   margin-top: 83px;
   position: relative;
-  top : 100px;
-   }
+  text-align: right;
+  top: -90px;
+  right: 30px;
+}
 
 .loginhere-link {
   color: #1da0f2;
   text-decoration: none;
-   }
-  .loginhere-link:hover {
-    text-decoration: underline; }
+}
+
+.loginhere-link:hover {
+  text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+  .loginhere {
+    position: static;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  .loginhere-link {
+    display: block;
+    margin-top: 10px;
+    text-align: left;
+  }
+
+  #forgot {
+    position: static;
+    margin-top: 20px;
+  }
+
+  .sign-up-content {
+    text-align: left;
+  }
+  #get-started{
+    position: relative;
+    right: 50px;
+
+  }
+  }
+
+@media (min-width: 768px) {
+  .sign-up-content .loginhere {
+    text-align: right !important;
+    margin-top: 50px !important;
+  }
+
+  .sign-up-content .loginhere-link {
+    display: inline-block !important;
+    margin-left: 10px !important;
+    text-align: left !important;
+
+  }
+  }
+}
+
+
 
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px white inset; }
@@ -411,6 +470,7 @@ input:-webkit-autofill {
 
   .form-radio input + label {
     display: block;
+
     margin-bottom: 10px; } }
 @media screen and (max-width: 400px) {
   .form-textbox label {
@@ -422,8 +482,4 @@ input:-webkit-autofill {
 /*# sourceMappingURL=style.css.map */
 .my-button {
   width: 150px;
-}
-#log-in-button{
-position: relative;
-top: 70px;
 }
