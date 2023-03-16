@@ -6,7 +6,8 @@ body{
      font-size: 4rem;
      line-height: 1.5;
      font-weight: 900;
-     margin-top: 250px;
+     margin-top: 150px;
+     margin-bottom: 150px;
 }
  #get-started {
      color: #6E07F3;
@@ -15,13 +16,11 @@ body{
      margin-top : 340px;
      margin-left: 250px;
      border-radius: 22px;
+     margin-bottom: 150px;
 }
  #get-started:hover {
      background-color: #6E07F3;
      color: #fff;
-}
- .container {
-     margin-top: 20px;
 }
  @media (max-width: 767px) {
      .big-heading {
@@ -37,23 +36,30 @@ body{
          margin-left:80px;
     }
 }
- #quote {
-     position: relative;
-     top: 300px;
-     width: 100%;
-     height: 400px;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     background-color: #6E07F3;
-     margin: 0 auto;
+#quote {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  background-color: #6E07F3;
+  margin: 50px auto 0;
+  margin-bottom: 150px; /* Add some space between the two divs */
 }
- .quote-container {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
+
+.container {
+  display: block;
+  align-items: center;
 }
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
  .quote-text {
      width: 85%;
      margin: 0;
@@ -66,75 +72,7 @@ body{
      text-align: center;
      margin-top: 20px;
 }
- .books-image{
-     position: relative;
-     left: 380px;
-     top: 200px;
-     width: 170%;
-}
- #explain{
-     position: relative;
-     top: 450px;
-     width: 100%;
-     height: 400px;
-}
- #explain-text{
-     text-align: center;
-     position: relative;
-     top: -20px;
-}
- .card{
-     height: 400px;
-}
- .card-headers{
-     background-color: #6E07F3;
-     color: #fff;
-     text-align: center;
-}
- .card-body{
-     text-align: center;
-}
- .unknown{
-     width: 100%;
-     height: 100%;
-     background-color: white;
-     position: relative;
-     top: 400px;
-}
-#log-in {
-  height: 500px;
-  width: 100%;
-  background-color: #6E07F3;
-  position: relative;
-  top: 150px;
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  justify-content: right;
-  align-items: right;
-  padding: 50px;
-}
-
-#log-in-p {
-  position: relative;
-  top: -50px;
-  font-size: 1.5rem;
-  color: #fff;
-  word-wrap: break-word;
-  white-space: pre-line;
-}
-#top-line{
-  height: 6px;
-  position: relative;
-  top: 166px;
-  background-color: black;
-}
-#bottom-line{
-  height: 6px;
-  position: relative;
-  top: 130px;
-  background-color: black;
-}
+/* DASHBOARD */
 .quote-container2 {
   position: relative;
   margin: 0 auto;
@@ -256,4 +194,92 @@ body{
 write-button:hover{
   color: #fff;
   background-color:#6E07F3;
+}
+
+/* FEATURES */
+
+/* Set the font family and color for the entire page */
+body {
+  font-family: Poppins, sans-serif;
+  color: #212529;
+}
+
+/* Style the container */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Style the header */
+h2 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Style the features */
+.feature {
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Add a shadow and change the background color when hovering over a feature */
+.feature:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  background-color: #f8f9fa;
+}
+
+/* Style the feature icons */
+.feature-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  color: #fff;
+}
+
+/* Add a gradient to the feature icons */
+.bg-gradient {
+  background-image: linear-gradient(45deg, #007bff, #6c757d);
+}
+
+/* Style the feature titles */
+h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* Style the feature descriptions */
+p {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+/* Style the icon links */
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.125rem;
+  color: #007bff;
+}
+
+/* Add a chevron to the icon links */
+.icon-link svg {
+  margin-left: 0.5rem;
+}
+.feature col{
+ margin-right: 1.5rem;
+}
+#featured-3{
+ margin-top: 150px;
 }
