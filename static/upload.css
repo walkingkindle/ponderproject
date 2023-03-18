@@ -1,0 +1,105 @@
+body{
+  font-family: 'Poppins', sans-serif
+}
+.container{
+  text-align: center;
+}
+#row1{
+ margin-left: 300px;
+}
+.big-heading{
+ margin-top: 100px;
+ font-size: 50px;
+ width: 100%;
+}
+
+/* FEATURES */
+
+/* Set the font family and color for the entire page */
+body {
+  font-family: Poppins, sans-serif;
+  color: #212529;
+}
+
+/* Style the container */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Style the header */
+h2 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Style the features */
+.feature {
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Add a shadow and change the background color when hovering over a feature */
+.feature:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  background-color: #f8f9fa;
+}
+
+/* Style the feature icons */
+.feature-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  color: #fff;
+}
+
+/* Add a gradient to the feature icons */
+.bg-gradient {
+  background: linear-gradient(90deg, rgba(48,11,57,1) 0%, rgba(53,69,124,1) 35%, rgba(97,105,131,1) 100%);
+}
+
+/* Style the feature titles */
+h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* Style the feature descriptions */
+p {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+/* Style the icon links */
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.125rem;
+  color: #007bff;
+}
+
+/* Add a chevron to the icon links */
+.icon-link svg {
+  margin-left: 0.5rem;
+}
+.feature col{
+ margin-right: 1.5rem;
+}
+#explain-div{
+ display: flex;
+ flex-direction: row;
+}
+#featured-3{
+
+}
