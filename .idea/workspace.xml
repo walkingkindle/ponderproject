@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="styling index features">
-      <change afterPath="$PROJECT_DIR$/static/upload.css" afterDir="false" />
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adding Get started Feature">
+      <change afterPath="$PROJECT_DIR$/templates/Search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/upload.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/upload.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679002230183</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Adding Get started Feature">
+      <created>1679151105913</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1679151105913</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,6 +210,7 @@
     <MESSAGE value="styling write and making it responsive." />
     <MESSAGE value="styling dashboard and making it more responsive." />
     <MESSAGE value="styling index features" />
-    <option name="LAST_COMMIT_MESSAGE" value="styling index features" />
+    <MESSAGE value="Adding Get started Feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Get started Feature" />
   </component>
 </project>
