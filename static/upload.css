@@ -146,3 +146,24 @@ p {
 #book-table{
  margin-bottom: 150px;
 }
+
+
+/* KIndle Upload */
+
+#heading2{
+ margin-top: 150px;
+ text-align: center;
+}
+#kindle-auth{
+ margin-right: 200px;
+ width: 95%;
+}
+#upload-container{
+ margin-top: 100px;
+}
+.card{
+ width: 95%;
+}
+.icon-link{
+ text-align: center;
+}

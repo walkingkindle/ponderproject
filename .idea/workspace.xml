@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adding Get started Feature">
-      <change afterPath="$PROJECT_DIR$/templates/Search.html" afterDir="false" />
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adding the search page for books.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/upload.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/upload.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679151105913</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Adding the search page for books.">
+      <created>1679226447438</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1679226447438</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,6 +215,7 @@
     <MESSAGE value="styling dashboard and making it more responsive." />
     <MESSAGE value="styling index features" />
     <MESSAGE value="Adding Get started Feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Get started Feature" />
+    <MESSAGE value="Adding the search page for books." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding the search page for books." />
   </component>
 </project>
