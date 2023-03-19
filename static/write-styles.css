@@ -1,88 +1,104 @@
-body{
-    font-family: 'Poppins', sans-serif;
+body {
+	font-family: 'Poppins', sans-serif;
 }
-.big-heading{
-    font-family: 'Poppins';
-    font-size: 4rem;
-    line-height: 1.5;
-    font-weight: 900;
+
+.big-heading {
+	font-family: 'Poppins';
+	font-size: 4rem;
+	line-height: 1.5;
+	font-weight: 900;
 }
-.form-group{
- width: 60%;
+
+.form-group {
+	width: 60%;
 }
-#text-area{
- height: 250px;
- width: 450px;
+
+#text-area {
+	height: 250px;
+	width: 450px;
 }
-.submit-buttons{
- text-align: right;
- position: relative;
+
+.submit-buttons {
+	text-align: right;
+	position: relative;
 }
-#submit-buttonings{
- background-color: #8F43EE;
- border-color: #8F43EE;
+
+#submit-buttonings {
+	background-color: #8F43EE;
+	border-color: #8F43EE;
 }
+
 .quote-container {
-  position: relative;
+	position: relative;
 }
 
 .quote-btns {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-bottom: 10px;
-  margin-right: 10px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin-bottom: 10px;
+	margin-right: 10px;
 }
 
 @media screen and (max-width: 768px) {
-  .quote-btns {
-    position: static;
-    margin: 10px 0;
-    text-align: center;
-  }
+	.quote-btns {
+		position: static;
+		margin: 10px 0;
+		text-align: center;
+	}
 }
-#ponder-text{
-    margin-top: 100px;
-    text-align: center;
+
+#ponder-text {
+	margin-top: 100px;
+	text-align: center;
 }
-#ponder-quote{
-    margin-top: 50px;
-    text-align: center;
+
+#ponder-quote {
+	margin-top: 50px;
+	text-align: center;
 }
-#journal-container{
-    text-align: left;
+
+#journal-container {
+	text-align: left;
 
 }
-.submit-buttons{
-    position: relative;
-    margin-top: 20px;
+
+.submit-buttons {
+	position: relative;
+	margin-top: 20px;
 }
-#submit-buttonings{
-position: relative;
-left: 100px;
+
+#submit-buttonings {
+	position: relative;
+	left: 100px;
 }
+
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
-@media (min-width : 1280px){
-  #ponder-text{
-  position: relative;
-  right: -105px;
-  }
-  #ponder-quote{
-  position: relative;
-  right: -105px;
-  }
-  .form-group{
-  position: relative;
-  padding-top: 50px;
-  }
-  #submit-buttonings{
-  position: relative;
-  top: 25px;
-  left: 150px;
-  }
-  }
+
+@media (min-width : 1280px) {
+	#ponder-text {
+		position: relative;
+		right: -105px;
+	}
+
+	#ponder-quote {
+		position: relative;
+		right: -105px;
+	}
+
+	.form-group {
+		position: relative;
+		padding-top: 50px;
+	}
+
+	#submit-buttonings {
+		position: relative;
+		top: 25px;
+		left: 150px;
+	}
+}
