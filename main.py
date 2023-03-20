@@ -2,6 +2,10 @@ import random
 import requests
 from bs4 import BeautifulSoup
 import itertools
+from flask import Flask, render_template
+from wtforms import StringField, SubmitField,SelectField
+from wtforms.validators import DataRequired,url
+import csv
 
 #-----------------------------------------------------------ENGINE------------------------------------------------------
 def get_random_quote_from_kindle():
@@ -26,7 +30,7 @@ def get_random_quote():
     soup = BeautifulSoup(request, 'html.parser')
     find_quote = soup.find('span')
     print(find_quote.text)
-    return find_quote
+    return find_quote.text
 
 def also_get_random_quote():
         response = requests.get('https://api.quotable.io/random')
@@ -34,6 +38,31 @@ def also_get_random_quote():
         quote = f"{r['content']}, {r['author']}"
         print(quote)
         return quote
-get_random_quote_from_kindle()
-also_get_random_quote()
+get_random_quote()
 #-----------------------------------------------------------FLASK APP---------------------------------------------------
+app = Flask(__name__)
+app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+
+
+@app.route("/")
+def home():
+    return render_template("Index.html",quote=get_random_quote())
+
+
+
+@app.route("/login")
+def log_in():
+    return render_template("sign-in.html")
+
+
+
+@app.route("/register")
+def register():
+    return render_template("sign up.html")
+
+
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

@@ -8,20 +8,51 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
       <script src="https://kit.fontawesome.com/511589a382.js" crossorigin="anonymous"></script>
-      <link rel="stylesheet" href="/login-form/fonts/icomoon/style.css">
-      <link rel="stylesheet" href="/login-form/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="/static/icomoon-style.css">
+      <link rel="stylesheet" href="/static/owl.carousel.min.css">
       <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="/login-form/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/static/bootstrap.min.css">
       <!-- Style -->
-      <link rel="stylesheet" href="/login-form/css/style.css">
+      <link rel="stylesheet" href="/static/login-style.css">
       <title>Sign Up</title>
    </head>
    <body>
+
+<!-------NavBar ----->
+<div class="container">
+   <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
+      <div class="container-fluid">
+         <a class="navbar-brand" href="{{url_for('home')}}">
+            <img src="/static/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">Ponder
+         </a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+               <li class="nav-item {% if request.path == url_for('home') %}active{% endif %}">
+                  <a class="nav-link" aria-current="page" href="{{url_for('home')}}">Home</a>
+               </li>
+               <li class="nav-item {% if request.path == url_for('log_in') %}active{% endif %}">
+                  <a class="nav-link" href="{{url_for('log_in')}}">Log in</a>
+               </li>
+               <li class="nav-item {% if request.path == url_for('register') %}active{% endif %}">
+                  <a class="nav-link" href="{{url_for('register')}}">Register</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">What is Ponder?</a>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </nav>
+</div>
+   <!---  Main Content ---->
       <div class="content">
          <div class="container">
             <div class="row">
                <div class="col-md-6">
-                  <img src="/login-form/images/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
+                  <img src="/static/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
                </div>
                <div class="col-md-6 contents">
                   <div class="row justify-content-center">

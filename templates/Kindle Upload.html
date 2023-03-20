@@ -26,19 +26,22 @@
 <div class="container">
    <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
       <div class="container-fluid">
-         <a class="navbar-brand" href="#">
-            <img src="/templates/images/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">Ponder
+         <a class="navbar-brand" href="{{url_for('home')}}">
+            <img src="/static/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">Ponder
          </a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-               <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+               <li class="nav-item {% if request.path == url_for('home') %}active{% endif %}">
+                  <a class="nav-link" aria-current="page" href="{{url_for('home')}}">Home</a>
                </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="#">Log out</a>
+               <li class="nav-item {% if request.path == url_for('log_in') %}active{% endif %}">
+                  <a class="nav-link" href="{{url_for('log_in')}}">Log in</a>
+               </li>
+               <li class="nav-item {% if request.path == url_for('register') %}active{% endif %}">
+                  <a class="nav-link" href="{{url_for('register')}}">Register</a>
                </li>
                <li class="nav-item">
                   <a class="nav-link" href="#">What is Ponder?</a>

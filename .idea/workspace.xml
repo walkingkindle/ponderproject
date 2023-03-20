@@ -4,10 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Styling navbar, fixing html indentation and configuring responsiveness.">
-      <change afterPath="$PROJECT_DIR$/static/dashboard-styles.css" afterDir="false" />
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Making dashboard responsive.">
+      <change afterPath="$PROJECT_DIR$/static/android-chrome-192x192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/bg_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/bootstrap.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/favicon-32x32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/icomoon-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/kindle-logo img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/login-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/material-design-iconic-font.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/owl.carousel.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/undraw_remotely_2j6y.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib/site-packages/pip/_vendor/pygments/lexers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/pip/_vendor/pygments/lexers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login-form/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login-form/css/owl.carousel.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login-form/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login-form/fonts/icomoon/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login-form/images/bg_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login-form/images/undraw_remotely_2j6y.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sign-up/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sign-up/fonts/material-icon/css/material-design-iconic-font.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/footer-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/footer-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Kindle Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Kindle Upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Upload File.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Upload File.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/android-chrome-192x192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/favicon-32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/images/kindle-logo img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign-in.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +61,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/.gitignore" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/sign-up/css/style.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/static/sign-in.css" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/static/styles.css" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/templates/Dashboard.html" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/templates/Index.html" root0="SKIP_INSPECTION" />
@@ -43,17 +76,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aleksa Hadzic/PycharmProjects/Starting+Files+-+RESTful-blog-start (1)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Aleksa Hadzic/Downloads/bootstrap-footer-09",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\login-form\css\bootstrap" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\static" />
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\templates" />
     </key>
   </component>
@@ -199,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679239765232</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Making dashboard responsive.">
+      <created>1679247635806</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1679247635806</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -233,6 +277,7 @@
     <MESSAGE value="Adding the search page for books." />
     <MESSAGE value="Adding 'Tech Reader' page." />
     <MESSAGE value="Styling navbar, fixing html indentation and configuring responsiveness." />
-    <option name="LAST_COMMIT_MESSAGE" value="Styling navbar, fixing html indentation and configuring responsiveness." />
+    <MESSAGE value="Making dashboard responsive." />
+    <option name="LAST_COMMIT_MESSAGE" value="Making dashboard responsive." />
   </component>
 </project>
