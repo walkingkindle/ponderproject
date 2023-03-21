@@ -41,13 +41,10 @@
                   <a class="nav-link" aria-current="page" href="{{url_for('home')}}">Home</a>
                </li>
                <li class="nav-item {% if request.path == url_for('log_in') %}active{% endif %}">
-                  <a class="nav-link" href="{{url_for('log_in')}}">Log in</a>
+                  <a class="nav-link" href="#">Log out</a>
                </li>
-               <li class="nav-item {% if request.path == url_for('register') %}active{% endif %}">
-                  <a class="nav-link" href="{{url_for('register')}}">Register</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="#">What is Ponder?</a>
+               <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
+                  <a class="nav-link" href="{{url_for('dashboard')}}">Dashboard</a>
                </li>
             </ul>
          </div>
@@ -78,7 +75,7 @@
             <li>Use Ponder as a digital storage of quotes.</li>
             <li>Write about your quotes in your digital journal.</li>
           </ul>
-        <a href="#" class="icon-link">
+        <a href="{{url_for('upload')}}" class="icon-link">
           Get Started Now
           <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"></use></svg>
         </a>
@@ -94,7 +91,7 @@
             <li>Write Books, Authors or Quotes you like and store them here!</li>
             <li>Use them as a digital journal or tweet them out!</li>
           </ul>
-        <a href="#" class="icon-link">
+        <a href="{{url_for('search_page')}}" class="icon-link">
           Get Started Now
           <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"></use></svg>
         </a>

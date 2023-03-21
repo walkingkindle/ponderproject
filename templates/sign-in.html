@@ -58,6 +58,7 @@
 </div>
       <div class="main">
          <div class="container">
+             <form action="{{url_for('log_in')}}" method="post">
             <div class="sign-up-content">
                <h2 id="log-in-label"> Log In</h2>
                <div class="form-textbox">
@@ -66,7 +67,7 @@
                </div>
                <div class="form-textbox">
                   <label for="pass">Password</label>
-                  <input type="password" name="pass" id="pass" />
+                  <input type="password" name="password" id="pass" />
                </div>
                <div class="d-flex mb-5 align-items-center">
                   <span><a href="#" class="forgot-pass" id="forgot">Forgot Password</a></span>
@@ -77,12 +78,13 @@
                   </div>
                </div>
                <p class="loginhere" id="login">
-                  Don't have an account ?<a href="#" class="loginhere-link"> Sign up here.</a>
+                  Don't have an account ?<a href="{{url_for('register')}}" class="loginhere-link"> Sign up here.</a>
                </p>
             </div>
+             </form>
+            </div>
          </div>
-      </div>
-
+      </div>>
    </body>
  <footer class="footer-16371">
       <div class="container">

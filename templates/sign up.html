@@ -62,15 +62,15 @@
                            <h3>Sign Up</h3>
                            <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
                         </div>
-                        <form action="#" method="post">
+                        <form action="{{url_for('register')}}" method="post">
                            <div class="form-group last mb-4">
-                              <input placeholder="E-mail Adress" type="text" class="form-control">
+                              <input placeholder="E-mail Adress" type="text" class="form-control" name="e-mail">
                            </div>
                            <div class="form-group first">
-                              <input placeholder="Username" type="text" class="form-control" id="username">
+                              <input placeholder="Username" type="text" class="form-control" id="username" name="username">
                            </div>
                            <div class="form-group last mb-4">
-                              <input placeholder="Password" type="password" class="form-control" id="password">
+                              <input placeholder="Password" type="password" class="form-control" id="password" name="password">
                            </div>
                            <input type="submit" value="Sign Up" class="btn btn-block btn-primary">
                            <span class="d-block text-left my-4 text-muted">&mdash; or sign up with &mdash;</span>
