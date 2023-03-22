@@ -40,7 +40,7 @@
                <li class="nav-item {% if request.path == url_for('home') %}active{% endif %}">
                   <a class="nav-link" aria-current="page" href="{{url_for('home')}}">Home</a>
                </li>
-               <li class="nav-item {% if request.path == url_for('log_in') %}active{% endif %}">
+               <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">
                   <a class="nav-link" href="#">Log out</a>
                </li>
                <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
@@ -75,7 +75,7 @@
             <li>Use Ponder as a digital storage of quotes.</li>
             <li>Write about your quotes in your digital journal.</li>
           </ul>
-        <a href="{{url_for('upload')}}" class="icon-link">
+        <a href="#" class="icon-link">
           Get Started Now
           <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"></use></svg>
         </a>

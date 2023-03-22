@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adding footer everywhere.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Implementing Register.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/dashboard-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/dashboard-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Kindle Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Kindle Upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Upload File.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Upload File.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Write.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign-in.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,15 +46,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Aleksa Hadzic/PycharmProjects/Ponderproject",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aleksa Hadzic/PycharmProjects/Ponderproject&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\login-form\css\bootstrap" />
@@ -229,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679407730004</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Implementing Register.">
+      <created>1679417942301</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1679417942301</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -266,6 +271,7 @@
     <MESSAGE value="Making dashboard responsive." />
     <MESSAGE value="Adding Flask and setting up the routes." />
     <MESSAGE value="Adding footer everywhere." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding footer everywhere." />
+    <MESSAGE value="Implementing Register." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing Register." />
   </component>
 </project>

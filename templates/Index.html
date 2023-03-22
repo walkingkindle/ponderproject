@@ -25,6 +25,30 @@
    </head>
    <body>
 <!-------NavBar ----->
+{% if current_user.is_authenticated %}
+ <div class="container">
+   <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
+      <div class="container-fluid">
+         <a class="navbar-brand" href="{{url_for('home')}}">
+            <img id="ponder-img"  src="/static/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">Ponder
+         </a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+               <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">
+                  <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>
+               </li>
+               <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
+                  <a class="nav-link" href="{{url_for('dashboard')}}">Dashboard</a>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </nav>
+</div>
+{% else %}
 <div class="container">
    <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
       <div class="container-fluid">
@@ -53,6 +77,7 @@
       </div>
    </nav>
 </div>
+{% endif %}
       <!-- Front Page -->
       <div class="container">
          <div class="row">
@@ -85,12 +110,21 @@
                   <p>Use our Web App to store all your kindle quotes, and your thoughts about them.
                      Upload your My Clippings.txt from your Kindle device
                   </p>
-                  <a href="#" class="icon-link">
+                   {% if current_user.is_authenticated %}
+                  <a href="{{url_for('choose_path')}}" class="icon-link">
                      Call to action
                      <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#chevron-right"></use>
                      </svg>
                   </a>
+                   {% else %}
+                   <a href="{{url_for('log_in')}}" class="icon-link">
+                     Call to action
+                     <svg class="bi" width="1em" height="1em">
+                        <use xlink:href="#chevron-right"></use>
+                     </svg>
+                  </a>
+                   {% endif %}
                </div>
                <div class="feature col">
                   <div class="feature-icon bg-primary bg-gradient">
@@ -100,12 +134,21 @@
                   </div>
                   <h2>Paper Reader</h2>
                   <p>No Kindle, no problem. Write the authors and books that you've grown to love and store your favorite quotes from the book here with us, and then write about them.</p>
-                  <a href="#" class="icon-link">
+                   {% if current_user.is_authenticated %}
+                  <a href="{{url_for('search_page')}}" class="icon-link">
                      Call to action
                      <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#chevron-right"></use>
                      </svg>
                   </a>
+                   {% else %}
+                   <a href="{{url_for('register')}}" class="icon-link">
+                     Call to action
+                     <svg class="bi" width="1em" height="1em">
+                        <use xlink:href="#chevron-right"></use>
+                     </svg>
+                  </a>
+                   {% endif %}
                </div>
                <div class="feature col">
                   <div class="feature-icon bg-primary bg-gradient">
@@ -116,12 +159,21 @@
                   </div>
                   <h2>Become Wiser</h2>
                   <p>If you don't read yet, use our reccomendations to get some suggestions for yourself, or just a random quote for you to Ponder today.</p>
-                  <a href="#" class="icon-link">
+                   {% if current_user.is_authenticated %}
+                  <a href="{{url_for('write')}}" class="icon-link">
                      Call to action
                      <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#chevron-right"></use>
                      </svg>
                   </a>
+                   {% else %}
+                   <a href="{{url_for('register')}}" class="icon-link">
+                     Call to action
+                     <svg class="bi" width="1em" height="1em">
+                        <use xlink:href="#chevron-right"></use>
+                     </svg>
+                  </a>
+                   {% endif %}
                </div>
             </div>
          </div>

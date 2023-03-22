@@ -13,7 +13,7 @@ from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
 from flask import Flask, render_template
-from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
+from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user,login_manager
 from wtforms import StringField, SubmitField,SelectField
 from wtforms.validators import DataRequired,url
 import csv
@@ -37,6 +37,9 @@ app.config['UPLOAD_FOLDER'] = r"C:\Users\Aleksa Hadzic\PycharmProjects\Ponderpro
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 users = SQLAlchemy(app)
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = "login"
 
 #Configure Tables
 class User(users.Model,UserMixin):
@@ -91,12 +94,16 @@ def also_get_random_quote():
 
 
 #-------------------------------------- FLASK ROUTES -----------------------------------------------------------------
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
 @app.route("/")
 def home():
     return render_template("Index.html",quote=get_random_quote())
 
 
 @app.route("/dashboard")
+@login_required
 def dashboard():
     return render_template("Dashboard.html")
 
@@ -135,26 +142,41 @@ def register():
         )
         users.session.add(new_user)
         users.session.commit()
-        return redirect(url_for("choose_path"))
-    return render_template("sign up.html")
+        login_user(new_user)
+        return redirect(url_for("choose_path"),current_user=current_user)
+    return render_template("sign up.html",current_user=current_user)
 
-@app.route("/login")
+@app.route("/log_in",methods=["POST","GET"])
 def log_in():
     if request.method == 'POST':
         entered_email = request.form.get('email')
         entered_pasword = request.form.get('password')
-        user = users.session.query(User).filter_by(entered_email).first()
+        user = users.session.query(User).filter_by(email=entered_email).first()
         if user:
             if check_password_hash(pwhash=user.password,password=entered_pasword):
                 login_user(user)
-                return redirect(url_for("dashboard"))
+                return redirect(url_for("choose_path",current_user=current_user))
             else:
                 flash("Invalid Password")
-                return redirect(url_for("login"))
+                return redirect(url_for("login",current_user=current_user))
         else:
             flash("This E-mail doesn't exist. Please create your account.")
-            return redirect(url_for("login"))
+            return redirect(url_for("login",current_user=current_user))
     return render_template("sign-in.html")
+
+@app.route('/write')
+@login_required
+def write():
+    return render_template("Write.html",quote=get_random_quote())
+
+
+@app.route('/logout')
+@login_required
+def log_out():
+    logout_user()
+    return redirect(url_for('home'))
+
+
 
 
 
