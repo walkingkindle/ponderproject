@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+{% import "bootstrap/wtf.html" as wtf %}
+{{ ckeditor.load() }}
+config.toolbar = [
+    { name: 'basicstyles', items: [ 'Bold', 'Italic' ] }
+]
 <html lang="en">
    <head>
       <meta charset="UTF-8">
@@ -58,19 +63,19 @@
    </nav>
 </div>
 <!------- Main Content ------>
-      <div class="container">
+      <div class="container" id="write-quote">
          <div class="row">
-            <div class="col-md-6">
-               <h1 id="ponder-text" class="text-center">Reflect and Ponder Here:</h1>
-               <h2 id="ponder-quote" class="text-center">"Some quote by someone"</h2>
-               <div class="form-group text-center">
-                  <textarea class="form-control" id="text-area" rows="3" placeholder="Here are some things for you to try:
-                     1. Explain this quote to 7 year old, or try to explain it to a younger self.
-                     2. Do you understand this quote? What do you think of this book?
-                     3. If you already know the quote, how did it change the way you think?"></textarea>
-                  <div class="submit-buttons d-flex flex-wrap justify-content-center">
-                     <button type="button" class="btn btn-lg btn-primary" id="submit-buttonings">Submit</button>
-                  </div>
+            <div class="col-12 col-md-6 col-lg-4" id="quote-div-quote">
+               <h1 id="ponder-text">Reflect and Ponder</h1>
+                {% if redirect_from == 'home' %}
+                <blockquote class="blockquote text-center" id="quotetext2">
+                            <p id="quote-quote" class="mb-0">{{quote}}</p>
+                </blockquote>
+                {% else %}
+                <h2 id="ponder-quote" class="text-center">Some random quote by someone.</h2>
+                {% endif %}
+               <div class="form-group" id="form-div">
+                   {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
                </div>
             </div>
          </div>

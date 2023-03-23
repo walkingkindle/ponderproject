@@ -160,7 +160,7 @@
                   <h2>Become Wiser</h2>
                   <p>If you don't read yet, use our reccomendations to get some suggestions for yourself, or just a random quote for you to Ponder today.</p>
                    {% if current_user.is_authenticated %}
-                  <a href="{{url_for('write')}}" class="icon-link">
+                  <a href="{{url_for('write',redirect_from = 'home')}}" class="icon-link">
                      Call to action
                      <svg class="bi" width="1em" height="1em">
                         <use xlink:href="#chevron-right"></use>

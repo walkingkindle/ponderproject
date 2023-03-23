@@ -18,7 +18,7 @@ from wtforms import StringField, SubmitField,SelectField
 from wtforms.validators import DataRequired,url
 import csv
 import uuid
-
+from forms import Write
 
 
 
@@ -31,7 +31,8 @@ app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 app.config['MAX_CONTENT_PATH'] = 1000000
 ALLOWED_EXTENSIONS = {'txt'}
 app.config['UPLOAD_FOLDER'] = r"C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\documents"
-
+bootstrap = Bootstrap(app)
+ckeditor = CKEditor(app)
 
 #Flask DB
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
@@ -164,10 +165,12 @@ def log_in():
             return redirect(url_for("login",current_user=current_user))
     return render_template("sign-in.html")
 
-@app.route('/write')
+@app.route('/write',methods=['GET','POST'])
 @login_required
 def write():
-    return render_template("Write.html",quote=get_random_quote())
+    form = Write()
+    redirect_from = request.args.get('redirect_from','')
+    return render_template("Write.html",quote=get_random_quote(),redirect_from=redirect_from,form=form)
 
 
 @app.route('/logout')
