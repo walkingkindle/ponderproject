@@ -172,17 +172,50 @@ p {
 }
 
 .card {
-	width: 95%;
+	width: 100%;
+	height: 90%;
 }
-
+#file-input{
+  margin-bottom: 100px;
+  margin-right: 100px;
+}
+.card-text{
+  margin-top: 120px;
+}
 .icon-link {
 	text-align: center;
+	margin-top: 40px;
+}
+#auth-link{
+margin-bottom: 80px;
+
+}
+#auth-link : hover{
+ color: #6E07F3;
+}
+#file-label-file{
+  text-align: center;
+}
+.custom-file{
+ margin-bottom: 60px;
+}
+#upload-button{
+ margin-bottom: 120px;
+ background-color: #6E07F3;
+ border-radius: 22px;
+ color: #fff;
+}
+#upload-button:hover{
+ background-color: #fff;
+ color: #6E07F3;
+}
+.custom-file-label {
+  padding-right: 80px;
 }
 
 /* Footer */
 body {
   font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
-
 
 
 footer{

@@ -85,7 +85,12 @@
                <h1 class="big-heading">Reflect on what matters most.</h1>
             </div>
             <div class="col-md-6">
-               <a id="get-started" href="{{url_for('register')}}" type="button" class="btn btn-lg btn-primary">Get Started</a>
+                {% if current_user.is_authenticated %}
+               <a id="get-started" href="{{url_for('upload')}}" type="button" class="btn btn-lg btn-primary">Get Started</a>
+                {% else %}
+                <a id="get-started" href="{{url_for('register')}}" type="button" class="btn btn-lg btn-primary">Get Started</a>
+                {% endif %}
+
             </div>
          </div>
       </div>

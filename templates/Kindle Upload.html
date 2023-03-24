@@ -63,32 +63,37 @@
                   <div class="card-body">
                      <h5 class="card-title">Kindle Upload</h5>
                      <p class="card-text"> Authenticate your Amazon account with Ponder to automatically get all Kindle Highlights. Get started Now.</p>
-                     <a href="#" class="icon-link">
+                     <a href="#" class="icon-link" id="auth-link">
                         Click to Authenticate
+                     </a>
                         <svg class="bi" width="1em" height="1em">
                            <use xlink:href="#chevron-right"></use>
                         </svg>
-                     </a>
+
                   </div>
                </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4" id="kindle-upload">
-               <div class="card">
-                  <img src="/static/upload.jpg" alt="My-Clippings" class="card-img-top">
-                  <div class="card-body">
-                     <h5 class="card-title">Ancient Upload</h5>
-                     <p class="card-text"> If you don't want to Authenticate your Amazon account with us, feel free to upload "My Clippings.txt" here.</p>
-                     <a href="#" class="icon-link">
-                        <form method="post" enctype=multipart/form-data>
-                            <input type="file" name="My Clippings">
-                        <svg class="bi" width="1em" height="1em">
-                           <use xlink:href="#chevron-right"></use>
-                        </svg>
-                        </form>
-                     </a>
-                  </div>
-               </div>
-            </div>
+
+
+<div class="col-12 col-md-6 col-lg-4" id="kindle-upload">
+  <div class="card">
+    <img src="/static/upload.jpg" alt="My-Clippings" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">Ancient Upload</h5>
+      <p class="card-text"> If you don't want to Authenticate your Amazon account with us, feel free to upload "My Clippings.txt" here.</p>
+      <form method="post" enctype="multipart/form-data">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="file-input" name="My Clippings">
+          <label class="custom-file-label" for="file-input">Choose file</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-upload mt-3" id="upload-button">
+          Upload
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
          </div>
       </div>
    </body>

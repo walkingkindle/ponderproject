@@ -18,6 +18,7 @@ from wtforms import StringField, SubmitField,SelectField
 from wtforms.validators import DataRequired,url
 import csv
 import uuid
+import os
 from forms import Write
 
 
@@ -30,7 +31,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 app.config['MAX_CONTENT_PATH'] = 1000000
 ALLOWED_EXTENSIONS = {'txt'}
-app.config['UPLOAD_FOLDER'] = r"C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\documents"
+app.config['UPLOAD_FOLDER'] = 'static/files'
 bootstrap = Bootstrap(app)
 ckeditor = CKEditor(app)
 
@@ -114,16 +115,22 @@ def choose_path():
     return render_template("Upload File.html")
 
 
-# @app.route("/upload",methods=['GET','POST'])
-# def upload():
-#     if request.method['POST']:
-#         if 'My Clippings' not in request.files:
-#             flash("No file part")
-#             return redirect(url_for("upload"))
-#         file = request.files['My Clippings']
-#         if file.filename == ''
-#             flash("No selected file")
-#     return render_template("Kindle Upload.html")
+@app.route("/upload",methods=['GET','POST'])
+@login_required
+def upload():
+    if request.method == 'POST':
+        file = request.files.get('My Clippings')
+        if file:
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for("dashboard"))
+        else:
+            return redirect(url_for("nothing_selected"))
+    return render_template("Kindle Upload.html")
+
+@app.route('/nothing-here')
+def nothing_selected():
+    return render_template("file-not-selected.html")
 
 @app.route("/search-page")
 def search_page():
@@ -178,7 +185,6 @@ def write():
 def log_out():
     logout_user()
     return redirect(url_for('home'))
-
 
 
 

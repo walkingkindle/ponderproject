@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Implementing and changing log-in.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adding write page and styling.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/write-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/write-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/upload.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/upload.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Kindle Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Kindle Upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/file-not-selected.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/file-not-selected.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -240,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679496822622</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Adding write page and styling.">
+      <created>1679598659655</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1679598659655</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -279,6 +287,7 @@
     <MESSAGE value="Adding footer everywhere." />
     <MESSAGE value="Implementing Register." />
     <MESSAGE value="Implementing and changing log-in." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing and changing log-in." />
+    <MESSAGE value="Adding write page and styling." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding write page and styling." />
   </component>
 </project>
