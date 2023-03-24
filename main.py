@@ -107,6 +107,7 @@ def home():
 @app.route("/dashboard")
 @login_required
 def dashboard():
+    #USE QUOTES VARIABLE FROM REDIRECT TO PACK AND EDIT QUOTES AND DISPLAY THEM.
     return render_template("Dashboard.html")
 
 
@@ -115,7 +116,7 @@ def choose_path():
     return render_template("Upload File.html")
 
 
-@app.route("/upload",methods=['GET','POST'])
+@app.route("/upload", methods=['GET', 'POST'])
 @login_required
 def upload():
     if request.method == 'POST':
@@ -123,10 +124,13 @@ def upload():
         if file:
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for("dashboard"))
+            with open(os.path.join(app.config['UPLOAD_FOLDER'], 'My Clippings'), 'r') as f:
+               kindle_quotes = f.readlines()
+            return redirect(url_for("dashboard",quotes=kindle_quotes))
         else:
             return redirect(url_for("nothing_selected"))
     return render_template("Kindle Upload.html")
+
 
 @app.route('/nothing-here')
 def nothing_selected():

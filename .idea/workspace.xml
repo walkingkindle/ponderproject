@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Customizing file upload and error not uploaded">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Styling Error page">
       <change afterPath="$PROJECT_DIR$/static/files/My_Clippings.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/not-selected-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/not-selected-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/file-not-selected.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/file-not-selected.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679684661679</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Styling Error page">
+      <created>1679685100359</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1679685100359</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -269,7 +274,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding HTML files" />
     <MESSAGE value="Initiating webpage and customizing navbar." />
     <MESSAGE value="adding styles and image files." />
     <MESSAGE value="completing the front page and ajdusting the size to make the website more responsive." />
@@ -294,6 +298,7 @@
     <MESSAGE value="Implementing and changing log-in." />
     <MESSAGE value="Adding write page and styling." />
     <MESSAGE value="Customizing file upload and error not uploaded" />
-    <option name="LAST_COMMIT_MESSAGE" value="Customizing file upload and error not uploaded" />
+    <MESSAGE value="Styling Error page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Styling Error page" />
   </component>
 </project>
