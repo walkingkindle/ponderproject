@@ -63,7 +63,15 @@
    </div>
       <div class="quote-container2">
          <blockquote class="blockquote text-center" id="quotetext2">
-            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+             {% if redirect_from == 'upload' %}
+                {% if quote|length > 100 %}
+                    <p class="mb-0">{{quote[:100]}}... <a href="{{url_for('write',redirect_from = 'dashboard')}}">Read more</a></p>
+                {% else %}
+                    <p class="mb-0">{{quote}}</p>
+                {% endif %}
+             {% else %}
+                <p class="mb-o">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+             {% endif %}
             <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
       </blockquote>
       </div>

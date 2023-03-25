@@ -39,6 +39,7 @@ write-quote{
 #ponder-text {
   white-space: nowrap;
   padding: 110px;
+  text-align: center;
 }
 
 #quote-div-quote{
@@ -60,8 +61,28 @@ my-textarea-class {
 	justify-content: center;
 	align-items: center;
 	min-width: 600px;
+
+}
+.blockquote-custom {
+    position: relative;
+    font-size: 1.1rem;
+    display: inline-block;
+    width: 700px; /* set a fixed width here */
+    word-wrap: break-word;
 }
 
+
+.blockquote-custom-icon {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+position: absolute;
+top: -40px;
+left: 19px;
+}
 
 /* Footer */
 body {

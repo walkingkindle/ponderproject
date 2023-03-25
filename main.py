@@ -63,20 +63,18 @@ class User(users.Model,UserMixin):
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-def get_random_quote_from_kindle():
+def get_random_quote_from_kindle(my_clippings):
     check_letter = '-'
-    with open('documents/My Clippings.txt','r',encoding='utf-8') as quotes:
-        kindle_quotes = quotes.readlines()
-        quote_list = [idx for idx in kindle_quotes if idx[0] != check_letter and idx[0] != '=']
-        formatted_quotes = []
-        for i in range(len(quote_list)):
-            if quote_list[i].startswith('\n'):
-                continue
-            if quote_list[i].endswith('\n'):
-                quote = quote_list[i].strip()
-                author = quote_list[i - 1].strip()
-                formatted_quote = f"{author}: {quote}"
-                formatted_quotes.append(formatted_quote)
+    quote_list = [idx for idx in my_clippings if idx[0] != check_letter and idx[0] != '=']
+    formatted_quotes = []
+    for i in range(len(quote_list)):
+        if quote_list[i].startswith('\n'):
+            continue
+        if quote_list[i].endswith('\n'):
+            quote = quote_list[i].strip()
+            author = quote_list[i - 1].strip()
+            formatted_quote = f"{author}: {quote}"
+            formatted_quotes.append(formatted_quote)
         random_kindle_quote = random.choice(formatted_quotes)
         print(random_kindle_quote)
         return random_kindle_quote
@@ -107,8 +105,13 @@ def home():
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    #USE QUOTES VARIABLE FROM REDIRECT TO PACK AND EDIT QUOTES AND DISPLAY THEM.
-    return render_template("Dashboard.html")
+    ponder_text = request.args.get("file")
+    quote = None
+    with open(os.path.join(app.config['UPLOAD_FOLDER'], ponder_text), 'r',encoding='UTF-8') as ponder_quotes:
+        redirect_from = 'upload' if ponder_text is not None else None
+        my_clippings = ponder_quotes.readlines()
+        quote = get_random_quote_from_kindle(my_clippings=my_clippings)
+    return render_template("Dashboard.html",quote=quote,redirect_from=redirect_from)
 
 
 @app.route('/choose-your-path')
@@ -124,9 +127,7 @@ def upload():
         if file:
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            with open(os.path.join(app.config['UPLOAD_FOLDER'], 'My Clippings'), 'r') as f:
-               kindle_quotes = f.readlines()
-            return redirect(url_for("dashboard",quotes=kindle_quotes))
+            return redirect(url_for("dashboard",file=filename,redirect_from='upload'))
         else:
             return redirect(url_for("nothing_selected"))
     return render_template("Kindle Upload.html")
@@ -155,7 +156,7 @@ def register():
         users.session.add(new_user)
         users.session.commit()
         login_user(new_user)
-        return redirect(url_for("choose_path"),current_user=current_user)
+        return redirect(url_for("choose_path",current_user=current_user))
     return render_template("sign up.html",current_user=current_user)
 
 @app.route("/log_in",methods=["POST","GET"])
@@ -181,7 +182,12 @@ def log_in():
 def write():
     form = Write()
     redirect_from = request.args.get('redirect_from','')
-    return render_template("Write.html",quote=get_random_quote(),redirect_from=redirect_from,form=form)
+    if redirect_from == 'dashboard':
+        quote = request.args.get("quote",'')
+        return render_template("Write.html",redirect_from=redirect_from, form=form, quote=quote)
+    elif redirect_from == 'home':
+        quote1 = get_random_quote()
+    return render_template("Write.html",quote1=quote1,redirect_from=redirect_from,form=form)
 
 
 @app.route('/logout')

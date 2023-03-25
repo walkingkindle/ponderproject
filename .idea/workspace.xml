@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Styling Error page">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Finalizing the uploading feature.">
       <change afterPath="$PROJECT_DIR$/static/files/My_Clippings.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/dashboard-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/dashboard-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/write-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/write-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Upload File.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Upload File.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Write.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679685100359</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Finalizing the uploading feature.">
+      <created>1679685780129</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1679685780129</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -274,7 +287,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initiating webpage and customizing navbar." />
     <MESSAGE value="adding styles and image files." />
     <MESSAGE value="completing the front page and ajdusting the size to make the website more responsive." />
     <MESSAGE value="Creating page 2 and 3 of the front page, styling for responsiveness." />
@@ -299,6 +311,7 @@
     <MESSAGE value="Adding write page and styling." />
     <MESSAGE value="Customizing file upload and error not uploaded" />
     <MESSAGE value="Styling Error page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Styling Error page" />
+    <MESSAGE value="Finalizing the uploading feature." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizing the uploading feature." />
   </component>
 </project>
