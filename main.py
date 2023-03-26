@@ -20,7 +20,9 @@ import csv
 import uuid
 import os
 from forms import Write
-
+import smtplib
+from flask_mail import Mail,Message
+from config import MY_EMAIL,MY_PASSWORD
 
 
 
@@ -30,14 +32,28 @@ from forms import Write
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 app.config['MAX_CONTENT_PATH'] = 1000000
+app.config['MAIL_SERVER'] = "smtp.gmail.com"
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = MY_EMAIL
+app.config['MAIL_PASSWORD'] = MY_PASSWORD
 ALLOWED_EXTENSIONS = {'txt'}
 app.config['UPLOAD_FOLDER'] = 'static/files'
 bootstrap = Bootstrap(app)
 ckeditor = CKEditor(app)
+mail = Mail(app)
+
+
+# ------------------------------------------------------------ SMTP ----------------------------------------------------
+
+
+
 
 #Flask DB
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 users = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -106,11 +122,12 @@ def home():
 @login_required
 def dashboard():
     ponder_text = request.args.get("file")
-    quote = None
+    if ponder_text == None:
+        return render_template("Dashboard.html",redirect_from="home")
     with open(os.path.join(app.config['UPLOAD_FOLDER'], ponder_text), 'r',encoding='UTF-8') as ponder_quotes:
-        redirect_from = 'upload' if ponder_text is not None else None
         my_clippings = ponder_quotes.readlines()
         quote = get_random_quote_from_kindle(my_clippings=my_clippings)
+        redirect_from = request.args.get("redirect_from")
     return render_template("Dashboard.html",quote=quote,redirect_from=redirect_from)
 
 
@@ -153,6 +170,10 @@ def register():
             password=hashed_password,
             username=username
         )
+        check_and_find = users.session.query(User).filter_by(email=e_mail).first()
+        if check_and_find:
+            flash("Your account already exist. Please log in.")
+            return render_template("sign-in.html",redirect_from='register')
         users.session.add(new_user)
         users.session.commit()
         login_user(new_user)
@@ -170,8 +191,10 @@ def log_in():
                 login_user(user)
                 return redirect(url_for("choose_path",current_user=current_user))
             else:
-                flash("Invalid Password")
-                return redirect(url_for("login",current_user=current_user))
+                wrong_password = True
+                if wrong_password:
+                    print("true")
+                return render_template("sign-in.html",wrong_password=wrong_password)
         else:
             flash("This E-mail doesn't exist. Please create your account.")
             return redirect(url_for("login",current_user=current_user))
@@ -181,13 +204,31 @@ def log_in():
 @login_required
 def write():
     form = Write()
-    redirect_from = request.args.get('redirect_from','')
+    redirect_from = request.args.get("redirect_from")
     if redirect_from == 'dashboard':
-        quote = request.args.get("quote",'')
-        return render_template("Write.html",redirect_from=redirect_from, form=form, quote=quote)
-    elif redirect_from == 'home':
+        quote = request.args.get("quote")
+        print("true")
+        return redirect(url_for("write",quote=quote,form=form))
+    elif redirect_from == "home":
         quote1 = get_random_quote()
-    return render_template("Write.html",quote1=quote1,redirect_from=redirect_from,form=form)
+        return redirect(url_for("write",quote1=quote1,form=form))
+    return render_template("Write.html",form=form)
+
+@app.route("/contact-me",methods = ["GET","POST"])
+def contact():
+    if request.method == "POST":
+        name = request.form.get("name")
+        subject = request.form.get("subject")
+        sender_email = request.form.get("email")
+        body = request.form.get("message")
+        msg = Message(subject=subject,body=body,sender=sender_email,recipients=MY_EMAIL,)
+        mail.send(msg)
+        sent = True
+        return redirect(url_for("index",sent=sent))
+    return render_template("contact-me.html")
+
+
+
 
 
 @app.route('/logout')
@@ -195,6 +236,8 @@ def write():
 def log_out():
     logout_user()
     return redirect(url_for('home'))
+
+
 
 
 

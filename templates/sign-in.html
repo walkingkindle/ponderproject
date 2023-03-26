@@ -61,6 +61,22 @@
              <form action="{{url_for('log_in')}}" method="post">
             <div class="sign-up-content">
                <h2 id="log-in-label"> Log In</h2>
+                {% if redirect_from == 'register' %}
+                   <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Your account is already created.</strong> Please log in.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                {% endif %}
+                {% if wrong_password %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Your credentials are invalid</strong> Please try again.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                {% endif %}
                <div class="form-textbox">
                   <label for="email">Email</label>
                   <input type="email" name="email" id="email" />
@@ -84,7 +100,7 @@
              </form>
             </div>
          </div>
-      </div>>
+      </div>
    </body>
  <footer class="footer-16371">
       <div class="container">
@@ -96,7 +112,7 @@
             <ul class="list-unstyled nav-links mb-5">
               <li><a href="#">About</a></li>
               <li><a href="#">Services</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="{{url_for('contact')}}">Contact</a></li>
             </ul>
 
             <div class="social mb-4">

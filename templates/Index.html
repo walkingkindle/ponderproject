@@ -40,7 +40,7 @@
                   <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>
                </li>
                <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
-                  <a class="nav-link" href="{{url_for('dashboard')}}">Dashboard</a>
+                  <a class="nav-link" href="{{url_for('dashboard',redirect_from='home')}}">Dashboard</a>
                </li>
             </ul>
          </div>
@@ -78,6 +78,13 @@
 </div>
 {% endif %}
       <!-- Front Page -->
+{% if sent == True %}
+  <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Well done!</h4>
+  <p>Your Message was successfully sent!</p>
+  <hr>
+</div>
+{% endif %}
       <div class="container">
          <div class="row">
             <div class="col-md-6">
@@ -193,7 +200,7 @@
             <ul class="list-unstyled nav-links mb-5">
               <li><a href="#">About</a></li>
               <li><a href="#">Services</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="{{url_for('contact')}}">Contact</a></li>
             </ul>
 
             <div class="social mb-4">

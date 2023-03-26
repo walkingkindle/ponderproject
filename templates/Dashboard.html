@@ -62,19 +62,24 @@
       <h1 id="quote-title2">Today's quote:</h1>
    </div>
       <div class="quote-container2">
-         <blockquote class="blockquote text-center" id="quotetext2">
-             {% if redirect_from == 'upload' %}
-                {% if quote|length > 100 %}
-                    <p class="mb-0">{{quote[:100]}}... <a href="{{url_for('write',redirect_from = 'dashboard')}}">Read more</a></p>
-                {% else %}
-                    <p class="mb-0">{{quote}}</p>
-                {% endif %}
-             {% else %}
-                <p class="mb-o">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-             {% endif %}
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-      </blockquote>
-      </div>
+    <blockquote class="blockquote text-center" id="quotetext2">
+        {% if redirect_from == 'home' %}
+        <p class="mb-0">No quotes here, such empty.</p>
+        {% endif %}
+        {% if redirect_from == 'upload' %}
+        {% if quote|length > 100 %}
+        <p class="mb-0">{{quote[:100]}}... <a href="{{url_for('write',redirect_from='dashboard')}}">Read more</a></p>
+        {% else %}
+        <p class="mb-0">{{quote}}</p>
+        {% endif %}
+        {% else %}
+        <br>
+        <a href="{{url_for('upload',redirect_from='dashboard')}}">Upload or Authenticate Kindle</a>
+        {% endif %}
+        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+    </blockquote>
+</div>
+
 </div>
       <div class="other-comments">
       <blockquote class="blockquote text-center">

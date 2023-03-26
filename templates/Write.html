@@ -63,43 +63,44 @@ config.toolbar = [
       </div>
    </nav>
 </div>
+<h1 id="ponder-text">Reflect and Ponder</h1>
 <!------- Main Content ------>
-               <h1 id="ponder-text">Reflect and Ponder</h1>
-                {% if redirect_from == 'home' %}
-                {% elif redirect_from == 'dashboard'%}
-                <section class="vh-100" style="background-color: #f5f7fa;" id="quote-section">
-                    <div class="container py-5 h-100">
-                        <div class="row d-flex justify-content-center align-items-center h-100">
-                            <div class="col col-md-9 col-lg-7 col-xl-5">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <blockquote class="blockquote blockquote-custom bg-white px-3 pt-4">
-                                            <div class="blockquote-custom-icon bg-info shadow-1-strong">
-                                            <i class="fa fa-quote-left text-white"></i>
-                                                </div>
-                                            <p class="mb-0 mt-2 font-italic">
-                                                {% if redirect_from == 'home' %}
-                                                    {{quote1}}
-                                                {% endif %}
-                                                {% elif redirect_from == 'dashboard' %}
-                                                    {{quote}}
-                                                <a href="#" class="text-info">Writer</a>."
-                                                    {% endif %}
-                                        </blockquote>
-              </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-               <div class="form-group" id="form-div">
-                   {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
-               </div>
+{% if redirect_from == 'home' %}
+<div class="container" >
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+        <blockquote class="blockquote text-center">
+            <p class="mb-0">{{quote1}}</p>
+            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+        </blockquote>
+        <div class="form-group" id="form-div">
+            {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
             </div>
-         </div>
-      </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+   {% if redirect_from == 'dashboard' %}
+<div class="container" >
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+        <blockquote class="blockquote text-center">
+            <p class="mb-0">{{quote}}</p>
+            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+        </blockquote>
+        <div class="form-group" id="form-div">
+            {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+            </div>
+        </div>
+    </div>
+</div>
+   {% endif %}
    </body>
+
+
+
+
+
   <footer class="footer-16371">
       <div class="container">
         <div class="row justify-content-center">
