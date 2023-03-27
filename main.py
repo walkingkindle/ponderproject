@@ -36,8 +36,8 @@ app.config['MAIL_SERVER'] = "smtp.gmail.com"
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = MY_EMAIL
-app.config['MAIL_PASSWORD'] = MY_PASSWORD
+app.config['MAIL_USERNAME'] = "ponder.contactus@gmail.com"
+app.config['MAIL_PASSWORD'] = "rulcyrsulljcsjsp"
 ALLOWED_EXTENSIONS = {'txt'}
 app.config['UPLOAD_FOLDER'] = 'static/files'
 bootstrap = Bootstrap(app)
@@ -208,6 +208,9 @@ def write():
     if redirect_from == 'dashboard':
         quote = request.args.get("quote")
         print("true")
+        if quote:
+            print("true")
+            return render_template("Write.html",quote=quote,form=form)
         return redirect(url_for("write",quote=quote,form=form))
     elif redirect_from == "home":
         quote1 = get_random_quote()
@@ -221,10 +224,10 @@ def contact():
         subject = request.form.get("subject")
         sender_email = request.form.get("email")
         body = request.form.get("message")
-        msg = Message(subject=subject,body=body,sender=sender_email,recipients=MY_EMAIL,)
+        msg = Message(subject=subject, body=body, sender=sender_email, recipients=[app.config['MAIL_USERNAME']])
         mail.send(msg)
         sent = True
-        return redirect(url_for("index",sent=sent))
+        return redirect(url_for("home",sent=sent))
     return render_template("contact-me.html")
 
 
