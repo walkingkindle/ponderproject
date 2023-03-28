@@ -1,6 +1,10 @@
 body {
 	font-family: 'Poppins', sans-serif;
 }
+body ::selection {
+  background: #6E07F3;
+  color: #fff;
+}
 #quote-div{
   display: block;
   text-align: center;

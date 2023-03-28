@@ -56,6 +56,21 @@
    </nav>
 </div>
       <!---------Main Content, Dashboard ------>
+{% if redirect_from == 'dashboard' %}
+<div class="comment-wrapper">
+            <div class="row d-flex justify-content-center">
+               <div class="col-12 col-md-6 col-lg-4">
+                  <p class="comment-paragraph text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed mi volutpat,
+                     tincidunt turpis ut, iaculis risus. Integer id congue orci, eget blandit sapien.
+                     Aliquam condimentum at erat nec porttitor. Duis justo justo, dictum at metus a, dignissim consectetur neque.
+                     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                     Vestibulum gravida sapien et erat vehicula, vel facilisis libero porta. Vivamus fringilla ultricies lorem vel aliquet.
+                     Cras scelerisque tincidunt malesuada.
+                  </p>
+               </div>
+            </div>
+</div>
+    {% else %}
 <div class="colored-section">
    <div id="title">
       <h1 id="dashboard-title2">Dashboard</h1>
@@ -98,7 +113,7 @@
                   </p>
                </div>
             </div>
-            <a href="#" class="read-more">Read more</a>
+            <a href="{{url_for('dashboard',redirect_from='dashboard')}}" class="read-more">Read more</a>
          </div>
       </div>
       <div class="other-comments" id="test2">
@@ -121,6 +136,8 @@
             <a href="#" class="read-more">Read more</a>
          </div>
       </div>
+    {% endif %}
+
    </body>
  <footer class="footer-16371">
       <div class="container">

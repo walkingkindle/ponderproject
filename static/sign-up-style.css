@@ -1,7 +1,10 @@
 body {
   font-family: "Poppins", sans-serif;
   background-color: #f8fafb; }
-
+body ::selection {
+  background: #6E07F3;
+  color: #fff;
+}
 p {
   color: #b3b3b3;
   font-weight: 300; }

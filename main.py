@@ -224,7 +224,7 @@ def contact():
         subject = request.form.get("subject")
         sender_email = request.form.get("email")
         body = request.form.get("message")
-        msg = Message(subject=subject, body=body, sender=sender_email, recipients=[app.config['MAIL_USERNAME']])
+        msg = Message(subject=subject, body=f' From: {sender_email}\n {body}', sender=sender_email, recipients=[app.config['MAIL_USERNAME']])
         mail.send(msg)
         sent = True
         return redirect(url_for("home",sent=sent))

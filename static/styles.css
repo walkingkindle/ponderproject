@@ -1,6 +1,10 @@
 body {
 	font-family: 'Poppins', sans-serif;
 }
+body ::selection {
+  background: #6E07F3;
+  color: #fff;
+}
 
 .big-heading {
 	font-family: 'Poppins';
@@ -15,6 +19,11 @@ body {
 }
 #logo-img{
  margin-bottom: 20px;
+}
+
+#call-to-action{
+ margin-top: 30px;
+
 }
 
 #get-started {

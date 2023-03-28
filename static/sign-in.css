@@ -3,7 +3,10 @@ display-flex {
 	display: flex;
 	display: -webkit-flex;
 }
-
+body ::selection {
+  background: #6E07F3;
+  color: #fff;
+}
 /* @extend list-type-ulli; */
 list-type-ulli {
 	list-style-type: none;

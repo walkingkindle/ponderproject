@@ -15,7 +15,10 @@
 	background-color: #fff;
 	margin-bottom: 200px;
 }
-
+body ::selection {
+  background: #6E07F3;
+  color: #fff;
+}
 #quote-text2 {
 	color: #333;
 	font-size: 28px;
