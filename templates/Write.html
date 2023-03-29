@@ -55,8 +55,8 @@ config.toolbar = [
                <li class="nav-item {% if request.path == url_for('register') %}active{% endif %}">
                   <a class="nav-link" href="{{url_for('register')}}">Register</a>
                </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="#">What is Ponder?</a>
+                <li class="nav-item {% if request.path == url_for('user') %}active{% endif %}">
+                  <a class="nav-link" href="{{url_for('user',redirect_from='index')}}">Account</a>
                </li>
             </ul>
          </div>

@@ -36,8 +36,8 @@ app.config['MAIL_SERVER'] = "smtp.gmail.com"
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = "ponder.contactus@gmail.com"
-app.config['MAIL_PASSWORD'] = "rulcyrsulljcsjsp"
+app.config['MAIL_USERNAME'] = MY_EMAIL
+app.config['MAIL_PASSWORD'] = MY_PASSWORD
 ALLOWED_EXTENSIONS = {'txt'}
 app.config['UPLOAD_FOLDER'] = 'static/files'
 bootstrap = Bootstrap(app)
@@ -228,10 +228,14 @@ def contact():
         mail.send(msg)
         sent = True
         return redirect(url_for("home",sent=sent))
-    return render_template("contact-me.html")
+    sent = True
+    return render_template("contact-me.html",sent=sent)
 
 
-
+@app.route("/user",methods=["GET","POST"])
+@login_required
+def user():
+    return render_template("user.html",current_user=current_user)
 
 
 @app.route('/logout')

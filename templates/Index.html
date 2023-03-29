@@ -42,6 +42,9 @@
                <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
                   <a class="nav-link" href="{{url_for('dashboard',redirect_from='home')}}">Dashboard</a>
                </li>
+                <li class="nav-item {% if request.path == url_for('user') %}active{% endif %}">
+                  <a class="nav-link" href="{{url_for('user',redirect_from='index')}}">Account</a>
+               </li>
             </ul>
          </div>
       </div>
@@ -190,6 +193,7 @@
          </div>
       </div>
    </body>
+   <!----------- Footer ------------>
     <footer class="footer-16371">
       <div class="container">
         <div class="row justify-content-center">
