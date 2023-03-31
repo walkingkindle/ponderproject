@@ -261,6 +261,7 @@ def contact():
 @app.route("/edit_user", methods=["GET", "POST"])
 @login_required
 def edit_user():
+    """Searches the existing logs inside SQLite database and changes them accordingly"""
     if request.method == "POST":
         new_username = request.form.get("username")
         new_email = request.form.get("email")
@@ -271,43 +272,26 @@ def edit_user():
 
         if new_username and new_username != get_current_username():
             current_user.username = new_username
-            users.session.commit()
-            return redirect(url_for("dashboard", current_user=current_user))
 
-        elif new_email and new_email != get_current_email():
+        if new_email and new_email != get_current_email():
             current_user.email = new_email
-            users.session.commit()
-            return redirect(url_for("dashboard", current_user=current_user))
 
-        elif new_password and new_password != get_current_password():
+        if new_password and new_password != get_current_password():
             new_password_hashed = generate_password_hash(password=new_password, method="pbkdf2:sha256", salt_length=8)
             current_user.password = new_password_hashed
-            users.session.commit()
-            return redirect(url_for("dashboard", current_user=current_user))
 
-        elif first_name and first_name != current_user.first_name:
-            current_first_name = users.session.query(User).filter_by(id=current_user.id).first()
-            print(f"current_first_name: {current_first_name}")  # add this line to check the value
+        if first_name and first_name != current_user.first_name:
             current_user.first_name = first_name
-            users.session.commit()
-            return redirect(url_for("dashboard", current_user=current_user))
 
-        elif last_name and last_name != current_user.last_name:
-            current_last_name = users.session.query(User).filter_by(id=current_user.id).first()
-            print(f"current_first_name: {current_last_name}")  # add this line to check the value
+        if last_name and last_name != current_user.last_name:
             current_user.last_name = last_name
-            users.session.commit()
-            return redirect(url_for("dashboard", current_user=current_user))
 
-        elif continent and continent != current_user.continent:
-            current_continent = users.session.query(User).filter_by(id=current_user.id).first()
-            print(f"current_first_name: {current_continent}")  # add this line to check the value
+        if continent and continent != current_user.continent:
             current_user.continent = continent
-            users.session.commit()
-            return redirect(url_for("dashboard", current_user=current_user))
 
+        users.session.commit()
+        return redirect(url_for("dashboard", current_user=current_user))
     return render_template("Edit-User.html", current_user=current_user)
-
 
 @app.route("/account",methods=["GET","POST"])
 def account():
