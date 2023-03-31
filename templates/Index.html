@@ -81,13 +81,14 @@
 </div>
 {% endif %}
       <!-- Front Page -->
-{% if sent == True %}
-  <div class="alert alert-success" role="alert">
+{% if sent %}
+  <div class="alert alert-success" role="alert"id="alert-div">
   <h4 class="alert-heading">Well done!</h4>
   <p>Your Message was successfully sent!</p>
   <hr>
 </div>
 {% endif %}
+
       <div class="container">
          <div class="row">
             <div class="col-md-6">

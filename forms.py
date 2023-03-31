@@ -10,3 +10,7 @@ from flask_ckeditor import CKEditorField
 class Write(FlaskForm):
     body = CKEditorField("Ponder Here:", validators=[DataRequired()])
     submit = SubmitField("Submit")
+
+
+
+

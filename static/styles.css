@@ -57,7 +57,11 @@ body ::selection {
 		margin-left: 80px;
 	}
 }
+#alert-div{
+  margin-top: 90px;
+  margin-bottom: 90px;
 
+}
 #quote {
 	position: relative;
 	width: 100%;

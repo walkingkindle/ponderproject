@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Delete Account</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/static/delete-user-styles.css">
+  </head>
+  <body>
+  <form action="{{url_for('delete_user')}}" method="post">
+    <h1 id="main-text">Delete Account</h1>
+    <p><i>Are you sure you want to delete your account?</i></p>
+    <div class="btn-group" role="group">
+      <button name="yes" type="submit" class="btn btn-lg btn-outline-danger">Yes</button>
+      <a href="{{url_for('home')}}" class="btn btn-outline-secondary btn-lg">No</a>
+    </div>
+  </form>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+
+</html>
