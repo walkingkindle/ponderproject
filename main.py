@@ -66,6 +66,9 @@ class User(users.Model,UserMixin):
         email = users.Column(users.String(250),nullable=False,unique=True)
         username = users.Column(users.String(250),nullable=False,unique=True)
         password = users.Column(users.String(1000),nullable=False,unique=True)
+        first_name = users.Column(users.String(250),nullable=True)
+        last_name = users.Column(users.String(250),nullable=True)
+        continent = users.Column(users.String(250),nullable=True)
 
 
 # Creating Tables
@@ -254,39 +257,65 @@ def contact():
     sent = False
     return render_template("contact-me.html",sent=sent,current_user=current_user)
 
-@app.route("/user",methods=["GET","POST"])
+
+@app.route("/edit_user", methods=["GET", "POST"])
 @login_required
-def user():
+def edit_user():
     if request.method == "POST":
         new_username = request.form.get("username")
         new_email = request.form.get("email")
         new_password = request.form.get("password")
-        if new_username:
-            current_username = users.session.query(User).filter_by(username=get_current_username())
-            if current_username != new_username:
-                current_user.username = new_username
-                users.session.commit()
-                return redirect(url_for("dashboard", current_user=current_user))
-            else:
-                pass
-        elif new_email:
-            current_email = users.session.query(User).filter_by(email=get_current_email())
-            if current_email != new_email:
-                current_user.email = new_email
-                users.session.commit()
-                return redirect(url_for("dashboard",current_user=current_user))
-            else:
-                pass
-        elif new_password:
-            current_password = users.session.query(User).filter_by(password=get_current_password())
-            if current_password != new_password:
-                new_password_hashed = generate_password_hash(password=new_password,method="pbkdf2:sha256",salt_length=8)
-                current_user.password = new_password_hashed
-                users.session.commit()
-                return redirect(url_for("dashboard",current_user=current_user))
-            else:
-                pass
-    return render_template("user.html",current_user=current_user)
+        first_name = request.form.get("first_name")
+        last_name = request.form.get("last_name")
+        continent = request.form.get("continent")
+
+        if new_username and new_username != get_current_username():
+            current_user.username = new_username
+            users.session.commit()
+            return redirect(url_for("dashboard", current_user=current_user))
+
+        elif new_email and new_email != get_current_email():
+            current_user.email = new_email
+            users.session.commit()
+            return redirect(url_for("dashboard", current_user=current_user))
+
+        elif new_password and new_password != get_current_password():
+            new_password_hashed = generate_password_hash(password=new_password, method="pbkdf2:sha256", salt_length=8)
+            current_user.password = new_password_hashed
+            users.session.commit()
+            return redirect(url_for("dashboard", current_user=current_user))
+
+        elif first_name and first_name != current_user.first_name:
+            current_first_name = users.session.query(User).filter_by(id=current_user.id).first()
+            print(f"current_first_name: {current_first_name}")  # add this line to check the value
+            current_user.first_name = first_name
+            users.session.commit()
+            return redirect(url_for("dashboard", current_user=current_user))
+
+        elif last_name and last_name != current_user.last_name:
+            current_last_name = users.session.query(User).filter_by(id=current_user.id).first()
+            print(f"current_first_name: {current_last_name}")  # add this line to check the value
+            current_user.last_name = last_name
+            users.session.commit()
+            return redirect(url_for("dashboard", current_user=current_user))
+
+        elif continent and continent != current_user.continent:
+            current_continent = users.session.query(User).filter_by(id=current_user.id).first()
+            print(f"current_first_name: {current_continent}")  # add this line to check the value
+            current_user.continent = continent
+            users.session.commit()
+            return redirect(url_for("dashboard", current_user=current_user))
+
+    return render_template("Edit-User.html", current_user=current_user)
+
+
+@app.route("/account",methods=["GET","POST"])
+def account():
+    if request.method == "POST":
+        return redirect(url_for("edit_user",current_user=current_user))
+    return render_template("account-info.html")
+
+
 
 @app.route("/delete_user", methods=["GET", "POST"])
 @login_required

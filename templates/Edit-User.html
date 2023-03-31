@@ -60,7 +60,7 @@
             <button class="btn btn-primary" id="#upload-button"><b>Upload</b></button>
         </div>
     </div>
-    <form action="{{url_for('user')}}" method="post">
+    <form action="{{url_for('edit_user')}}" method="post">
     <div class="py-2">
         <div class="row py-2">
             <div class="col-md-6">
@@ -70,6 +70,14 @@
             <div class="col-md-6 pt-md-0 pt-3">
                 <label>Password</label>
                 <input name="password" type="password" class="bg-light form-control" placeholder="Smith">
+            </div>
+            <div class="col-md-6 pt-md-0 pt-3">
+                <label>First Name</label>
+                <input name="first_name" type="text" class="bg-light form-control" placeholder="Smith">
+            </div>
+            <div class="col-md-6 pt-md-0 pt-3">
+                <label>Last Name</label>
+                <input name="last_name" type="text" class="bg-light form-control" placeholder="Smith">
             </div>
         </div>
         <div class="row py-2">
@@ -84,12 +92,12 @@
             <div class="col-md-6">
                 <label for="country">Continent</label>
                 <select name="continent" id="country" class="bg-light">
-                    <option value="india" selected>Europe</option>
-                    <option value="usa">Asia</option>
-                    <option value="uk">Africa</option>
-                    <option value="uae">North America</option>
-                    <option value="uae">South America</option>
-                    <option value="uae">Australia</option>
+                    <option value="Europe" selected>Europe</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Africa">Africa</option>
+                    <option value="North America">North America</option>
+                    <option value="South America">South America</option>
+                    <option value="Australia">Australia</option>
                 </select>
             </div>
         </div>
