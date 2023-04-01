@@ -86,9 +86,13 @@
         {% endif %}
         {% if redirect_from == 'upload' %}
         {% if quote|length > 100 %}
-        <p class="mb-0">{{quote[:100]}}... <a href="{{url_for('write',redirect_from='dashboard')}}">Read more</a></p>
+        <form action="{{url_for('dashboard')}}" method="post">
+        <p class="mb-0">{{quote[:100]}}... <a type="submit" href="{{url_for('write',redirect_from='dashboard')}}">Read more</a></p>
+        </form>
         {% else %}
+        <form action="{{url_for('dashboard')}}" method="post">
         <p class="mb-0">{{quote}}</p>
+         </form>
         {% endif %}
         {% else %}
         <br>

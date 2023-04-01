@@ -64,23 +64,6 @@ config.toolbar = [
    </nav>
 </div>
 <h1 id="ponder-text">Reflect and Ponder</h1>
-<!------- Main Content ------>
-{% if redirect_from == 'home' %}
-<div class="container" >
-    <div class="row">
-        <div class="col-md-6 mx-auto">
-        <blockquote class="blockquote text-center">
-            <p class="mb-0">{{quote1}}</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-        </blockquote>
-        <div class="form-group" id="form-div">
-            {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
-            </div>
-        </div>
-    </div>
-</div>
-{% endif %}
-   {% if redirect_from == 'dashboard' %}
 <div class="container" >
     <div class="row">
         <div class="col-md-6 mx-auto">
@@ -94,12 +77,7 @@ config.toolbar = [
         </div>
     </div>
 </div>
-   {% endif %}
    </body>
-
-
-
-
 
   <footer class="footer-16371">
       <div class="container">

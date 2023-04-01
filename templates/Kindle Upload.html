@@ -96,7 +96,19 @@
 
          </div>
       </div>
+   <script>
+  // Get the file input element and the label
+  var fileInput = document.getElementById('file-input');
+  var label = fileInput.nextElementSibling;
+
+  // Update the label text when the user selects a file
+  fileInput.addEventListener('change', function(event) {
+    var filename = event.target.value.split('\\').pop();
+    label.innerHTML = filename;
+  });
+</script>
    </body>
+   <!----- Footer ----->
    <footer class="footer-16371">
       <div class="container">
         <div class="row justify-content-center">

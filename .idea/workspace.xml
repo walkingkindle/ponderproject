@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Making the edit account sync with page account.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixed the bug where the edit_user would only change one button instead of all variables.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Kindle Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Kindle Upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/file-not-selected.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/file-not-selected.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680272349139</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Fixed the bug where the edit_user would only change one button instead of all variables.">
+      <created>1680274729746</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1680274729746</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -330,7 +341,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="styling sign in html" />
     <MESSAGE value="styling sign up and making it responsive html" />
     <MESSAGE value="styling write and making it responsive." />
     <MESSAGE value="styling dashboard and making it more responsive." />
@@ -355,6 +365,7 @@
     <MESSAGE value="Adding and styling the account page, adding the account page to the navBar" />
     <MESSAGE value="Making the account page work." />
     <MESSAGE value="Making the edit account sync with page account." />
-    <option name="LAST_COMMIT_MESSAGE" value="Making the edit account sync with page account." />
+    <MESSAGE value="Fixed the bug where the edit_user would only change one button instead of all variables." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the bug where the edit_user would only change one button instead of all variables." />
   </component>
 </project>

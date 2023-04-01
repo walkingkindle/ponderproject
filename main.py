@@ -150,11 +150,14 @@ def dashboard():
     ponder_text = request.args.get("file")
     if ponder_text == None:
         return render_template("Dashboard.html",redirect_from="home")
-    with open(os.path.join(app.config['UPLOAD_FOLDER'], ponder_text), 'r',encoding='UTF-8') as ponder_quotes:
-        my_clippings = ponder_quotes.readlines()
-        quote = get_random_quote_from_kindle(my_clippings=my_clippings)
-        redirect_from = request.args.get("redirect_from")
-    return render_template("Dashboard.html",quote=quote,redirect_from=redirect_from,current_user=current_user)
+    else:
+        with open(os.path.join(app.config['UPLOAD_FOLDER'], ponder_text), 'r',encoding='UTF-8') as ponder_quotes:
+            my_clippings = ponder_quotes.readlines()
+            quote = get_random_quote_from_kindle(my_clippings=my_clippings)
+            redirect_from = request.args.get("redirect_from")
+            if quote:
+                print("quote has been passed sucessfully.")
+    return redirect(url_for('write', redirect_from='dashboard', quote=quote))
 
 
 @app.route('/choose-your-path')
@@ -173,7 +176,7 @@ def upload():
             return redirect(url_for("dashboard",file=filename,redirect_from='upload',current_user=current_user))
         else:
             return redirect(url_for("nothing_selected",current_user=current_user))
-    return render_template("Kindle Upload.html")
+    return render_template("Kindle Upload.html",current_user=current_user)
 
 
 @app.route('/nothing-here')
@@ -231,17 +234,8 @@ def log_in():
 def write():
     form = Write()
     redirect_from = request.args.get("redirect_from")
-    if redirect_from == 'dashboard':
-        quote = request.args.get("quote")
-        print("true")
-        if quote:
-            print("true")
-            return render_template("Write.html",quote=quote,form=form,current_user=current_user)
-        return redirect(url_for("write",quote=quote,form=form,current_user=current_user))
-    elif redirect_from == "home":
-        quote1 = get_random_quote()
-        return redirect(url_for("write",quote1=quote1,form=form,current_user=current_user))
-    return render_template("Write.html",form=form,current_user=current_user)
+    quote = request.args.get("quote")
+    return render_template("Write.html",form=form,current_user=current_user,quote=quote)
 
 @app.route("/contact-me",methods = ["GET","POST"])
 def contact():
