@@ -155,7 +155,7 @@ def dashboard():
         with open(os.path.join(app.config['UPLOAD_FOLDER'], already_uploaded_file), 'r', encoding='UTF-8') as ponder_quotes:
             my_clippings = ponder_quotes.readlines()
             quote = get_random_quote_from_kindle(my_clippings=my_clippings)
-        return render_template("Dashboard.html", quote=quote, redirect_from="home",current_user=current_user)
+        return render_template("Dashboard.html", quote=quote, redirect_from="home",current_user=current_user,has_file=True)
     else:
         ponder_text = request.args.get("file")
         if ponder_text == None:
@@ -245,6 +245,7 @@ def write():
     form = Write()
     redirect_from = request.args.get("redirect_from")
     quote = request.args.get("quote")
+    print(quote)
     return render_template("Write.html",form=form,current_user=current_user,quote=quote)
 
 @app.route("/contact-me",methods = ["GET","POST"])

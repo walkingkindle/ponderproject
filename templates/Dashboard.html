@@ -59,21 +59,6 @@
    </nav>
 </div>
       <!---------Main Content, Dashboard ------>
-{% if redirect_from == 'dashboard' %}
-<div class="comment-wrapper">
-            <div class="row d-flex justify-content-center">
-               <div class="col-12 col-md-6 col-lg-4">
-                  <p class="comment-paragraph text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed mi volutpat,
-                     tincidunt turpis ut, iaculis risus. Integer id congue orci, eget blandit sapien.
-                     Aliquam condimentum at erat nec porttitor. Duis justo justo, dictum at metus a, dignissim consectetur neque.
-                     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                     Vestibulum gravida sapien et erat vehicula, vel facilisis libero porta. Vivamus fringilla ultricies lorem vel aliquet.
-                     Cras scelerisque tincidunt malesuada.
-                  </p>
-               </div>
-            </div>
-</div>
-    {% else %}
 <div class="colored-section">
    <div id="title">
       <h1 id="dashboard-title2">Dashboard</h1>
@@ -81,24 +66,13 @@
    </div>
       <div class="quote-container2">
     <blockquote class="blockquote text-center" id="quotetext2">
-        {% if redirect_from == 'home' %}
-        {% if user_is_authenticated %}
-        <p class="mb-0">{{quote}}</p>
-        {% endif %}
+       {% if quote|length > 100 and has_file %}
+    <p class="mb-0">{{quote[:100]}}... <a href="{{url_for('write', quote=quote, redirect_from='dashboard')}}">Read more</a></p>
         {% else %}
+    <p class="mb-0">{{quote}}</p>
+{% endif %}
+        {% if has_file != True %}
         <p class="mb-0">No quotes here, such empty.</p>
-        {% endif %}
-        {% if redirect_from == 'upload' %}
-        {% if quote|length > 100 %}
-        <form action="{{url_for('dashboard')}}" method="post">
-        <p class="mb-0">{{quote[:100]}}... <a type="submit" href="{{url_for('write',redirect_from='dashboard')}}">Read more</a></p>
-        </form>
-        {% else %}
-        <form action="{{url_for('dashboard')}}" method="post">
-        <p class="mb-0">{{quote}}</p>
-         </form>
-        {% endif %}
-        {% else %}
         <br>
         <a href="{{url_for('upload',redirect_from='dashboard')}}">Upload or Authenticate Kindle</a>
         {% endif %}
@@ -147,7 +121,6 @@
             <a href="#" class="read-more">Read more</a>
          </div>
       </div>
-    {% endif %}
 
    </body>
  <footer class="footer-16371">

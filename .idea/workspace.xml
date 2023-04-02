@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixed an issue where the quote variable does not appear, and changed the upload function so that the label changes after the file has been uploaded.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adjusting the MyClippings and adding it to the directory">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Write.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -331,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680340469259</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Adjusting the MyClippings and adding it to the directory">
+      <created>1680419701536</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1680419701536</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -346,7 +352,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="styling write and making it responsive." />
     <MESSAGE value="styling dashboard and making it more responsive." />
     <MESSAGE value="styling index features" />
     <MESSAGE value="Adding Get started Feature" />
@@ -371,6 +376,7 @@
     <MESSAGE value="Making the edit account sync with page account." />
     <MESSAGE value="Fixed the bug where the edit_user would only change one button instead of all variables." />
     <MESSAGE value="Fixed an issue where the quote variable does not appear, and changed the upload function so that the label changes after the file has been uploaded." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed an issue where the quote variable does not appear, and changed the upload function so that the label changes after the file has been uploaded." />
+    <MESSAGE value="Adjusting the MyClippings and adding it to the directory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusting the MyClippings and adding it to the directory" />
   </component>
 </project>
