@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adjusting the MyClippings and adding it to the directory">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing the code so that the quote is loaded from the user from previous sessions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/dashboard-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/dashboard-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/write-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/write-styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -337,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680419701536</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Fixing the code so that the quote is loaded from the user from previous sessions">
+      <created>1680422442732</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1680422442732</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -352,7 +361,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="styling dashboard and making it more responsive." />
     <MESSAGE value="styling index features" />
     <MESSAGE value="Adding Get started Feature" />
     <MESSAGE value="Adding the search page for books." />
@@ -377,6 +385,7 @@
     <MESSAGE value="Fixed the bug where the edit_user would only change one button instead of all variables." />
     <MESSAGE value="Fixed an issue where the quote variable does not appear, and changed the upload function so that the label changes after the file has been uploaded." />
     <MESSAGE value="Adjusting the MyClippings and adding it to the directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusting the MyClippings and adding it to the directory" />
+    <MESSAGE value="Fixing the code so that the quote is loaded from the user from previous sessions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing the code so that the quote is loaded from the user from previous sessions" />
   </component>
 </project>

@@ -79,49 +79,44 @@
         <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
     </blockquote>
 </div>
-
 </div>
+<!------------ FIX THIS LAYOUT -------------------->
       <div class="other-comments">
       <blockquote class="blockquote text-center">
-         <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                     {% if current_quote|length > 200 %}
+          <div class="long-quote-div" style="height: 200px; width: 600px; margin-right: 220px; overflow-y: scroll;">
+              {{ current_quote }}
+          </div>
+                    {% else %}
+                <p class="mb-0">{{ current_quote }}</p>
+                    {% endif %}
             <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
       </blockquote>
          <div class="comment-wrapper">
             <div class="row d-flex justify-content-center">
                <div class="col-12 col-md-6 col-lg-4">
-                  <p class="comment-paragraph text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed mi volutpat,
-                     tincidunt turpis ut, iaculis risus. Integer id congue orci, eget blandit sapien.
-                     Aliquam condimentum at erat nec porttitor. Duis justo justo, dictum at metus a, dignissim consectetur neque.
-                     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                     Vestibulum gravida sapien et erat vehicula, vel facilisis libero porta. Vivamus fringilla ultricies lorem vel aliquet.
-                     Cras scelerisque tincidunt malesuada.
-                  </p>
+                  <p class="comment-paragraph text-center">{{post_data}}</p>
                </div>
             </div>
-            <a href="{{url_for('dashboard',redirect_from='dashboard')}}" class="read-more">Read more</a>
+            <a href="{{url_for('dashboard',redirect_from='dashboard')}}" class="read-more">Edit</a>
          </div>
       </div>
+        {% for post in all_posts %}
       <div class="other-comments" id="test2">
       <blockquote class="blockquote text-center">
-         <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+         <p class="mb-0">{{current_quote}}</p>
             <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
       </blockquote>
          <div class="comment-wrapper">
             <div class="row d-flex justify-content-center">
                <div class="col-12 col-md-6 col-lg-4">
-                  <p class="comment-paragraph text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed mi volutpat,
-                     tincidunt turpis ut, iaculis risus. Integer id congue orci, eget blandit sapien.
-                     Aliquam condimentum at erat nec porttitor. Duis justo justo, dictum at metus a, dignissim consectetur neque.
-                     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                     Vestibulum gravida sapien et erat vehicula, vel facilisis libero porta. Vivamus fringilla ultricies lorem vel aliquet.
-                     Cras scelerisque tincidunt malesuada.
-                  </p>
+                  <p class="comment-paragraph text-center">{{post}}</p>
                </div>
             </div>
             <a href="#" class="read-more">Read more</a>
          </div>
       </div>
-
+    {% endfor %}
    </body>
  <footer class="footer-16371">
       <div class="container">

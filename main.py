@@ -70,13 +70,12 @@ class User(users.Model,UserMixin):
         last_name = users.Column(users.String(250),nullable=True)
         continent = users.Column(users.String(250),nullable=True)
         clippings_filename = users.Column(users.String(250),nullable=True)
-
-
+        posts = users.Column(users.String(1000000000),nullable=True)
 # Creating Tables
 
-with app.app_context():
-    users.create_all()
-    users.session.commit()
+# with app.app_context():
+#     users.create_all()
+#     users.session.commit()
 
 #-----------------------------------------------------------ENGINE------------------------------------------------------
 
@@ -148,14 +147,23 @@ def home():
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    # FIX THIS AND MAKE IT SO THAT IT CAN READ THE FILE
     already_uploaded_file = current_user.clippings_filename
     if already_uploaded_file:
         print("file already uploaded")
         with open(os.path.join(app.config['UPLOAD_FOLDER'], already_uploaded_file), 'r', encoding='UTF-8') as ponder_quotes:
             my_clippings = ponder_quotes.readlines()
             quote = get_random_quote_from_kindle(my_clippings=my_clippings)
-        return render_template("Dashboard.html", quote=quote, redirect_from="home",current_user=current_user,has_file=True)
+            post_data = request.args.get("post_data")
+            current_quote = request.args.get("post_current_quote")
+            try:
+                all_posts = User.query.filter_by(id=current_user.id).first().posts.all()
+            except AttributeError:
+                pass
+                return render_template("Dashboard.html", post_data=post_data,
+                                       current_quote=current_quote, quote=quote, redirect_from="home",
+                                       current_user=current_user, has_file=True)
+
+        return render_template("Dashboard.html",post_data=post_data,all_posts=all_posts,current_quote=current_quote, quote=quote, redirect_from="home",current_user=current_user,has_file=True)
     else:
         ponder_text = request.args.get("file")
         if ponder_text == None:
@@ -165,6 +173,7 @@ def dashboard():
                 my_clippings = ponder_quotes.readlines()
                 quote = get_random_quote_from_kindle(my_clippings=my_clippings)
                 redirect_from = request.args.get("redirect_from")
+
     return redirect(url_for('write', redirect_from='dashboard', quote=quote))
 
 
@@ -245,7 +254,11 @@ def write():
     form = Write()
     redirect_from = request.args.get("redirect_from")
     quote = request.args.get("quote")
-    print(quote)
+    if form.validate_on_submit():
+        post_data = form.body.data
+        post_current_quote = quote
+        current_user.posts = post_data
+        return redirect(url_for("dashboard",post_data=post_data,post_current_quote=post_current_quote))
     return render_template("Write.html",form=form,current_user=current_user,quote=quote)
 
 @app.route("/contact-me",methods = ["GET","POST"])

@@ -19,8 +19,15 @@ body ::selection {
   margin-top: 250px;
 }
 #submit{
- border-radius: 20%;
- background-color: #6E07F3;
+ width: 200px;
+ border-radius: 22px;
+ background-color: #fff;
+ color: #6E07F3;
+ border-color: #6E07F3;
+}
+#submit:hover{
+    background-color: #6E07F3;
+    color: #fff;
 }
 #ponder-text {
   white-space: nowrap;
@@ -28,7 +35,12 @@ body ::selection {
   text-align: center;
 }
 
-
+.control-label {
+  font-size: 20px;
+  font-weight: 600;
+  color: #6E07F3;
+  padding: 40px;
+}
 
 
 
