@@ -82,6 +82,10 @@
       <div class="quote-container2">
     <blockquote class="blockquote text-center" id="quotetext2">
         {% if redirect_from == 'home' %}
+        {% if user_is_authenticated %}
+        <p class="mb-0">{{quote}}</p>
+        {% endif %}
+        {% else %}
         <p class="mb-0">No quotes here, such empty.</p>
         {% endif %}
         {% if redirect_from == 'upload' %}

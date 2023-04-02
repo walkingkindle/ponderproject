@@ -49,14 +49,14 @@ config.toolbar = [
                <li class="nav-item {% if request.path == url_for('home') %}active{% endif %}">
                   <a class="nav-link" aria-current="page" href="{{url_for('home')}}">Home</a>
                </li>
-               <li class="nav-item {% if request.path == url_for('log_in') %}active{% endif %}">
-                  <a class="nav-link" href="{{url_for('log_in')}}">Log in</a>
-               </li>
-               <li class="nav-item {% if request.path == url_for('register') %}active{% endif %}">
-                  <a class="nav-link" href="{{url_for('register')}}">Register</a>
+               <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">
+                  <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>
                </li>
                 <li class="nav-item {% if request.path == url_for('account') %}active{% endif %}">
-                  <a class="nav-link" href="{{url_for('account',redirect_from='index')}}">Account</a>
+                  <a class="nav-link" href="{{url_for('account')}}">Account</a>
+               </li>
+                <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
+                  <a class="nav-link" href="{{url_for('account')}}">Dashboard</a>
                </li>
             </ul>
          </div>
@@ -67,12 +67,20 @@ config.toolbar = [
 <div class="container" >
     <div class="row">
         <div class="col-md-6 mx-auto">
+
+            {% if quote|length > 200 %}
+        <div style="height: 200px; overflow-y: scroll;">
+                {{ quote }}
+        </div>
+                {% else %}
         <blockquote class="blockquote text-center">
             <p class="mb-0">{{quote}}</p>
             <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
         </blockquote>
+        {% endif %}
+
         <div class="form-group" id="form-div">
-            {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+            {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary btn lg"}) }}
             </div>
         </div>
     </div>

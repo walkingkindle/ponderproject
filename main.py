@@ -69,13 +69,14 @@ class User(users.Model,UserMixin):
         first_name = users.Column(users.String(250),nullable=True)
         last_name = users.Column(users.String(250),nullable=True)
         continent = users.Column(users.String(250),nullable=True)
+        clippings_filename = users.Column(users.String(250),nullable=True)
 
 
 # Creating Tables
 
-# with app.app_context():
-#     users.create_all()
-#     users.session.commit()
+with app.app_context():
+    users.create_all()
+    users.session.commit()
 
 #-----------------------------------------------------------ENGINE------------------------------------------------------
 
@@ -147,16 +148,23 @@ def home():
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    ponder_text = request.args.get("file")
-    if ponder_text == None:
-        return render_template("Dashboard.html",redirect_from="home")
-    else:
-        with open(os.path.join(app.config['UPLOAD_FOLDER'], ponder_text), 'r',encoding='UTF-8') as ponder_quotes:
+    # FIX THIS AND MAKE IT SO THAT IT CAN READ THE FILE
+    already_uploaded_file = current_user.clippings_filename
+    if already_uploaded_file:
+        print("file already uploaded")
+        with open(os.path.join(app.config['UPLOAD_FOLDER'], already_uploaded_file), 'r', encoding='UTF-8') as ponder_quotes:
             my_clippings = ponder_quotes.readlines()
             quote = get_random_quote_from_kindle(my_clippings=my_clippings)
-            redirect_from = request.args.get("redirect_from")
-            if quote:
-                print("quote has been passed sucessfully.")
+        return render_template("Dashboard.html", quote=quote, redirect_from="home",current_user=current_user)
+    else:
+        ponder_text = request.args.get("file")
+        if ponder_text == None:
+            return render_template("Dashboard.html",redirect_from="home")
+        else:
+            with open(os.path.join(app.config['UPLOAD_FOLDER'], ponder_text), 'r',encoding='UTF-8') as ponder_quotes:
+                my_clippings = ponder_quotes.readlines()
+                quote = get_random_quote_from_kindle(my_clippings=my_clippings)
+                redirect_from = request.args.get("redirect_from")
     return redirect(url_for('write', redirect_from='dashboard', quote=quote))
 
 
@@ -172,6 +180,8 @@ def upload():
         file = request.files.get('My Clippings')
         if file:
             filename = secure_filename(file.filename)
+            current_user.clippings_filename = filename
+            users.session.commit()
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for("dashboard",file=filename,redirect_from='upload',current_user=current_user))
         else:
