@@ -70,7 +70,7 @@
     <p class="mb-0">{{quote[:100]}}... <a href="{{url_for('write', quote=quote, redirect_from='dashboard')}}">Read more</a></p>
         {% else %}
     <p class="mb-0">{{quote}}</p>
-{% endif %}
+        {% endif %}
         {% if has_file != True %}
         <p class="mb-0">No quotes here, such empty.</p>
         <br>
@@ -80,18 +80,16 @@
     </blockquote>
 </div>
 </div>
-<!------------ FIX THIS LAYOUT -------------------->
       <div class="other-comments">
-      <blockquote class="blockquote text-center">
-                     {% if current_quote|length > 200 %}
-          <div class="long-quote-div" style="height: 200px; width: 600px; margin-right: 220px; overflow-y: scroll;">
-              {{ current_quote }}
-          </div>
-                    {% else %}
+          {% if quote|length > 200 %}
+          <blockquote class="blockquote text-center" id="quotetext2">
+              <p class="mb-0">{{quote[:100]}}... <a href="{{url_for('write', quote=quote, redirect_from='dashboard')}}">Read more</a></p>
+          {% else %}
+          <blockquote class="blockquote text-center">
                 <p class="mb-0">{{ current_quote }}</p>
-                    {% endif %}
+              {% endif %}
             <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-      </blockquote>
+          </blockquote>
          <div class="comment-wrapper">
             <div class="row d-flex justify-content-center">
                <div class="col-12 col-md-6 col-lg-4">
@@ -101,7 +99,8 @@
             <a href="{{url_for('dashboard',redirect_from='dashboard')}}" class="read-more">Edit</a>
          </div>
       </div>
-        {% for post in all_posts %}
+   </body>
+       <!------- {% for post in all_posts %}
       <div class="other-comments" id="test2">
       <blockquote class="blockquote text-center">
          <p class="mb-0">{{current_quote}}</p>
@@ -117,7 +116,7 @@
          </div>
       </div>
     {% endfor %}
-   </body>
+   </body> ------------>
  <footer class="footer-16371">
       <div class="container">
         <div class="row justify-content-center">

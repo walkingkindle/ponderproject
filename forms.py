@@ -12,5 +12,3 @@ class Write(FlaskForm):
     submit = SubmitField("Submit")
 
 
-
-

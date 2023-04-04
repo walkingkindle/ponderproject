@@ -63,6 +63,14 @@ config.toolbar = [
       </div>
    </nav>
 </div>
+{% if quote_not_found %}
+<div class="aler alert-warning alert-dismissible fade show" role="alert">
+        You should write your quote before heading to the dashboard.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
 <h1 id="ponder-text">Reflect and Ponder</h1>
 <div class="container" >
     <div class="row">

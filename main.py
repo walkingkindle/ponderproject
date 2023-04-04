@@ -148,34 +148,12 @@ def home():
 @login_required
 def dashboard():
     already_uploaded_file = current_user.clippings_filename
-    if already_uploaded_file:
-        print("file already uploaded")
-        with open(os.path.join(app.config['UPLOAD_FOLDER'], already_uploaded_file), 'r', encoding='UTF-8') as ponder_quotes:
-            my_clippings = ponder_quotes.readlines()
-            quote = get_random_quote_from_kindle(my_clippings=my_clippings)
-            post_data = request.args.get("post_data")
-            current_quote = request.args.get("post_current_quote")
-            try:
-                all_posts = User.query.filter_by(id=current_user.id).first().posts.all()
-            except AttributeError:
-                pass
-                return render_template("Dashboard.html", post_data=post_data,
-                                       current_quote=current_quote, quote=quote, redirect_from="home",
-                                       current_user=current_user, has_file=True)
-
-        return render_template("Dashboard.html",post_data=post_data,all_posts=all_posts,current_quote=current_quote, quote=quote, redirect_from="home",current_user=current_user,has_file=True)
-    else:
-        ponder_text = request.args.get("file")
-        if ponder_text == None:
-            return render_template("Dashboard.html",redirect_from="home")
-        else:
-            with open(os.path.join(app.config['UPLOAD_FOLDER'], ponder_text), 'r',encoding='UTF-8') as ponder_quotes:
-                my_clippings = ponder_quotes.readlines()
-                quote = get_random_quote_from_kindle(my_clippings=my_clippings)
-                redirect_from = request.args.get("redirect_from")
-
-    return redirect(url_for('write', redirect_from='dashboard', quote=quote))
-
+    with open(os.path.join(app.config['UPLOAD_FOLDER'], already_uploaded_file), 'r', encoding='UTF-8') as ponder_quotes:
+        my_clippings = ponder_quotes.readlines()
+        quote = get_random_quote_from_kindle(my_clippings=my_clippings)
+        # post_data = request.args.get("post_data")
+        # current_quote = request.args.get("post_current_quote")
+        return render_template("Dashboard.html",current_quote=quote, quote=quote, redirect_from="home",current_user=current_user,has_file=True)
 
 @app.route('/choose-your-path')
 def choose_path():
@@ -228,25 +206,27 @@ def register():
         return redirect(url_for("choose_path",current_user=current_user))
     return render_template("sign up.html",current_user=current_user)
 
-@app.route("/log_in",methods=["POST","GET"])
+@app.route("/log_in", methods=["POST", "GET"])
 def log_in():
     if request.method == 'POST':
         entered_email = request.form.get('email')
-        entered_pasword = request.form.get('password')
+        entered_password = request.form.get('password')
         user = users.session.query(User).filter_by(email=entered_email).first()
         if user:
-            if check_password_hash(pwhash=user.password,password=entered_pasword):
+            if check_password_hash(pwhash=user.password, password=entered_password):
                 login_user(user)
-                return redirect(url_for("choose_path",current_user=current_user))
+                return redirect(url_for("choose_path", current_user=current_user))
             else:
                 wrong_password = True
-                if wrong_password:
-                    print("true")
-                return render_template("sign-in.html",wrong_password=wrong_password)
+                return render_template("sign-in.html", wrong_password=wrong_password, email_doesnt_exist=False)
         else:
             email_doesnt_exist = True
-            return redirect(url_for("log_in",current_user=current_user,email_doesnt_exist=email_doesnt_exist))
-    return render_template("sign-in.html")
+            return render_template("sign-in.html", email_doesnt_exist=email_doesnt_exist)
+    else:
+        entered_email = request.args.get('email', '')
+        return render_template("sign-in.html", email=entered_email)
+
+
 
 @app.route('/write',methods=['GET','POST'])
 @login_required
@@ -254,6 +234,7 @@ def write():
     form = Write()
     redirect_from = request.args.get("redirect_from")
     quote = request.args.get("quote")
+    print(quote)
     if form.validate_on_submit():
         post_data = form.body.data
         post_current_quote = quote

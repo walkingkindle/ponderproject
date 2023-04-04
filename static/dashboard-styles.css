@@ -20,7 +20,8 @@ body ::selection {
   color: #fff;
 }
 .long-quote-div{
-
+    margin-right: 200px;
+}
 #quote-text2 {
 	color: #333;
 	font-size: 28px;

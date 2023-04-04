@@ -56,6 +56,14 @@
 </div>
 
 <!---- Main Content ---->
+{% if quote_not_found %}
+<div class="aler alert-warning alert-dismissible fade show" role="alert">
+        You should write your quote before heading to the dashboard.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
   <div class="container">
     <div class="row" id="row1">
       <div class="col-md-6">
