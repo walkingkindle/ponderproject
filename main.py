@@ -19,11 +19,10 @@ from wtforms.validators import DataRequired,url
 import csv
 import uuid
 import os
-from forms import Write
+from forms import Write,Register
 import smtplib
 from flask_mail import Mail,Message
 from config import MY_EMAIL,MY_PASSWORD
-
 
 
 
@@ -186,10 +185,11 @@ def search_page():
 
 @app.route("/register",methods=['GET','POST'])
 def register():
+    form = Register()
     if request.method == 'POST':
-        e_mail = request.form.get('e-mail')
-        username = request.form.get('username')
-        password = request.form.get('password')
+        e_mail = form.email.data
+        username = form.username.data
+        password = form.password.data
         hashed_password = generate_password_hash(password=password,method="pbkdf2:sha256",salt_length=8)
         new_user = User(
             email=e_mail,
@@ -204,7 +204,7 @@ def register():
         users.session.commit()
         login_user(new_user)
         return redirect(url_for("choose_path",current_user=current_user))
-    return render_template("sign up.html",current_user=current_user)
+    return render_template("sign up.html",current_user=current_user,form=form)
 
 @app.route("/log_in", methods=["POST", "GET"])
 def log_in():

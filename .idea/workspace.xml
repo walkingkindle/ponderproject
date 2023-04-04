@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Authenticating and adding the posts_ column to the database that is assosciated with what the user writes along the quotes.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixed an error where if user types an email that does not exist, an alert appears, and some other minor issues.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/dashboard-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/dashboard-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Upload File.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Upload File.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Write.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign-in.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign up.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +49,8 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Aleksa Hadzic/PycharmProjects/Ponderproject",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "last_opened_file_path": "C:/Users/Aleksa Hadzic/Downloads/Starting+Files+-+blog-with-users-start",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -356,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680427433892</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Fixed an error where if user types an email that does not exist, an alert appears, and some other minor issues.">
+      <created>1680605127501</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1680605127501</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -371,7 +374,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding Get started Feature" />
     <MESSAGE value="Adding the search page for books." />
     <MESSAGE value="Adding 'Tech Reader' page." />
     <MESSAGE value="Styling navbar, fixing html indentation and configuring responsiveness." />
@@ -396,6 +398,7 @@
     <MESSAGE value="Adjusting the MyClippings and adding it to the directory" />
     <MESSAGE value="Fixing the code so that the quote is loaded from the user from previous sessions" />
     <MESSAGE value="Authenticating and adding the posts_ column to the database that is assosciated with what the user writes along the quotes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Authenticating and adding the posts_ column to the database that is assosciated with what the user writes along the quotes." />
+    <MESSAGE value="Fixed an error where if user types an email that does not exist, an alert appears, and some other minor issues." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed an error where if user types an email that does not exist, an alert appears, and some other minor issues." />
   </component>
 </project>

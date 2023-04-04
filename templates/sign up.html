@@ -64,13 +64,13 @@
                         </div>
                         <form action="{{url_for('register')}}" method="post">
                            <div class="form-group last mb-4">
-                              <input placeholder="E-mail Adress" type="text" class="form-control" name="e-mail">
+                               {{form.email(class_ = 'form-control',id_='email') }}
                            </div>
                            <div class="form-group first">
-                              <input placeholder="Username" type="text" class="form-control" id="username" name="username">
+                              {{form.username(class_ = 'form-control',id_='username')}}
                            </div>
                            <div class="form-group last mb-4">
-                              <input placeholder="Password" type="password" class="form-control" id="password" name="password">
+                              {{form.password(class_ = 'form-control',id_='username')}}
                            </div>
                            <input type="submit" value="Sign Up" class="btn btn-block btn-primary">
                            <span class="d-block text-left my-4 text-muted">&mdash; or sign up with &mdash;</span>
