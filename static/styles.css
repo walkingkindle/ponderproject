@@ -25,7 +25,11 @@ body ::selection {
  margin-top: 30px;
 
 }
-
+#users-count  mark{
+    background-color: #7E3AE8;
+    color: #fff;
+    border-radius: 10%;
+}
 #get-started {
 	color: #6E07F3;
 	border-color: #6E07F3;

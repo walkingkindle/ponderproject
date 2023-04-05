@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adding email validator instead of the HTML forms.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixed an exception where if the user wrote an invalid email the form will reject and some other minor register issues">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign up.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign-in.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -367,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680607690053</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Fixed an exception where if the user wrote an invalid email the form will reject and some other minor register issues">
+      <created>1680680746064</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1680680746064</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -382,7 +388,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding 'Tech Reader' page." />
     <MESSAGE value="Styling navbar, fixing html indentation and configuring responsiveness." />
     <MESSAGE value="Making dashboard responsive." />
     <MESSAGE value="Adding Flask and setting up the routes." />
@@ -407,6 +412,7 @@
     <MESSAGE value="Authenticating and adding the posts_ column to the database that is assosciated with what the user writes along the quotes." />
     <MESSAGE value="Fixed an error where if user types an email that does not exist, an alert appears, and some other minor issues." />
     <MESSAGE value="Adding email validator instead of the HTML forms." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding email validator instead of the HTML forms." />
+    <MESSAGE value="Fixed an exception where if the user wrote an invalid email the form will reject and some other minor register issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed an exception where if the user wrote an invalid email the form will reject and some other minor register issues" />
   </component>
 </project>

@@ -139,9 +139,10 @@ def load_user(user_id):
 @app.route("/")
 def home():
     sent = request.args.get("sent")
+    how_many = User.query.count()
     if sent:
         print(sent)
-    return render_template("Index.html",quote=get_random_quote(),sent=sent,current_user=current_user)
+    return render_template("Index.html",quote=get_random_quote(),sent=sent,current_user=current_user,how_many=how_many)
 
 
 @app.route("/dashboard")
