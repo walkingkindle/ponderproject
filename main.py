@@ -23,6 +23,8 @@ from forms import Write,Register
 import smtplib
 from flask_mail import Mail,Message
 from config import MY_EMAIL,MY_PASSWORD
+from sqlalchemy import or_
+
 
 
 
@@ -64,17 +66,16 @@ class User(users.Model,UserMixin):
         id = users.Column(users.String(36), primary_key=True, default=str(uuid.uuid4()))
         email = users.Column(users.String(250),nullable=False,unique=True)
         username = users.Column(users.String(250),nullable=False,unique=True)
-        password = users.Column(users.String(1000),nullable=False,unique=True)
+        password = users.Column(users.String(1000),nullable=False)
         first_name = users.Column(users.String(250),nullable=True)
         last_name = users.Column(users.String(250),nullable=True)
         continent = users.Column(users.String(250),nullable=True)
         clippings_filename = users.Column(users.String(250),nullable=True)
-        posts = users.Column(users.String(1000000000),nullable=True)
 # Creating Tables
 
-# with app.app_context():
-#     users.create_all()
-#     users.session.commit()
+with app.app_context():
+    users.create_all()
+    users.session.commit()
 
 #-----------------------------------------------------------ENGINE------------------------------------------------------
 
@@ -187,23 +188,27 @@ def search_page():
 def register():
     form = Register()
     if request.method == 'POST':
-        e_mail = form.email.data
+        e_mail = request.form.get("email")
         username = form.username.data
         password = form.password.data
         hashed_password = generate_password_hash(password=password,method="pbkdf2:sha256",salt_length=8)
         new_user = User(
             email=e_mail,
             password=hashed_password,
-            username=username
-        )
-        check_and_find = users.session.query(User).filter_by(email=e_mail).first()
+            username=username,
+            id=str(uuid.uuid4())
+            )
+        check_and_find = users.session.query(User).filter(or_(User.email == e_mail, User.username == username)).first()
         if check_and_find:
             flash("Your account already exist. Please log in.")
             return render_template("sign-in.html",redirect_from='register')
-        users.session.add(new_user)
-        users.session.commit()
-        login_user(new_user)
-        return redirect(url_for("choose_path",current_user=current_user))
+        else:
+            users.session.add(new_user)
+            users.session.commit()
+            login_user(new_user)
+            return redirect(url_for("choose_path",current_user=current_user))
+    else:
+        print("rip")
     return render_template("sign up.html",current_user=current_user,form=form)
 
 @app.route("/log_in", methods=["POST", "GET"])

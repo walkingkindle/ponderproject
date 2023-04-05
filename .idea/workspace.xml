@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixed an error where if user types an email that does not exist, an alert appears, and some other minor issues.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adding email validator instead of the HTML forms.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign-in.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +50,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Aleksa Hadzic/Downloads/Starting+Files+-+blog-with-users-start",
+    "last_opened_file_path": "C:/Users/Aleksa Hadzic/PycharmProjects/Starting+Files+-+blog-with-users-start",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
@@ -359,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680605127501</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Adding email validator instead of the HTML forms.">
+      <created>1680607690053</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1680607690053</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -374,7 +382,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding the search page for books." />
     <MESSAGE value="Adding 'Tech Reader' page." />
     <MESSAGE value="Styling navbar, fixing html indentation and configuring responsiveness." />
     <MESSAGE value="Making dashboard responsive." />
@@ -399,6 +406,7 @@
     <MESSAGE value="Fixing the code so that the quote is loaded from the user from previous sessions" />
     <MESSAGE value="Authenticating and adding the posts_ column to the database that is assosciated with what the user writes along the quotes." />
     <MESSAGE value="Fixed an error where if user types an email that does not exist, an alert appears, and some other minor issues." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed an error where if user types an email that does not exist, an alert appears, and some other minor issues." />
+    <MESSAGE value="Adding email validator instead of the HTML forms." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding email validator instead of the HTML forms." />
   </component>
 </project>

@@ -49,6 +49,18 @@
    </nav>
 </div>
    <!---  Main Content ---->
+{% macro render_field(field) %}
+  <dt>{{ field.label }}
+  <dd>{{ field(**kwargs)|safe }}
+  {% if field.errors %}
+    <ul class=errors>
+    {% for error in field.errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  </dd>
+{% endmacro %}
       <div class="content">
          <div class="container">
             <div class="row">
@@ -64,13 +76,13 @@
                         </div>
                         <form action="{{url_for('register')}}" method="post">
                            <div class="form-group last mb-4">
-                               {{form.email(class_ = 'form-control',id_='email') }}
+                               <input type="email" id="email" name="email" class="form-control" placeholder="E-mail adress">
                            </div>
                            <div class="form-group first">
                               {{form.username(class_ = 'form-control',id_='username')}}
                            </div>
                            <div class="form-group last mb-4">
-                              {{form.password(class_ = 'form-control',id_='username')}}
+                              {{form.password(class_ = 'form-control',id_='password',placeholder='Password')}}
                            </div>
                            <input type="submit" value="Sign Up" class="btn btn-block btn-primary">
                            <span class="d-block text-left my-4 text-muted">&mdash; or sign up with &mdash;</span>

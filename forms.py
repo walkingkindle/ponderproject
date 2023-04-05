@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField
-from wtforms.validators import DataRequired, URL,Email,Length,ValidationError
+from wtforms.validators import DataRequired, URL, Email, Length, ValidationError, Regexp
 from wtforms.validators import email
 from email_validator import validate_email, EmailNotValidError
 from flask_ckeditor import CKEditorField
@@ -13,18 +13,25 @@ class Write(FlaskForm):
     submit = SubmitField("Submit")
 
 def my_length_check(form, field):
-    if int in field.data:
-        raise ValidationError('Username contain at least one number.')
-def my_password_length_checker(form,field):
-    rules = [lambda field: any(x.isupper() for x in field),  # must have at least one uppercase
-             ]
-    if all(rule(field) for rule in rules):
-        pass
-    else:
+    if any(c.isdigit() for c in field.data):
+        raise ValidationError('Username must not contain any numbers.')
+
+def my_password_length_checker(form, field):
+    if len(field.data) < 6:
+        raise ValidationError('Your password must have at least 6 characters.')
+    if not any(x.isupper() for x in field.data):
         raise ValidationError('Your password must have at least one uppercase letter.')
+
 class Register(FlaskForm):
-    email = StringField("Email",validators=[DataRequired(),Email()],render_kw={"placeholder": "E-mail"})
-    password = PasswordField("Password",validators=[DataRequired(),Length(min=6,max=50),my_password_length_checker],render_kw={"placeholder": "Password"})
+    email = StringField("Email",validators=[DataRequired(),Email("Please enter a valid e-mail adress")],render_kw={"placeholder": "E-mail"})
+    password = PasswordField('Password', [
+        DataRequired(),
+        Length(min=6),
+        Regexp(
+            '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$',
+            message="Your password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character"
+        )
+    ])
     username = StringField("Username",validators=[DataRequired(),my_length_check],render_kw={"placeholder": "Username"})
     submit = SubmitField("Register")
 
