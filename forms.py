@@ -32,7 +32,7 @@ class Register(FlaskForm):
             message="Your password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character"
         )
     ])
-    username = StringField("Username",validators=[DataRequired(),my_length_check],render_kw={"placeholder": "Username"})
+    username = StringField("Username",validators=[DataRequired(),my_length_check,Length(min=6,max=16)],render_kw={"placeholder": "Username"})
     submit = SubmitField("Register")
 
 

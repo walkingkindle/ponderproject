@@ -19,11 +19,13 @@ from wtforms.validators import DataRequired,url
 import csv
 import uuid
 import os
+from sqlalchemy.ext.declarative import declarative_base
 from forms import Write,Register
 import smtplib
 from flask_mail import Mail,Message
 from config import MY_EMAIL,MY_PASSWORD
-from sqlalchemy import or_
+from sqlalchemy import or_,types
+import hashlib
 
 
 
@@ -54,7 +56,6 @@ mail = Mail(app)
 #Flask DB
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
 users = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -63,14 +64,29 @@ login_manager.login_view = "login"
 #Configure Tables
 class User(users.Model,UserMixin):
         __tablename__ = "users"
-        id = users.Column(users.String(36), primary_key=True, default=str(uuid.uuid4()))
+        id = users.Column(users.String,primary_key=True)
         email = users.Column(users.String(250),nullable=False,unique=True)
         username = users.Column(users.String(250),nullable=False,unique=True)
         password = users.Column(users.String(1000),nullable=False)
         first_name = users.Column(users.String(250),nullable=True)
         last_name = users.Column(users.String(250),nullable=True)
         continent = users.Column(users.String(250),nullable=True)
-        clippings_filename = users.Column(users.String(250),nullable=True)
+        posts = relationship("Posts", back_populates="user")
+
+
+class Posts(users.Model):
+    __tablename__ = "posts"
+    id= users.Column(users.Integer, primary_key=True,nullable=True)
+    author_id = users.Column(users.Integer,users.ForeignKey('users.id'),nullable=True)
+    clippings_filename = users.Column(users.String(250), nullable=True)
+    user = relationship("User", back_populates="posts")
+    body = users.Column(users.Text,nullable=True)
+    quote = users.Column(users.String(250))
+    date = users.Column(users.String(250),nullable=True)
+    clippings_file_data = users.Column(types.LargeBinary)
+
+
+#connect databases to each other.
 # Creating Tables
 
 with app.app_context():
@@ -111,27 +127,11 @@ def also_get_random_quote():
         print(quote)
         return quote
 
-def get_current_username():
-    if current_user.is_authenticated:
-        return current_user.username
-    else:
-        return None
-
-def get_current_email():
-    if current_user.is_authenticated:
-        return current_user.email
-    else:
-        return None
-def get_current_password():
-    if current_user.is_authenticated:
-        return current_user.password
-    else:
-        return None
-def get_current_id():
-    if current_user.is_authenticated:
-        return current_user.id
-    else:
-        return None
+def generate_custom_id(username, email):
+    data = f"{username}{email}"
+    data_bytes = data.encode('utf-8')
+    id = hashlib.sha256(data_bytes).hexdigest()
+    return id
 #-------------------------------------- FLASK ROUTES -----------------------------------------------------------------
 @login_manager.user_loader
 def load_user(user_id):
@@ -148,13 +148,10 @@ def home():
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    already_uploaded_file = current_user.clippings_filename
-    with open(os.path.join(app.config['UPLOAD_FOLDER'], already_uploaded_file), 'r', encoding='UTF-8') as ponder_quotes:
-        my_clippings = ponder_quotes.readlines()
-        quote = get_random_quote_from_kindle(my_clippings=my_clippings)
-        # post_data = request.args.get("post_data")
-        # current_quote = request.args.get("post_current_quote")
-        return render_template("Dashboard.html",current_quote=quote, quote=quote, redirect_from="home",current_user=current_user,has_file=True)
+    request.args.get("clippings_filename")
+    my_clippings = Posts.query.get(clippings_filename=current_user.clippings_filename)
+    quote = get_random_quote_from_kindle(my_clippings=my_clippings)
+    return render_template("Dashboard.html",quote=quote)
 
 @app.route('/choose-your-path')
 def choose_path():
@@ -164,14 +161,18 @@ def choose_path():
 @app.route("/upload", methods=['GET', 'POST'])
 @login_required
 def upload():
+    #fix upload so that it works, fix integrity error.
     if request.method == 'POST':
         file = request.files.get('My Clippings')
         if file:
+            file_data = file.read()
+            print(file_data)
             filename = secure_filename(file.filename)
-            current_user.clippings_filename = filename
+            post_id = generate_custom_id(username=file_data[10 : 20],email=filename)
+            new_file = Posts(clippings_filename=filename,clippings_file_data=file_data,id=post_id)
+            users.session.add(new_file)
             users.session.commit()
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for("dashboard",file=filename,redirect_from='upload',current_user=current_user))
+            return redirect(url_for("dashboard",redirect_from='upload',current_user=current_user))
         else:
             return redirect(url_for("nothing_selected",current_user=current_user))
     return render_template("Kindle Upload.html",current_user=current_user)
@@ -187,17 +188,19 @@ def search_page():
 
 @app.route("/register",methods=['GET','POST'])
 def register():
+    """Fix this so it does not throw integrity error"""
     form = Register()
     if request.method == 'POST':
         e_mail = request.form.get("email")
         username = form.username.data
         password = form.password.data
         hashed_password = generate_password_hash(password=password,method="pbkdf2:sha256",salt_length=8)
+        id = generate_custom_id(username=username,email=e_mail)
         new_user = User(
             email=e_mail,
             password=hashed_password,
             username=username,
-            id=str(uuid.uuid4())
+            id=id
             )
         check_and_find = users.session.query(User).filter(or_(User.email == e_mail, User.username == username)).first()
         if check_and_find:
