@@ -76,8 +76,8 @@ class User(users.Model,UserMixin):
 
 class Posts(users.Model):
     __tablename__ = "posts"
-    id= users.Column(users.Integer, primary_key=True,nullable=True)
-    author_id = users.Column(users.Integer,users.ForeignKey('users.id'),nullable=True)
+    id = users.Column(users.String, primary_key=True,nullable=True)
+    author_id = users.Column(users.String,users.ForeignKey('users.id'),nullable=True)
     clippings_filename = users.Column(users.String(250), nullable=True)
     user = relationship("User", back_populates="posts")
     body = users.Column(users.Text,nullable=True)
@@ -148,8 +148,8 @@ def home():
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    request.args.get("clippings_filename")
-    my_clippings = Posts.query.get(clippings_filename=current_user.clippings_filename)
+    clippings_filename = request.args.get("clippings_filename")
+    my_clippings = Posts.query.get(clippings_filename=clippings_filename)
     quote = get_random_quote_from_kindle(my_clippings=my_clippings)
     return render_template("Dashboard.html",quote=quote)
 
@@ -161,12 +161,10 @@ def choose_path():
 @app.route("/upload", methods=['GET', 'POST'])
 @login_required
 def upload():
-    #fix upload so that it works, fix integrity error.
     if request.method == 'POST':
         file = request.files.get('My Clippings')
         if file:
             file_data = file.read()
-            print(file_data)
             filename = secure_filename(file.filename)
             post_id = generate_custom_id(username=file_data[10 : 20],email=filename)
             new_file = Posts(clippings_filename=filename,clippings_file_data=file_data,id=post_id)
@@ -188,7 +186,6 @@ def search_page():
 
 @app.route("/register",methods=['GET','POST'])
 def register():
-    """Fix this so it does not throw integrity error"""
     form = Register()
     if request.method == 'POST':
         e_mail = request.form.get("email")
