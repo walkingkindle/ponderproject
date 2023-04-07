@@ -12,7 +12,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
-from flask import Flask, render_template
+from flask import Flask, render_template,session
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user,login_manager
 from wtforms import StringField, SubmitField,SelectField
 from wtforms.validators import DataRequired,url
@@ -26,7 +26,7 @@ from flask_mail import Mail,Message
 from config import MY_EMAIL,MY_PASSWORD
 from sqlalchemy import or_,types
 import hashlib
-
+from sqlite3 import IntegrityError
 
 
 
@@ -76,7 +76,7 @@ class User(users.Model,UserMixin):
 
 class Posts(users.Model):
     __tablename__ = "posts"
-    id = users.Column(users.String, primary_key=True,nullable=True)
+    id = users.Column(users.String, primary_key=True,nullable=True,unique=False)
     author_id = users.Column(users.String,users.ForeignKey('users.id'),nullable=True)
     clippings_filename = users.Column(users.String(250), nullable=True)
     user = relationship("User", back_populates="posts")
@@ -89,9 +89,9 @@ class Posts(users.Model):
 #connect databases to each other.
 # Creating Tables
 
-with app.app_context():
-    users.create_all()
-    users.session.commit()
+# with app.app_context():
+#     users.create_all()
+#     users.session.commit()
 
 #-----------------------------------------------------------ENGINE------------------------------------------------------
 
@@ -99,6 +99,7 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 def get_random_quote_from_kindle(my_clippings):
+    """Retrieves  a quote from the Posts database and the Posts.clippings_file_data"""
     check_letter = '-'
     quote_list = [idx for idx in my_clippings if idx[0] != check_letter and idx[0] != '=']
     formatted_quotes = []
@@ -110,9 +111,33 @@ def get_random_quote_from_kindle(my_clippings):
             author = quote_list[i - 1].strip()
             formatted_quote = f"{author}: {quote}"
             formatted_quotes.append(formatted_quote)
-        random_kindle_quote = random.choice(formatted_quotes)
-        print(random_kindle_quote)
-        return random_kindle_quote
+            random_kindle_quote = random.choice(formatted_quotes)
+            print(random_kindle_quote)
+            print("I returned None")
+            return random_kindle_quote
+
+def get_random_quote_from_kindle_dashboard(clippings_data):
+    #fix the random_quote so it does not return dates
+    quotes = []
+    writers = []
+    lines = clippings_data.split("\n")
+    for line in lines:
+        if line.startswith("- Your Highlight"):
+            parts = line.split("|")
+            if len(parts) > 1:
+                quote = parts[0].strip()
+                writer = parts[1].strip().split("(")[0].strip()
+                quotes.append(quote)
+                writers.append(writer)
+    quotes_and_writers = []
+    for i in range(len(quotes)):
+        quotes_and_writers.append(quotes[i])
+        quotes_and_writers.append(writers[i])
+    return quotes_and_writers
+
+
+
+
 def get_random_quote():
     request = requests.get(url="https://www.litquotes.com/random-words-of-wisdom.php").content
     soup = BeautifulSoup(request, 'html.parser')
@@ -148,9 +173,14 @@ def home():
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    clippings_filename = request.args.get("clippings_filename")
-    my_clippings = Posts.query.get(clippings_filename=clippings_filename)
-    quote = get_random_quote_from_kindle(my_clippings=my_clippings)
+    id = request.args.get("clippings_filename_id")
+    clippings = Posts.query.filter_by(id=id).first()
+    clippings_data = clippings.clippings_file_data
+    clippings_data2 = clippings.clippings_file_data.decode('utf-8')
+    print(clippings_data2)
+    quote = get_random_quote_from_kindle_dashboard(clippings_data=clippings_data2)
+    print(quote)
+    session.pop('clippings_file_data', None)
     return render_template("Dashboard.html",quote=quote)
 
 @app.route('/choose-your-path')
@@ -166,14 +196,25 @@ def upload():
         if file:
             file_data = file.read()
             filename = secure_filename(file.filename)
-            post_id = generate_custom_id(username=file_data[10 : 20],email=filename)
+        else:
+            return redirect(url_for("nothing_selected", current_user=current_user))
+        try:
+            filename = secure_filename(file.filename)
+            post_id = generate_custom_id(username=file_data[10: 20], email=filename)
             new_file = Posts(clippings_filename=filename,clippings_file_data=file_data,id=post_id)
             users.session.add(new_file)
             users.session.commit()
-            return redirect(url_for("dashboard",redirect_from='upload',current_user=current_user))
-        else:
-            return redirect(url_for("nothing_selected",current_user=current_user))
-    return render_template("Kindle Upload.html",current_user=current_user)
+            current_user_clippings = Posts.query.filter_by(clippings_file_data=file_data).first()
+            session['clippings_file_data'] = current_user_clippings.post_data
+        except:
+            users.session.rollback()
+            current_user_clippings = Posts.query.filter_by(clippings_file_data=file_data).first()
+            if current_user_clippings:
+                print("hai")
+                current_user_clippings.post_data = file_data
+                session['clippings_file_data'] = current_user_clippings.post_data  # Store in session
+            return redirect(url_for("dashboard",clippings_filename_id=current_user_clippings.id,redirect_from="upload",current_user=current_user))
+    return render_template("Kindle Upload.html", current_user=current_user)
 
 
 @app.route('/nothing-here')
@@ -275,13 +316,13 @@ def edit_user():
         last_name = request.form.get("last_name")
         continent = request.form.get("continent")
 
-        if new_username and new_username != get_current_username():
+        if new_username and new_username != current_user.username:
             current_user.username = new_username
 
-        if new_email and new_email != get_current_email():
+        if new_email and new_email != current_user.email:
             current_user.email = new_email
 
-        if new_password and new_password != get_current_password():
+        if new_password and new_password != current_user.password:
             new_password_hashed = generate_password_hash(password=new_password, method="pbkdf2:sha256", salt_length=8)
             current_user.password = new_password_hashed
 
