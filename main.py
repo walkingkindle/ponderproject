@@ -83,59 +83,44 @@ class Posts(users.Model):
     body = users.Column(users.Text,nullable=True)
     quote = users.Column(users.String(250))
     date = users.Column(users.String(250),nullable=True)
-    clippings_file_data = users.Column(types.LargeBinary)
 
 
 #connect databases to each other.
 # Creating Tables
 
-# with app.app_context():
-#     users.create_all()
-#     users.session.commit()
+with app.app_context():
+    users.create_all()
+    users.session.commit()
 
 #-----------------------------------------------------------ENGINE------------------------------------------------------
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-def get_random_quote_from_kindle(my_clippings):
-    """Retrieves  a quote from the Posts database and the Posts.clippings_file_data"""
-    check_letter = '-'
-    quote_list = [idx for idx in my_clippings if idx[0] != check_letter and idx[0] != '=']
-    formatted_quotes = []
-    for i in range(len(quote_list)):
-        if quote_list[i].startswith('\n'):
-            continue
-        if quote_list[i].endswith('\n'):
-            quote = quote_list[i].strip()
-            author = quote_list[i - 1].strip()
-            formatted_quote = f"{author}: {quote}"
-            formatted_quotes.append(formatted_quote)
-            random_kindle_quote = random.choice(formatted_quotes)
-            print(random_kindle_quote)
-            print("I returned None")
-            return random_kindle_quote
-
-def get_random_quote_from_kindle_dashboard(clippings_data):
-    #fix the random_quote so it does not return dates
-    quotes = []
-    writers = []
-    lines = clippings_data.split("\n")
-    for line in lines:
-        if line.startswith("- Your Highlight"):
-            parts = line.split("|")
-            if len(parts) > 1:
-                quote = parts[0].strip()
-                writer = parts[1].strip().split("(")[0].strip()
-                quotes.append(quote)
-                writers.append(writer)
-    quotes_and_writers = []
-    for i in range(len(quotes)):
-        quotes_and_writers.append(quotes[i])
-        quotes_and_writers.append(writers[i])
-    return quotes_and_writers
 
 
+def extract_quotes_with_writers(filename,clippings_path):
+    with open(rf"{clippings_path}/{filename}", "r", encoding="utf-8") as text_file:
+        text = text_file.read()
+        print(text)
+        lines = text.splitlines()
+        # Initialize an empty list to store the quotes and writers
+        quotes_with_writers = []
+        # Loop through the lines and extract the quotes and writers
+        for line in lines:
+            # Check if the line starts with a quotation mark
+            if line.startswith('“') or line.startswith("- Your"):
+                lines.remove(line)
+            else:
+                quotes_with_writers.append(line)
+            quotes_formatted = []
+            [quotes_formatted.append(x) for x in quotes_with_writers if x != '==========']
+            if len(quotes_formatted) % 2 == 0:
+                pair_list = [[quotes_formatted[i], quotes_formatted[i + 1]] for i in range(0, len(quotes_formatted), 2)]
+            else:
+                pair_list = [[quotes_formatted[i], quotes_formatted[i + 1]] for i in
+                             range(0, len(quotes_formatted) - 1, 2)]
+        return pair_list
 
 
 def get_random_quote():
@@ -173,15 +158,12 @@ def home():
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    id = request.args.get("clippings_filename_id")
-    clippings = Posts.query.filter_by(id=id).first()
-    clippings_data = clippings.clippings_file_data
-    clippings_data2 = clippings.clippings_file_data.decode('utf-8')
-    print(clippings_data2)
-    quote = get_random_quote_from_kindle_dashboard(clippings_data=clippings_data2)
-    print(quote)
-    session.pop('clippings_file_data', None)
-    return render_template("Dashboard.html",quote=quote)
+    clippings_filename = "My_Clippings.txt"
+    quote_list = extract_quotes_with_writers(clippings_path=app.config['UPLOAD_FOLDER'],filename=clippings_filename)
+    quote = random.choice(quote_list)
+    real_quote = quote[0]
+    real_writer= quote[1]
+    return render_template("Dashboard.html",quote=real_quote,writer=real_writer)
 
 @app.route('/choose-your-path')
 def choose_path():
@@ -193,27 +175,12 @@ def choose_path():
 def upload():
     if request.method == 'POST':
         file = request.files.get('My Clippings')
+        file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename)))
         if file:
-            file_data = file.read()
             filename = secure_filename(file.filename)
+            return redirect(url_for("dashboard",redirect_from="upload",current_user=current_user))
         else:
             return redirect(url_for("nothing_selected", current_user=current_user))
-        try:
-            filename = secure_filename(file.filename)
-            post_id = generate_custom_id(username=file_data[10: 20], email=filename)
-            new_file = Posts(clippings_filename=filename,clippings_file_data=file_data,id=post_id)
-            users.session.add(new_file)
-            users.session.commit()
-            current_user_clippings = Posts.query.filter_by(clippings_file_data=file_data).first()
-            session['clippings_file_data'] = current_user_clippings.post_data
-        except:
-            users.session.rollback()
-            current_user_clippings = Posts.query.filter_by(clippings_file_data=file_data).first()
-            if current_user_clippings:
-                print("hai")
-                current_user_clippings.post_data = file_data
-                session['clippings_file_data'] = current_user_clippings.post_data  # Store in session
-            return redirect(url_for("dashboard",clippings_filename_id=current_user_clippings.id,redirect_from="upload",current_user=current_user))
     return render_template("Kindle Upload.html", current_user=current_user)
 
 

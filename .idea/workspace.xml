@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing the upload route so that it does not throw errors with the new database.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fix an exception where the upload crashes and storing the my_cliipings inside the session module of flask.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Kindle Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Kindle Upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +48,7 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aleksa Hadzic/Downloads/Starting+Files+-+blog-with-users-start&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aleksa Hadzic/Downloads/kindle-clippings-master/kindle-clippings-master&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
@@ -393,7 +393,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680875704191</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Fix an exception where the upload crashes and storing the my_cliipings inside the session module of flask.">
+      <created>1680882883831</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1680882883831</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -408,7 +415,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding footer everywhere." />
     <MESSAGE value="Implementing Register." />
     <MESSAGE value="Implementing and changing log-in." />
     <MESSAGE value="Adding write page and styling." />
@@ -433,6 +439,7 @@
     <MESSAGE value="Adding a tiny feature that will display number of users in the index" />
     <MESSAGE value="Integrating posts database into the server, changing the route of My CLippings.txt to go inside the database." />
     <MESSAGE value="Fixing the upload route so that it does not throw errors with the new database." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing the upload route so that it does not throw errors with the new database." />
+    <MESSAGE value="Fix an exception where the upload crashes and storing the my_cliipings inside the session module of flask." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix an exception where the upload crashes and storing the my_cliipings inside the session module of flask." />
   </component>
 </project>
