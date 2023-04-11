@@ -162,8 +162,31 @@ def dashboard():
     quote_list = extract_quotes_with_writers(clippings_path=app.config['UPLOAD_FOLDER'],filename=clippings_filename)
     quote = random.choice(quote_list)
     real_quote = quote[0]
-    real_writer= quote[1]
-    return render_template("Dashboard.html",quote=real_quote,writer=real_writer)
+    real_writer = quote[1]
+    if real_quote == real_writer:
+        same = True
+        # Choose a new quote and writer from quote_list
+        new_quote, new_writer = quote
+        while new_quote == new_writer:
+            new_quote, new_writer = random.choice(quote_list)
+    else:
+        same = False
+
+    # Check if quote is too short
+    if len(real_quote) < 20:
+        # Choose a new quote and writer from quote_list
+        new_quote, new_writer = quote
+        while len(new_quote) < 20:
+            new_quote, new_writer = random.choice(quote_list)
+
+    # Check if quote is longer than writer
+    if len(real_quote) > len(real_writer):
+        # Swap the values of real_quote and real_writer
+        real_quote, real_writer = real_writer, real_quote
+
+
+    return render_template("Dashboard.html", quote=real_quote, writer=real_writer)
+
 
 @app.route('/choose-your-path')
 def choose_path():

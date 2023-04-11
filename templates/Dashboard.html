@@ -59,31 +59,20 @@
    </nav>
 </div>
       <!---------Main Content, Dashboard ------>
-<div class="colored-section">
    <div id="title">
       <h1 id="dashboard-title2">Dashboard</h1>
       <h1 id="quote-title2">Today's quote:</h1>
    </div>
-      <div class="quote-container2">
-    <blockquote class="blockquote text-center" id="quotetext2">
-       {% if quote|length > 500  %}
-    <p class="mb-0">{{quote[:100]}}... <a href="{{url_for('write', quote=quote, redirect_from='dashboard')}}">Read more</a></p>
-        {% else %}
-    <p class="mb-0">{{quote}}</p>
-        <footer class="blockquote-footer">{{writer}} <cite title="Source Title">Source Title</cite></footer>
-        {% endif %}
-    </blockquote>
-</div>
-</div>
+<div class="colored-section">
       <div class="other-comments">
           {% if quote|length > 200 %}
           <blockquote class="blockquote text-center" id="quotetext2">
-              <p class="mb-0">{{quote[:100]}}... <a href="{{url_for('write', quote=quote, redirect_from='dashboard')}}">Read more</a></p>
+              <p class="mb-0">{{writer[:100]}}... <a href="{{url_for('write', quote=quote, redirect_from='dashboard')}}">Read more</a></p>
           {% else %}
           <blockquote class="blockquote text-center">
-                <p class="mb-0">{{ quote }}</p>
+                <a><p class="mb-0">{{ writer }}</p></a>
               {% endif %}
-            <footer class="blockquote-footer">{{writer}} <cite title="Source Title">Source Title</cite></footer>
+            <footer class="blockquote-footer">{{quote}}</footer>
           </blockquote>
          <div class="comment-wrapper">
             <div class="row d-flex justify-content-center">
@@ -91,27 +80,29 @@
                   <p class="comment-paragraph text-center">{{post_data}}</p>
                </div>
             </div>
-            <a href="{{url_for('dashboard',redirect_from='dashboard')}}" class="read-more">Edit</a>
+            <a href="{{url_for('write',redirect_from='dashboard')}}" class="read-more">Ponder here</a>
          </div>
+          </blockquote>
       </div>
+</div>
+<div class="container">
+   <div class="row">
+       <div class="col-md-12" id="other-posts-div">
+           <h1 id="other-posts" class="mb-4">Other posts:</h1>
+       </div>
+       <div class="col-md-12">
+           <div class="post">
+               <h3 class="mb-5">The standard Lorem Ipsum passage, used since the 1500s</h3>
+               <h3 class="mb-5">The standard Lorem Ipsum passage, used since the 1500s</h3>
+               <h3 class="mb-5">The standard Lorem Ipsum passage, used since the 1500s</h3>
+           </div>
+       </div>
+   </div>
+</div>
    </body>
-       <!------- {% for post in all_posts %}
-      <div class="other-comments" id="test2">
-      <blockquote class="blockquote text-center">
-         <p class="mb-0">{{current_quote}}</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-      </blockquote>
-         <div class="comment-wrapper">
-            <div class="row d-flex justify-content-center">
-               <div class="col-12 col-md-6 col-lg-4">
-                  <p class="comment-paragraph text-center">{{post}}</p>
-               </div>
-            </div>
-            <a href="#" class="read-more">Read more</a>
-         </div>
-      </div>
-    {% endfor %}
-   </body> ------------>
+
+
+
  <footer class="footer-16371">
       <div class="container">
         <div class="row justify-content-center">
