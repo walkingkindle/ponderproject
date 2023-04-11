@@ -48,7 +48,7 @@
                   <a class="nav-link" href="{{url_for('dashboard')}}">Dashboard</a>
                </li>
                <li class="nav-item {% if request.path == url_for('register') %}active{% endif %}">
-                  <a class="nav-link" href="#">Log out</a>
+                  <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>
                </li>
                 <li class="nav-item {% if request.path == url_for('account') %}active{% endif %}">
                   <a class="nav-link" href="{{url_for('account',redirect_from='dashboard')}}">Account</a>
@@ -80,11 +80,12 @@
                   <p class="comment-paragraph text-center">{{post_data}}</p>
                </div>
             </div>
-            <a href="{{url_for('write',redirect_from='dashboard')}}" class="read-more">Ponder here</a>
+            <a href="{{url_for('write',redirect_from='dashboard',quote=writer,writer=quote)}}" class="read-more">Ponder here</a>
          </div>
           </blockquote>
       </div>
 </div>
+
 <div class="container">
    <div class="row">
        <div class="col-md-12" id="other-posts-div">
@@ -92,9 +93,9 @@
        </div>
        <div class="col-md-12">
            <div class="post">
-               <h3 class="mb-5">The standard Lorem Ipsum passage, used since the 1500s</h3>
-               <h3 class="mb-5">The standard Lorem Ipsum passage, used since the 1500s</h3>
-               <h3 class="mb-5">The standard Lorem Ipsum passage, used since the 1500s</h3>
+               {% for quote in all_quotes %}
+               <a href="{{url_for('see_post',quote=quote)}}"><h3 class="mb-5">{{quote.quote}}</h3></a>
+               {% endfor %}
            </div>
        </div>
    </div>

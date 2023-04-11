@@ -7,7 +7,7 @@ import itertools
 from flask import Flask, render_template, redirect, url_for, flash,request
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
-from datetime import date
+import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
@@ -76,13 +76,14 @@ class User(users.Model,UserMixin):
 
 class Posts(users.Model):
     __tablename__ = "posts"
-    id = users.Column(users.String, primary_key=True,nullable=True,unique=False)
+    id = users.Column(users.String, primary_key=True,nullable=True)
     author_id = users.Column(users.String,users.ForeignKey('users.id'),nullable=True)
     clippings_filename = users.Column(users.String(250), nullable=True)
     user = relationship("User", back_populates="posts")
     body = users.Column(users.Text,nullable=True)
-    quote = users.Column(users.String(250))
+    quote = users.Column(users.String(250),unique=True)
     date = users.Column(users.String(250),nullable=True)
+    # img = users.Column(users.String(1000))
 
 
 #connect databases to each other.
@@ -163,6 +164,7 @@ def dashboard():
     quote = random.choice(quote_list)
     real_quote = quote[0]
     real_writer = quote[1]
+    all_quotes = Posts.query.all()
     if real_quote == real_writer:
         same = True
         # Choose a new quote and writer from quote_list
@@ -183,9 +185,7 @@ def dashboard():
     if len(real_quote) > len(real_writer):
         # Swap the values of real_quote and real_writer
         real_quote, real_writer = real_writer, real_quote
-
-
-    return render_template("Dashboard.html", quote=real_quote, writer=real_writer)
+    return render_template("Dashboard.html", quote=real_quote, writer=real_writer,all_quotes=all_quotes)
 
 
 @app.route('/choose-your-path')
@@ -206,6 +206,18 @@ def upload():
             return redirect(url_for("nothing_selected", current_user=current_user))
     return render_template("Kindle Upload.html", current_user=current_user)
 
+@app.route("/see-post",methods=["GET","POST"])
+@login_required
+def see_post():
+    received_quote = request.args.get("quote")
+    user = users.query.filter_by(id=current_user.id).first()
+    post_data = user.body
+    return render_template("see-post.html",quote=received_quote,post_body=post_data)
+
+
+
+
+
 
 @app.route('/nothing-here')
 def nothing_selected():
@@ -224,6 +236,10 @@ def register():
         password = form.password.data
         hashed_password = generate_password_hash(password=password,method="pbkdf2:sha256",salt_length=8)
         id = generate_custom_id(username=username,email=e_mail)
+        # Get the current date
+        current_date = datetime.datetime.now()
+        # Format the date as "DD/MM/YYYY"
+        formatted_date = current_date.strftime("%d/%m/%Y")
         new_user = User(
             email=e_mail,
             password=hashed_password,
@@ -271,12 +287,24 @@ def write():
     form = Write()
     redirect_from = request.args.get("redirect_from")
     quote = request.args.get("quote")
+    writer = request.args.get("writer")
+    body = form.body.data
+    id = generate_custom_id(username=writer,email=quote)
     print(quote)
+    print(writer)
+    current_date = datetime.datetime.now()
+    formatted_datetime = current_date.strftime("%d/%m/%Y")
     if form.validate_on_submit():
-        post_data = form.body.data
-        post_current_quote = quote
-        current_user.posts = post_data
-        return redirect(url_for("dashboard",post_data=post_data,post_current_quote=post_current_quote))
+        new_post = Posts(
+            quote = f"{quote}, {writer}",
+            body = body,
+            id=id,
+            author_id = f"{current_user.first_name}{current_user.id[:10]}",
+            date = formatted_datetime
+        )
+        users.session.add(new_post)
+        users.session.commit()
+        return redirect(url_for("dashboard"))
     return render_template("Write.html",form=form,current_user=current_user,quote=quote)
 
 @app.route("/contact-me",methods = ["GET","POST"])

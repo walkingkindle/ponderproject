@@ -1,0 +1,214 @@
+<!--Main Navigation-->
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      >
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <!-- Font Icon -->
+      <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+      <!-- Main css -->
+      <link rel="stylesheet" type="text/css" href="/static/dashboard-styles.css">
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <!-- Bootstrap -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+      <!-- JS ----->
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+      <!-- Google Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+      <title>Dashboard</title>
+      <link rel="icon" type="image/x-icon" href="/templates/images/favicon-32x32.png">
+   </head>
+    <!-- Intro settings -->
+    <style>
+      #intro {
+        /* Margin to fix overlapping fixed navbar */
+        margin-top: 58px;
+      }
+
+      @media (max-width: 991px) {
+        #intro {
+          /* Margin to fix overlapping fixed navbar */
+          margin-top: 45px;
+        }
+      }
+    </style>
+<!----------------------- NAVBAR -------------------------->
+ <div class="container">
+   <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
+      <div class="container-fluid">
+         <a class="navbar-brand" href="{{url_for('home')}}">
+            <img src="/static/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">Ponder
+         </a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+               <li class="nav-item {% if request.path == url_for('home') %}active{% endif %}">
+                  <a class="nav-link" aria-current="page" href="{{url_for('home')}}">Home</a>
+               </li>
+               <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
+                  <a class="nav-link" href="{{url_for('dashboard')}}">Dashboard</a>
+               </li>
+               <li class="nav-item {% if request.path == url_for('register') %}active{% endif %}">
+                  <a class="nav-link" href="#">Log out</a>
+               </li>
+                <li class="nav-item {% if request.path == url_for('account') %}active{% endif %}">
+                  <a class="nav-link" href="{{url_for('account',redirect_from='dashboard')}}">Account</a>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </nav>
+</div>
+
+    <!-- Jumbotron -->
+    <div id="intro" class="p-5 text-center bg-light">
+      <h1 class="mb-0 h4">{{quote}}</h1>
+    </div>
+    <!-- Jumbotron -->
+
+  <!--Main Navigation-->
+
+  <!--Main layout-->
+  <main class="mt-4 mb-5">
+    <div class="container">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-md-8 mb-4">
+          <!--Section: Post data-mdb-->
+          <section class="border-bottom mb-4">
+            <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(144).jpg"
+              class="img-fluid shadow-2-strong rounded-5 mb-4" alt="" />
+
+            <div class="row align-items-center mb-4">
+              <div class="col-lg-6 text-center text-lg-start mb-3 m-lg-0">
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/img (23).jpg" class="rounded-5 shadow-1-strong me-2"
+                  height="35" alt="" loading="lazy" />
+                <span> Published <u>15.07.2020</u> by</span>
+                <a href="" class="text-dark">Anna</a>
+              </div>
+
+              <div class="col-lg-6 text-center text-lg-end">
+                <button type="button" class="btn btn-primary px-3 me-1" style="background-color: #3b5998;">
+                  <i class="fab fa-facebook-f"></i>
+                </button>
+                <button type="button" class="btn btn-primary px-3 me-1" style="background-color: #55acee;">
+                  <i class="fab fa-twitter"></i>
+                </button>
+                <button type="button" class="btn btn-primary px-3 me-1" style="background-color: #0082ca;">
+                  <i class="fab fa-linkedin"></i>
+                </button>
+                <button type="button" class="btn btn-primary px-3 me-1">
+                  <i class="fas fa-comments"></i>
+                </button>
+              </div>
+            </div>
+          </section>
+          <!--Section: Post data-mdb-->
+
+          <!--Section: Text-->
+          <section>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio sapiente molestias
+              consectetur. Fuga nulla officia error placeat veniam, officiis rerum laboriosam
+              ullam molestiae magni velit laborum itaque minima doloribus eligendi! Lorem ipsum,
+              dolor sit amet consectetur adipisicing elit. Optio sapiente molestias consectetur.
+              Fuga nulla officia error placeat veniam, officiis rerum laboriosam ullam molestiae
+              magni velit laborum itaque minima doloribus eligendi!
+            </p>
+
+            <p><strong>Optio sapiente molestias consectetur?</strong></p>
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum architecto ex ab aut
+              tempora officia libero praesentium, sint id magnam eius natus unde blanditiis. Autem
+              adipisci totam sit consequuntur eligendi.
+            </p>
+
+            <p class="note note-light">
+              <strong>Note:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Optio odit consequatur porro sequi ab distinctio modi. Rerum cum dolores sint,
+              adipisci ad veritatis laborum eaque illum saepe mollitia ut voluptatum.
+            </p>
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, libero repellat
+              molestiae aperiam laborum aliquid atque magni nostrum, inventore perspiciatis
+              possimus quia incidunt maiores molestias eaque nam commodi! Magnam, labore.
+            </p>
+
+            <img src="https://mdbootstrap.com/img/new/slides/041.jpg" class="img-fluid shadow-1-strong rounded-5 mb-4"
+              alt="" />
+
+            <ul>
+              <li>Lorem</li>
+              <li>Ipsum</li>
+              <li>Dolor</li>
+              <li>Sit</li>
+              <li>Amet</li>
+            </ul>
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, temporibus nulla
+              voluptatibus accusantium sapiente doloremque. Doloribus ratione laboriosam culpa. Ab
+              officiis quidem, debitis nostrum in accusantium dolore veritatis eius est?
+            </p>
+          </section>
+        <div class="col-md-4 mb-4">
+          <!--Section: Sidebar-->
+          <section class="sticky-top" style="top: 80px;">
+            <!--Section: Ad-->
+          </section>
+          <!--Section: Sidebar-->
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </div>
+  </main>
+ <footer class="footer-16371">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-9 text-center">
+            <div class="footer-site-logo mb-4">
+              <a href="{{url_for('home')}}">Ponder</a>
+            </div>
+            <ul class="list-unstyled nav-links mb-5">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+
+            <div class="social mb-4">
+              <h3>Stay in touch</h3>
+              <ul class="list-unstyled">
+                <li class="in"><a href="#"><i class="bi bi-instagram"></i></a></li>
+                <li class="fb"><a href="#"><i class="bi bi-facebook"></i></a></li>
+                <li class="tw"><a href="#"><i class="bi bi-twitter"></i></a></li>
+                <li class="dr"><a href="#"><i class="bi bi-dribbble"></i></a></li>
+              </ul>
+            </div>
+
+            <div class="copyright">
+              <p class="mb-0"><small>&copy; Ponder. All Rights Reserved.</small></p>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </footer>
+</html>

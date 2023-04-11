@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Implementing database">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing and adjusting the layout of dashboard.">
+      <change afterPath="$PROJECT_DIR$/templates/see-post.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/dashboard-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/dashboard-styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
@@ -408,7 +410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680972738102</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Fixing and adjusting the layout of dashboard.">
+      <created>1681217158009</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1681217158009</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -423,7 +432,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implementing and changing log-in." />
     <MESSAGE value="Adding write page and styling." />
     <MESSAGE value="Customizing file upload and error not uploaded" />
     <MESSAGE value="Styling Error page" />
@@ -448,6 +456,7 @@
     <MESSAGE value="Fixing the upload route so that it does not throw errors with the new database." />
     <MESSAGE value="Fix an exception where the upload crashes and storing the my_cliipings inside the session module of flask." />
     <MESSAGE value="Implementing database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing database" />
+    <MESSAGE value="Fixing and adjusting the layout of dashboard." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing and adjusting the layout of dashboard." />
   </component>
 </project>

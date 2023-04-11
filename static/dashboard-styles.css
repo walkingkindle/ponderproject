@@ -51,7 +51,10 @@ margin-top: 50px;
 .write-about-link:hover {
 	background-color: #3e8e41;
 }
+#title{
+  margin-bottom: 50px;
 
+}
 #dashboard-title2 {
 	position: relative;
 	top: 80px;
