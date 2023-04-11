@@ -210,18 +210,25 @@ def upload():
 @login_required
 def see_post():
     received_quote = request.args.get("quote")
-    user = users.query.filter_by(id=current_user.id).first()
-    post_data = user.body
-    return render_template("see-post.html",quote=received_quote,post_body=post_data)
-
-
-
-
+    print(received_quote)
+    user = User.query.filter_by(id=current_user.id).first()
+    post_data = Posts.query.filter_by(quote=received_quote,author_id=user.id).first()
+    if post_data is None:
+        return redirect(url_for("nothing_selected",redirect_from="see_post"))
+    else:
+        post_body = post_data.body
+        post_quote = post_data.quote
+        post_date = post_data.date
+    return render_template("see-post.html",quote=received_quote,post_body=post_body,current_user=current_user,date=date,post_quote=post_quote)
 
 
 @app.route('/nothing-here')
 def nothing_selected():
+    redirect_from = request.args.get("redirect_from")
+    print(redirect_from)
     return render_template("file-not-selected.html")
+
+
 
 @app.route("/search-page")
 def search_page():

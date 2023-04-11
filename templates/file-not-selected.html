@@ -12,6 +12,13 @@
       <p>Or our robot slaves seems to think so.</p>
       <button onclick="goBack()">Try again</button>
     </div>
+   {% elif redirect_from == 'see_post' %}
+  <!--------------------------- Fix this so it works.
+     <div class="container">
+      <h1>Ooops, looks like you haven't wrote anything  on this topic</h1>
+      <p>Not sure how it got here though.</p>
+      <button onclick="goBack()">Try again</button>
+    </div>
     {% else %}
     <div class="container">
       <h1>No File Selected</h1>
