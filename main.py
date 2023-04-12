@@ -1,5 +1,5 @@
 #----------------------------------------------------------------------IMPORTS------------------------------------------
-
+import pathlib
 import random
 import requests
 from bs4 import BeautifulSoup
@@ -27,7 +27,7 @@ from config import MY_EMAIL,MY_PASSWORD
 from sqlalchemy import or_,types
 import hashlib
 from sqlite3 import IntegrityError
-
+from google_auth_oauthlib.flow import Flow
 
 
 #-----------------------------------------------------------FLASK APP---------------------------------------------------
@@ -46,7 +46,13 @@ app.config['UPLOAD_FOLDER'] = 'static/files'
 bootstrap = Bootstrap(app)
 ckeditor = CKEditor(app)
 mail = Mail(app)
+GOOGLE_CLIENT_ID = "189199604424-0jjk99sperigk9s6eksd198dg6ol22ss.apps.googleusercontent.com"
+client_secrets_file = os.path.join(pathlib.Path(__file__).parent,"client-secret.json")
 
+
+flow = Flow.from_client_secrets_file(client_secrets_file=client_secrets_file,
+                                     scopes=["https://www.googleapis.com/auth/userinfo.profile","https://www.googleapis.com/auth/userinfo.email","openid"],
+                                     redirect_uri="http://127.0.0.1:5000/callback")
 
 # ------------------------------------------------------------ SMTP ----------------------------------------------------
 
@@ -379,7 +385,9 @@ def log_out():
     return redirect(url_for('home'))
 
 
-
+@app.route("/callback")
+def callback():
+    pass
 
 
 
