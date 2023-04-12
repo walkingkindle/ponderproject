@@ -93,8 +93,8 @@
        </div>
        <div class="col-md-12">
            <div class="post">
-               {% for quote in all_quotes %}
-               <a href="{{url_for('see_post',quote=quote.quote)}}"><h3 class="mb-5">{{quote.quote}}</h3></a>
+               {% for post in all_posts %}
+               <a href="{{url_for('see_post',quote=quote.quote,post_id = post.id)}}"><h3 class="mb-5">{{post.user_quote}}</h3></a>
                {% endfor %}
            </div>
        </div>

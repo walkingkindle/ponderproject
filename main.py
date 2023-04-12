@@ -64,7 +64,7 @@ login_manager.login_view = "login"
 #Configure Tables
 class User(users.Model,UserMixin):
         __tablename__ = "users"
-        id = users.Column(users.String,primary_key=True)
+        id = users.Column(users.Integer,primary_key=True)
         email = users.Column(users.String(250),nullable=False,unique=True)
         username = users.Column(users.String(250),nullable=False,unique=True)
         password = users.Column(users.String(1000),nullable=False)
@@ -76,22 +76,22 @@ class User(users.Model,UserMixin):
 
 class Posts(users.Model):
     __tablename__ = "posts"
-    id = users.Column(users.String, primary_key=True,nullable=True)
+    id = users.Column(users.Integer, primary_key=True,nullable=True)
     author_id = users.Column(users.String,users.ForeignKey('users.id'),nullable=True)
     clippings_filename = users.Column(users.String(250), nullable=True)
     user = relationship("User", back_populates="posts")
     body = users.Column(users.Text,nullable=True)
     quote = users.Column(users.String(250),unique=True)
     date = users.Column(users.String(250),nullable=True)
-    # img = users.Column(users.String(1000))
+    user_quote = users.Column(users.String(250),nullable=False)
 
 
 #connect databases to each other.
 # Creating Tables
-
-with app.app_context():
-    users.create_all()
-    users.session.commit()
+#
+# with app.app_context():
+#     users.create_all()
+#     users.session.commit()
 
 #-----------------------------------------------------------ENGINE------------------------------------------------------
 
@@ -138,10 +138,8 @@ def also_get_random_quote():
         print(quote)
         return quote
 
-def generate_custom_id(username, email):
-    data = f"{username}{email}"
-    data_bytes = data.encode('utf-8')
-    id = hashlib.sha256(data_bytes).hexdigest()
+def generate_custom_id():
+    id = random.randint(0,100)
     return id
 #-------------------------------------- FLASK ROUTES -----------------------------------------------------------------
 @login_manager.user_loader
@@ -164,7 +162,7 @@ def dashboard():
     quote = random.choice(quote_list)
     real_quote = quote[0]
     real_writer = quote[1]
-    all_quotes = Posts.query.all()
+    all_posts = Posts.query.all()
     if real_quote == real_writer:
         same = True
         # Choose a new quote and writer from quote_list
@@ -185,7 +183,7 @@ def dashboard():
     if len(real_quote) > len(real_writer):
         # Swap the values of real_quote and real_writer
         real_quote, real_writer = real_writer, real_quote
-    return render_template("Dashboard.html", quote=real_quote, writer=real_writer,all_quotes=all_quotes)
+    return render_template("Dashboard.html", quote=real_quote, writer=real_writer,all_posts=all_posts)
 
 
 @app.route('/choose-your-path')
@@ -206,26 +204,16 @@ def upload():
             return redirect(url_for("nothing_selected", current_user=current_user))
     return render_template("Kindle Upload.html", current_user=current_user)
 
-@app.route("/see-post",methods=["GET","POST"])
+@app.route("/see-post/<int:post_id>",methods=["GET","POST"])
 @login_required
-def see_post():
-    received_quote = request.args.get("quote")
-    print(received_quote)
-    user = User.query.filter_by(id=current_user.id).first()
-    post_data = Posts.query.filter_by(quote=received_quote,author_id=user.id).first()
-    if post_data is None:
-        return redirect(url_for("nothing_selected",redirect_from="see_post"))
-    else:
-        post_body = post_data.body
-        post_quote = post_data.quote
-        post_date = post_data.date
-    return render_template("see-post.html",quote=received_quote,post_body=post_body,current_user=current_user,date=date,post_quote=post_quote)
+def see_post(post_id):
+    requested_post = Posts.query.get(post_id)
+    return render_template("see-post.html",post = requested_post)
 
 
 @app.route('/nothing-here')
 def nothing_selected():
     redirect_from = request.args.get("redirect_from")
-    print(redirect_from)
     return render_template("file-not-selected.html")
 
 
@@ -242,7 +230,7 @@ def register():
         username = form.username.data
         password = form.password.data
         hashed_password = generate_password_hash(password=password,method="pbkdf2:sha256",salt_length=8)
-        id = generate_custom_id(username=username,email=e_mail)
+        id = generate_custom_id()
         # Get the current date
         current_date = datetime.datetime.now()
         # Format the date as "DD/MM/YYYY"
@@ -296,9 +284,8 @@ def write():
     quote = request.args.get("quote")
     writer = request.args.get("writer")
     body = form.body.data
-    id = generate_custom_id(username=writer,email=quote)
-    print(quote)
-    print(writer)
+    quote2 = form.quote.data
+    id = generate_custom_id()
     current_date = datetime.datetime.now()
     formatted_datetime = current_date.strftime("%d/%m/%Y")
     if form.validate_on_submit():
@@ -306,13 +293,14 @@ def write():
             quote = f"{quote}, {writer}",
             body = body,
             id=id,
-            author_id = f"{current_user.first_name}{current_user.id[:10]}",
-            date = formatted_datetime
+            user= current_user,
+            date = formatted_datetime,
+            user_quote=quote2
         )
         users.session.add(new_post)
         users.session.commit()
         return redirect(url_for("dashboard"))
-    return render_template("Write.html",form=form,current_user=current_user,quote=quote)
+    return render_template("Write.html",form=form,current_user=current_user,quote=quote,quote2=quote2,body=body,date=formatted_datetime)
 
 @app.route("/contact-me",methods = ["GET","POST"])
 def contact():

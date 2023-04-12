@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Making a new, see-post page and redirecting the user to that page whenever he writes a post.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Creating an exception in case the user cannot find th post_data.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/file-not-selected.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/file-not-selected.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/see-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/see-post.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,13 +71,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Adding HTML files">
-      <created>1677856034644</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1677856034644</updated>
     </task>
     <task id="LOCAL-00003" summary="Adding HTML files">
       <created>1677856125074</created>
@@ -416,7 +408,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681224408090</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Creating an exception in case the user cannot find th post_data.">
+      <created>1681231437022</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1681231437022</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -431,7 +430,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Customizing file upload and error not uploaded" />
     <MESSAGE value="Styling Error page" />
     <MESSAGE value="Finalizing the uploading feature." />
     <MESSAGE value="Implementing and styling the dashboard-upload onto the dashboard page that renders the quote with jinja code." />
@@ -456,6 +454,7 @@
     <MESSAGE value="Implementing database" />
     <MESSAGE value="Fixing and adjusting the layout of dashboard." />
     <MESSAGE value="Making a new, see-post page and redirecting the user to that page whenever he writes a post." />
-    <option name="LAST_COMMIT_MESSAGE" value="Making a new, see-post page and redirecting the user to that page whenever he writes a post." />
+    <MESSAGE value="Creating an exception in case the user cannot find th post_data." />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating an exception in case the user cannot find th post_data." />
   </component>
 </project>

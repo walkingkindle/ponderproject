@@ -62,12 +62,12 @@
 
     <!-- Jumbotron -->
     <div id="intro" class="p-5 text-center bg-light">
-      <h1 class="mb-0 h4">{{post_quote}}</h1>
+      <h1 class="mb-0 h4">{{post.user_quote}}</h1>
     </div>
     <!-- Jumbotron -->
 
   <!--Main Navigation-->
-
+<h1> Original quote: {{post.quote}}</h1>
   <!--Main layout-->
   <main class="mt-4 mb-5">
     <div class="container">
@@ -82,8 +82,8 @@
 
             <div class="row align-items-center mb-4">
               <div class="col-lg-6 text-center text-lg-start mb-3 m-lg-0">
-                <span> Published <u>{{date}}</u> by</span>
-                <a href="" class="text-dark">{{current_user.first_name}}</a>
+                <span> Published <u>{{post.date}}</u> by</span>
+                <a href="" class="text-dark">{{current_user.username}}</a>
               </div>
 
               <div class="col-lg-6 text-center text-lg-end">
@@ -107,7 +107,7 @@
           <!--Section: Text-->
           <section>
             <p>
-                {{post_body}}
+                {{post.body}}
             </p>
             <p class="note note-light">
             </p>
