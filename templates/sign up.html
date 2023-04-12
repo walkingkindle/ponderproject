@@ -61,6 +61,16 @@
   {% endif %}
   </dd>
 {% endmacro %}
+
+<script>
+    document.getElementById('google-log-in').addEventListener('click',log_in() {
+         fetch('/log_in')
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the response or trigger a function based on the response
+                })
+                .catch(error => console.error(error));
+</script>
       <div class="content">
          <div class="container">
             <div class="row">
@@ -90,7 +100,7 @@
                               <a href="#" class="twitter">
                               <span> <i class="fab fa-twitter"></i></span>
                               </a>
-                              <a href="#" class="google">
+                              <a  href="#" id="google-log-in" class="google">
                               <span class="fa fa-google mr-3"></span>
                               </a>
                            </div>

@@ -4,7 +4,7 @@ import random
 import requests
 from bs4 import BeautifulSoup
 import itertools
-from flask import Flask, render_template, redirect, url_for, flash,request
+from flask import Flask, render_template, redirect, url_for, flash, request, abort
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
 import datetime
@@ -28,7 +28,13 @@ from sqlalchemy import or_,types
 import hashlib
 from sqlite3 import IntegrityError
 from google_auth_oauthlib.flow import Flow
-
+import os
+import pathlib
+import requests
+from google.oauth2 import id_token
+from google_auth_oauthlib.flow import Flow
+from pip._vendor import cachecontrol
+import google.auth.transport.requests
 
 #-----------------------------------------------------------FLASK APP---------------------------------------------------
 #Initiating FLask APP
@@ -229,8 +235,14 @@ def search_page():
     return render_template("Search.html")
 
 @app.route("/register",methods=['GET','POST'])
+# ADD EVENT LISTENER TO MAKE SURE IT WORKS IN THE REGISTER AND THE LOG IN PAGE
+
 def register():
     form = Register()
+    if request.form.get('myAnchorTagClicked') == 'true':
+        authorization_url,state = flow.authorization_url()
+        session["state"] = state
+        return redirect(authorization_url)
     if request.method == 'POST':
         e_mail = request.form.get("email")
         username = form.username.data
@@ -261,7 +273,12 @@ def register():
     return render_template("sign up.html",current_user=current_user,form=form)
 
 @app.route("/log_in", methods=["POST", "GET"])
+# ADD EVENT LISTENER TO MAKE SURE IT WORKS IN THE REGISTER AND THE LOG IN PAGE
 def log_in():
+    if request.form.get('myAnchorTagClicked') == 'true':
+        authorization_url,state = flow.authorization_url()
+        session["state"] = state
+        return redirect(authorization_url)
     if request.method == 'POST':
         entered_email = request.form.get('email')
         entered_password = request.form.get('password')
@@ -387,7 +404,22 @@ def log_out():
 
 @app.route("/callback")
 def callback():
-    pass
+    flow.fetch_token(authorization_response=request.url)
+    if not session['state'] == request.args["state"]:
+        abort(500)
+
+    credentials = flow.credentials
+    request_session = request.session()
+    cached_session = cachecontrol.CacheControl(request_session)
+    token_request = google.auth.transport.requests.Request(session=cached_session)
+
+    id_info = id_token.verify_oauth2_token(
+        id_token = credentials._id_token,
+        request = token_request,
+        audience= GOOGLE_CLIENT_ID
+
+    )
+    return id_info
 
 
 

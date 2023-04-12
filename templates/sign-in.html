@@ -58,6 +58,15 @@
       </div>
    </nav>
 </div>
+<script>
+    document.getElementById('google-log-in').addEventListener('click',log_in() {
+         fetch('/log_in')
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the response or trigger a function based on the response
+                })
+                .catch(error => console.error(error));
+</script>
       <div class="main">
          <div class="container">
              <form action="{{url_for('log_in')}}" method="post">
