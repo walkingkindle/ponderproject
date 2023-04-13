@@ -13,7 +13,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
-from flask import Flask, render_template,session
+from flask import Flask, render_template,session,json
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user,login_manager
 from wtforms import StringField, SubmitField,SelectField
 from wtforms.validators import DataRequired,url
@@ -37,6 +37,12 @@ from google_auth_oauthlib.flow import Flow
 from pip._vendor import cachecontrol
 import google.auth.transport.requests
 from authlib.integrations.flask_client import OAuth
+from authlib.integrations.requests_client import OAuth2Session
+from authlib.integrations.base_client.errors import OAuthError
+
+import logging
+import sys
+
 
 #-----------------------------------------------------------FLASK APP---------------------------------------------------
 #Initiating FLask APP
@@ -56,20 +62,25 @@ ckeditor = CKEditor(app)
 mail = Mail(app)
 
 #oath config
-google_client_id = "189199604424-0jjk99sperigk9s6eksd198dg6ol22ss.apps.googleusercontent.com"
+
+
 oauth = OAuth(app)
+google_client_id = "189199604424-0jjk99sperigk9s6eksd198dg6ol22ss.apps.googleusercontent.com"
+google_client_secret = "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"
+
 google = oauth.register(
     name='google',
-    client_id=google_client_id,
-    client_secret="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",
-    access_token_url='https://accounts.google.com/o/oauth2/token',
+    client_id= google_client_id,
+    client_secret= google_client_secret,
+    access_token_url="https://www.googleapis.com/oauth2/v4/token",
     access_token_params=None,
-    authorize_url='https://accounts.google.com/o/oauth2/auth',
+    authorize_url="https://accounts.google.com/o/oauth2/v2/auth",
     authorize_params=None,
-    api_base_url='https://www.googleapis.com/oauth2/v1/',
+    api_base_url="https://www.googleapis.com/oauth2/v3/",
     userinfo_endpoint='https://openidconnect.googleapis.com/v1/userinfo',
-    # This is only needed if using openId to fetch user info
     client_kwargs={'scope': 'openid email profile'},
+    server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
+    jwks_uri = "https://www.googleapis.com/oauth2/v3/certs",
 )
 
 
@@ -248,7 +259,6 @@ def search_page():
     return render_template("Search.html")
 
 @app.route("/register",methods=['GET','POST'])
-# ADD EVENT LISTENER TO MAKE SURE IT WORKS IN THE REGISTER AND THE LOG IN PAGE
 
 def register():
     google = oauth.create_client('google')
@@ -283,13 +293,29 @@ def register():
     return render_template("sign up.html",current_user=current_user,form=form)
 
 
-@app.route("/login-with-google")
+@app.route('/login-with-google')
 def login_with_google():
-    user_info = request.args.get("user_info")
-    user_info = json.loads(user_info)
-    email = user_info["email"]
-    name = user_info["name"]
-    #make this work
+    token = google.authorize_access_token()
+    user_info = google.get('userinfo').json()
+    email = user_info['email']
+    name = user_info['name']
+    password = user_info['password']
+    user = users.session.query(User).filter_by(email=email).first()
+    if user:
+        login_user(user)
+        return redirect(url_for("home",current_user=current_user))
+    else:
+        new_user = User(
+            email=email,
+            password=password,
+            username=name,
+            id=generate_custom_id()
+        )
+        users.session.add(new_user)
+        users.session.commit()
+        login_user(new_user)
+    return redirect(url_for('home',current_user=current_user))
+
 
 
 @app.route("/log_in", methods=["POST", "GET"])
@@ -316,10 +342,14 @@ def log_in():
 @app.route("/authorize")
 def authorize():
     google = oauth.create_client('google')
+    redirect_uri = url_for("callback",_external=True)
+    return google.authorize_redirect(redirect_uri, access_type='offline', prompt='consent')
+@app.route("/callback")
+def callback():
+    google = oauth.create_client('google')
     token = google.authorize_access_token()
     resp = google.get('userInfo')
-    user_info = resp.json()
-    return redirect(url_for("login_with_google",user_info=user_info))
+    return redirect(url_for("login_with_google"))
 
 
 @app.route('/write',methods=['GET','POST'])

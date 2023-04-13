@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Implementing redirect on the google_sign_in">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Updating google log in">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign-in.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,13 +71,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00006" summary="completing the front page and ajdusting the size to make the website more responsive.">
-      <created>1677942222907</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1677942222907</updated>
     </task>
     <task id="LOCAL-00007" summary="sign up page">
       <created>1678456119773</created>
@@ -414,7 +408,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681311532243</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Updating google log in">
+      <created>1681318876752</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1681318876753</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -429,7 +430,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implementing the contact me page." />
     <MESSAGE value="Finalizing contact page." />
     <MESSAGE value="Reformatting" />
     <MESSAGE value="Adding and styling the account page, adding the account page to the navBar" />
@@ -454,6 +454,7 @@
     <MESSAGE value="Making sure that show posts actually shows posts, lol&#10;Next up: Format the post so if the quote changes, it won't affect the layout!" />
     <MESSAGE value="Fixing the layout of see_post.html, implementing google_sing_in" />
     <MESSAGE value="Implementing redirect on the google_sign_in" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing redirect on the google_sign_in" />
+    <MESSAGE value="Updating google log in" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating google log in" />
   </component>
 </project>
