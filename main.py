@@ -1,11 +1,10 @@
 #----------------------------------------------------------------------IMPORTS------------------------------------------
-import json
+
 import pathlib
 import random
 import requests
 from bs4 import BeautifulSoup
-import itertools
-from flask import Flask, render_template, redirect, url_for, flash, request, abort
+from flask import redirect, url_for, flash, request
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
 import datetime
@@ -13,19 +12,19 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
-from flask import Flask, render_template,session,json
+from flask import Flask, render_template
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user,login_manager
-from wtforms import StringField, SubmitField,SelectField
-from wtforms.validators import DataRequired,url
+from wtforms import StringField, SubmitField, SelectField
+from wtforms.validators import DataRequired, url
 import csv
 import uuid
 import os
 from sqlalchemy.ext.declarative import declarative_base
-from forms import Write,Register
+from forms import Write, Register
 import smtplib
-from flask_mail import Mail,Message
-from config import MY_EMAIL,MY_PASSWORD
-from sqlalchemy import or_,types
+from flask_mail import Mail, Message
+from config import MY_EMAIL, MY_PASSWORD
+from sqlalchemy import or_, types
 import hashlib
 from sqlite3 import IntegrityError
 from google_auth_oauthlib.flow import Flow
@@ -117,7 +116,7 @@ class Posts(users.Model):
     clippings_filename = users.Column(users.String(250), nullable=True)
     user = relationship("User", back_populates="posts")
     body = users.Column(users.Text,nullable=True)
-    quote = users.Column(users.String(250),unique=True)
+    quote = users.Column(users.String(250))
     date = users.Column(users.String(250),nullable=True)
     user_quote = users.Column(users.String(250),nullable=False)
 
@@ -249,7 +248,6 @@ def see_post(post_id):
 
 @app.route('/nothing-here')
 def nothing_selected():
-    redirect_from = request.args.get("redirect_from")
     return render_template("file-not-selected.html")
 
 
@@ -259,7 +257,6 @@ def search_page():
     return render_template("Search.html")
 
 @app.route("/register",methods=['GET','POST'])
-
 def register():
     google = oauth.create_client('google')
     form = Register()
@@ -339,11 +336,15 @@ def log_in():
     else:
         entered_email = request.args.get('email', '')
         return render_template("sign-in.html", email=entered_email)
+
+
 @app.route("/authorize")
 def authorize():
     google = oauth.create_client('google')
     redirect_uri = url_for("callback",_external=True)
     return google.authorize_redirect(redirect_uri, access_type='offline', prompt='consent')
+
+
 @app.route("/callback")
 def callback():
     google = oauth.create_client('google')
@@ -356,27 +357,50 @@ def callback():
 @login_required
 def write():
     form = Write()
+    new_quote = get_random_quote()
+    dash_quote = request.args.get("quote")
     redirect_from = request.args.get("redirect_from")
-    quote = request.args.get("quote")
-    writer = request.args.get("writer")
-    body = form.body.data
-    quote2 = form.quote.data
-    id = generate_custom_id()
-    current_date = datetime.datetime.now()
-    formatted_datetime = current_date.strftime("%d/%m/%Y")
-    if form.validate_on_submit():
-        new_post = Posts(
-            quote = f"{quote}, {writer}",
-            body = body,
-            id=id,
-            user= current_user,
-            date = formatted_datetime,
-            user_quote=quote2
-        )
-        users.session.add(new_post)
-        users.session.commit()
-        return redirect(url_for("dashboard"))
-    return render_template("Write.html",form=form,current_user=current_user)
+    if redirect_from == 'home':
+        print(redirect_from)
+        body = form.body.data
+        quote2 = form.quote.data
+        id = generate_custom_id()
+        current_date = datetime.datetime.now()
+        formatted_datetime = current_date.strftime("%d/%m/%Y")
+        if form.validate_on_submit():
+            new_post = Posts(
+                quote = new_quote,
+                body = body,
+                id = id,
+                user = current_user,
+                date = formatted_datetime,
+                user_quote = quote2
+            )
+            users.session.add(new_post)
+            users.session.commit()
+            return redirect(url_for("see_post",quote=new_quote,form=form,current_user=current_user,post_id=id,redirect_from=redirect_from))
+    elif redirect_from == 'dashboard':
+        print(redirect_from)
+        quote = request.args.get("quote")
+        writer = request.args.get("writer")
+        body = form.body.data
+        quote2 = form.quote.data
+        id = generate_custom_id()
+        current_date = datetime.datetime.now()
+        formatted_datetime = current_date.strftime("%d/%m/%Y")
+        if form.validate_on_submit():
+            new_post = Posts(
+                quote = f"{quote}, {writer}",
+                body = body,
+                id=id,
+                user= current_user,
+                date = formatted_datetime,
+                user_quote=quote2
+                )
+            users.session.add(new_post)
+            users.session.commit()
+            return redirect(url_for("see_post", quote=quote, form=form, current_user=current_user,post_id=id,redirect_from=redirect_from))
+    return render_template("Write.html",form=form,current_user=current_user,quote=new_quote,quote2=dash_quote,redirect_from=redirect_from)
 
 @app.route("/contact-me",methods = ["GET","POST"])
 def contact():
@@ -388,9 +412,9 @@ def contact():
         msg = Message(subject=subject, body=f' From: {sender_email}\n {body}', sender=sender_email, recipients=[app.config['MAIL_USERNAME']])
         mail.send(msg)
         sent = True
-        return redirect(url_for("home",sent=sent,current_user=current_user))
+        return redirect(url_for("home",sent=sent, current_user=current_user))
     sent = False
-    return render_template("contact-me.html",sent=sent,current_user=current_user)
+    return render_template("contact-me.html", sent=sent, current_user=current_user)
 
 
 @app.route("/edit_user", methods=["GET", "POST"])
@@ -431,7 +455,7 @@ def edit_user():
 @app.route("/account",methods=["GET","POST"])
 def account():
     if request.method == "POST":
-        return redirect(url_for("edit_user",current_user=current_user))
+        return redirect(url_for("edit_user", current_user=current_user))
     return render_template("account-info.html")
 
 
@@ -448,6 +472,8 @@ def delete_user():
             logout_user()
             return redirect(url_for("home"))
     return render_template("delete-user.html")
+
+
 @app.route('/logout')
 @login_required
 def log_out():
