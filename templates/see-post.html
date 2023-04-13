@@ -138,7 +138,7 @@
                 <div class="container">
                   <div class="row">
                      <section id="body-and-button">
-                           <p>{{post.body}}</p>
+                           <p>{{ post.body|safe }}</p>
                         <br>
                       <a class="btn btn-btn-primary btn-outline-dark btn-lg" href="{{url_for('write',redirect_from='see_post')}}" id="edit-button">Edit</a>
                     </section>

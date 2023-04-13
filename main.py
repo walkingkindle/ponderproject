@@ -376,7 +376,7 @@ def write():
         users.session.add(new_post)
         users.session.commit()
         return redirect(url_for("dashboard"))
-    return render_template("Write.html",form=form,current_user=current_user,quote=quote,quote2=quote2,body=body,date=formatted_datetime)
+    return render_template("Write.html",form=form,current_user=current_user)
 
 @app.route("/contact-me",methods = ["GET","POST"])
 def contact():
