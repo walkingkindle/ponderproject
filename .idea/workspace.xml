@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixed an issue where the post tags appear with &lt;p&gt; instead of like normal text">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Updating the layout of Write.html in case the user does not upload hisMy Clippings.txt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Edit-User.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Edit-User.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Kindle Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Kindle Upload.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Upload File.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Upload File.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Write.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/see-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/see-post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign-in.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,13 +77,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00009" summary="finalizing Dashboard.html, few changes left">
-      <created>1678650422547</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1678650422547</updated>
     </task>
     <task id="LOCAL-00010" summary="creating and styling write.html">
       <created>1678698213186</created>
@@ -419,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681395196603</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Updating the layout of Write.html in case the user does not upload hisMy Clippings.txt">
+      <created>1681399365752</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1681399365753</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -434,7 +436,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding and styling the account page, adding the account page to the navBar" />
     <MESSAGE value="Making the account page work." />
     <MESSAGE value="Making the edit account sync with page account." />
     <MESSAGE value="Fixed the bug where the edit_user would only change one button instead of all variables." />
@@ -459,6 +460,7 @@
     <MESSAGE value="Updating google log in" />
     <MESSAGE value="Updating google and auth library to make it work" />
     <MESSAGE value="Fixed an issue where the post tags appear with &lt;p&gt; instead of like normal text" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed an issue where the post tags appear with &lt;p&gt; instead of like normal text" />
+    <MESSAGE value="Updating the layout of Write.html in case the user does not upload hisMy Clippings.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating the layout of Write.html in case the user does not upload hisMy Clippings.txt" />
   </component>
 </project>
