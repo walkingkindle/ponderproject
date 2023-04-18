@@ -81,11 +81,17 @@
                </div>
             </div>
             <a href="{{url_for('write',redirect_from='dashboard',quote=writer,writer=quote)}}" class="read-more">Ponder here</a>
+             <a  href="javascript:location.reload(true)" id="reload-page" class="read-more">Or click here to get a different quote</a>
          </div>
           </blockquote>
       </div>
 </div>
-
+ <script>
+  document.getElementById('reload-page').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default link behavior
+    window.location.reload(); // Reload the page
+  });
+</script>
 <div class="container">
    <div class="row">
        <div class="col-md-12" id="other-posts-div">

@@ -234,13 +234,16 @@ def choose_path():
 @login_required
 def upload():
     if request.method == 'POST':
-        file = request.files.get('My Clippings')
-        file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename)))
-        if file:
-            filename = secure_filename(file.filename)
-            return redirect(url_for("dashboard",redirect_from="upload",current_user=current_user))
-        else:
-            return redirect(url_for("nothing_selected", current_user=current_user))
+        try:
+            file = request.files.get('My Clippings')
+            file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename)))
+            if file:
+                filename = secure_filename(file.filename)
+                return redirect(url_for("dashboard",redirect_from="upload",current_user=current_user))
+            else:
+                return redirect(url_for("nothing_selected", current_user=current_user))
+        except FileNotFoundError:
+            return redirect(url_for('nothing_selected'))
     return render_template("Kindle Upload.html", current_user=current_user)
 
 @app.route("/see-post/<int:post_id>",methods=["GET","POST"])
@@ -408,7 +411,25 @@ def write():
             users.session.add(new_post)
             users.session.commit()
             return redirect(url_for("see_post", quote=quote, form=form, current_user=current_user,post_id=id,redirect_from=redirect_from))
-    return render_template("Write.html",form=form,current_user=current_user,quote=new_quote,quote2=dash_quote,redirect_from=redirect_from)
+    return render_template("Write.html",form=form,current_user=current_user,quote=new_quote,quote2=dash_quote,redirect_from=redirect_from,writer=writer)
+
+
+@app.route("/edit-post/<int:post_id>",methods=['GET','POST'])
+def edit_post(post_id):
+    post = Posts.query.get(post_id)
+    quote = post.quote
+    edit_form = Write(
+        quote=post.user_quote,
+        body = post.body,
+    )
+    if edit_form.validate_on_submit():
+        post.user_quote=edit_form.quote.data
+        post.body=edit_form.body.data
+        post.author=current_user
+        users.session.commit()
+        return redirect(url_for('see_post',post_id=post.id))
+    return render_template('Write.html',form=edit_form,is_edit=True,current_user=current_user,quote=quote)
+
 
 @app.route("/contact-me",methods = ["GET","POST"])
 def contact():

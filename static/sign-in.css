@@ -510,6 +510,39 @@ input[type=checkbox]:not(old):checked+label>span:before {
 		margin-top: 20px;
 	}
 
+  .social-login a {
+  text-decoration: none;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block; }
+  .social-login a span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+  .social-login a:hover {
+    color: #fff; }
+  .social-login a.facebook {
+    background: #3b5998; }
+    .social-login a.facebook:hover {
+      background: #344e86; }
+  .social-login a.twitter {
+    background: #1da1f2; }
+    .social-login a.twitter:hover {
+      background: #0d95e8; }
+  .social-login a.google {
+    background: #ea4335; }
+    .social-login a.google:hover {
+      background: #e82e1e; }
+
+
 	.sign-up-content {
 		text-align: left;
 	}

@@ -140,7 +140,7 @@
                      <section id="body-and-button">
                            <p>{{ post.body|safe }}</p>
                         <br>
-                      <a class="btn btn-btn-primary btn-outline-dark btn-lg" href="{{url_for('write',redirect_from='see_post')}}" id="edit-button">Edit</a>
+                      <a class="btn btn-btn-primary btn-outline-dark btn-lg" href="{{url_for('edit_post',post_id=post.id)}}" id="edit-button">Edit</a>
                     </section>
                </div>
             </div>

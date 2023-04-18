@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixed the google authentication so it redirects the user to the index page.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Creating a user from google log in route">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sign-in.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/sign-in.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/see-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/see-post.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign-in.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,13 +74,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00012" summary="styling sign up and making it responsive html">
-      <created>1678879531694</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1678879531694</updated>
     </task>
     <task id="LOCAL-00013" summary="styling write and making it responsive.">
       <created>1678889490990</created>
@@ -414,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681814034509</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Creating a user from google log in route">
+      <created>1681830330698</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1681830330698</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -429,7 +433,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed the bug where the edit_user would only change one button instead of all variables." />
     <MESSAGE value="Fixed an issue where the quote variable does not appear, and changed the upload function so that the label changes after the file has been uploaded." />
     <MESSAGE value="Adjusting the MyClippings and adding it to the directory" />
     <MESSAGE value="Fixing the code so that the quote is loaded from the user from previous sessions" />
@@ -454,6 +457,7 @@
     <MESSAGE value="Updating the layout of Write.html in case the user does not upload hisMy Clippings.txt" />
     <MESSAGE value="Adding and customizing footers" />
     <MESSAGE value="Fixed the google authentication so it redirects the user to the index page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the google authentication so it redirects the user to the index page." />
+    <MESSAGE value="Creating a user from google log in route" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating a user from google log in route" />
   </component>
 </project>
