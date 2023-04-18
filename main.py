@@ -2,9 +2,12 @@
 
 import pathlib
 import random
+import secrets
+
 import requests
+from authlib.common.encoding import to_bytes
 from bs4 import BeautifulSoup
-from flask import redirect, url_for, flash, request
+from flask import redirect, url_for, flash, request, session, abort
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
 import datetime
@@ -41,6 +44,15 @@ from authlib.integrations.base_client.errors import OAuthError
 
 import logging
 import sys
+import os
+import pathlib
+
+import requests
+from flask import Flask, session, abort, redirect, request
+from google.oauth2 import id_token
+from google_auth_oauthlib.flow import Flow
+from pip._vendor import cachecontrol
+import google.auth.transport.requests
 
 
 #-----------------------------------------------------------FLASK APP---------------------------------------------------
@@ -64,23 +76,14 @@ mail = Mail(app)
 
 
 oauth = OAuth(app)
+oauth.init_app(app)
 google_client_id = "189199604424-0jjk99sperigk9s6eksd198dg6ol22ss.apps.googleusercontent.com"
 google_client_secret = "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"
-
-google = oauth.register(
-    name='google',
-    client_id= google_client_id,
-    client_secret= google_client_secret,
-    access_token_url="https://www.googleapis.com/oauth2/v4/token",
-    access_token_params=None,
-    authorize_url="https://accounts.google.com/o/oauth2/v2/auth",
-    authorize_params=None,
-    api_base_url="https://www.googleapis.com/oauth2/v3/",
-    userinfo_endpoint='https://openidconnect.googleapis.com/v1/userinfo',
-    client_kwargs={'scope': 'openid email profile'},
-    server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
-    jwks_uri = "https://www.googleapis.com/oauth2/v3/certs",
-)
+client_secrets_file = os.path.join(pathlib.Path(__file__).parent,"client-secret.json")
+flow = Flow.from_client_secrets_file(client_secrets_file=client_secrets_file,
+                                     scopes=["https://www.googleapis.com/auth/userinfo.profile",
+                                             "https://www.googleapis.com/auth/userinfo.email", "openid"],
+                                     redirect_uri = "http://127.0.0.1:5000/callback")
 
 
 # ------------------------------------------------------------ SMTP ----------------------------------------------------
@@ -95,6 +98,7 @@ users = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
+os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
 #Configure Tables
 class User(users.Model,UserMixin):
@@ -266,9 +270,7 @@ def register():
         password = form.password.data
         hashed_password = generate_password_hash(password=password,method="pbkdf2:sha256",salt_length=8)
         id = generate_custom_id()
-        # Get the current date
         current_date = datetime.datetime.now()
-        # Format the date as "DD/MM/YYYY"
         formatted_date = current_date.strftime("%d/%m/%Y")
         new_user = User(
             email=e_mail,
@@ -292,33 +294,14 @@ def register():
 
 @app.route('/login-with-google')
 def login_with_google():
-    token = google.authorize_access_token()
-    user_info = google.get('userinfo').json()
-    email = user_info['email']
-    name = user_info['name']
-    password = user_info['password']
-    user = users.session.query(User).filter_by(email=email).first()
-    if user:
-        login_user(user)
-        return redirect(url_for("home",current_user=current_user))
-    else:
-        new_user = User(
-            email=email,
-            password=password,
-            username=name,
-            id=generate_custom_id()
-        )
-        users.session.add(new_user)
-        users.session.commit()
-        login_user(new_user)
-    return redirect(url_for('home',current_user=current_user))
+    authorization_url,state = flow.authorization_url()
+    session["state"] = state
+    return redirect(authorization_url)
 
 
 
 @app.route("/log_in", methods=["POST", "GET"])
-# ADD EVENT LISTENER TO MAKE SURE IT WORKS IN THE REGISTER AND THE LOGIN PAGE
 def log_in():
-
     if request.method == 'POST':
         entered_email = request.form.get('email')
         entered_password = request.form.get('password')
@@ -338,19 +321,25 @@ def log_in():
         return render_template("sign-in.html", email=entered_email)
 
 
-@app.route("/authorize")
-def authorize():
-    google = oauth.create_client('google')
-    redirect_uri = url_for("callback",_external=True)
-    return google.authorize_redirect(redirect_uri, access_type='offline', prompt='consent')
-
 
 @app.route("/callback")
 def callback():
-    google = oauth.create_client('google')
-    token = google.authorize_access_token()
-    resp = google.get('userInfo')
-    return redirect(url_for("login_with_google"))
+    flow.fetch_token(authorization_response=request.url)
+
+    if not session["state"] == request.args['state']:
+        abort(500)
+
+    credentials = flow.credentials
+    request_session = requests.session()
+    cached_session = cachecontrol.CacheControl(request_session)
+    token_request = google.auth.transport.requests.Request(session=cached_session)
+    id_info = id_token.verify_oauth2_token(
+        id_token=credentials._id_token,
+        request=token_request,
+        audience=google_client_id
+    )
+    return redirect(url_for('home'))
+
 
 
 @app.route('/write',methods=['GET','POST'])
