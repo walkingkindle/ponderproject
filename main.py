@@ -3,7 +3,7 @@
 import pathlib
 import random
 import secrets
-
+import pprint
 import requests
 from authlib.common.encoding import to_bytes
 from bs4 import BeautifulSoup
@@ -105,8 +105,8 @@ class User(users.Model,UserMixin):
         __tablename__ = "users"
         id = users.Column(users.Integer,primary_key=True)
         email = users.Column(users.String(250),nullable=False,unique=True)
-        username = users.Column(users.String(250),nullable=False,unique=True)
-        password = users.Column(users.String(1000),nullable=False)
+        username = users.Column(users.String(250),nullable=True,unique=True)
+        password = users.Column(users.String(1000),nullable=True)
         first_name = users.Column(users.String(250),nullable=True)
         last_name = users.Column(users.String(250),nullable=True)
         continent = users.Column(users.String(250),nullable=True)
@@ -128,9 +128,9 @@ class Posts(users.Model):
 #connect databases to each other.
 # Creating Tables
 #
-# with app.app_context():
-#     users.create_all()
-#     users.session.commit()
+with app.app_context():
+    users.create_all()
+    users.session.commit()
 
 #-----------------------------------------------------------ENGINE------------------------------------------------------
 
@@ -262,7 +262,6 @@ def search_page():
 
 @app.route("/register",methods=['GET','POST'])
 def register():
-    google = oauth.create_client('google')
     form = Register()
     if request.method == 'POST':
         e_mail = request.form.get("email")
@@ -338,7 +337,27 @@ def callback():
         request=token_request,
         audience=google_client_id
     )
-    return redirect(url_for('home'))
+    pprint.pprint(id_info)
+    username = id_info['name']
+    email = id_info['email']
+    first_name = id_info['given_name']
+    last_name = id_info['family_name']
+    user = users.session.query(User).filter_by(email=email).first()
+    if user:
+        login_user(user)
+        return redirect(url_for('home',current_user=current_user))
+    else:
+        new_user = User(
+            username=username,
+            email = email,
+            first_name = first_name,
+            last_name = last_name,
+            id = generate_custom_id()
+        )
+        login_user(new_user)
+        users.session.add(new_user)
+        users.session.commit()
+        return redirect(url_for('home',current_user=current_user))
 
 
 
