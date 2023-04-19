@@ -1,61 +1,50 @@
 #----------------------------------------------------------------------IMPORTS------------------------------------------
-
-import pathlib
-import random
-import secrets
-import pprint
-import requests
-from authlib.common.encoding import to_bytes
-from bs4 import BeautifulSoup
-from flask import redirect, url_for, flash, request, session, abort
+#FLASK
+import sqlalchemy
+from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, url_for, flash,session, abort, redirect, request
+from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user,login_manager
+from flask_mail import Mail, Message
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
-import datetime
+from sqlalchemy.exc import IntegrityError
+
+#WERZEUG
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
-from flask_sqlalchemy import SQLAlchemy
+
+#MISCELLANIOUS
+import random
+import pprint
+from bs4 import BeautifulSoup
+import datetime
+
+#SQL
 from sqlalchemy.orm import relationship
-from flask import Flask, render_template
-from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user,login_manager
-from wtforms import StringField, SubmitField, SelectField
-from wtforms.validators import DataRequired, url
-import csv
-import uuid
-import os
-from sqlalchemy.ext.declarative import declarative_base
 from forms import Write, Register
-import smtplib
-from flask_mail import Mail, Message
-from config import MY_EMAIL, MY_PASSWORD
 from sqlalchemy import or_, types
-import hashlib
-from sqlite3 import IntegrityError
-from google_auth_oauthlib.flow import Flow
-import os
-import pathlib
-import requests
-from google.oauth2 import id_token
-from google_auth_oauthlib.flow import Flow
-from pip._vendor import cachecontrol
+
+#GOOGLE AUTH
 import google.auth.transport.requests
 from authlib.integrations.flask_client import OAuth
-from authlib.integrations.requests_client import OAuth2Session
-from authlib.integrations.base_client.errors import OAuthError
-
-import logging
-import sys
 import os
 import pathlib
-
+from dotenv import load_dotenv
 import requests
-from flask import Flask, session, abort, redirect, request
 from google.oauth2 import id_token
 from google_auth_oauthlib.flow import Flow
 from pip._vendor import cachecontrol
 import google.auth.transport.requests
+
+#GOOGLE BOOKS
+from googleapiclient.discovery import build
+from google.oauth2 import service_account
+
 
 
 #-----------------------------------------------------------FLASK APP---------------------------------------------------
+
+
 #Initiating FLask APP
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
@@ -64,8 +53,10 @@ app.config['MAIL_SERVER'] = "smtp.gmail.com"
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = MY_EMAIL
-app.config['MAIL_PASSWORD'] = MY_PASSWORD
+app.config['MAIL_USERNAME'] = os.getenv('MY_EMAIL')
+app.config['MAIL_PASSWORD'] = os.getenv('MY_PASSWORD')
+print(app.config['MAIL_USERNAME'])
+print(app.config['MAIL_PASSWORD'])
 ALLOWED_EXTENSIONS = {'txt'}
 app.config['UPLOAD_FOLDER'] = 'static/files'
 bootstrap = Bootstrap(app)
@@ -75,10 +66,10 @@ mail = Mail(app)
 #oath config
 
 
+
 oauth = OAuth(app)
 oauth.init_app(app)
-google_client_id = "189199604424-0jjk99sperigk9s6eksd198dg6ol22ss.apps.googleusercontent.com"
-google_client_secret = "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"
+
 client_secrets_file = os.path.join(pathlib.Path(__file__).parent,"client-secret.json")
 flow = Flow.from_client_secrets_file(client_secrets_file=client_secrets_file,
                                      scopes=["https://www.googleapis.com/auth/userinfo.profile",
@@ -128,9 +119,14 @@ class Posts(users.Model):
 #connect databases to each other.
 # Creating Tables
 #
-with app.app_context():
-    users.create_all()
-    users.session.commit()
+# with app.app_context():
+#     users.create_all()
+#     users.session.commit()
+
+
+#KEYS
+
+
 
 #-----------------------------------------------------------ENGINE------------------------------------------------------
 
@@ -138,6 +134,9 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+
+def configure():
+    load_dotenv()
 
 def extract_quotes_with_writers(filename,clippings_path):
     with open(rf"{clippings_path}/{filename}", "r", encoding="utf-8") as text_file:
@@ -261,7 +260,25 @@ def nothing_selected():
 
 @app.route("/search-page")
 def search_page():
-    return render_template("Search.html")
+    # GOOGLE BOOKS
+    api_url = "https://www.googleapis.com/books/v1/volumes"
+    book_query = "12 rules for life"
+    api_key = os.getenv('GOOGLE_BOOKS_API_KEY')
+    params = {
+        "q": book_query
+    }
+    response = requests.get(url=api_url, params=params)
+    response.raise_for_status()
+    results = response.json()
+    books_and_titles = []
+    for book in results['items']:
+        title = book['volumeInfo']['title']
+        authors = book['volumeInfo']['authors']
+        formatted = f"{title}, {' '.join(authors)}"
+        books_and_titles.append(formatted)
+
+    print(books_and_titles)
+    return render_template("Search.html",books_and_titles=books_and_titles)
 
 @app.route("/register",methods=['GET','POST'])
 def register():
@@ -338,7 +355,7 @@ def callback():
     id_info = id_token.verify_oauth2_token(
         id_token=credentials._id_token,
         request=token_request,
-        audience=google_client_id
+        audience=os.getenv('GOOGLE_CLIENT_ID')
     )
     pprint.pprint(id_info)
     username = id_info['name']
@@ -350,16 +367,25 @@ def callback():
         login_user(user)
         return redirect(url_for('home',current_user=current_user))
     else:
-        new_user = User(
-            username=username,
-            email = email,
-            first_name = first_name,
-            last_name = last_name,
-            id = generate_custom_id()
-        )
-        login_user(new_user)
-        users.session.add(new_user)
-        users.session.commit()
+        try:
+            new_user = User(
+                username=username,
+                email = email,
+                first_name = first_name,
+                last_name = last_name,
+                id = generate_custom_id()
+            )
+            login_user(new_user)
+            users.session.add(new_user)
+            users.session.commit()
+        except IntegrityError:
+            new_user = User(
+                username=username,
+                email = email,
+                first_name = first_name,
+                last_name = last_name,
+                id = generate_custom_id()
+            )
         return redirect(url_for('home',current_user=current_user))
 
 
@@ -411,7 +437,7 @@ def write():
             users.session.add(new_post)
             users.session.commit()
             return redirect(url_for("see_post", quote=quote, form=form, current_user=current_user,post_id=id,redirect_from=redirect_from))
-    return render_template("Write.html",form=form,current_user=current_user,quote=new_quote,quote2=dash_quote,redirect_from=redirect_from,writer=writer)
+    return render_template("Write.html",form=form,current_user=current_user,quote=new_quote,quote2=dash_quote,redirect_from=redirect_from)
 
 
 @app.route("/edit-post/<int:post_id>",methods=['GET','POST'])

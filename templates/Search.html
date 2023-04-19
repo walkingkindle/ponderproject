@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
    <head>
       <!-- Required meta tags -->
       <meta charset="utf-8">
@@ -21,6 +21,11 @@
       <link rel="icon" type="image/x-icon" href="static/favicon-32x32.png">
       <!---- Font Awesome ----->
       <script src="https://kit.fontawesome.com/511589a382.js" crossorigin="anonymous"></script>
+       <!---------------------- JSAUTOCOMPLETE ------------------------->
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
    </head>
    <body>
 <!-------NavBar ----->
@@ -38,11 +43,11 @@
                <li class="nav-item {% if request.path == url_for('home') %}active{% endif %}">
                   <a class="nav-link" aria-current="page" href="{{url_for('home')}}">Home</a>
                </li>
-               <li class="nav-item {% if request.path == url_for('log_in') %}active{% endif %}">
-                  <a class="nav-link" href="{{url_for('log_in')}}">Log in</a>
+               <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">
+                  <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>
                </li>
-               <li class="nav-item {% if request.path == url_for('register') %}active{% endif %}">
-                  <a class="nav-link" href="{{url_for('register')}}">Register</a>
+               <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
+                  <a class="nav-link" href="{{url_for('dashboard')}}">Dashboard</a>
                </li>
                 <li class="nav-item {% if request.path == url_for('account') %}active{% endif %}">
                   <a class="nav-link" href="{{url_for('account',redirect_from='index')}}">Account</a>
@@ -52,50 +57,172 @@
       </div>
    </nav>
 </div>
-      <!----- Main Part of the Page ----->
-      <div class="container">
-         <div class="row">
-            <h2 class="big-heading">The Paper Reader</h2>
-            <div class="input-group">
-               <div class="input-group-label">
-                  <label for="book-search" class="input-group-text">Enter Book Titles, or Authors Here:</label>
-               </div>
-               <div class="input-group-field">
-                  <textarea id="book-search" class="form-control" aria-label="With textarea"></textarea>
-               </div>
-            </div>
-            <table class="table table-sm" id="book-table">
-               <thead class="thead-dark">
-                  <tr>
-                     <th scope="col">#</th>
-                     <th scope="col">First</th>
-                     <th scope="col">Last</th>
-                     <th scope="col">Handle</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <th scope="row">1</th>
-                     <td>Mark</td>
-                     <td>Otto</td>
-                     <td>@mdo</td>
-                  </tr>
-                  <tr>
-                     <th scope="row">2</th>
-                     <td>Jacob</td>
-                     <td>Thornton</td>
-                     <td>@fat</td>
-                  </tr>
-                  <tr>
-                     <th scope="row">3</th>
-                     <td>Larry</td>
-                     <td>the Bird</td>
-                     <td>@twitter</td>
-                  </tr>
-               </tbody>
-            </table>
+
+<!----- Main Part of the Page ----->
+<div class="container">
+   <div class="row">
+      <h2 class="big-heading">The Paper Reader</h2>
+      <div class="input-group">
+         <div class="input-group-label">
+            <label for="book-search" class="input-group-text">Enter Book Titles, or Authors Here:</label>
+         </div>
+         <div class="input-group-field">
+            <input id="book-search" class="form-control" type="text" placeholder="Search for books and authors here, after finding a match, we'll display it  below!">
          </div>
       </div>
+      <ul id="book-list" style="list-style-type: none; padding: 0; margin-bottom: 220px; width: 100vh; font-family: Roboto,Sans-Serif;"></ul>
+   </div>
+</div>
+
+<script>
+   $(document).ready(function() {
+      $("#book-search").on("keyup", function() {
+         var query = $(this).val().trim();
+         if (query) {
+            var api_url = "https://www.googleapis.com/books/v1/volumes?q=" + query;
+            $.get(api_url, function(data) {
+               var books = data.items;
+               var bookList = [];
+               for (var i = 0; i < books.length; i++) {
+                  var title = books[i].volumeInfo.title;
+                  var author = books[i].volumeInfo.authors[0];
+                  var book = title + " by " + author;
+                  bookList.push(book);
+               }
+               var bookHtml = "";
+               for (var i = 0; i < bookList.length; i++) {
+                  bookHtml += "<li style='padding: 10px; border: 1px solid #ccc; background-color: #f8f8f8; cursor: pointer;'>" + bookList[i] + "</li>";
+               }
+               $("#book-list").html(bookHtml);
+               $("#book-list").on("click", "li", function() {
+                var bookInfo = $(this).text().split(", ");
+                var bookTitle = bookInfo[0];
+                var bookAuthor = bookInfo[1];
+                addBookToTable(bookTitle, bookAuthor);
+});
+
+            });
+         } else {
+            $("#book-list").empty();
+         }
+      });
+      function addBookToTable(title, author) {
+  var tableBody = $("#book-table tbody");
+  var rowCount = tableBody.children().length;
+
+  var newRow = $("<tr>");
+  newRow.append($("<th>").attr("scope", "row").text(rowCount + 1));
+  newRow.append($("<td>").text(title));
+  newRow.append($("<td>").text(author));
+  tableBody.append(newRow);
+}
+   });
+</script>
+
+          <div class="container">
+                    <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title m-b-0">Added Books</h5>
+                            </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>
+                                                    <label class="customcheckbox m-b-20">
+                                                        <input type="checkbox" id="mainCheckbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </th>
+                                                <th scope="col">Number</th>
+                                                <th scope="col">Book Title</th>
+                                                <th scope="col">Book Author</th>
+                                                <th scope="col">Language</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="customtable">
+                                            <tr>
+                                                <th>
+                                                    <label class="customcheckbox">
+                                                        <input type="checkbox" class="listCheckbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </th>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>English</td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <label class="customcheckbox">
+                                                        <input type="checkbox" class="listCheckbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </th>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>English</td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <label class="customcheckbox">
+                                                        <input type="checkbox" class="listCheckbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </th>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>English</td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <label class="customcheckbox">
+                                                        <input type="checkbox" class="listCheckbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </th>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>English</td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <label class="customcheckbox">
+                                                        <input type="checkbox" class="listCheckbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </th>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>English</td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <label class="customcheckbox">
+                                                        <input type="checkbox" class="listCheckbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </th>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>English</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                   </div>
    </body>
  <footer class="footer-16371">
       <div class="container">
@@ -123,7 +250,6 @@
             <div class="copyright">
               <p class="mb-0"><small>&copy; Ponder. All Rights Reserved.</small></p>
             </div>
-
 
           </div>
         </div>
