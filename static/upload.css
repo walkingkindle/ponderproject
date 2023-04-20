@@ -22,7 +22,16 @@ body ::selection {
 }
 
 
-
+#submit-button{
+  color:#6E07F3;
+  background-color: #fff;
+  border-radius: 22px;
+  border-color: #6E03F3; !important
+}
+#submit-button:hover{
+    background-color: #6E03F3;
+    color: #fff;
+    }
 
 
 /* TABLE */

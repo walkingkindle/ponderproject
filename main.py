@@ -260,25 +260,25 @@ def nothing_selected():
 
 @app.route("/search-page")
 def search_page():
-    # GOOGLE BOOKS
-    api_url = "https://www.googleapis.com/books/v1/volumes"
-    book_query = "12 rules for life"
-    api_key = os.getenv('GOOGLE_BOOKS_API_KEY')
-    params = {
-        "q": book_query
-    }
-    response = requests.get(url=api_url, params=params)
-    response.raise_for_status()
-    results = response.json()
-    books_and_titles = []
-    for book in results['items']:
-        title = book['volumeInfo']['title']
-        authors = book['volumeInfo']['authors']
-        formatted = f"{title}, {' '.join(authors)}"
-        books_and_titles.append(formatted)
-
-    print(books_and_titles)
-    return render_template("Search.html",books_and_titles=books_and_titles)
+    # # GOOGLE BOOKS
+    # api_url = "https://www.googleapis.com/books/v1/volumes"
+    # book_query = "12 rules for life"
+    # api_key = os.getenv('GOOGLE_BOOKS_API_KEY')
+    # params = {
+    #     "q": book_query
+    # }
+    # response = requests.get(url=api_url, params=params)
+    # response.raise_for_status()
+    # results = response.json()
+    # books_and_titles = []
+    # for book in results['items']:
+    #     title = book['volumeInfo']['title']
+    #     authors = book['volumeInfo']['authors']
+    #     formatted = f"{title}, {' '.join(authors)}"
+    #     books_and_titles.append(formatted)
+    #
+    # print(books_and_titles)
+    return render_template("Search.html")
 
 @app.route("/register",methods=['GET','POST'])
 def register():

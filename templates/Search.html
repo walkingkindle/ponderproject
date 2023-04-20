@@ -94,29 +94,29 @@
                   bookHtml += "<li style='padding: 10px; border: 1px solid #ccc; background-color: #f8f8f8; cursor: pointer;'>" + bookList[i] + "</li>";
                }
                $("#book-list").html(bookHtml);
-               $("#book-list").on("click", "li", function() {
-                var bookInfo = $(this).text().split(", ");
-                var bookTitle = bookInfo[0];
-                var bookAuthor = bookInfo[1];
-                addBookToTable(bookTitle, bookAuthor);
-});
+               $("#book-list").off("click").on("click", "li", function() {
+                  var bookInfo = $(this).text().split(", ");
+                  var bookTitle = bookInfo[0];
+                  var bookAuthor = bookInfo[1];
+                  addBookToTable(bookTitle, bookAuthor);
+               });
 
             });
          } else {
             $("#book-list").empty();
          }
       });
-      function addBookToTable(title, author) {
-  var tableBody = $("#book-table tbody");
-  var rowCount = tableBody.children().length;
+        function addBookToTable(title, author) {
+        var tableBody = $("#book-table tbody");
+        var rowCount = tableBody.children().length;
 
-  var newRow = $("<tr>");
-  newRow.append($("<th>").attr("scope", "row").text(rowCount + 1));
-  newRow.append($("<td>").text(title));
-  newRow.append($("<td>").text(author));
-  tableBody.append(newRow);
-}
-   });
+        var newRow = $("<tr>");
+        newRow.append($("<th>").attr("scope", "row").html("<label class='customcheckbox'><input type='checkbox' class='listCheckbox'><span class='checkmark'></span></label>"));
+        newRow.append($("<td>").text(rowCount + 1));
+        newRow.append($("<td>").text(title));
+        tableBody.prepend(newRow);
+        }
+        });
 </script>
 
           <div class="container">
@@ -127,7 +127,7 @@
                                 <h5 class="card-title m-b-0">Added Books</h5>
                             </div>
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table" id="book-table">
                                         <thead class="thead-light">
                                             <tr>
                                                 <th>
@@ -137,9 +137,7 @@
                                                     </label>
                                                 </th>
                                                 <th scope="col">Number</th>
-                                                <th scope="col">Book Title</th>
-                                                <th scope="col">Book Author</th>
-                                                <th scope="col">Language</th>
+                                                <th scope="col">Book Title and Author</th>
                                             </tr>
                                         </thead>
                                         <tbody class="customtable">
@@ -152,8 +150,6 @@
                                                 </th>
                                                 <td></td>
                                                 <td></td>
-                                                <td></td>
-                                                <td>English</td>
                                             </tr>
                                             <tr>
                                                 <th>
@@ -164,8 +160,6 @@
                                                 </th>
                                                 <td></td>
                                                 <td></td>
-                                                <td></td>
-                                                <td>English</td>
                                             </tr>
                                             <tr>
                                                 <th>
@@ -176,8 +170,6 @@
                                                 </th>
                                                 <td></td>
                                                 <td></td>
-                                                <td></td>
-                                                <td>English</td>
                                             </tr>
                                             <tr>
                                                 <th>
@@ -188,8 +180,6 @@
                                                 </th>
                                                 <td></td>
                                                 <td></td>
-                                                <td></td>
-                                                <td>English</td>
                                             </tr>
                                             <tr>
                                                 <th>
@@ -200,8 +190,6 @@
                                                 </th>
                                                 <td></td>
                                                 <td></td>
-                                                <td></td>
-                                                <td>English</td>
                                             </tr>
                                             <tr>
                                                 <th>
@@ -212,17 +200,17 @@
                                                 </th>
                                                 <td></td>
                                                 <td></td>
-                                                <td></td>
-                                                <td>English</td>
                                             </tr>
                                         </tbody>
                                     </table>
+
                                 </div>
                         </div>
+                        <button type="submit" class="btn btn-lg btn-outline-primary" id="submit-button">Submit</button>
                     </div>
                 </div>
+          </div>
 
-                   </div>
    </body>
  <footer class="footer-16371">
       <div class="container">
