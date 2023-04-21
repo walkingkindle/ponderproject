@@ -103,6 +103,25 @@ config.toolbar = [
             </div>
         </div>
     </div>
+{% elif redirect_from == 'search' %}
+    <h1 id="ponder-text">Reflect and Ponder</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            {% if quote|length > 200 %}
+            <div style="height: 200px; overflow-y: scroll;">
+                {{ quote }}
+            </div>
+            {% else %}
+            <blockquote class="blockquote text-center">
+                <p class="mb-0">{{quote}}</p>
+            </blockquote>
+            {% endif %}
+            <div class="form-group" id="form-div">
+                {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary btn lg"}) }}
+            </div>
+        </div>
+    </div>
 {% else %}
     {% if is_edit %}
         <h1 id="ponder-text">Edit Post</h1>

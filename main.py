@@ -36,11 +36,11 @@ from google_auth_oauthlib.flow import Flow
 from pip._vendor import cachecontrol
 import google.auth.transport.requests
 
-
+import wikiquotes
 
 #OPEN AI
 import openai
-
+from wikiquotes.managers.custom_exceptions import TitleNotFound
 
 #-----------------------------------------------------------FLASK APP---------------------------------------------------
 
@@ -75,16 +75,6 @@ flow = Flow.from_client_secrets_file(client_secrets_file=client_secrets_file,
                                      redirect_uri = "http://127.0.0.1:5000/callback")
 
 
-
-
-#OPEN AI CONFIG
-#
-# openai.api_key = "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"
-# completion = openai.ChatCompletion.create(
-#     model = "gpt-3.5-turbo",
-#     messages=[{"role":"user","content":"give me a quote from 12 rules for life, but make it in depth and don't write anything else but the quote."}]
-# )
-# print(completion)
 
 # ------------------------------------------------------------ SMTP ----------------------------------------------------
 
@@ -123,17 +113,18 @@ class Posts(users.Model):
     quote = users.Column(users.String(250))
     date = users.Column(users.String(250),nullable=True)
     user_quote = users.Column(users.String(250),nullable=False)
+    photo = users.Column(users.String(500),nullable=True)
 
 
 #connect databases to each other.
 # Creating Tables
 #
-# with app.app_context():
-#     users.create_all()
-#     users.session.commit()
+with app.app_context():
+    users.create_all()
+    users.session.commit()
 
 
-#KEYS
+#zenquotes
 
 
 
@@ -270,13 +261,28 @@ def nothing_selected():
 @app.route("/search-page",methods=['POST','GET'])
 def search_page():
     books = []
+    authors = []
+    quotes_list = []
     if request.method == 'POST':
         for i in range(1, 6):
             title = request.form.get('title')
-            author = request.form.get('title')
+            author = request.form.get('author')
             books.append(f"{title} by {author}")
-            print(books)
-
+            authors.append(author)
+        print(authors)
+        for author in authors:
+            try:
+                quote = wikiquotes.get_quotes(author=author,raw_language='en')
+                print(quote)
+                quotes_list.append(f"{quote}")
+            except TitleNotFound:
+                quote=None
+        print(quotes_list)
+        if len(quotes_list) > 0:
+            quote = str(random.choice(quotes_list))
+            final_quote = quote.replace("[", " ")
+            final_final_quote = final_quote.replace("]"," ")
+            return redirect(url_for('paper_reader',redirect_from='search',quote=final_final_quote))
     return render_template("Search.html")
 
 @app.route("/register",methods=['GET','POST'])
@@ -400,6 +406,7 @@ def write():
         print(redirect_from)
         body = form.body.data
         quote2 = form.quote.data
+        photo_url=form.img_url.data
         id = generate_custom_id()
         current_date = datetime.datetime.now()
         formatted_datetime = current_date.strftime("%d/%m/%Y")
@@ -409,6 +416,7 @@ def write():
                 body = body,
                 id = id,
                 user = current_user,
+                photo=photo_url,
                 date = formatted_datetime,
                 user_quote = quote2
             )
@@ -421,6 +429,7 @@ def write():
         writer = request.args.get("writer")
         body = form.body.data
         quote2 = form.quote.data
+        photo = form.img_url.data
         id = generate_custom_id()
         current_date = datetime.datetime.now()
         formatted_datetime = current_date.strftime("%d/%m/%Y")
@@ -429,6 +438,7 @@ def write():
                 quote = f"{quote}, {writer}",
                 body = body,
                 id=id,
+                photo=photo,
                 user= current_user,
                 date = formatted_datetime,
                 user_quote=quote2
@@ -436,7 +446,38 @@ def write():
             users.session.add(new_post)
             users.session.commit()
             return redirect(url_for("see_post", quote=quote, form=form, current_user=current_user,post_id=id,redirect_from=redirect_from))
-    return render_template("Write.html",form=form,current_user=current_user,quote=new_quote,quote2=dash_quote,redirect_from=redirect_from)
+    return render_template("Write.html",form=form,current_user=current_user,quote=new_quote,redirect_from=redirect_from)
+
+
+
+
+
+
+@app.route('/paper-reader',methods=["POST","GET"])
+def paper_reader():
+    form = Write()
+    quote = str(request.args.get('quote'))
+    body = form.body.data
+    quote2 = form.quote.data
+    photo = form.img_url.data
+    id = generate_custom_id()
+    current_date = datetime.datetime.now()
+    formatted_datetime = current_date.strftime("%d/%m/%Y")
+    if form.validate_on_submit():
+        new_post = Posts(
+            quote = f"{quote}",
+            body = body,
+            id=id,
+            photo = photo,
+            user= current_user,
+            date = formatted_datetime,
+            user_quote=quote2
+            )
+        users.session.add(new_post)
+        users.session.commit()
+        return redirect(url_for("see_post", quote=str(quote), form=form, current_user=current_user,post_id=id))
+    return render_template("Write.html",form=form,current_user=current_user,quote=str(quote))
+
 
 
 @app.route("/edit-post/<int:post_id>",methods=['GET','POST'])

@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Making the search page work">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Appending the search results from search.html onto a list">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/see-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/see-post.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,13 +73,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Adding Get started Feature">
-      <created>1679151105913</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1679151105913</updated>
     </task>
     <task id="LOCAL-00017" summary="Adding the search page for books.">
       <created>1679226447438</created>
@@ -414,7 +410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681983082734</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Appending the search results from search.html onto a list">
+      <created>1682081097518</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1682081097519</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -432,7 +435,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Authenticating and adding the posts_ column to the database that is assosciated with what the user writes along the quotes." />
     <MESSAGE value="Fixed an error where if user types an email that does not exist, an alert appears, and some other minor issues." />
     <MESSAGE value="Adding email validator instead of the HTML forms." />
     <MESSAGE value="Fixed an exception where if the user wrote an invalid email the form will reject and some other minor register issues" />
@@ -457,6 +459,7 @@
     <MESSAGE value="Adding the edit-post feature." />
     <MESSAGE value="Implementing and customizing the search page to return the search query from the google API" />
     <MESSAGE value="Making the search page work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Making the search page work" />
+    <MESSAGE value="Appending the search results from search.html onto a list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Appending the search results from search.html onto a list" />
   </component>
 </project>
