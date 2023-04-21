@@ -59,6 +59,7 @@
 </div>
 
 <!----- Main Part of the Page ----->
+<form action="{{ url_for('search_page') }}" method="post">
 <div class="container">
    <div class="row">
       <h2 class="big-heading">The Paper Reader</h2>
@@ -91,33 +92,49 @@
                }
                var bookHtml = "";
                for (var i = 0; i < bookList.length; i++) {
-                  bookHtml += "<li style='padding: 10px; border: 1px solid #ccc; background-color: #f8f8f8; cursor: pointer;'>" + bookList[i] + "</li>";
+                  bookHtml += "<li style='padding: 10px; border: 1px solid #ccc; background-color: #f8f8f8; cursor: pointer; transition: background-color 0.3s ease-in-out;' class='book-item'>" + bookList[i] + "</li>";
                }
                $("#book-list").html(bookHtml);
-               $("#book-list").off("click").on("click", "li", function() {
-                  var bookInfo = $(this).text().split(", ");
+               $("#book-list").off("click").on("click", ".book-item", function() {
+                  var bookInfo = $(this).text().split(" by ");
                   var bookTitle = bookInfo[0];
                   var bookAuthor = bookInfo[1];
                   addBookToTable(bookTitle, bookAuthor);
                });
-
             });
          } else {
             $("#book-list").empty();
          }
       });
-        function addBookToTable(title, author) {
-        var tableBody = $("#book-table tbody");
-        var rowCount = tableBody.children().length;
 
-        var newRow = $("<tr>");
-        newRow.append($("<th>").attr("scope", "row").html("<label class='customcheckbox'><input type='checkbox' class='listCheckbox'><span class='checkmark'></span></label>"));
-        newRow.append($("<td>").text(rowCount + 1));
-        newRow.append($("<td>").text(title));
-        tableBody.prepend(newRow);
-        }
-        });
+        function addBookToTable(title, author) {
+            var tableBody = $("#book-table tbody");
+            var rowCount = tableBody.children().length;
+
+            var newRow = $("<tr>");
+            newRow.append($("<th>").attr("scope", "row").html("<label class='customcheckbox'><input type='checkbox' class='listCheckbox'><span class='checkmark'></span></label>"));
+            newRow.append($("<td>").text(rowCount + 1));
+            newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin:0' type='text' readonly name='title' value='" + title + " by " + author + "'>"));
+            newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin-left:50px;' type='text' readonly name='author' value='" + author + "'>"));
+            tableBody.prepend(newRow);
+            }
+
+
+      // Add hover effect to book list items
+      $("#book-list").on("mouseenter", ".book-item", function() {
+         $(this).css({
+            "background-color": "#ebebeb",
+            "box-shadow": "0px 0px 6px 0px rgba(0,0,0,0.3)"
+         });
+      }).on("mouseleave", ".book-item", function() {
+         $(this).css({
+            "background-color": "#f8f8f8",
+            "box-shadow": "none"
+         });
+      });
+   });
 </script>
+
 
           <div class="container">
                     <div class="row">
@@ -137,7 +154,8 @@
                                                     </label>
                                                 </th>
                                                 <th scope="col">Number</th>
-                                                <th scope="col">Book Title and Author</th>
+                                                <th scope="col">Book Title</th>
+                                                <th scope="col">Book Author</th>
                                             </tr>
                                         </thead>
                                         <tbody class="customtable">
@@ -150,15 +168,6 @@
                                                 </th>
                                                 <td></td>
                                                 <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <label class="customcheckbox">
-                                                        <input type="checkbox" class="listCheckbox">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </th>
-                                                <td></td>
                                                 <td></td>
                                             </tr>
                                             <tr>
@@ -169,15 +178,6 @@
                                                     </label>
                                                 </th>
                                                 <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <label class="customcheckbox">
-                                                        <input type="checkbox" class="listCheckbox">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </th>
                                                 <td></td>
                                                 <td></td>
                                             </tr>
@@ -190,6 +190,7 @@
                                                 </th>
                                                 <td></td>
                                                 <td></td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <th>
@@ -198,19 +199,42 @@
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </th>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <label class="customcheckbox">
+                                                        <input type="checkbox" class="listCheckbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </th>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <label class="customcheckbox">
+                                                        <input type="checkbox" class="listCheckbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </th>
+                                                <td></td>
                                                 <td></td>
                                                 <td></td>
                                             </tr>
                                         </tbody>
                                     </table>
-
                                 </div>
                         </div>
                         <button type="submit" class="btn btn-lg btn-outline-primary" id="submit-button">Submit</button>
                     </div>
+
                 </div>
           </div>
-
+    </form>
    </body>
  <footer class="footer-16371">
       <div class="container">

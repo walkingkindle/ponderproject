@@ -36,10 +36,10 @@ from google_auth_oauthlib.flow import Flow
 from pip._vendor import cachecontrol
 import google.auth.transport.requests
 
-#GOOGLE BOOKS
-from googleapiclient.discovery import build
-from google.oauth2 import service_account
 
+
+#OPEN AI
+import openai
 
 
 #-----------------------------------------------------------FLASK APP---------------------------------------------------
@@ -47,7 +47,7 @@ from google.oauth2 import service_account
 
 #Initiating FLask APP
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.getenv('flask_secret_key')
 app.config['MAX_CONTENT_PATH'] = 1000000
 app.config['MAIL_SERVER'] = "smtp.gmail.com"
 app.config['MAIL_PORT'] = 465
@@ -55,8 +55,6 @@ app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = os.getenv('MY_EMAIL')
 app.config['MAIL_PASSWORD'] = os.getenv('MY_PASSWORD')
-print(app.config['MAIL_USERNAME'])
-print(app.config['MAIL_PASSWORD'])
 ALLOWED_EXTENSIONS = {'txt'}
 app.config['UPLOAD_FOLDER'] = 'static/files'
 bootstrap = Bootstrap(app)
@@ -76,6 +74,17 @@ flow = Flow.from_client_secrets_file(client_secrets_file=client_secrets_file,
                                              "https://www.googleapis.com/auth/userinfo.email", "openid"],
                                      redirect_uri = "http://127.0.0.1:5000/callback")
 
+
+
+
+#OPEN AI CONFIG
+#
+# openai.api_key = "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"
+# completion = openai.ChatCompletion.create(
+#     model = "gpt-3.5-turbo",
+#     messages=[{"role":"user","content":"give me a quote from 12 rules for life, but make it in depth and don't write anything else but the quote."}]
+# )
+# print(completion)
 
 # ------------------------------------------------------------ SMTP ----------------------------------------------------
 
@@ -258,26 +267,16 @@ def nothing_selected():
 
 
 
-@app.route("/search-page")
+@app.route("/search-page",methods=['POST','GET'])
 def search_page():
-    # # GOOGLE BOOKS
-    # api_url = "https://www.googleapis.com/books/v1/volumes"
-    # book_query = "12 rules for life"
-    # api_key = os.getenv('GOOGLE_BOOKS_API_KEY')
-    # params = {
-    #     "q": book_query
-    # }
-    # response = requests.get(url=api_url, params=params)
-    # response.raise_for_status()
-    # results = response.json()
-    # books_and_titles = []
-    # for book in results['items']:
-    #     title = book['volumeInfo']['title']
-    #     authors = book['volumeInfo']['authors']
-    #     formatted = f"{title}, {' '.join(authors)}"
-    #     books_and_titles.append(formatted)
-    #
-    # print(books_and_titles)
+    books = []
+    if request.method == 'POST':
+        for i in range(1, 6):
+            title = request.form.get('title')
+            author = request.form.get('title')
+            books.append(f"{title} by {author}")
+            print(books)
+
     return render_template("Search.html")
 
 @app.route("/register",methods=['GET','POST'])
