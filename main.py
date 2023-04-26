@@ -1,14 +1,15 @@
 #----------------------------------------------------------------------IMPORTS------------------------------------------
 #FLASK
+import smtplib
+
 import sqlalchemy
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, render_template, url_for, flash,session, abort, redirect, request
+from flask import Flask, render_template, url_for, flash,session, abort, redirect, request,Blueprint
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user,login_manager
 from flask_mail import Mail, Message
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
 from sqlalchemy.exc import IntegrityError
-
 #WERZEUG
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
@@ -35,7 +36,7 @@ from google.oauth2 import id_token
 from google_auth_oauthlib.flow import Flow
 from pip._vendor import cachecontrol
 import google.auth.transport.requests
-
+from my_blueprint.views import my_blueprint
 import wikiquotes
 
 #OPEN AI
@@ -61,7 +62,9 @@ bootstrap = Bootstrap(app)
 ckeditor = CKEditor(app)
 mail = Mail(app)
 
-#oath config
+
+
+app.register_blueprint(my_blueprint,url_prefix='/pages')
 
 
 
@@ -222,6 +225,17 @@ def dashboard():
         # Swap the values of real_quote and real_writer
         real_quote, real_writer = real_writer, real_quote
     return render_template("Dashboard.html", quote=real_quote, writer=real_writer,all_posts=all_posts)
+
+
+@app.route('/notification')
+def notifications():
+    name = request.args.get('name')
+    email = request.args.get('email')
+    print(name)
+    print(email)
+    msg = Message(subject=f"Hi {name}", body=f'Thanks for subscribing. You will receive a notification once we get the feature up and running. \n',sender='ponder.contactus@gmail.com',recipients=[email])
+    mail.send(msg)
+    return redirect(url_for('home',sent=True))
 
 
 @app.route('/choose-your-path')
@@ -406,7 +420,6 @@ def write():
         print(redirect_from)
         body = form.body.data
         quote2 = form.quote.data
-        photo_url=form.img_url.data
         id = generate_custom_id()
         current_date = datetime.datetime.now()
         formatted_datetime = current_date.strftime("%d/%m/%Y")
@@ -416,7 +429,6 @@ def write():
                 body = body,
                 id = id,
                 user = current_user,
-                photo=photo_url,
                 date = formatted_datetime,
                 user_quote = quote2
             )
@@ -459,7 +471,6 @@ def paper_reader():
     quote = str(request.args.get('quote'))
     body = form.body.data
     quote2 = form.quote.data
-    photo = form.img_url.data
     id = generate_custom_id()
     current_date = datetime.datetime.now()
     formatted_datetime = current_date.strftime("%d/%m/%Y")
@@ -468,7 +479,6 @@ def paper_reader():
             quote = f"{quote}",
             body = body,
             id=id,
-            photo = photo,
             user= current_user,
             date = formatted_datetime,
             user_quote=quote2

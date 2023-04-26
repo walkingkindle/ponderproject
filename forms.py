@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField
+from wtforms import StringField, SubmitField, PasswordField, FileField
 from wtforms.validators import DataRequired, URL, Email, Length, ValidationError, Regexp,url
 from wtforms.validators import email
 from email_validator import validate_email, EmailNotValidError
@@ -10,9 +10,7 @@ from flask_ckeditor import CKEditorField
 
 class Write(FlaskForm):
     quote = StringField("Quote of the Day:",render_kw={"placeholder":"Write a short version of the quote here."})
-    img_url = StringField("Photo Url (optional):", validators=[DataRequired()])
     body = CKEditorField("Ponder Here:", validators=[DataRequired()])
-
     submit = SubmitField("Submit")
 
 def my_length_check(form, field):
