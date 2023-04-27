@@ -437,7 +437,7 @@ def write():
             return redirect(url_for("see_post",quote=new_quote,form=form,current_user=current_user,post_id=id,redirect_from=redirect_from))
     elif redirect_from == 'dashboard':
         print(redirect_from)
-        quote = request.args.get("quote")
+        dashboard_quote = request.args.get("quote")
         writer = request.args.get("writer")
         body = form.body.data
         quote2 = form.quote.data
@@ -446,7 +446,7 @@ def write():
         formatted_datetime = current_date.strftime("%d/%m/%Y")
         if form.validate_on_submit():
             new_post = Posts(
-                quote = f"{quote}, {writer}",
+                quote = f"{dashboard_quote}, {writer}",
                 body = body,
                 id=id,
                 user= current_user,
@@ -455,7 +455,8 @@ def write():
                 )
             users.session.add(new_post)
             users.session.commit()
-            return redirect(url_for("see_post", quote=quote, form=form, current_user=current_user,post_id=id,redirect_from=redirect_from))
+            return redirect(url_for("see_post", quote=dashboard_quote, form=form, current_user=current_user,post_id=id,redirect_from=redirect_from))
+        return render_template("Write.html",form=form,quote=dashboard_quote,current_user=current_user,redirect_from=redirect_from)
     return render_template("Write.html",form=form,current_user=current_user,quote=new_quote,redirect_from=redirect_from)
 
 

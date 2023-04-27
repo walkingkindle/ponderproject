@@ -40,7 +40,7 @@
                   <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>
                </li>
                <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
-                  <a class="nav-link" href="{{url_for('dashboard',redirect_from='home')}}">Dashboard</a>
+                  <a class="nav-link" href="{{url_for('dashboard')}}">Dashboard</a>
                </li>
                 <li class="nav-item {% if request.path == url_for('account') %}active{% endif %}">
                   <a class="nav-link" href="{{url_for('account',redirect_from='index')}}">Account</a>
@@ -82,7 +82,7 @@
 {% endif %}
       <!-- Front Page -->
 {% if sent %}
-  <div class="alert alert-success" role="alert"id="alert-div">
+  <div class="alert alert-success" role="alert" id="alert-div">
   <h4 class="alert-heading">Well done!</h4>
   <p>Your Message was successfully sent!</p>
   <hr>

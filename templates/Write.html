@@ -88,13 +88,13 @@ config.toolbar = [
 <div class="container">
     <div class="row">
         <div class="col-md-6 mx-auto">
-            {% if quote2|length > 200 %}
+            {% if quote|length > 200 %}
             <div style="height: 200px; overflow-y: scroll;">
-                {{ quote2 }}
+                {{ quote }}
             </div>
             {% else %}
             <blockquote class="blockquote text-center">
-                <p class="mb-0">{{quote2}}</p>
+                <p class="mb-0">{{quote}}</p>
             </blockquote>
             {% endif %}
 
