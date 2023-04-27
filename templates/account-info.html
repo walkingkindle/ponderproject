@@ -1,79 +1,76 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Account Information</title>
-  <!-- Link to Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" type="text/css" href="/static/account-info-styles.css">
+  <head>
+    <title>Account Information|Ponder</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/account-info-styles.css">
     <link rel="icon" type="image/x-icon" href="/static/favicon-32x32.png">
-
-</head>
-<body>
-
-<!-------NavBar ----->
- <div class="container" id="nav-bar">
-   <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
-      <div class="container-fluid">
-         <a class="navbar-brand" href="{{url_for('home')}}">
-            <img id="ponder-img"  src="/static/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">Ponder
-         </a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarNav">
+  </head>
+  <body>
+    <!-------NavBar ----->
+    <div class="container" id="nav-bar">
+      <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{url_for('home')}}">
+          <img id="ponder-img"  src="/static/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">Ponder
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-               <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">
-                  <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>
-               </li>
-               <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
-                  <a class="nav-link" href="{{url_for('dashboard',redirect_from='home')}}">Dashboard</a>
-               </li>
+              <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">
+                <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>
+              </li>
+              <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
+                <a class="nav-link" href="{{url_for('dashboard',redirect_from='home')}}">Dashboard</a>
+              </li>
             </ul>
-         </div>
-      </div>
-   </nav>
-</div>
-<!-- Account Information -->
-  <div class="container" id="main-container">
-    <div class="card">
-      <div class="card-header">
-        Account Information
-      </div>
-        <form action="{{url_for('account')}}" method="post">
-      <div class="card-body">
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" class="form-control" id="email" value="{{ current_user.email }}" name="email" readonly>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="firstName">First Name:</label>
-          <input type="text" class="form-control" id="firstName" value="{{ current_user.first_name }}" name="first_name" readonly>
-        </div>
-          <div class="form-group">
-          <label for="firstName">Username:</label>
-          <input type="text" class="form-control" id="firstName" value="{{ current_user.username }}" name="username" readonly>
-        </div>
-        <div class="form-group">
-          <label for="lastName">Last Name:</label>
-          <input type="text" class="form-control" id="lastName" value="{{ current_user.last_name }}" name="last_name" readonly>
-        </div>
-        <div class="form-group">
-          <label for="country">Continent:</label>
-          <input type="text" class="form-control" id="country" value="{{current_user.continent}}" name="continent" readonly>
-        </div>
-        <button type="submit" class="btn btn-primary btn-lg" id="edit-button"> Edit</button>
-      </div>
-        </form>
+      </nav>
     </div>
-  </div>
-</body>
+    <!-- Account Information -->
+    <div class="container" id="main-container">
+      <div class="card">
+        <div class="card-header">
+          Account Information
+        </div>
+        <form action="{{url_for('account')}}" method="post">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" value="{{ current_user.email }}" name="email" readonly>
+            </div>
+            <div class="form-group">
+              <label for="firstName">First Name:</label>
+              <input type="text" class="form-control" id="firstName" value="{{ current_user.first_name }}" name="first_name" readonly>
+            </div>
+            <div class="form-group">
+              <label for="firstName">Username:</label>
+              <input type="text" class="form-control" id="firstName" value="{{ current_user.username }}" name="username" readonly>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name:</label>
+              <input type="text" class="form-control" id="lastName" value="{{ current_user.last_name }}" name="last_name" readonly>
+            </div>
+            <div class="form-group">
+              <label for="country">Continent:</label>
+              <input type="text" class="form-control" id="country" value="{{current_user.continent}}" name="continent" readonly>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg" id="edit-button"> Edit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
   <!-- Link to Bootstrap JS -->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/popper.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/main.js"></script>
-      <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </html>

@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/static/upload.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,29 +17,27 @@
     <!-- Bootstrap CSS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <title>The Tech Reader|Ponder</title>
-    <link rel="icon" type="image/x-icon" href="static/favicon-32x32.png">
+    <title>About us|Ponder</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon-32x32.png">
     <!---- Font Awesome ----->
     <script src="https://kit.fontawesome.com/511589a382.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <!-------NavBar ----->
+    {% if current_user.is_authenticated %}
     <div class="container">
       <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="{{url_for('home')}}">
-          <img src="/static/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">Ponder
+          <img id="ponder-img"  src="/static/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">Ponder
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-              <li class="nav-item {% if request.path == url_for('home') %}active{% endif %}">
-                <a class="nav-link" aria-current="page" href="{{url_for('home')}}">Home</a>
-              </li>
               <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">
-                <a class="nav-link" href="{{url_for('log_out')}}">Log Out</a>
+                <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>
               </li>
               <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
                 <a class="nav-link" href="{{url_for('dashboard')}}">Dashboard</a>
@@ -52,58 +50,43 @@
         </div>
       </nav>
     </div>
-    <!----- Main Content ---->
-    <h2 class="big-heading" id="heading2">The Tech Reader</h2>
-    <div class="container" id="upload-container" >
-      <div class="row">
-        <div class="col-12 col-md-6 col-lg-4" id="kindle-auth">
-          <div class="card">
-            <img src="/static/kindle-logo img.jpg" alt="kindle-upload-logo" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">Kindle Upload</h5>
-              <p class="card-text"> Authenticate your Amazon account with Ponder to automatically get all Kindle Highlights. Get started Now.</p>
-              <a href="{{url_for('my_blueprint.coming_soon')}}" class="icon-link" id="auth-link">
-              Click to Authenticate
-              </a>
-              <svg class="bi" width="1em" height="1em">
-                <use xlink:href="#chevron-right"></use>
-              </svg>
-            </div>
+    {% else %}
+    <div class="container">
+      <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{url_for('home')}}">
+          <img id="ponder-img"  src="/static/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">Ponder
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+              <li class="nav-item {% if request.path == url_for('home') %}active{% endif %}">
+                <a class="nav-link" href="{{url_for('home')}}">Home</a>
+              </li>
+              <li class="nav-item {% if request.path == url_for('log_in') %}active{% endif %}">
+                <a class="nav-link" href="{{url_for('log_in')}}">Log in</a>
+              </li>
+              <li class="nav-item {% if request.path == url_for('register') %}active{% endif %}">
+                <a class="nav-link" href="{{url_for('register')}}">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">What is Ponder?</a>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4" id="kindle-upload">
-          <div class="card">
-            <img src="/static/upload.jpg" alt="My-Clippings" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">Ancient Upload</h5>
-              <p class="card-text"> If you don't want to Authenticate your Amazon account with us, feel free to upload "My Clippings.txt" here.</p>
-              <form method="post" enctype="multipart/form-data">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="file-input" name="My Clippings">
-                  <label class="custom-file-label" for="file-input">Choose file</label>
-                </div>
-                <button type="submit" class="btn btn-primary btn-upload mt-3" id="upload-button">
-                Upload
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+      </nav>
     </div>
-    <script>
-      // Get the file input element and the label
-      var fileInput = document.getElementById('file-input');
-      var label = fileInput.nextElementSibling;
+    {% endif %}
+    <!-- Front Page -->
 
-      // Update the label text when the user selects a file
-      fileInput.addEventListener('change', function(event) {
-        var filename = event.target.value.split('\\').pop();
-        label.innerHTML = filename;
-      });
-    </script>
-  </body>
-  <!----- Footer ----->
+
+
+
+
+</body>
   <footer class="footer-16371">
     <div class="container">
       <div class="row justify-content-center">
@@ -114,7 +97,7 @@
           <ul class="list-unstyled nav-links mb-5">
             <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{{url_for('contact')}}">Contact</a></li>
           </ul>
           <div class="social mb-4">
             <h3>Stay in touch</h3>
@@ -126,6 +109,11 @@
             </ul>
           </div>
           <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="walkingkindle" data-color="#5F7FFF" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
+          {% if how_many == 1 %}
+          <p style="padding-top: 100px;" class="text-muted" id="users-count">Ponder has <mark>{{ how_many }}</mark> active user.</p>
+          {% else %}
+          <p style="padding-top: 100px;" class="text-muted" id="users-count">Ponder has <mark>{{ how_many }}</mark> active users.</p>
+          {% endif %}
           <div class="copyright">
             <p class="mb-0"><small>&copy; Ponder. All Rights Reserved.</small></p>
           </div>
@@ -133,4 +121,9 @@
       </div>
     </div>
   </footer>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </html>
