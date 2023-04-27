@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Redirecting the user and finalizing the search feature so that the user who does not own a kindle can also use this app to write about his quotes and the book he read.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Redirecting amazon auth to coming soon page.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Kindle Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Kindle Upload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/see-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/see-post.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,15 +42,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Aleksa Hadzic/PycharmProjects/Ponderproject/static",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aleksa Hadzic/PycharmProjects/Ponderproject/static&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\static" />
@@ -78,13 +74,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Adding 'Tech Reader' page.">
-      <created>1679230852237</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1679230852237</updated>
     </task>
     <task id="LOCAL-00019" summary="Styling navbar, fixing html indentation and configuring responsiveness.">
       <created>1679239765232</created>
@@ -422,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682095743436</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Redirecting amazon auth to coming soon page.">
+      <created>1682518777683</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1682518777683</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -440,7 +436,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding email validator instead of the HTML forms." />
     <MESSAGE value="Fixed an exception where if the user wrote an invalid email the form will reject and some other minor register issues" />
     <MESSAGE value="Adding a tiny feature that will display number of users in the index" />
     <MESSAGE value="Integrating posts database into the server, changing the route of My CLippings.txt to go inside the database." />
@@ -465,6 +460,7 @@
     <MESSAGE value="Making the search page work" />
     <MESSAGE value="Appending the search results from search.html onto a list" />
     <MESSAGE value="Redirecting the user and finalizing the search feature so that the user who does not own a kindle can also use this app to write about his quotes and the book he read." />
-    <option name="LAST_COMMIT_MESSAGE" value="Redirecting the user and finalizing the search feature so that the user who does not own a kindle can also use this app to write about his quotes and the book he read." />
+    <MESSAGE value="Redirecting amazon auth to coming soon page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Redirecting amazon auth to coming soon page." />
   </component>
 </project>

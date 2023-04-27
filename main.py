@@ -441,7 +441,6 @@ def write():
         writer = request.args.get("writer")
         body = form.body.data
         quote2 = form.quote.data
-        photo = form.img_url.data
         id = generate_custom_id()
         current_date = datetime.datetime.now()
         formatted_datetime = current_date.strftime("%d/%m/%Y")
@@ -450,7 +449,6 @@ def write():
                 quote = f"{quote}, {writer}",
                 body = body,
                 id=id,
-                photo=photo,
                 user= current_user,
                 date = formatted_datetime,
                 user_quote=quote2
