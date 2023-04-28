@@ -6,6 +6,8 @@ body ::selection {
   color: #fff;
 }
 
+
+
 .big-heading {
 	font-family: 'Poppins';
 	font-size: 4rem;
@@ -62,7 +64,7 @@ body ::selection {
 	}
 }
 #alert-div{
-  margin-top: 90px;
+  margin-top: 180px;
   margin-bottom: 90px;
 
 }

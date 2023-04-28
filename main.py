@@ -1,5 +1,6 @@
 # ----------------------------------------------------------------------IMPORTS------------------------------------------
 # FLASK
+import config
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, url_for, flash, session, abort, redirect, request
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
@@ -19,8 +20,9 @@ from bs4 import BeautifulSoup
 import datetime
 
 #email verification
-from itsdangerous.url_safe import URLSafeSerializer
+from itsdangerous.url_safe import URLSafeTimedSerializer
 from itsdangerous import SignatureExpired
+from config import urlsafe_secret
 
 
 
@@ -67,7 +69,8 @@ bootstrap = Bootstrap(app)
 ckeditor = CKEditor(app)
 mail = Mail(app)
 app.register_blueprint(my_blueprint, url_prefix='/pages')
-s = URLSafeSerializer('secret-key')  #email verification
+
+s = URLSafeTimedSerializer(config.urlsafe_secret)
 # OATH GOOGLE
 oauth = OAuth(app)
 oauth.init_app(app)
@@ -79,8 +82,6 @@ flow = Flow.from_client_secrets_file(client_secrets_file=client_secrets_file,
                                      redirect_uri="http://127.0.0.1:5000/callback")
 
 # ------------------------------------------------------------ SMTP ----------------------------------------------------
-
-
 # Flask DB
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -198,11 +199,19 @@ def load_user(user_id):
 def home():
     """Main index route"""
     sent = request.args.get("sent")
+    email_sent = request.args.get('email_sent')
+    expired = request.args.get('expired')
+    if expired:
+        email = request.args.get('email')
+        user = users.session.query(User).filter_by(email=email).first()
+        if user:
+            users.session.delete(user)
+            users.session.commit()
     how_many = User.query.count()
     if sent:
         print(sent)
     return render_template("Index.html", quote=get_random_quote(), sent=sent, current_user=current_user,
-                           how_many=how_many)
+                           how_many=how_many,email_sent=email_sent,expired=expired)
 
 
 @app.route("/dashboard")
@@ -311,13 +320,14 @@ def search_page():
 @app.route("/confirm_email/<token>")
 def confirm_email(token):
     try:
-        email = s.loads(token,salt='email-confirm',max_age=60)
+        email = s.loads(token,salt='email-confirm',max_age=10)
         user = users.session.query(User).filter_by(email=email).first()
         user.confirmed = True
         login_user(user)
         return redirect(url_for("choose_path", current_user=current_user))
     except SignatureExpired:
-        abort(403)
+        email = request.args.get('email')
+        return redirect(url_for('home',expired=True,email=email))
 
 
 
@@ -337,7 +347,7 @@ def register():
             return render_template("sign-in.html", redirect_from='register')
         else:
             token = s.dumps(e_mail,salt='email-confirm')
-            link = url_for('confirm_email',token=token,_external=True)
+            link = url_for('confirm_email',token=token,_external=True,email=e_mail)
             msg = Message(' Confirm Email ', sender=app.config['MAIL_USERNAME'], recipients=[e_mail],body=f'Please confirm your e-mail with this link:{link}')
             mail.send(msg)
             email_sent= True
