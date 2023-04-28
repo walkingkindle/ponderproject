@@ -320,7 +320,7 @@ def search_page():
 @app.route("/confirm_email/<token>")
 def confirm_email(token):
     try:
-        email = s.loads(token,salt='email-confirm',max_age=10)
+        email = s.loads(token,salt='email-confirm',max_age=7200)
         user = users.session.query(User).filter_by(email=email).first()
         user.confirmed = True
         login_user(user)

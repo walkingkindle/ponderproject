@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="content">
-      <div class="container">
+      <div class="container" id="main-container">
         <div class="row justify-content-center">
           <div class="col-md-10">
             <div class="row justify-content-center">
@@ -22,7 +22,7 @@
                 <p>Send us suggestions,tips or contact the builder of this website for work!</p>
                 <p><img src="static/undraw-contact.svg" alt="Image" class="img-fluid"></p>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-6" id="form-div">
                 <form class="mb-5" method="post" id="contactForm" name="contactForm" action="{{url_for('contact')}}">
                   <div class="row">
                     <div class="col-md-12 form-group">
