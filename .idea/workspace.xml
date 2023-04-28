@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixed an error where confirmation mail alert does not show, as well as the expired value, if the session token expires">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adjusting the layout,">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/contact-me-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/contact-me-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact-me.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact-me.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign-in.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,13 +76,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Implementing and changing log-in.">
-      <created>1679496822622</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1679496822622</updated>
     </task>
     <task id="LOCAL-00025" summary="Adding write page and styling.">
       <created>1679598659655</created>
@@ -420,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682683865645</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Adjusting the layout,">
+      <created>1682684252415</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1682684252415</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -438,7 +438,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implementing database" />
     <MESSAGE value="Fixing and adjusting the layout of dashboard." />
     <MESSAGE value="Making a new, see-post page and redirecting the user to that page whenever he writes a post." />
     <MESSAGE value="Creating an exception in case the user cannot find th post_data." />
@@ -463,6 +462,7 @@
     <MESSAGE value="Reformatting, commenting" />
     <MESSAGE value="Implementing email confirmation." />
     <MESSAGE value="Fixed an error where confirmation mail alert does not show, as well as the expired value, if the session token expires" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed an error where confirmation mail alert does not show, as well as the expired value, if the session token expires" />
+    <MESSAGE value="Adjusting the layout," />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusting the layout," />
   </component>
 </project>

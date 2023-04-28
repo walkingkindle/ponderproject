@@ -24,6 +24,12 @@ from itsdangerous.url_safe import URLSafeTimedSerializer
 from itsdangerous import SignatureExpired
 from config import urlsafe_secret
 
+#twitter auth login
+from flask_dance.contrib.twitter import make_twitter_blueprint,twitter
+
+
+
+
 
 
 # SQL
@@ -92,6 +98,10 @@ login_manager.login_view = "login"
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
 
+
+#oath twitter
+# twitter_blueprint = make_twitter_blueprint(api_key=)
+
 # Configure Tables
 class User(users.Model, UserMixin):
     __tablename__ = "users"
@@ -121,10 +131,10 @@ class Posts(users.Model):
 
 # connect databases to each other.
 # Creating Tables
-#
-with app.app_context():
-    users.create_all()
-    users.session.commit()
+
+# with app.app_context():
+#     users.create_all()
+#     users.session.commit()
 
 
 # -----------------------------------------------------------ENGINE------------------------------------------------------
@@ -330,6 +340,16 @@ def confirm_email(token):
         return redirect(url_for('home',expired=True,email=email))
 
 
+
+@app.route('/login_with_twitter')
+def login_with_twitter():
+    pass
+    #needs website link
+
+@app.route("/twitter-authorized")
+def twitter():
+    pass
+    #needs website link
 
 
 @app.route("/register", methods=['GET', 'POST'])
