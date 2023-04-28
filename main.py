@@ -18,6 +18,12 @@ import pprint
 from bs4 import BeautifulSoup
 import datetime
 
+#email verification
+from itsdangerous.url_safe import URLSafeSerializer
+from itsdangerous import SignatureExpired
+
+
+
 # SQL
 from sqlalchemy.orm import relationship
 from forms import Write, Register
@@ -42,6 +48,9 @@ from wikiquotes.managers.custom_exceptions import TitleNotFound
 # -----------------------------------------------------------FLASK APP----------------------------------------
 
 
+
+
+
 # Initiating Flask APP
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('flask_secret_key')
@@ -58,7 +67,7 @@ bootstrap = Bootstrap(app)
 ckeditor = CKEditor(app)
 mail = Mail(app)
 app.register_blueprint(my_blueprint, url_prefix='/pages')
-
+s = URLSafeSerializer('secret-key')  #email verification
 # OATH GOOGLE
 oauth = OAuth(app)
 oauth.init_app(app)
@@ -88,6 +97,7 @@ class User(users.Model, UserMixin):
     id = users.Column(users.Integer, primary_key=True)
     email = users.Column(users.String(250), nullable=False, unique=True)
     username = users.Column(users.String(250), nullable=True, unique=True)
+    confirmed = users.Column(users.String(10),nullable=True)
     password = users.Column(users.String(1000), nullable=True)
     first_name = users.Column(users.String(250), nullable=True)
     last_name = users.Column(users.String(250), nullable=True)
@@ -111,9 +121,9 @@ class Posts(users.Model):
 # connect databases to each other.
 # Creating Tables
 #
-# with app.app_context():
-#     users.create_all()
-#     users.session.commit()
+with app.app_context():
+    users.create_all()
+    users.session.commit()
 
 
 # -----------------------------------------------------------ENGINE------------------------------------------------------
@@ -298,33 +308,48 @@ def search_page():
             return redirect(url_for('paper_reader', redirect_from='search', quote=final_final_quote))
     return render_template("Search.html")
 
+@app.route("/confirm_email/<token>")
+def confirm_email(token):
+    try:
+        email = s.loads(token,salt='email-confirm',max_age=60)
+        user = users.session.query(User).filter_by(email=email).first()
+        user.confirmed = True
+        login_user(user)
+        return redirect(url_for("choose_path", current_user=current_user))
+    except SignatureExpired:
+        abort(403)
+
+
+
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = Register()
     if request.method == 'POST':
         e_mail = request.form.get("email")
-        username = form.username.data
         password = form.password.data
+        username = form.username.data
         hashed_password = generate_password_hash(password=password, method="pbkdf2:sha256", salt_length=8)
         user_id = generate_custom_id()
-        new_user = User(
-            email=e_mail,
-            password=hashed_password,
-            username=username,
-            id=user_id
-        )
         check_and_find = users.session.query(User).filter(or_(User.email == e_mail, User.username == username)).first()
         if check_and_find:
             flash("Your account already exist. Please log in.")
             return render_template("sign-in.html", redirect_from='register')
         else:
+            token = s.dumps(e_mail,salt='email-confirm')
+            link = url_for('confirm_email',token=token,_external=True)
+            msg = Message(' Confirm Email ', sender=app.config['MAIL_USERNAME'], recipients=[e_mail],body=f'Please confirm your e-mail with this link:{link}')
+            mail.send(msg)
+            email_sent= True
+            new_user = User(
+                email=e_mail,
+                password=hashed_password,
+                username=username,
+                id=user_id
+            )
             users.session.add(new_user)
             users.session.commit()
-            login_user(new_user)
-            return redirect(url_for("choose_path", current_user=current_user))
-    else:
-        print("rip")
+        return redirect(url_for('home',email_sent=email_sent,email=e_mail))
     return render_template("sign up.html", current_user=current_user, form=form)
 
 
@@ -342,7 +367,7 @@ def log_in():
         entered_password = request.form.get('password')
         user = users.session.query(User).filter_by(email=entered_email).first()
         if user:
-            if check_password_hash(pwhash=user.password, password=entered_password):
+            if check_password_hash(pwhash=user.password, password=entered_password) and user.confirmed == True:
                 login_user(user)
                 return redirect(url_for("choose_path", current_user=current_user))
             else:
@@ -389,7 +414,8 @@ def callback():
                 email=email,
                 first_name=first_name,
                 last_name=last_name,
-                id=generate_custom_id()
+                id=generate_custom_id(),
+                confirmed=True
             )
             login_user(new_user)
             users.session.add(new_user)
@@ -400,7 +426,8 @@ def callback():
                 email=email,
                 first_name=first_name,
                 last_name=last_name,
-                id=generate_custom_id()
+                id=generate_custom_id(),
+                confirmed=True
             )
         return redirect(url_for('home', current_user=current_user))
 
