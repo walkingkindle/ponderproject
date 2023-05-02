@@ -4,13 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Minor log in changes">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixed an error where each user can see everyone else's uploaded folders.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/upload.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/upload.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/About Us.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/About Us.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Edit-User.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Edit-User.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Kindle Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Kindle Upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Upload File.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Upload File.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/see-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/see-post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign-in.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -78,13 +87,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Customizing file upload and error not uploaded">
-      <created>1679684661679</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1679684661679</updated>
     </task>
     <task id="LOCAL-00027" summary="Styling Error page">
       <created>1679685100359</created>
@@ -422,7 +424,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682686933051</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="Fixed an error where each user can see everyone else's uploaded folders.">
+      <created>1683026365056</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1683026365056</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -440,7 +449,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Making a new, see-post page and redirecting the user to that page whenever he writes a post." />
     <MESSAGE value="Creating an exception in case the user cannot find th post_data." />
     <MESSAGE value="Making sure that show posts actually shows posts, lol&#10;Next up: Format the post so if the quote changes, it won't affect the layout!" />
     <MESSAGE value="Fixing the layout of see_post.html, implementing google_sing_in" />
@@ -465,6 +473,7 @@
     <MESSAGE value="Fixed an error where confirmation mail alert does not show, as well as the expired value, if the session token expires" />
     <MESSAGE value="Adjusting the layout," />
     <MESSAGE value="Minor log in changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor log in changes" />
+    <MESSAGE value="Fixed an error where each user can see everyone else's uploaded folders." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed an error where each user can see everyone else's uploaded folders." />
   </component>
 </project>

@@ -9,9 +9,29 @@ from flask_ckeditor import CKEditorField
 
 
 class Write(FlaskForm):
-    quote = StringField("Quote of the Day:",render_kw={"placeholder":"Write a short version of the quote here."})
-    body = CKEditorField("Ponder Here:", validators=[DataRequired()])
+    quote = StringField("Quote of the Day:", render_kw={"class": "form-control", "placeholder": "Write a short version of the quote here."})
+    author = StringField("Who is the Author of the quote?",validators=[DataRequired()])
+    body = CKEditorField("Ponder Here:", render_kw={"class": "ckeditor", "data-ckeditor-skin": "moono-lisa", "data-ckeditor-fontSize_defaultLabel": "16px", "data-ckeditor-colorButton_colors": "000000,ffffff", "data-ckeditor-toolbar": "['Bold', 'Italic', 'Underline', '-', 'Link', 'Unlink', '-', 'Image']", "data-ckeditor-customConfig": """
+                config.extraPlugins = 'image,link';
+                config.removePlugins = 'flash';
+                config.toolbarGroups = [                    { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+                    { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+                    { name: 'editing', groups: [ 'find', 'selection', 'spellchecker' ] },
+                    { name: 'forms', groups: [ 'forms' ] },
+                    { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+                    { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
+                    { name: 'links', groups: [ 'links' ] },
+                    { name: 'insert', groups: [ 'insert' ] },
+                    { name: 'styles', groups: [ 'styles' ] },
+                    { name: 'colors', groups: [ 'colors' ] },
+                    { name: 'tools', groups: [ 'tools' ] },
+                    { name: 'others', groups: [ 'others' ] },
+                    { name: 'about', groups: [ 'about' ] }
+                ];
+                """})
+
     submit = SubmitField("Submit")
+
 
 def my_length_check(form, field):
     if any(c.isdigit() for c in field.data):
@@ -38,3 +58,12 @@ class Register(FlaskForm):
 
 
     #fix the email validator so that it works.
+
+class ResetPassword(FlaskForm):
+    new_password = PasswordField("Enter a new password",validators=[DataRequired()],render_kw={"placeholder": "Password"})
+    submit = SubmitField("Change Password")
+
+
+class ForgotPassword(FlaskForm):
+    email = StringField("Please enter your email",validators=[DataRequired()],render_kw={"placeholder":"email"})
+    submit = SubmitField("Submit")

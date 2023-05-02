@@ -1,6 +1,7 @@
 # ----------------------------------------------------------------------IMPORTS------------------------------------------
 # FLASK
 import config
+import forms
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, url_for, flash, session, abort, redirect, request
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
@@ -34,7 +35,7 @@ from flask_dance.contrib.twitter import make_twitter_blueprint,twitter
 
 # SQL
 from sqlalchemy.orm import relationship
-from forms import Write, Register
+from forms import Write, Register,ForgotPassword,ResetPassword
 from sqlalchemy import or_
 
 # GOOGLE AUTH
@@ -121,6 +122,7 @@ class Posts(users.Model):
     __tablename__ = "posts"
     id = users.Column(users.Integer, primary_key=True, nullable=True)
     author_id = users.Column(users.String, users.ForeignKey('users.id'), nullable=True)
+    quote_author = users.Column(users.String,nullable=True)
     user = relationship("User", back_populates="posts")
     body = users.Column(users.Text, nullable=True)
     quote = users.Column(users.String(250))
@@ -196,7 +198,7 @@ def also_get_random_quote():
 
 def generate_custom_id():
     """Random ID for the database"""
-    d_id = random.randint(0, 100)
+    d_id = random.randint(0, 10000)
     return d_id
 
 
@@ -420,6 +422,48 @@ def log_in():
         return render_template("sign-in.html", email=entered_email)
 
 
+
+@app.route("/new-password/<token>/user_id")
+def new_password(token,user_id):
+    form = ResetPassword()
+    if form.validate_on_submit():
+        email = s.loads(token,salt='password_reset',max_age=600)
+        password = form.new_password.data
+        user = users.session.query(User).filter_by(id=user_id).first()
+        hashed_password = generate_password_hash(password=password, method="pbkdf2:sha256", salt_length=8)
+        user.password = hashed_password
+        users.session.commit()
+        return redirect(url_for('home'))
+    return render_template('reset-password')
+
+
+
+
+
+
+
+@app.route("/reset-password/",methods=["POST", "GET"])
+@login_required
+def reset_password():
+    email_form = ForgotPassword()
+    if email_form.validate_on_submit():
+        e_mail = email_form.email.data
+        user = users.session.query(User).filter_by(email=e_mail).first()
+        if user:
+            user_id = user.id
+            token = s.dumps(e_mail, salt='password-reset')
+            link = url_for('new-password', token=token, _external=True, email=e_mail,user_id=user_id)
+            msg = Message(' Reset Password Request ', sender=app.config['MAIL_USERNAME'], recipients=[e_mail],
+                  body=f'Please reset your password with this link:{link}')
+            mail.send(msg)
+            email_sent = True
+
+            return redirect(url_for('new-password', user_id=user_id))
+        else:
+            return abort(404)
+    return render_template('reset-password.html',email=True)
+
+
 @app.route("/callback")
 def callback():
     """Google auth callback"""
@@ -488,6 +532,7 @@ def write():
         body = form.body.data
         quote2 = form.quote.data
         post_id = generate_custom_id()
+        quote_author = form.author.data
         current_date = datetime.datetime.now()
         formatted_datetime = current_date.strftime("%d/%m/%Y")
         if form.validate_on_submit():
@@ -497,7 +542,8 @@ def write():
                 id=post_id,
                 user=current_user,
                 date=formatted_datetime,
-                user_quote=quote2
+                user_quote=quote2,
+                quote_author=quote_author
             )
             users.session.add(new_post)
             users.session.commit()
@@ -509,6 +555,7 @@ def write():
         writer = request.args.get("writer")
         body = form.body.data
         quote2 = form.quote.data
+        quote_author = form.author.data
         post_id = generate_custom_id()
         current_date = datetime.datetime.now()
         formatted_datetime = current_date.strftime("%d/%m/%Y")
@@ -519,7 +566,8 @@ def write():
                 id=post_id,
                 user=current_user,
                 date=formatted_datetime,
-                user_quote=quote2
+                user_quote=quote2,
+                quote_author= quote_author
             )
             users.session.add(new_post)
             users.session.commit()

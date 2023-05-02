@@ -6,6 +6,8 @@ body ::selection {
   color: #fff;
 }
 
+#book-table
+
 
 #alert-div
 {
@@ -350,7 +352,7 @@ p {
 	margin-top: 40px;
 }
 #auth-link{
-margin-bottom: 80px;
+margin-top: 140px;
 
 }
 #auth-link : hover{

@@ -220,6 +220,17 @@
                       <td></td>
                       <td></td>
                     </tr>
+                    <tr>
+                      <th>
+                        <label class="customcheckbox">
+                        <input type="checkbox" class="listCheckbox">
+                        <span class="checkmark"></span>
+                        </label>
+                      </th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -238,9 +249,8 @@
             <a href="{{url_for('home')}}">Ponder</a>
           </div>
           <ul class="list-unstyled nav-links mb-5">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
           </ul>
           <div class="social mb-4">
             <h3>Stay in touch</h3>
