@@ -62,6 +62,9 @@ body ::selection {
 		width: 50%;
 		margin-left: 80px;
 	}
+	footer{
+	 margin-top: 400px;
+	}
 }
 #alert-div{
   margin-top: 180px;

@@ -82,14 +82,14 @@
     {% endif %}
     <!-- Front Page -->
     {% if sent %}
-    <div class="alert alert-success" role="alert" id="alert-div">
+    <div class="alert alert-success text-center" role="alert" id="alert-div">
       <h4 class="alert-heading">Well done!</h4>
       <p>Your Message was successfully sent!</p>
       <hr>
     </div>
     {% endif %}
     {% if email_sent %}
-    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="alert-div">
+    <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" id="alert-div">
     <strong>Confirmation email</strong> has been sent to your inbox.
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
@@ -97,7 +97,7 @@
     </div>
     {% endif %}
     {% if expired %}
-    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="alert-div">
+    <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" id="alert-div">
   <strong>Confirmation link</strong> has expired. Please try registering again or contact us <a href="{{url_for('contact')}}">here.</a>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>

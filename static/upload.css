@@ -7,6 +7,11 @@ body ::selection {
 }
 
 
+#alert-div
+{
+    margin-top: 200px;
+}
+
 .container {
 	text-align: center;
 }

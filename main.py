@@ -108,6 +108,7 @@ class User(users.Model, UserMixin):
     id = users.Column(users.Integer, primary_key=True)
     email = users.Column(users.String(250), nullable=False, unique=True)
     username = users.Column(users.String(250), nullable=True, unique=True)
+    clippings_filename = users.Column(users.String(250), nullable=True)
     confirmed = users.Column(users.String(10),nullable=True)
     password = users.Column(users.String(1000), nullable=True)
     first_name = users.Column(users.String(250), nullable=True)
@@ -120,7 +121,6 @@ class Posts(users.Model):
     __tablename__ = "posts"
     id = users.Column(users.Integer, primary_key=True, nullable=True)
     author_id = users.Column(users.String, users.ForeignKey('users.id'), nullable=True)
-    clippings_filename = users.Column(users.String(250), nullable=True)
     user = relationship("User", back_populates="posts")
     body = users.Column(users.Text, nullable=True)
     quote = users.Column(users.String(250))
@@ -129,12 +129,15 @@ class Posts(users.Model):
     photo = users.Column(users.String(500), nullable=True)
 
 
+
+
+
 # connect databases to each other.
 # Creating Tables
 
-# with app.app_context():
-#     users.create_all()
-#     users.session.commit()
+with app.app_context():
+    users.create_all()
+    users.session.commit()
 
 
 # -----------------------------------------------------------ENGINE------------------------------------------------------
@@ -153,7 +156,6 @@ def extract_quotes_with_writers(filename, clippings_path):
     """Takes My Clippings.txt and extracts it to a formatted string"""
     with open(rf"{clippings_path}/{filename}", "r", encoding="utf-8") as text_file:
         text = text_file.read()
-        print(text)
         lines = text.splitlines()
         # Initialize an empty list to store the quotes and writers
         quotes_with_writers = []
@@ -227,26 +229,29 @@ def home():
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    clippings_filename = "My_Clippings.txt"
-    quote_list = extract_quotes_with_writers(clippings_path=app.config['UPLOAD_FOLDER'], filename=clippings_filename)
-    quote = random.choice(quote_list)
-    real_quote = quote[0]
-    real_writer = quote[1]
-    all_posts = Posts.query.all()
-    if real_quote == real_writer:
-        new_quote, new_writer = quote
-        while new_quote == new_writer:
-            new_quote, new_writer = random.choice(quote_list)
-    else:
-        pass
+    try:
+        clippings_filename = "My_Clippings.txt" + str(current_user.id)
+        quote_list = extract_quotes_with_writers(clippings_path=app.config['UPLOAD_FOLDER'], filename=clippings_filename)
+        quote = random.choice(quote_list)
+        real_quote = quote[0]
+        real_writer = quote[1]
+        all_posts = Posts.query.all()
+        if real_quote == real_writer:
+            new_quote, new_writer = quote
+            while new_quote == new_writer:
+                new_quote, new_writer = random.choice(quote_list)
+        else:
+            pass
 
-    if len(real_quote) < 20:
-        new_quote, new_writer = quote
-        while len(new_quote) < 20:
-            new_quote, new_writer = random.choice(quote_list)
+        if len(real_quote) < 20:
+            new_quote, new_writer = quote
+            while len(new_quote) < 20:
+                new_quote, new_writer = random.choice(quote_list)
 
-    if len(real_quote) > len(real_writer):
-        real_quote, real_writer = real_writer, real_quote
+        if len(real_quote) > len(real_writer):
+            real_quote, real_writer = real_writer, real_quote
+    except FileNotFoundError:
+        return redirect(url_for('upload',not_uploaded=True))
     return render_template("Dashboard.html", quote=real_quote, writer=real_writer, all_posts=all_posts)
 
 
@@ -273,18 +278,21 @@ def choose_path():
 @app.route("/upload", methods=['GET', 'POST'])
 @login_required
 def upload():
+    not_uploaded = request.args.get("not_uploaded")
     if request.method == 'POST':
         try:
             file = request.files.get('My Clippings')
             file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'],
-                                   secure_filename(file.filename)))
+                                   secure_filename(file.filename + str(current_user.id))))
+            current_user.clippings_filename = file.filename + str(current_user.id)
+            users.session.commit()
             if file:
                 return redirect(url_for("dashboard", redirect_from="upload", current_user=current_user))
             else:
                 return redirect(url_for("nothing_selected", current_user=current_user))
         except FileNotFoundError:
             return redirect(url_for('nothing_selected'))
-    return render_template("Kindle Upload.html", current_user=current_user)
+    return render_template("Kindle Upload.html", current_user=current_user,not_uploaded=not_uploaded)
 
 
 @app.route("/see-post/<int:post_id>", methods=["GET", "POST"])
@@ -333,6 +341,7 @@ def confirm_email(token):
         email = s.loads(token,salt='email-confirm',max_age=7200)
         user = users.session.query(User).filter_by(email=email).first()
         user.confirmed = True
+        users.session.commit()
         login_user(user)
         return redirect(url_for("choose_path", current_user=current_user))
     except SignatureExpired:
