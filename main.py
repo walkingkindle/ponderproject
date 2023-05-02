@@ -137,9 +137,9 @@ class Posts(users.Model):
 # connect databases to each other.
 # Creating Tables
 
-with app.app_context():
-    users.create_all()
-    users.session.commit()
+# with app.app_context():
+#     users.create_all()
+#     users.session.commit()
 
 
 # -----------------------------------------------------------ENGINE------------------------------------------------------
@@ -423,19 +423,18 @@ def log_in():
 
 
 
-@app.route("/new-password/<token>/user_id")
-def new_password(token,user_id):
+@app.route("/new-password/<token>",methods=["POST","GET"])
+def new_password(token):
     form = ResetPassword()
     if form.validate_on_submit():
-        email = s.loads(token,salt='password_reset',max_age=600)
+        email = s.loads(token,salt='password-reset',max_age=600)
         password = form.new_password.data
-        user = users.session.query(User).filter_by(id=user_id).first()
+        user = users.session.query(User).filter_by(email=email).first()
         hashed_password = generate_password_hash(password=password, method="pbkdf2:sha256", salt_length=8)
         user.password = hashed_password
         users.session.commit()
         return redirect(url_for('home'))
-    return render_template('reset-password')
-
+    return render_template('reset-password.html',form=form)
 
 
 
@@ -443,7 +442,6 @@ def new_password(token,user_id):
 
 
 @app.route("/reset-password/",methods=["POST", "GET"])
-@login_required
 def reset_password():
     email_form = ForgotPassword()
     if email_form.validate_on_submit():
@@ -452,16 +450,15 @@ def reset_password():
         if user:
             user_id = user.id
             token = s.dumps(e_mail, salt='password-reset')
-            link = url_for('new-password', token=token, _external=True, email=e_mail,user_id=user_id)
+            link = url_for('new_password', token=token, _external=True, email=e_mail,user_id=user_id)
             msg = Message(' Reset Password Request ', sender=app.config['MAIL_USERNAME'], recipients=[e_mail],
                   body=f'Please reset your password with this link:{link}')
             mail.send(msg)
             email_sent = True
-
-            return redirect(url_for('new-password', user_id=user_id))
+            return redirect(url_for('home', user_id=user_id))
         else:
             return abort(404)
-    return render_template('reset-password.html',email=True)
+    return render_template('reset-password.html',email=True,form=email_form)
 
 
 @app.route("/callback")
