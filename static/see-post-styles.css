@@ -8,8 +8,13 @@
   /* Margin to fix overlapping fixed navbar */
   margin-top: 45px;
  }
+ #main-div{
+ margin-left: -20px !important;
+ }
 }
-
+#main-div{
+ margin-left: 120px;
+}
 #body-and-button{
   margin-left: 50px;
 }
@@ -28,14 +33,8 @@
   background-color: #6E07F3;
 }
 
-#main-div{
-  margin-left: 200px;
-}
 
 @media(max-width: 1280px){
- main{
-  margin-right: 200px;
- }
  #edit-button{
    margin-right: 200px;
    position: relative;

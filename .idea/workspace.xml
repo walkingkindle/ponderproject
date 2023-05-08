@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fully Responsive index on smaller devices.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Updating user information feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/account-info-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/account-info-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/see-post-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/see-post-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/upload.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/upload.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/write-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/write-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Kindle Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Kindle Upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Upload File.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Upload File.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/see-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/see-post.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,13 +83,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Implementing the contact me page.">
-      <created>1679844254911</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1679844254911</updated>
     </task>
     <task id="LOCAL-00031" summary="Finalizing contact page.">
       <created>1679944195529</created>
@@ -421,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683556386123</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Updating user information feature">
+      <created>1683565974758</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1683565974758</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -439,7 +445,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implementing redirect on the google_sign_in" />
     <MESSAGE value="Updating google log in" />
     <MESSAGE value="Updating google and auth library to make it work" />
     <MESSAGE value="Fixed an issue where the post tags appear with &lt;p&gt; instead of like normal text" />
@@ -464,6 +469,7 @@
     <MESSAGE value="Editing dashboard and refactoring log_in page." />
     <MESSAGE value="Implementing forgot password feature" />
     <MESSAGE value="Fully Responsive index on smaller devices." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully Responsive index on smaller devices." />
+    <MESSAGE value="Updating user information feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating user information feature" />
   </component>
 </project>

@@ -48,8 +48,8 @@
               <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
                 <a class="nav-link" href="{{url_for('dashboard')}}">Dashboard</a>
               </li>
-              <li class="nav-item {% if request.path == url_for('account') %}active{% endif %}">
-                <a class="nav-link" href="{{url_for('account',redirect_from='index')}}">Account</a>
+              <li class="nav-item {% if request.path == url_for('account',user_id=current_user.id) %}active{% endif %}">
+                <a class="nav-link" href="{{url_for('account',redirect_from='index',user_id=current_user.id)}}">Account</a>
               </li>
             </ul>
           </div>
@@ -66,7 +66,7 @@
               <label for="book-search" class="input-group-text">Enter Book Titles, or Authors Here:</label>
             </div>
             <div class="input-group-field">
-              <input id="book-search" class="form-control" type="text" placeholder="Search for books and authors here, after finding a match, we'll display it  below!">
+              <input id="book-search" class="form-control" type="text" placeholder="Search for books and authors here">
             </div>
           </div>
           <ul id="book-list" style="list-style-type: none; padding: 0; margin-bottom: 220px; width: 100vh; font-family: Roboto,Sans-Serif;"></ul>

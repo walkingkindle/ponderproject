@@ -43,7 +43,13 @@ body ::selection {
 }
 
 
-
+@media(max-width: 1068px)
+{
+   #ponder-text{
+      position: relative;
+      right: 95px;
+    }
+}
 
 
 

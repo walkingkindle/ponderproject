@@ -6,12 +6,9 @@ body ::selection {
   color: #fff;
 }
 
-#book-table
-
-
-#alert-div
+#alert-div.alert-warning
 {
-    margin-top: 200px;
+  margin-top: 80px;
 }
 
 .container {

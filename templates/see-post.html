@@ -44,8 +44,8 @@
             <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">
               <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>
             </li>
-            <li class="nav-item {% if request.path == url_for('account') %}active{% endif %}">
-              <a class="nav-link" href="{{url_for('account',redirect_from='dashboard')}}">Account</a>
+            <li class="nav-item {% if request.path == url_for('account',user_id=current_user.id) %}active{% endif %}">
+              <a class="nav-link" href="{{url_for('account',redirect_from='dashboard',user_id=current_user.id)}}">Account</a>
             </li>
           </ul>
         </div>
@@ -95,7 +95,7 @@
     </div>
   </section>
   <!--Main layout-->
-  <main class="mt-4 mb-5">
+  <main class="mt-4 mb-5" id="main-div">
     <div class="container">
       <!--Grid row-->
       <div class="row">
@@ -116,9 +116,9 @@
                 <a href="" class="text-dark">{{current_user.username}}</a>
               </div>
               <div class="col-lg-6 text-center text-lg-end">
-                <button type="button" class="btn btn-primary px-3 me-1" style="background-color: #3b5998;">
+                <a href="https://www.facebook.com/sharer.php?u={{url_for('see_post', post_id=post.id)}}&t={{post.title}}" type="button" class=" button btn btn-primary px-3 me-1" style="background-color: #3b5998;">
                 <i class="fab fa-facebook-f"></i>
-                </button>
+                </a>
                 <button type="button" class="btn btn-primary px-3 me-1" style="background-color: #55acee;">
                 <i class="fab fa-twitter"></i>
                 </button>

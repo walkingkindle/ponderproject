@@ -698,9 +698,12 @@ def account(user_id):
         user.continent = continent
         users.session.commit()
         return redirect(url_for('home'))
-    img_path = '/static/files/' + user.user_photo
-    print(img_path)
-    return render_template("account-info.html",user=user,img_path=img_path)
+    if user.user_photo:
+        img_path = '/static/files/' + user.user_photo
+        return render_template("account-info.html",user=user,img_path=img_path)
+    else:
+        pass
+        return render_template("account-info.html",user=user)
 
 @app.route("/delete_user", methods=["GET", "POST"])
 @login_required
