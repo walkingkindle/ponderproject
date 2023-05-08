@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Editing dashboard and refactoring log_in page.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Implementing forgot password feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,13 +75,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Finalizing the uploading feature.">
-      <created>1679685780129</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1679685780129</updated>
     </task>
     <task id="LOCAL-00029" summary="Implementing and styling the dashboard-upload onto the dashboard page that renders the quote with jinja code.">
       <created>1679774661579</created>
@@ -418,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683040476501</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="Implementing forgot password feature">
+      <created>1683043979357</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1683043979357</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -436,7 +437,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Making sure that show posts actually shows posts, lol&#10;Next up: Format the post so if the quote changes, it won't affect the layout!" />
     <MESSAGE value="Fixing the layout of see_post.html, implementing google_sing_in" />
     <MESSAGE value="Implementing redirect on the google_sign_in" />
     <MESSAGE value="Updating google log in" />
@@ -461,6 +461,7 @@
     <MESSAGE value="Minor log in changes" />
     <MESSAGE value="Fixed an error where each user can see everyone else's uploaded folders." />
     <MESSAGE value="Editing dashboard and refactoring log_in page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Editing dashboard and refactoring log_in page." />
+    <MESSAGE value="Implementing forgot password feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing forgot password feature" />
   </component>
 </project>

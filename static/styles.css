@@ -47,7 +47,7 @@ body ::selection {
 	color: #fff;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 967px) {
 	.big-heading {
 		font-size: 58px;
 	}
@@ -63,8 +63,14 @@ body ::selection {
 		margin-left: 80px;
 	}
 	footer{
-	 margin-top: 400px;
+	 margin-top: 2000px !important
 	}
+}
+@media(max-width: 1080px) {
+#get started{
+    position: relative;
+    bottom: 200px;
+}
 }
 #alert-div{
   margin-top: 180px;
@@ -81,7 +87,7 @@ body ::selection {
 	background-color: #7743DB;
 	margin: 50px auto 0;
 	margin-bottom: 150px;
-	/* Add some space between the two divs */
+
 }
 
 .container {
@@ -118,14 +124,14 @@ body {
 	color: #212529;
 }
 
-/* Style the container */
+
 .container {
 	max-width: 960px;
 	margin: 0 auto;
 	display: block;
 }
 
-/* Style the header */
+
 h2 {
 	font-size: 2.5rem;
 	font-weight: 500;
@@ -133,7 +139,7 @@ h2 {
 	margin-bottom: 1rem;
 }
 
-/* Style the features */
+
 .feature {
 	padding: 1rem;
 	background-color: #fff;
@@ -141,14 +147,14 @@ h2 {
 	transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-/* Add a shadow and change the background color when hovering over a feature */
+
 .feature:hover {
 	transform: translateY(-0.25rem);
 	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 	background-color: #f8f9fa;
 }
 
-/* Style the feature icons */
+
 .feature-icon {
 	display: flex;
 	justify-content: center;
@@ -160,26 +166,26 @@ h2 {
 	color: #fff;
 }
 
-/* Add a gradient to the feature icons */
+
 .bg-gradient {
 	background-image: linear-gradient(45deg, #007bff, #6c757d);
 }
 
-/* Style the feature titles */
+
 h2 {
 	font-size: 1.5rem;
 	font-weight: 500;
 	margin-bottom: 0.5rem;
 }
 
-/* Style the feature descriptions */
+
 p {
 	font-size: 1.125rem;
 	line-height: 1.5;
 	margin-bottom: 1.5rem;
 }
 
-/* Style the icon links */
+
 .icon-link {
 	display: inline-flex;
 	align-items: center;
@@ -187,7 +193,7 @@ p {
 	color: #007bff;
 }
 
-/* Add a chevron to the icon links */
+
 .icon-link svg {
 	margin-left: 0.5rem;
 }
@@ -200,7 +206,7 @@ p {
 	margin-top: 150px;
 }
 
-/* Footer */
+
 body {
   font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
 
