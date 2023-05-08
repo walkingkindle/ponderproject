@@ -29,7 +29,8 @@ from config import urlsafe_secret
 from flask_dance.contrib.twitter import make_twitter_blueprint,twitter
 
 
-
+#PIL for small images
+from PIL import Image
 
 
 
@@ -115,6 +116,7 @@ class User(users.Model, UserMixin):
     first_name = users.Column(users.String(250), nullable=True)
     last_name = users.Column(users.String(250), nullable=True)
     continent = users.Column(users.String(250), nullable=True)
+    user_photo = users.Column(users.String(250),nullable=True)
     posts = relationship("Posts", back_populates="user")
 
 
@@ -137,9 +139,9 @@ class Posts(users.Model):
 # connect databases to each other.
 # Creating Tables
 
-# with app.app_context():
-#     users.create_all()
-#     users.session.commit()
+with app.app_context():
+    users.create_all()
+    users.session.commit()
 
 
 # -----------------------------------------------------------ENGINE------------------------------------------------------
@@ -672,12 +674,33 @@ def edit_user():
     return render_template("Edit-User.html", current_user=current_user)
 
 
-@app.route("/account", methods=["GET", "POST"])
-def account():
-    if request.method == "POST":
-        return redirect(url_for("edit_user", current_user=current_user))
-    return render_template("account-info.html")
+@app.route("/account/<int:user_id>", methods=["GET", "POST"])
+@login_required
+def account(user_id):
+    user = users.session.query(User).filter_by(id=user_id).first()
 
+    if request.method == "POST":
+        photo = request.files['photo']
+        username = request.form.get('username')
+        name = request.form.get('name')
+        continent = request.form.get('continent')
+        if photo:
+            img = Image.open(photo)
+            max_size = (315,315)
+            img.thumbnail(max_size)
+            filename,ext = os.path.splitext(photo.filename)
+            filename = secure_filename(str(user.id) + 'profile' + ext)
+            img_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            img.save(img_path)
+            user.user_photo = filename
+        user.username = username
+        user.first_name = name
+        user.continent = continent
+        users.session.commit()
+        return redirect(url_for('home'))
+    img_path = '/static/files/' + user.user_photo
+    print(img_path)
+    return render_template("account-info.html",user=user,img_path=img_path)
 
 @app.route("/delete_user", methods=["GET", "POST"])
 @login_required
