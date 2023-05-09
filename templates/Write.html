@@ -75,7 +75,7 @@ config.toolbar = [
     <div class="row">
       <div class="col-md-6 mx-auto">
         {% if quote|length > 200 %}
-        <div style="height: 200px; overflow-y: scroll;">
+        <div style="height: 800px; overflow-y: scroll; width: 800px;">
           {{ quote }}
         </div>
         {% else %}
@@ -113,7 +113,7 @@ config.toolbar = [
       <div class="row">
         <div class="col-md-6 mx-auto">
           {% if quote|length > 200 %}
-          <div style="height: 200px; overflow-y: scroll;">
+          <div style="height: 800px; overflow-y: scroll; width: 800px;">
             {{ quote }}
           </div>
           {% else %}
@@ -152,7 +152,7 @@ config.toolbar = [
           <div class="row">
             <div class="col-md-6 mx-auto">
               {% if quote|length > 200 %}
-              <div style="height: 200px; overflow-y: scroll;">
+              <div style="height: 600px; overflow-y: scroll; width: 600px;">
                 {{ quote }}
               </div>
               {% else %}
@@ -162,8 +162,6 @@ config.toolbar = [
               {% endif %}
               <div class="form-group" id="form-div">
                 {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary btn lg"}) }}
-                 {{ form.body.label(class="form-control-label") }}
-                {{ form.body(class="form-control ckeditor", placeholder="Ponder Here") }}
               </div>
                 </div>
               </div>

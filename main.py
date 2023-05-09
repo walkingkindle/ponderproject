@@ -330,7 +330,8 @@ def search_page():
                 print(quote)
                 quotes_list.append(f"{quote}")
             except TitleNotFound:
-                quote = None
+                quote = "If you're seeing this, it means that we couldn't find any quotes on this author/book." \
+                        "Click on the link below to contribute to the quote API with more quotes."
         print(quotes_list)
         if len(quotes_list) > 0:
             quote = str(random.choice(quotes_list))
@@ -457,7 +458,7 @@ def reset_password():
                   body=f'Please reset your password with this link:{link}')
             mail.send(msg)
             email_sent = True
-            return redirect(url_for('home', user_id=user_id))
+            return redirect(url_for('home', user_id=user_id,email_sent=email_sent))
         else:
             return abort(404)
     return render_template('reset-password.html',email=True,form=email_form)
@@ -594,14 +595,14 @@ def paper_reader():
         new_post = Posts(
             quote=f"{quote}",
             body=body,
-            post_id=post_id,
+            id=post_id,
             user=current_user,
             date=formatted_datetime,
             user_quote=quote2
         )
         users.session.add(new_post)
         users.session.commit()
-        return redirect(url_for("see_post", quote=str(quote), form=form, current_user=current_user, post_id=id))
+        return redirect(url_for("see_post", quote=str(quote), form=form, current_user=current_user, post_id=new_post.id))
     return render_template("Write.html", form=form, current_user=current_user, quote=str(quote))
 
 
