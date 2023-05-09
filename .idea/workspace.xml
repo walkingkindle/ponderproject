@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing the error where the page is not narrow enough if the text is too large.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Customizing about page">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/About Us.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/About Us.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,13 +75,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Adding and styling the account page, adding the account page to the navBar">
-      <created>1680096158735</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1680096158735</updated>
     </task>
     <task id="LOCAL-00034" summary="Making the account page work.">
       <created>1680259366655</created>
@@ -418,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683621257161</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Customizing about page">
+      <created>1683625386266</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1683625386266</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -436,7 +437,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed an issue where the post tags appear with &lt;p&gt; instead of like normal text" />
     <MESSAGE value="Updating the layout of Write.html in case the user does not upload hisMy Clippings.txt" />
     <MESSAGE value="Adding and customizing footers" />
     <MESSAGE value="Fixed the google authentication so it redirects the user to the index page." />
@@ -461,6 +461,7 @@
     <MESSAGE value="Updating user information feature" />
     <MESSAGE value="Adjusting more of responsiveness" />
     <MESSAGE value="Fixing the error where the page is not narrow enough if the text is too large." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing the error where the page is not narrow enough if the text is too large." />
+    <MESSAGE value="Customizing about page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Customizing about page" />
   </component>
 </project>
