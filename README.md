@@ -19,24 +19,14 @@ With all 3 options, the app will make a blog post out of your favorite quote and
 
 
 Responsive Design
-![image](https://user-images.githubusercontent.com/122030667/237041312-0fc04cf3-dd28-4e6c-b681-62c191efe42c.png)
 
+![image](https://user-images.githubusercontent.com/122030667/237043999-9790b8db-31c3-45b8-987a-cbd83d8331c2.png)
 
-
-![image](https://user-images.githubusercontent.com/122030667/237041464-d947cd8b-c28b-4371-b3c2-459fb24f2596.png)
-
-
-
-![image](https://user-images.githubusercontent.com/122030667/237041557-285b7293-1209-4421-b203-3a9172673fc4.png)
 
 Searchable quotes
-
-![image](https://user-images.githubusercontent.com/122030667/237041715-9a007574-fc6a-44d8-b507-d2937984aaea.png)
-
-
-Upload your own Kindle My Clippings API 
-![image](https://user-images.githubusercontent.com/122030667/237041916-2a2c30ad-6d0a-406d-a7b6-5f11b46e6408.png)
+![image](https://user-images.githubusercontent.com/122030667/237044219-a21b5766-14a5-47c2-aa57-3d70e48bf056.png)
 
 
-Change User Information
-![image](https://user-images.githubusercontent.com/122030667/237042005-131846f1-91a5-438c-97c0-dd148b475567.png)
+Upload your own Kindle 'My Clippings.txt' 
+![image](https://user-images.githubusercontent.com/122030667/237044395-a97f5523-3d1f-447f-9769-865a6378d1d3.png)
+
