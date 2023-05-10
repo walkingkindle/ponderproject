@@ -410,8 +410,10 @@ def log_in():
         entered_email = request.form.get('email')
         entered_password = request.form.get('password')
         user = users.session.query(User).filter_by(email=entered_email).first()
+        print(f"{user} is")
         if user:
-            if check_password_hash(pwhash=user.password, password=entered_password) and user.confirmed == True:
+            if check_password_hash(pwhash=user.password, password=entered_password) and user.confirmed:
+                print("is true")
                 login_user(user)
                 return redirect(url_for("choose_path", current_user=current_user))
             else:
