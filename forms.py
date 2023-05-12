@@ -32,6 +32,9 @@ class Write(FlaskForm):
 
     submit = SubmitField("Submit")
 
+class ContributeForm(FlaskForm):
+    quote = StringField("Enter your quote here:",validators=[DataRequired()])
+
 
 
 class Write_Edit(FlaskForm):

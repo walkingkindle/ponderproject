@@ -137,8 +137,10 @@
               <section id="body-and-button">
                 <p>{{ post.body|safe }}</p>
                 <br>
+                {% if can_edit %}
                 <a class="btn btn-btn-primary btn-outline-dark btn-lg" href="{{url_for('edit_post',post_id=post.id)}}" id="edit-button">Edit</a>
               </section>
+              {% endif %}
             </div>
           </div>
         </div>

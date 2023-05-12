@@ -317,7 +317,13 @@ def upload():
 @login_required
 def see_post(post_id):
     requested_post = Posts.query.get(post_id)
-    return render_template("see-post.html", post=requested_post)
+    print(current_user.id)
+    print(requested_post.author_id)
+    if int(current_user.id) == int(requested_post.author_id):
+        can_edit = True
+    else:
+        can_edit = False
+    return render_template("see-post.html", post=requested_post,can_edit=can_edit)
 
 
 @app.route('/nothing-here')
@@ -326,8 +332,11 @@ def nothing_selected():
 
 
 @app.route("/search-page", methods=['POST', 'GET'])
+@login_required
 def search_page():
     """A feature which gives the user a choice to search the books and authors in case he/she does not own a Kindle."""
+    contribute = request.args.get('contribute')
+    print(contribute)
     books = []
     authors = []
     quotes_list = []
@@ -346,13 +355,59 @@ def search_page():
             except TitleNotFound:
                 quote = "If you're seeing this, it means that we couldn't find any quotes on this author/book." \
                         "Click on the link below to contribute to the quote API with more quotes."
+                contribute = True
+                return redirect(url_for('paper_reader',quote=quote,contribute=contribute))
         print(quotes_list)
         if len(quotes_list) > 0:
             quote = str(random.choice(quotes_list))
             final_quote = quote.replace("[", " ")
             final_final_quote = final_quote.replace("]", " ")
             return redirect(url_for('paper_reader', redirect_from='search', quote=final_final_quote))
-    return render_template("Search.html")
+    return render_template("Search.html",not_found=not_found,contribute=contribute,redirect_from='search')
+
+@app.route("/contribute")
+@login_required
+def contribute():
+    """Add a quote to the wikiquotes.org api"""
+    contribute = True
+    form = forms.ContributeForm()
+    if form.validate_on_submit():
+        # Set the parameters for the new quote
+        page_title = "Wikiquote:Quote of the day"
+        section_title = "May 12, 2023"
+        quote_text = form.quote.data
+        quote_author = current_user.username
+
+        # Set the API endpoint for creating a new section
+        api_url = "https://en.wikiquote.org/w/api.php"
+
+        # Set the parameters for the API request
+        params = {
+            "action": "edit",
+            "format": "json",
+            "title": page_title,
+            "section": "new",
+            "sectiontitle": section_title,
+            "text": f"'''{quote_author}:''' {quote_text}"
+        }
+
+        # Set the headers for the API request (including the user agent)
+        headers = {
+            "User-Agent": "MyWikiquoteBot/1.0"
+        }
+
+        # Send the API request
+        response = requests.post(api_url, params=params, headers=headers)
+
+        # Check if the request was successful
+        if response.status_code == 200:
+            print("New quote added successfully!")
+        else:
+            print("Error adding new quote:", response.text)
+        return redirect(url_for('home'))
+    return render_template("Write.html",contribute = contribute,form = form,current_user=current_user)
+
+
 
 @app.route("/confirm_email/<token>")
 def confirm_email(token):
@@ -600,6 +655,7 @@ def write():
 def paper_reader():
     """A feature that searches books from an API and gets famous quotes from them. Used in case the user does not own a
      Kindle"""
+    contribute = request.args.get('contribute')
     form = Write()
     quote = str(request.args.get('quote'))
     body = form.body.data
@@ -621,7 +677,7 @@ def paper_reader():
         users.session.add(new_post)
         users.session.commit()
         return redirect(url_for("see_post", quote=str(quote), form=form, current_user=current_user, post_id=new_post.id))
-    return render_template("Write.html", form=form, current_user=current_user, quote=str(quote))
+    return render_template("Write.html", form=form, current_user=current_user, quote=str(quote),contribute=contribute)
 
 
 @app.route("/edit-post/<int:post_id>", methods=['GET', 'POST'])

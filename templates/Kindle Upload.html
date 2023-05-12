@@ -55,7 +55,7 @@
     <!----- Main Content ---->
     {% if not_uploaded %}
     <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" id="alert-div">
-              We couldn't find your My Clippings file. Upload it, or contact us<a href="{{url_for('contact')}}"> here</a> if you have any unusual experiences.
+              We couldn't find your My Clippings file. Either Upload it or write a post via <a href="{{ url_for('search_page') }}">writer route</a> or <a href="{{ url_for('write',redirect_from = 'home') }}">random quotes</a> .
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
               </button>

@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixed an issue with the new log-in page">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing the issue where if the quote is too long or undesirable, the user can change it.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/dashboard-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/dashboard-styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Kindle Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Kindle Upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Write.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/see-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/see-post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign up.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,13 +79,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Fixed the bug where the edit_user would only change one button instead of all variables.">
-      <created>1680274729746</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1680274729746</updated>
     </task>
     <task id="LOCAL-00037" summary="Fixed an issue where the quote variable does not appear, and changed the upload function so that the label changes after the file has been uploaded.">
       <created>1680340469259</created>
@@ -423,7 +416,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683709569050</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="Fixing the issue where if the quote is too long or undesirable, the user can change it.">
+      <created>1683886193211</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1683886193211</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -441,7 +441,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed the google authentication so it redirects the user to the index page." />
     <MESSAGE value="Creating a user from google log in route" />
     <MESSAGE value="Adding the edit-post feature." />
     <MESSAGE value="Implementing and customizing the search page to return the search query from the google API" />
@@ -466,6 +465,7 @@
     <MESSAGE value="Customizing about page" />
     <MESSAGE value="requirements.txt" />
     <MESSAGE value="Fixed an issue with the new log-in page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed an issue with the new log-in page" />
+    <MESSAGE value="Fixing the issue where if the quote is too long or undesirable, the user can change it." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing the issue where if the quote is too long or undesirable, the user can change it." />
   </component>
 </project>

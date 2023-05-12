@@ -89,37 +89,43 @@
         </div>
     </div>
 </section>
+
     <div class="container" id="button-div">
       <div class="row">
     <a id="ponder-button" class="btn btn-outline-primary btn-block" href="{{url_for('write', quote=quote, redirect_from='dashboard')}}">Ponder</a>
       </div>
       </div>
     {% else %}
-    <div class="colored-section">
-      <div class="other-comments">
-        {% if quote|length > 200 %}
-        <blockquote class="blockquote text-center" id="quotetext2">
-          <p class="mb-0">{{writer[:100]}}... <a href="{{url_for('write', quote=quote, redirect_from='dashboard')}}">Read more</a></p>
-          {% else %}
-          <blockquote class="blockquote text-center">
-            <a>
-              <p class="mb-0">{{ writer }}</p>
-            </a>
-            {% endif %}
-            <footer class="blockquote-footer">{{quote}}</footer>
-          </blockquote>
-          <div class="comment-wrapper">
-            <div class="row d-flex justify-content-center">
-              <div class="col-12 col-md-6 col-lg-4">
-                <p class="comment-paragraph text-center">{{post_data}}</p>
-              </div>
+  <section class="py-5">
+    <div class="container">
+        <!-- FOR DEMO PURPOSE -->
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <header class="text-center pb-5">
+
+                </header>
             </div>
-            <a href="{{url_for('write',redirect_from='dashboard',quote=writer,writer=quote)}}" class="read-more">Ponder here</a>
-            <a  href="javascript:location.reload(true)" id="reload-page" class="read-more">Or click here to get a different quote</a>
-          </div>
-        </blockquote>
-      </div>
+        </div><!-- END -->
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+
+                <!-- CUSTOM BLOCKQUOTE -->
+                <blockquote class="blockquote blockquote-custom bg-white p-5 shadow rounded">
+                    <div class="blockquote-custom-icon bg-info shadow-sm"><i class="fa fa-quote-left text-white"></i></div>
+                    <p class="mb-0 mt-2 font-italic">"{{writer}}</p>
+                    <footer class="blockquote-footer pt-4 mt-4 border-top">{{ quote }}
+                    </footer>
+                </blockquote><!-- END -->
+            </div>
+        </div>
     </div>
+</section>
+    
+    <div class="container" id="button-div">
+      <div class="row">
+    <a id="ponder-button" class="btn btn-outline-primary btn-block" href="{{url_for('write', quote=quote, redirect_from='dashboard')}}">Ponder</a>
+      </div>
+      </div>
     {% endif %}
     <script>
       document.getElementById('reload-page').addEventListener('click', function(event) {
