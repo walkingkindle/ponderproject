@@ -75,10 +75,10 @@
                     <span class="lead font-italic">
                       {% if post.quote|length > 200 %}
                   <div style="height: 200px; overflow-y: scroll;">
-                  {{ post.quote }}
+                  {{ post.quote|safe }}
                   </div>
                   {% else %}
-                  {{post.quote}}
+                  {{post.quote|safe}}
                   {% endif %}
                   </span>
                   <i class="fas fa-quote-right fa-xs text-primary"></i>

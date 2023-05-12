@@ -59,10 +59,42 @@
       </nav>
     </div>
     <!---------Main Content, Dashboard ------>
-    <div id="title">
+    <div class="title">
       <h1 id="dashboard-title2">Dashboard</h1>
       <h1 id="quote-title2">Today's quote:</h1>
     </div>
+    {% if has_posts %}
+
+ <section class="py-5">
+    <div class="container">
+        <!-- FOR DEMO PURPOSE -->
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <header class="text-center pb-5">
+
+                </header>
+            </div>
+        </div><!-- END -->
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+
+                <!-- CUSTOM BLOCKQUOTE -->
+                <blockquote class="blockquote blockquote-custom bg-white p-5 shadow rounded">
+                    <div class="blockquote-custom-icon bg-info shadow-sm"><i class="fa fa-quote-left text-white"></i></div>
+                    <p class="mb-0 mt-2 font-italic">"{{quote}}</p>
+                    <footer class="blockquote-footer pt-4 mt-4 border-top">{{ writer }}
+                    </footer>
+                </blockquote><!-- END -->
+            </div>
+        </div>
+    </div>
+</section>
+    <div class="container" id="button-div">
+      <div class="row">
+    <a id="ponder-button" class="btn btn-outline-primary btn-block" href="{{url_for('write', quote=quote, redirect_from='dashboard')}}">Ponder</a>
+      </div>
+      </div>
+    {% else %}
     <div class="colored-section">
       <div class="other-comments">
         {% if quote|length > 200 %}
@@ -88,20 +120,21 @@
         </blockquote>
       </div>
     </div>
+    {% endif %}
     <script>
       document.getElementById('reload-page').addEventListener('click', function(event) {
         event.preventDefault(); // Prevent default link behavior
         window.location.reload(); // Reload the page
       });
     </script>
-    <div class="container">
+    <div class="container" id="other-posts">
       <div class="row">
         <div class="col-md-12" id="other-posts-div">
           <h1 id="other-posts" class="mb-4">Other posts:</h1>
         </div>
         <div class="col-md-12">
           <div class="post">
-            {% for post in all_posts %}
+           {% for post in all_posts %}
             <a href="{{url_for('see_post',quote=quote.quote,post_id = post.id)}}">
               <h3 class="mb-5">{{post.user_quote}}</h3>
             </a>

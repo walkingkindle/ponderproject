@@ -2,6 +2,7 @@
 # FLASK
 import config
 import forms
+import openai
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, url_for, flash, session, abort, redirect, request
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
@@ -24,7 +25,7 @@ import datetime
 from itsdangerous.url_safe import URLSafeTimedSerializer
 from itsdangerous import SignatureExpired
 from config import urlsafe_secret
-
+from config import EMAIL_CONFIRMATIONS
 #twitter auth login
 from flask_dance.contrib.twitter import make_twitter_blueprint,twitter
 
@@ -76,6 +77,7 @@ app.config['UPLOAD_FOLDER'] = 'static/files'
 bootstrap = Bootstrap(app)
 ckeditor = CKEditor(app)
 mail = Mail(app)
+openai.api_key = os.getenv('OPEN_AI_API_KEY')
 app.register_blueprint(my_blueprint, url_prefix='/pages')
 
 s = URLSafeTimedSerializer(config.urlsafe_secret)
@@ -133,6 +135,12 @@ class Posts(users.Model):
     photo = users.Column(users.String(500), nullable=True)
 
 
+
+
+
+def confirmation_email(link):
+    confirm_email = random.choice(config.EMAIL_CONFIRMATIONS)
+    return f"{confirm_email}\n P.S: Here is a link to confirm your email.\n {link}"
 
 
 
@@ -255,7 +263,13 @@ def dashboard():
         if len(real_quote) > len(real_writer):
             real_quote, real_writer = real_writer, real_quote
     except FileNotFoundError:
-        return redirect(url_for('upload',not_uploaded=True))
+        post = users.session.query(Posts).filter_by(author_id=current_user.id).first()
+        if post:
+            all_posts = Posts.query.all()
+            has_posts = True
+            return render_template('Dashboard.html',quote=get_random_quote(),writer="-Unknown",all_posts=all_posts,has_posts=has_posts)
+        else:
+            return redirect(url_for('upload',not_uploaded=True))
     return render_template("Dashboard.html", quote=real_quote, writer=real_writer, all_posts=all_posts)
 
 
@@ -382,7 +396,7 @@ def register():
         else:
             token = s.dumps(e_mail,salt='email-confirm')
             link = url_for('confirm_email',token=token,_external=True,email=e_mail)
-            msg = Message(' Confirm Email ', sender=app.config['MAIL_USERNAME'], recipients=[e_mail],body=f'Please confirm your e-mail with this link:{link}')
+            msg = Message(' Confirm Email ', sender=app.config['MAIL_USERNAME'], recipients=[e_mail],body=confirmation_email(link))
             mail.send(msg)
             email_sent= True
             new_user = User(
@@ -590,6 +604,7 @@ def paper_reader():
     quote = str(request.args.get('quote'))
     body = form.body.data
     quote2 = form.quote.data
+    author = form.author.data
     post_id = generate_custom_id()
     current_date = datetime.datetime.now()
     formatted_datetime = current_date.strftime("%d/%m/%Y")
@@ -598,6 +613,7 @@ def paper_reader():
             quote=f"{quote}",
             body=body,
             id=post_id,
+            quote_author = author,
             user=current_user,
             date=formatted_datetime,
             user_quote=quote2
@@ -612,11 +628,15 @@ def paper_reader():
 def edit_post(post_id):
     post = Posts.query.get(post_id)
     quote = post.quote
-    edit_form = Write(
+    edit_form = forms.Write_Edit(
         quote=post.user_quote,
         body=post.body,
+        author = post.quote_author,
+        real_quote = post.quote
     )
     if edit_form.validate_on_submit():
+        post.quote = edit_form.real_quote.data
+        post.quote_author = edit_form.author.data
         post.user_quote = edit_form.quote.data
         post.body = edit_form.body.data
         post.author = current_user
