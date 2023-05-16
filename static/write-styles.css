@@ -43,6 +43,12 @@ body ::selection {
 }
 
 
+#quote-text{
+  font-size: 20px;
+  font-weight: 600;
+  padding: 40px;
+  }
+
 @media(max-width: 1068px)
 {
    #ponder-text{

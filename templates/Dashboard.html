@@ -89,10 +89,9 @@
         </div>
     </div>
 </section>
-
     <div class="container" id="button-div">
       <div class="row">
-    <a id="ponder-button" class="btn btn-outline-primary btn-block" href="{{url_for('write', quote=quote, redirect_from='dashboard')}}">Ponder</a>
+    <a id="ponder-button" class="btn btn-outline-primary btn-block" href="{{url_for('write', redirect_from='dashboard')}}">Ponder</a>
       </div>
       </div>
     {% else %}
@@ -112,8 +111,8 @@
                 <!-- CUSTOM BLOCKQUOTE -->
                 <blockquote class="blockquote blockquote-custom bg-white p-5 shadow rounded">
                     <div class="blockquote-custom-icon bg-info shadow-sm"><i class="fa fa-quote-left text-white"></i></div>
-                    <p class="mb-0 mt-2 font-italic">"{{writer}}</p>
-                    <footer class="blockquote-footer pt-4 mt-4 border-top">{{ quote }}
+                    <p class="mb-0 mt-2 font-italic">"{{quote}}</p>
+                    <footer class="blockquote-footer pt-4 mt-4 border-top">{{ writer }}
                     </footer>
                 </blockquote><!-- END -->
             </div>
@@ -123,7 +122,9 @@
     
     <div class="container" id="button-div">
       <div class="row">
-    <a id="ponder-button" class="btn btn-outline-primary btn-block" href="{{url_for('write', quote=quote, redirect_from='dashboard')}}">Ponder</a>
+          <form action="{{ url_for('dashboard') }}" method="post">
+              <a id="ponder-button" type="submit" class="btn btn-outline-primary btn-block" href="{{url_for('write',quote=quote,writer=writer,redirect_from='dashboard')}}">Ponder</a>
+          </form>
       </div>
       </div>
     {% endif %}

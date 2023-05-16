@@ -65,7 +65,7 @@
                     Upload new photo
                     <input name="photo" type="file" class="account-settings-fileinput">
                   </label> &nbsp;
-                  <button type="button" class="btn btn-default md-btn-flat">Reset</button>
+                  <a type="button" class="btn btn-default md-btn-flat" id="reset-button" href="{{ url_for('reset_photo',user_id=user.id) }}">Reset</a>
 
                   <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
                 </div>

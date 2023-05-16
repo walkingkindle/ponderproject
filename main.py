@@ -244,24 +244,18 @@ def dashboard():
     try:
         clippings_filename = "My_Clippings.txt" + str(current_user.id)
         quote_list = extract_quotes_with_writers(clippings_path=app.config['UPLOAD_FOLDER'], filename=clippings_filename)
-        quote = random.choice(quote_list)
-        real_quote = quote[0]
-        real_writer = quote[1]
-        all_posts = Posts.query.all()
+        quote_pair = random.choice(quote_list)
+        real_quote = quote_pair[1]
+        print(real_quote)
+        real_writer = quote_pair[0]
+        print(real_writer)
         if real_quote == real_writer:
-            new_quote, new_writer = quote
-            while new_quote == new_writer:
-                new_quote, new_writer = random.choice(quote_list)
-        else:
-            pass
-
-        if len(real_quote) < 20:
-            new_quote, new_writer = quote
-            while len(new_quote) < 20:
-                new_quote, new_writer = random.choice(quote_list)
-
-        if len(real_quote) > len(real_writer):
-            real_quote, real_writer = real_writer, real_quote
+            new_pair = random.choice(quote_list)
+            real_quote = new_pair[0]
+            real_writer = new_pair[1]
+        all_posts = Posts.query.all()
+        if request.method == 'POST':
+            return redirect(url_for('write',quote=real_quote,writer=real_writer,redirect_from='dashboard'))
     except FileNotFoundError:
         post = users.session.query(Posts).filter_by(author_id=current_user.id).first()
         if post:
@@ -621,7 +615,9 @@ def write():
     elif redirect_from == 'dashboard':
         print(redirect_from)
         dashboard_quote = request.args.get("quote")
+        print(dashboard_quote)
         writer = request.args.get("writer")
+        print(writer)
         body = form.body.data
         quote2 = form.quote.data
         quote_author = form.author.data
@@ -643,7 +639,7 @@ def write():
             return redirect(url_for("see_post", quote=dashboard_quote, form=form, current_user=current_user,
                                     post_id=post_id,
                                     redirect_from=redirect_from))
-        return render_template("Write.html", form=form, quote=dashboard_quote, current_user=current_user,
+        return render_template("Write.html", form=form, quote=dashboard_quote,writer=writer, current_user=current_user,
                                redirect_from=redirect_from)
     return render_template("Write.html", form=form, current_user=current_user, quote=new_quote,
                            redirect_from=redirect_from)
@@ -676,6 +672,16 @@ def paper_reader():
         users.session.commit()
         return redirect(url_for("see_post", quote=str(quote), form=form, current_user=current_user, post_id=new_post.id))
     return render_template("Write.html", form=form, current_user=current_user, quote=str(quote),contribute=contribute)
+
+@app.route("/reset/<int:user_id>")
+def reset_photo(user_id):
+    user = users.session.query(User).filter_by(id=user_id).first()
+    user.user_photo = None
+    users.session.commit()
+    return redirect(url_for('account',user_id=user_id))
+
+
+
 
 
 @app.route("/edit-post/<int:post_id>", methods=['GET', 'POST'])

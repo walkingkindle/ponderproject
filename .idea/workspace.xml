@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="updating dashboard">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixed an error where when the matchine adress is found, it redirects the user to the log_in page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign-in.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/account-info-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/account-info-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/dashboard-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/dashboard-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/write-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/write-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account-info.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,16 +48,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aleksa Hadzic/PycharmProjects/Ponderproject/static&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Aleksa Hadzic/Downloads/kindle-clippings-master(1)",
+    "settings.editor.selected.configurable": "Errors"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\static" />
@@ -61,11 +66,11 @@
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\login-form\css\bootstrap" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject" />
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\static" />
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\my_blueprint" />
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\coming-soon\templates" />
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\templates" />
-      <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\static\comingsoon_04\css" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -76,13 +81,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Adjusting the MyClippings and adding it to the directory">
-      <created>1680419701536</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1680419701536</updated>
     </task>
     <task id="LOCAL-00039" summary="Fixing the code so that the quote is loaded from the user from previous sessions">
       <created>1680422442732</created>
@@ -420,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683889821347</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Fixed an error where when the matchine adress is found, it redirects the user to the log_in page">
+      <created>1684232429180</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1684232429180</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -438,7 +443,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding the edit-post feature." />
     <MESSAGE value="Implementing and customizing the search page to return the search query from the google API" />
     <MESSAGE value="Making the search page work" />
     <MESSAGE value="Appending the search results from search.html onto a list" />
@@ -463,6 +467,7 @@
     <MESSAGE value="Fixed an issue with the new log-in page" />
     <MESSAGE value="Fixing the issue where if the quote is too long or undesirable, the user can change it." />
     <MESSAGE value="updating dashboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating dashboard" />
+    <MESSAGE value="Fixed an error where when the matchine adress is found, it redirects the user to the log_in page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed an error where when the matchine adress is found, it redirects the user to the log_in page" />
   </component>
 </project>

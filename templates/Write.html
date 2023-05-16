@@ -80,7 +80,7 @@ config.toolbar = [
           </div>
           {% else %}
           <blockquote class="blockquote text-center">
-            <p class="mb-0">{{quote}}</p>
+            <p id="quote-text" class="mb-0">{{quote}}</p>
           </blockquote>
           {% endif %}
           <div class="form-group" id="form-div">
@@ -100,7 +100,7 @@ config.toolbar = [
         </div>
         {% else %}
         <blockquote class="blockquote text-center">
-          <p class="mb-0">{{quote}}</p>
+          <p id="quote-text" class="mb-0">{{quote}}</p>
         </blockquote>
         {% if not_found %}
         <a href="{{url_for('contribute')}}" class="btn btn-primary">Add quotes</a>
@@ -116,13 +116,13 @@ config.toolbar = [
     <div class="container">
     <div class="row">
       <div class="col-md-6 mx-auto">
-        {% if quote|length > 200 %}
+        {% if quote|length > 300 %}
         <div style="height: 200px; overflow-y: scroll;">
-          {{ quote }}
+          <p id="quote-text" class="mb-0">{{quote}}</p>
         </div>
         {% else %}
         <blockquote class="blockquote text-center">
-          <p class="mb-0">{{quote}}</p>
+          <p id="quote-text" class="mb-0">{{quote}}</p>
         </blockquote>
         {% endif %}
         <div class="form-group" id="form-div">
@@ -136,12 +136,12 @@ config.toolbar = [
       <div class="row">
         <div class="col-md-6 mx-auto">
           {% if quote|length > 200 %}
-          <div style="height: 800px; overflow-y: scroll; width: 800px;">
+          <div  style="height: 800px; overflow-y: scroll; width: 800px;">
             {{ quote }}
           </div>
           {% else %}
           <blockquote class="blockquote text-center">
-            <p class="mb-0">{{quote}}</p>
+            <p id="quote-text"  class="mb-0">{{quote}}</p>
           </blockquote>
           {% endif %}
           {% if contribute %}
@@ -164,7 +164,7 @@ config.toolbar = [
             </div>
             {% else %}
             <blockquote class="blockquote text-center">
-              <p class="mb-0">{{quote}}</p>
+              <p id="quote-text" class="mb-0">{{quote}}</p>
             </blockquote>
             {% endif %}
             <div class="form-group" id="form-div">
@@ -183,7 +183,7 @@ config.toolbar = [
               </div>
               {% else %}
               <blockquote class="blockquote text-center">
-                <p class="mb-0">{{quote}}</p>
+                <p id="quote-text" class="mb-0">{{quote}}</p>
               </blockquote>
               {% endif %}
               <div class="form-group" id="form-div">

@@ -27,8 +27,7 @@ margin-top: 50px;
 
 #ponder-button
 {
-    position: relative;
-    right: 100px;
+    margin-right: 400px;
     color: #6E07F3;
 	border-color: #6E07F3;
 	border-radius: 22px;
