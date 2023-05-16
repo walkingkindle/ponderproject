@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixed an error where when the matchine adress is found, it redirects the user to the log_in page">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Reformatting and fixing the error in account, reset button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/account-info-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/account-info-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/dashboard-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/dashboard-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/write-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/write-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Write.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account-info.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -73,6 +67,27 @@
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\templates" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="Python tests in test_home_route.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Ponderproject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_home_route.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests in test_home_route.py" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -81,13 +96,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Fixing the code so that the quote is loaded from the user from previous sessions">
-      <created>1680422442732</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1680422442732</updated>
     </task>
     <task id="LOCAL-00040" summary="Authenticating and adding the posts_ column to the database that is assosciated with what the user writes along the quotes.">
       <created>1680427433892</created>
@@ -425,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684232429180</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Reformatting and fixing the error in account, reset button">
+      <created>1684247075728</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1684247075728</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -443,7 +458,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implementing and customizing the search page to return the search query from the google API" />
     <MESSAGE value="Making the search page work" />
     <MESSAGE value="Appending the search results from search.html onto a list" />
     <MESSAGE value="Redirecting the user and finalizing the search feature so that the user who does not own a kindle can also use this app to write about his quotes and the book he read." />
@@ -468,6 +482,7 @@
     <MESSAGE value="Fixing the issue where if the quote is too long or undesirable, the user can change it." />
     <MESSAGE value="updating dashboard" />
     <MESSAGE value="Fixed an error where when the matchine adress is found, it redirects the user to the log_in page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed an error where when the matchine adress is found, it redirects the user to the log_in page" />
+    <MESSAGE value="Reformatting and fixing the error in account, reset button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reformatting and fixing the error in account, reset button" />
   </component>
 </project>

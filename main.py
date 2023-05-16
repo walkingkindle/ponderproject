@@ -147,9 +147,9 @@ def confirmation_email(link):
 # connect databases to each other.
 # Creating Tables
 
-with app.app_context():
-    users.create_all()
-    users.session.commit()
+# with app.app_context():
+#     users.create_all()
+#     users.session.commit()
 
 
 # -----------------------------------------------------------ENGINE------------------------------------------------------
