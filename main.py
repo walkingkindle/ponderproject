@@ -342,16 +342,14 @@ def search_page():
     quotes_list = []
     if request.method == 'POST':
         for i in range(1, 6):
-            title = request.form.get('title')
             author = request.form.get('author')
-            books.append(f"{title} by {author}")
             authors.append(author)
         print(authors)
         for author in authors:
             try:
                 quote = wikiquotes.get_quotes(author=author, raw_language='en')
                 print(quote)
-                quotes_list.append(f"{quote}")
+                quotes_list.append(quote)
             except TitleNotFound:
                 quote = "If you're seeing this, it means that we couldn't find any quotes on this author/book." \
                         "Click on the link below to contribute to the quote API with more quotes."
@@ -359,11 +357,10 @@ def search_page():
                 return redirect(url_for('paper_reader',quote=quote,contribute=contribute))
         print(quotes_list)
         if len(quotes_list) > 0:
-            quote = str(random.choice(quotes_list))
-            final_quote = quote.replace("[", " ")
-            final_final_quote = final_quote.replace("]", " ")
-            return redirect(url_for('paper_reader', redirect_from='search', quote=final_final_quote))
-    return render_template("Search.html",not_found=not_found,contribute=contribute,redirect_from='search')
+            quote = random.choice(quotes_list)
+            print(quotes_list[0])
+            return redirect(url_for('paper_reader', redirect_from='search', quote=quote))
+    return render_template("Search.html",contribute=contribute,redirect_from='search')
 
 @app.route("/contribute")
 @login_required
@@ -446,8 +443,8 @@ def register():
         user_id = generate_custom_id()
         check_and_find = users.session.query(User).filter(or_(User.email == e_mail, User.username == username)).first()
         if check_and_find:
-            flash("Your account already exist. Please log in.")
-            return render_template("sign-in.html", redirect_from='register')
+            has_account = True
+            return render_template("sign-in.html", has_account=has_account)
         else:
             token = s.dumps(e_mail,salt='email-confirm')
             link = url_for('confirm_email',token=token,_external=True,email=e_mail)
@@ -475,6 +472,7 @@ def login_with_google():
 
 @app.route("/log_in", methods=["POST", "GET"])
 def log_in():
+    has_account = request.args.get('has_account')
     if request.method == 'POST':
         entered_email = request.form.get('email')
         entered_password = request.form.get('password')
@@ -493,7 +491,7 @@ def log_in():
             return render_template("sign-in.html", email_doesnt_exist=email_doesnt_exist)
     else:
         entered_email = request.args.get('email', '')
-        return render_template("sign-in.html", email=entered_email)
+        return render_template("sign-in.html", email=entered_email,has_account=has_account)
 
 
 
