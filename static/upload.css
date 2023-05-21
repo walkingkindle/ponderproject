@@ -332,6 +332,12 @@ p {
 #upload-container {
 	margin-top: 100px;
 }
+@media(max-width: 1080px){
+    #upload-container{
+    position: relative;
+    left: 200px;
+    }
+}
 
 .card {
 	width: 100%;
