@@ -19,15 +19,14 @@ blockquote-footer{
 .write-it{
 margin-top: 50px;
 }
-#ponder-button
-{
-    margin-left: 240px;
+
+#button-div{
+    margin: auto;
+    text-align: center;
 }
 
-
 #ponder-button
 {
-    margin-right: 400px;
     color: #6E07F3;
 	border-color: #6E07F3;
 	border-radius: 22px;

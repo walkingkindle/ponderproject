@@ -9,7 +9,7 @@ from flask_ckeditor import CKEditorField
 
 
 class Write(FlaskForm):
-    quote = StringField("Quote of the Day:", render_kw={"class": "form-control", "placeholder": "Write a short version of the quote here."})
+    quote = StringField("Post Title:", render_kw={"class": "form-control", "placeholder": "E.g. a short version of the quote above"})
     author = StringField("Who is the Author of the quote?",validators=[DataRequired()])
     body = CKEditorField("Ponder Here:", render_kw={"class": "ckeditor", "data-ckeditor-skin": "moono-lisa", "data-ckeditor-fontSize_defaultLabel": "16px", "data-ckeditor-colorButton_colors": "000000,ffffff", "data-ckeditor-toolbar": "['Bold', 'Italic', 'Underline', '-', 'Link', 'Unlink', '-', 'Image']", "data-ckeditor-customConfig": """
                 config.extraPlugins = 'image,link';
@@ -39,7 +39,7 @@ class ContributeForm(FlaskForm):
 
 class Write_Edit(FlaskForm):
     real_quote = CKEditorField("Edit the author quote")
-    quote = StringField("Quote of the Day:", render_kw={"class": "form-control", "placeholder": "Write a short version of the quote here."})
+    quote = StringField("Post title:", render_kw={"class": "form-control", "placeholder": "e.g a short version of the quote here."})
     author = StringField("Who is the Author of the quote?",validators=[DataRequired()])
     body = CKEditorField("Ponder Here:", render_kw={"class": "ckeditor", "data-ckeditor-skin": "moono-lisa", "data-ckeditor-fontSize_defaultLabel": "16px", "data-ckeditor-colorButton_colors": "000000,ffffff", "data-ckeditor-toolbar": "['Bold', 'Italic', 'Underline', '-', 'Link', 'Unlink', '-', 'Image']", "data-ckeditor-customConfig": """
                 config.extraPlugins = 'image,link';
