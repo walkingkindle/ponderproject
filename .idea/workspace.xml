@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="updating main-app">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="updating requirements.txt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/dashboard-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/dashboard-styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,13 +95,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Fixed an exception where if the user wrote an invalid email the form will reject and some other minor register issues">
-      <created>1680680746064</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1680680746064</updated>
     </task>
     <task id="LOCAL-00044" summary="Adding a tiny feature that will display number of users in the index">
       <created>1680681606467</created>
@@ -442,7 +432,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684661451659</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="updating requirements.txt">
+      <created>1684762013343</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1684762013344</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -460,7 +457,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Redirecting amazon auth to coming soon page." />
     <MESSAGE value="coming soon finalized" />
     <MESSAGE value="Fixing redirect and dashboard" />
     <MESSAGE value="Reformatting, commenting" />
@@ -485,6 +481,7 @@
     <MESSAGE value="Creating tests" />
     <MESSAGE value="Adjusting responsiveness" />
     <MESSAGE value="updating main-app" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating main-app" />
+    <MESSAGE value="updating requirements.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="updating requirements.txt" />
   </component>
 </project>
