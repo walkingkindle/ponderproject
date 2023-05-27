@@ -368,7 +368,9 @@ margin-top: 140px;
  margin-bottom: 60px;
 }
 #upload-button{
- margin-bottom: 120px;
+ position: relative;
+ top: 20px;
+ margin-bottom: 150px;
  background-color: #6E07F3;
  border-radius: 22px;
  color: #fff;

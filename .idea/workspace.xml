@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="updating requirements yet again">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="updating callback url">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/upload.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/upload.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,13 +96,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00046" summary="Fixing the upload route so that it does not throw errors with the new database.">
-      <created>1680875704191</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1680875704191</updated>
     </task>
     <task id="LOCAL-00047" summary="Fix an exception where the upload crashes and storing the my_cliipings inside the session module of flask.">
       <created>1680882883831</created>
@@ -440,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685189729184</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="updating callback url">
+      <created>1685189940870</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1685189940870</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -458,7 +458,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixing redirect and dashboard" />
     <MESSAGE value="Reformatting, commenting" />
     <MESSAGE value="Implementing email confirmation." />
     <MESSAGE value="Fixed an error where confirmation mail alert does not show, as well as the expired value, if the session token expires" />
@@ -483,6 +482,7 @@
     <MESSAGE value="updating main-app" />
     <MESSAGE value="updating requirements.txt" />
     <MESSAGE value="updating requirements yet again" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating requirements yet again" />
+    <MESSAGE value="updating callback url" />
+    <option name="LAST_COMMIT_MESSAGE" value="updating callback url" />
   </component>
 </project>
