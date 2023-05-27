@@ -19,6 +19,8 @@ import random
 import pprint
 from bs4 import BeautifulSoup
 import datetime
+import sys
+import platform
 
 #email verification
 from itsdangerous.url_safe import URLSafeTimedSerializer
@@ -86,7 +88,7 @@ client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client-secret
 flow = Flow.from_client_secrets_file(client_secrets_file=client_secrets_file,
                                      scopes=["https://www.googleapis.com/auth/userinfo.profile",
                                              "https://www.googleapis.com/auth/userinfo.email", "openid"],
-                                     redirect_uri="http://127.0.0.1:5000/callback")
+                                     redirect_uri="http://www.ponder.ink/callback")
 
 # ------------------------------------------------------------ SMTP ----------------------------------------------------
 # Flask DB
@@ -99,7 +101,7 @@ login_manager.login_view = "login"
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
 
-
+print(sys.version)
 #oath twitter
 # twitter_blueprint = make_twitter_blueprint(api_key=)
 

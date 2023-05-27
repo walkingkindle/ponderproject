@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="updating requirements.txt">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="updating requirements yet again">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,13 +96,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00044" summary="Adding a tiny feature that will display number of users in the index">
-      <created>1680681606467</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1680681606467</updated>
     </task>
     <task id="LOCAL-00045" summary="Integrating posts database into the server, changing the route of My CLippings.txt to go inside the database.">
       <created>1680783304168</created>
@@ -439,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684762013344</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="updating requirements yet again">
+      <created>1684920157595</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1684920157595</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -457,7 +458,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="coming soon finalized" />
     <MESSAGE value="Fixing redirect and dashboard" />
     <MESSAGE value="Reformatting, commenting" />
     <MESSAGE value="Implementing email confirmation." />
@@ -482,6 +482,7 @@
     <MESSAGE value="Adjusting responsiveness" />
     <MESSAGE value="updating main-app" />
     <MESSAGE value="updating requirements.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating requirements.txt" />
+    <MESSAGE value="updating requirements yet again" />
+    <option name="LAST_COMMIT_MESSAGE" value="updating requirements yet again" />
   </component>
 </project>
