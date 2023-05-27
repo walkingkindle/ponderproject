@@ -97,13 +97,6 @@
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
     </task>
-    <task id="LOCAL-00045" summary="Integrating posts database into the server, changing the route of My CLippings.txt to go inside the database.">
-      <created>1680783304168</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1680783304168</updated>
-    </task>
     <task id="LOCAL-00046" summary="Fixing the upload route so that it does not throw errors with the new database.">
       <created>1680875704191</created>
       <option name="number" value="00046" />
@@ -440,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684920157595</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="updating requirements yet again">
+      <created>1685189729184</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1685189729184</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="UnknownFeatures">
