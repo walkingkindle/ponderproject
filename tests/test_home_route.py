@@ -1,4 +1,4 @@
-from app import app
+from app.run import app
 
 
 def test_home_route():

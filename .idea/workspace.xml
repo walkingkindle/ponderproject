@@ -4,329 +4,146 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="updating callback url">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="updating local files">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Ponderproject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Ponderproject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documents/My Clippings.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/css/bootstrap/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/css/bootstrap/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/fonts/icomoon/Read Me.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/fonts/icomoon/demo-files/demo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/fonts/icomoon/demo-files/demo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/fonts/icomoon/demo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/fonts/icomoon/fonts/icomoon.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/fonts/icomoon/fonts/icomoon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/fonts/icomoon/fonts/icomoon.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/fonts/icomoon/fonts/icomoon.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/fonts/icomoon/selection.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/js/jquery-3.3.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/js/owl.carousel.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/js/popper.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/main" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_alert.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_badge.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_breadcrumb.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_button-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_card.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_carousel.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_close.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_code.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_custom-forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_dropdown.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_functions.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_grid.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_images.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_input-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_jumbotron.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_list-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_media.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_modal.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_nav.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_navbar.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_pagination.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_popover.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_print.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_progress.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_reboot.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_root.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_spinners.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_tables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_toasts.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_tooltip.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_transitions.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_type.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_utilities.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/bootstrap-grid.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/bootstrap-reboot.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/bootstrap.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_alert.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_background-variant.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_badge.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_border-radius.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_box-shadow.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_breakpoints.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_caret.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_clearfix.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_deprecate.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_float.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_gradients.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_grid-framework.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_grid.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_hover.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_image.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_list-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_lists.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_nav-divider.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_pagination.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_reset-text.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_resize.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_screen-reader.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_size.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_table-row.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_text-emphasis.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_text-hide.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_text-truncate.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_transition.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/mixins/_visibility.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/utilities/_align.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/utilities/_background.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/utilities/_borders.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/utilities/_clearfix.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/utilities/_display.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/utilities/_embed.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/utilities/_flex.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/utilities/_float.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/utilities/_overflow.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/utilities/_position.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/utilities/_screenreaders.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/utilities/_shadows.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/utilities/_sizing.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/utilities/_spacing.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/utilities/_stretched-link.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/utilities/_text.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/utilities/_visibility.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/bootstrap/vendor/_rfs.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login-form/scss/style.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/css/bootstrap/mixins/_visibility.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/css/ionicons.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/fonts/ionicons/css/_ionicons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/fonts/ionicons/css/ionicons.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/fonts/ionicons/fonts/ionicons.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/fonts/ionicons/fonts/ionicons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/fonts/ionicons/fonts/ionicons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/fonts/ionicons/fonts/ionicons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/fonts/ionicons/fonts/ionicons.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/images/blob-shape.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/images/image_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/images/image_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/js/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/js/popper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/main" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_alert.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_badge.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_breadcrumb.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_button-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_card.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_carousel.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_close.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_code.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_custom-forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_dropdown.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_functions.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_grid.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_images.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_input-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_jumbotron.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_list-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_media.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_modal.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_nav.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_navbar.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_pagination.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_popover.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_print.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_progress.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_reboot.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_root.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_spinners.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_tables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_toasts.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_tooltip.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_transitions.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_type.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_utilities.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/bootstrap-grid.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/bootstrap-reboot.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/bootstrap.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_alert.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_background-variant.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_badge.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_border-radius.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_box-shadow.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_breakpoints.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_caret.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_clearfix.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_deprecate.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_float.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_gradients.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_grid-framework.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_grid.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_hover.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_image.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_list-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_lists.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_nav-divider.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_pagination.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_reset-text.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_resize.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_screen-reader.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_size.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_table-row.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_text-emphasis.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_text-hide.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_text-truncate.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_transition.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/mixins/_visibility.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/utilities/_align.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/utilities/_background.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/utilities/_borders.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/utilities/_clearfix.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/utilities/_display.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/utilities/_embed.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/utilities/_flex.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/utilities/_float.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/utilities/_overflow.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/utilities/_position.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/utilities/_screenreaders.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/utilities/_shadows.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/utilities/_sizing.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/utilities/_spacing.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/utilities/_stretched-link.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/utilities/_text.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/utilities/_visibility.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/bootstrap/vendor/_rfs.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-footer/scss/style.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/css/style.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/material-icon/css/material-design-iconic-font.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/material-icon/fonts/Material-Design-Iconic-Font.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/material-icon/fonts/Material-Design-Iconic-Font.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/material-icon/fonts/Material-Design-Iconic-Font.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/material-icon/fonts/Material-Design-Iconic-Font.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/material-icon/fonts/Material-Design-Iconic-Font.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-300.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-300.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-300.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-300.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-300.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-300italic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-300italic.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-300italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-300italic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-300italic.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-500.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-500.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-500.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-500.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-500.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-500italic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-500italic.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-500italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-500italic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-500italic.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-600.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-600.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-600.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-600.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-600.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-700.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-700.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-700.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-700.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-700.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-700italic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-700italic.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-700italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-700italic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-700italic.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-800.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-800.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-800.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-800.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-800.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-800italic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-800italic.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-800italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-800italic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-800italic.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-900.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-900.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-900.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-900.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-900.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-italic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-italic.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-italic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-italic.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/poppins-v5-latin-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-700.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-700.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-700.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-700.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-700.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-700italic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-700italic.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-700italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-700italic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-700italic.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-italic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-italic.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-italic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-italic.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/fonts/poppins/roboto-condensed-v16-latin-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/scss/common/extend.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/scss/common/fonts.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/scss/common/global.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/scss/common/minxi.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/scss/common/variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/scss/layouts/main.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/scss/layouts/responsive.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/scss/style.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/vendor/jquery/jquery-ui.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sign-up/vendor/jquery/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-secret.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_blueprint/templates/coming-soon.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_blueprint/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Lato-Black.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Lato-BlackItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Lato-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Lato-BoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Lato-Hairline.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Lato-HairlineItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Lato-Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Lato-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Lato-LightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Lato-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-Black.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-BlackItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-BoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-ExtraBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-ExtraBoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-ExtraLight.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-ExtraLightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-LightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-MediumItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-SemiBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-SemiBoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-Thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Poppins-ThinItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/about-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/account-info-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/android-chrome-192x192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/animated.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bg01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bg_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bordered-pulled.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/coming-soon-animate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/coming-soon-font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/coming-soon-main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/coming-soon-select2.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/coming-soon-util.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/contact-me-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/core.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/countdowntime.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/dashboard-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/delete-user-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/favicon-32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fixed-width.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/font-awesome.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/footer-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icomoon-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/icons.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/jquery-3.2.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/kindle-logo img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/larger.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/list.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/material-design-iconic-font.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/mixins.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/moment-timezone-with-data.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/moment-timezone.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/moment.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/new-sign-in.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/not-selected-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/owl.carousel.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/path.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/popper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/reset-password-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/rotated-flipped.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/screen-reader.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/see-post-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/select2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/select2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/select2.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sign-in.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sign-up-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/stacked.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/tilt.jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/tooltip.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/undraw-contact.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/undraw_file_sync_ot38.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/undraw_remotely_2j6y.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/upload.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/upload.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/user-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/variables.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/video-16-9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/write-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/About Us.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Edit-User.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Kindle Upload.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Search.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Upload File.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Write.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account-info.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contact-me.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/delete-user.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/file-not-selected.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reset-password.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/see-post.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sign up.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/sign-in.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_home_route.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_home_route.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -380,11 +197,11 @@
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\login-form\css\bootstrap" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Development\Ponderproject\app" />
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject" />
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\static" />
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\my_blueprint" />
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\coming-soon\templates" />
-      <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\templates" />
     </key>
   </component>
   <component name="RunManager">
@@ -416,20 +233,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00047" summary="Fix an exception where the upload crashes and storing the my_cliipings inside the session module of flask.">
-      <created>1680882883831</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1680882883831</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Implementing database">
-      <created>1680972738102</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1680972738102</updated>
     </task>
     <task id="LOCAL-00049" summary="Fixing and adjusting the layout of dashboard.">
       <created>1681217158009</created>
@@ -760,7 +563,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685189940870</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="updating local files">
+      <created>1685373332556</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1685373332557</updated>
+    </task>
+    <task id="LOCAL-00097" summary="updating local files">
+      <created>1685373396961</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1685373396961</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -778,7 +595,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Reformatting, commenting" />
     <MESSAGE value="Implementing email confirmation." />
     <MESSAGE value="Fixed an error where confirmation mail alert does not show, as well as the expired value, if the session token expires" />
     <MESSAGE value="Adjusting the layout," />
@@ -803,6 +619,7 @@
     <MESSAGE value="updating requirements.txt" />
     <MESSAGE value="updating requirements yet again" />
     <MESSAGE value="updating callback url" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating callback url" />
+    <MESSAGE value="updating local files" />
+    <option name="LAST_COMMIT_MESSAGE" value="updating local files" />
   </component>
 </project>

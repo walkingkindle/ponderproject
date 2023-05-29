@@ -1,6 +1,6 @@
 # created by virtualenv automatically
 *
 .env
-client-secret.json
-config.py
+app/client-secret.json
+app/config.py
 ponder-383514-04ca7215da17.json

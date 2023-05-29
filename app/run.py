@@ -3,12 +3,14 @@
 import config
 import forms
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, render_template, url_for, flash, session, abort, redirect, request
+from flask import Flask, render_template, url_for, session, abort, redirect, request
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from flask_mail import Mail, Message
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
 from sqlalchemy.exc import IntegrityError
+
+import engine
 from my_blueprint.views import my_blueprint
 # WERZEUG
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -17,24 +19,20 @@ from werkzeug.utils import secure_filename
 # MISCELLANIOUS
 import random
 import pprint
-from bs4 import BeautifulSoup
+
 import datetime
-import sys
-import platform
+
 
 #email verification
 from itsdangerous.url_safe import URLSafeTimedSerializer
 from itsdangerous import SignatureExpired
-from config import urlsafe_secret
-from config import EMAIL_CONFIRMATIONS
-#twitter auth login
 
 
 #PIL for small images
 from PIL import Image
 
-
-
+from models import User,Posts
+from database import users,initialize_app
 # SQL
 from sqlalchemy.orm import relationship
 from forms import Write, Register,ForgotPassword,ResetPassword
@@ -45,17 +43,15 @@ import google.auth.transport.requests
 from authlib.integrations.flask_client import OAuth
 import os
 import pathlib
-from dotenv import load_dotenv
 import requests
 from google.oauth2 import id_token
 from google_auth_oauthlib.flow import Flow
 from pip._vendor import cachecontrol
 import google.auth.transport.requests
-
+import uuid
 # wikiquotes
 import wikiquotes
 from wikiquotes.managers.custom_exceptions import TitleNotFound
-
 # -----------------------------------------------------------FLASK APP----------------------------------------
 
 
@@ -63,7 +59,9 @@ from wikiquotes.managers.custom_exceptions import TitleNotFound
 
 
 # Initiating Flask APP
-app = Flask(__name__)
+app = initialize_app('sqlite:///users.db')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 app.config['SECRET_KEY'] = os.getenv('flask_secret_key')
 app.config['MAX_CONTENT_PATH'] = 1000000
 app.config['MAIL_SERVER'] = "smtp.gmail.com"
@@ -72,8 +70,23 @@ app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = os.getenv('MY_EMAIL')
 app.config['MAIL_PASSWORD'] = os.getenv('MY_PASSWORD')
+
+with app.app_context():
+    users.create_all()
+
+
+
+
+
+
+
+
+
 ALLOWED_EXTENSIONS = {'txt'}
 app.config['UPLOAD_FOLDER'] = 'static/files'
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = "login"
 bootstrap = Bootstrap(app)
 ckeditor = CKEditor(app)
 mail = Mail(app)
@@ -84,131 +97,24 @@ s = URLSafeTimedSerializer(config.urlsafe_secret)
 oauth = OAuth(app)
 oauth.init_app(app)
 
+
 client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client-secret.json")
 flow = Flow.from_client_secrets_file(client_secrets_file=client_secrets_file,
                                      scopes=["https://www.googleapis.com/auth/userinfo.profile",
                                              "https://www.googleapis.com/auth/userinfo.email", "openid"],
                                      redirect_uri="http://ponder.ink/callback")
 
-# ------------------------------------------------------------ SMTP ----------------------------------------------------
-# Flask DB
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-users = SQLAlchemy(app)
-login_manager = LoginManager()
-login_manager.init_app(app)
-login_manager.login_view = "login"
+
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
 
-print(sys.version)
-#oath twitter
-# twitter_blueprint = make_twitter_blueprint(api_key=)
 
-# Configure Tables
-class User(users.Model, UserMixin):
-    __tablename__ = "users"
-    id = users.Column(users.Integer, primary_key=True)
-    email = users.Column(users.String(250), nullable=False, unique=True)
-    username = users.Column(users.String(250), nullable=True, unique=True)
-    clippings_filename = users.Column(users.String(250), nullable=True)
-    confirmed = users.Column(users.String(10),nullable=True)
-    password = users.Column(users.String(1000), nullable=True)
-    first_name = users.Column(users.String(250), nullable=True)
-    last_name = users.Column(users.String(250), nullable=True)
-    continent = users.Column(users.String(250), nullable=True)
-    user_photo = users.Column(users.String(250),nullable=True)
-    posts = relationship("Posts", back_populates="user")
-
-
-class Posts(users.Model):
-    __tablename__ = "posts"
-    id = users.Column(users.Integer, primary_key=True, nullable=True)
-    author_id = users.Column(users.String, users.ForeignKey('users.id'), nullable=True)
-    quote_author = users.Column(users.String,nullable=True)
-    user = relationship("User", back_populates="posts")
-    body = users.Column(users.Text, nullable=True)
-    quote = users.Column(users.String(250))
-    date = users.Column(users.String(250), nullable=True)
-    user_quote = users.Column(users.String(250), nullable=False)
-    photo = users.Column(users.String(500), nullable=True)
-
-
-
-
-
-def confirmation_email(link):
-    confirm_email = random.choice(config.EMAIL_CONFIRMATIONS)
-    return f"{confirm_email}\n P.S: Here is a link to confirm your email.\n {link}"
-
-
-
-# connect databases to each other.
-# Creating Tables
-
-with app.app_context():
-    users.create_all()
-    users.session.commit()
-
-
-# -----------------------------------------------------------ENGINE------------------------------------------------------
 def allowed_file(filename):
     """Verifies the file for file upload to make sure the file is valid"""
     return '.' in filename and \
         filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-def configure():
-    """Protected info configuration"""
-    load_dotenv()
-
-
-def extract_quotes_with_writers(filename, clippings_path):
-    """Takes My Clippings.txt and extracts it to a formatted string"""
-    with open(rf"{clippings_path}/{filename}", "r", encoding="utf-8") as text_file:
-        text = text_file.read()
-        lines = text.splitlines()
-        # Initialize an empty list to store the quotes and writers
-        quotes_with_writers = []
-        # Loop through the lines and extract the quotes and writers
-        for line in lines:
-            # Check if the line starts with a quotation mark
-            if line.startswith('“') or line.startswith("- Your"):
-                lines.remove(line)
-            else:
-                quotes_with_writers.append(line)
-            quotes_formatted = []
-            [quotes_formatted.append(x) for x in quotes_with_writers if x != '==========']
-            if len(quotes_formatted) % 2 == 0:
-                pair_list = [[quotes_formatted[i], quotes_formatted[i + 1]] for i in range(0, len(quotes_formatted), 2)]
-            else:
-                pair_list = [[quotes_formatted[i], quotes_formatted[i + 1]] for i in
-                             range(0, len(quotes_formatted) - 1, 2)]
-        return pair_list
-
-
-def get_random_quote():
-    """Scrapes the random quote of the internet when sometimes one of them does not work."""
-    the_request = requests.get(url="https://www.litquotes.com/random-words-of-wisdom.php").content
-    soup = BeautifulSoup(the_request, 'html.parser')
-    find_quote = soup.find('span')
-    print(find_quote.text)
-    return find_quote.text
-
-
-def also_get_random_quote():
-    """Scrapes the random quote of the internet."""
-    response = requests.get('https://api.quotable.io/random')
-    r = response.json()
-    quote = f"{r['content']}, {r['author']}"
-    print(quote)
-    return quote
-
-
-def generate_custom_id():
-    """Random ID for the database"""
-    d_id = random.randint(0, 10000)
-    return d_id
 
 
 # -------------------------------------- FLASK ROUTES -----------------------------------------------------------------
@@ -233,7 +139,7 @@ def home():
     how_many = User.query.count()
     if sent:
         print(sent)
-    return render_template("Index.html", quote=get_random_quote(), sent=sent, current_user=current_user,
+    return render_template("Index.html", quote=engine.get_random_quote(), sent=sent, current_user=current_user,
                            how_many=how_many,email_sent=email_sent,expired=expired)
 
 
@@ -242,7 +148,7 @@ def home():
 def dashboard():
     try:
         clippings_filename = "My_Clippings.txt" + str(current_user.id)
-        quote_list = extract_quotes_with_writers(clippings_path=app.config['UPLOAD_FOLDER'], filename=clippings_filename)
+        quote_list = engine.extract_quotes_with_writers(clippings_path=app.config['UPLOAD_FOLDER'], filename=clippings_filename)
         quote_pair = random.choice(quote_list)
         real_quote = quote_pair[1]
         print(real_quote)
@@ -260,7 +166,7 @@ def dashboard():
         if post:
             all_posts = Posts.query.all()
             has_posts = True
-            return render_template('Dashboard.html',quote=get_random_quote(),writer="-Unknown",all_posts=all_posts,has_posts=has_posts)
+            return render_template('Dashboard.html',quote=engine.get_random_quote(),writer="-Unknown",all_posts=all_posts,has_posts=has_posts)
         else:
             return redirect(url_for('upload',not_uploaded=True))
     return render_template("Dashboard.html", quote=real_quote, writer=real_writer, all_posts=all_posts)
@@ -433,7 +339,7 @@ def register():
         password = form.password.data
         username = form.username.data
         hashed_password = generate_password_hash(password=password, method="pbkdf2:sha256", salt_length=8)
-        user_id = generate_custom_id()
+        user_id = engine.generate_custom_id()
         check_and_find = users.session.query(User).filter(or_(User.email == e_mail, User.username == username)).first()
         if check_and_find:
             has_account = True
@@ -441,7 +347,7 @@ def register():
         else:
             token = s.dumps(e_mail,salt='email-confirm')
             link = url_for('confirm_email',token=token,_external=True,email=e_mail)
-            msg = Message(' Confirm Email ', sender=app.config['MAIL_USERNAME'], recipients=[e_mail],body=confirmation_email(link))
+            msg = Message(' Confirm Email ', sender=app.config['MAIL_USERNAME'], recipients=[e_mail],body=engine.confirmation_email(link))
             mail.send(msg)
             email_sent= True
             new_user = User(
@@ -559,7 +465,7 @@ def callback():
                 email=email,
                 first_name=first_name,
                 last_name=last_name,
-                id=generate_custom_id(),
+                id=engine.generate_custom_id(),
                 confirmed=True
             )
             login_user(new_user)
@@ -571,7 +477,7 @@ def callback():
                 email=email,
                 first_name=first_name,
                 last_name=last_name,
-                id=generate_custom_id(),
+                id=engine.generate_custom_id(),
                 confirmed=True
             )
         return redirect(url_for('home', current_user=current_user))
@@ -587,13 +493,13 @@ def about():
 def write():
     """Based on the redirect, write page will show different quotes."""
     form = Write()
-    new_quote = get_random_quote()
+    new_quote = engine.get_random_quote()
     redirect_from = request.args.get("redirect_from")
     if redirect_from == 'home':
         print(redirect_from)
         body = form.body.data
         quote2 = form.quote.data
-        post_id = generate_custom_id()
+        post_id = engine.generate_custom_id()
         quote_author = form.author.data
         current_date = datetime.datetime.now()
         formatted_datetime = current_date.strftime("%d/%m/%Y")
@@ -620,7 +526,7 @@ def write():
         body = form.body.data
         quote2 = form.quote.data
         quote_author = form.author.data
-        post_id = generate_custom_id()
+        post_id = engine.generate_custom_id()
         current_date = datetime.datetime.now()
         formatted_datetime = current_date.strftime("%d/%m/%Y")
         if form.validate_on_submit():
@@ -654,7 +560,7 @@ def paper_reader():
     body = form.body.data
     quote2 = form.quote.data
     author = form.author.data
-    post_id = generate_custom_id()
+    post_id = engine.generate_custom_id()
     current_date = datetime.datetime.now()
     formatted_datetime = current_date.strftime("%d/%m/%Y")
     if form.validate_on_submit():
