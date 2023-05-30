@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="refactoring local files">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="adding more essentials">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,18 +43,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Development/Ponderproject&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Development/Ponderproject/app",
+    "settings.editor.selected.configurable": "Errors"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Development\Ponderproject\app" />
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\static" />
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\coming-soon\static" />
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\templates" />
@@ -95,20 +98,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Making sure that show posts actually shows posts, lol&#10;Next up: Format the post so if the quote changes, it won't affect the layout!">
-      <created>1681298687569</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1681298687569</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Fixing the layout of see_post.html, implementing google_sing_in">
-      <created>1681309719077</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1681309719077</updated>
     </task>
     <task id="LOCAL-00054" summary="Implementing redirect on the google_sign_in">
       <created>1681311532243</created>
@@ -439,7 +428,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685456684823</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="env">
+      <created>1685461959984</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1685461959984</updated>
+    </task>
+    <task id="LOCAL-00102" summary="adding more essentials">
+      <created>1685462109821</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1685462109821</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -457,8 +460,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed an error where confirmation mail alert does not show, as well as the expired value, if the session token expires" />
-    <MESSAGE value="Adjusting the layout," />
     <MESSAGE value="Minor log in changes" />
     <MESSAGE value="Fixed an error where each user can see everyone else's uploaded folders." />
     <MESSAGE value="Editing dashboard and refactoring log_in page." />
@@ -482,6 +483,8 @@
     <MESSAGE value="updating callback url" />
     <MESSAGE value="updating local files" />
     <MESSAGE value="refactoring local files" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring local files" />
+    <MESSAGE value="env" />
+    <MESSAGE value="adding more essentials" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding more essentials" />
   </component>
 </project>

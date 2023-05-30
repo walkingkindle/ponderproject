@@ -359,7 +359,7 @@ def register():
             users.session.add(new_user)
             users.session.commit()
         return redirect(url_for('home',email_sent=email_sent,email=e_mail))
-    return render_template("sign up.html", current_user=current_user, form=form)
+    return render_template("auth/sign up.html", current_user=current_user, form=form)
 
 
 @app.route('/login-with-google')
@@ -390,7 +390,7 @@ def log_in():
             return render_template("sign-in.html", email_doesnt_exist=email_doesnt_exist)
     else:
         entered_email = request.args.get('email', '')
-        return render_template("sign-in.html", email=entered_email,has_account=has_account)
+        return render_template("auth/sign-in.html", email=entered_email,has_account=has_account)
 
 
 

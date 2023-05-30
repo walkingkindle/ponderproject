@@ -1,7 +1,3 @@
-import app
-
-SQLALCHEMY_DATABASE_URI = "sqlite:///../users.db"
-UPLOAD_FOLDER = 'static/files'
 
 urlsafe_secret = 'If(CDsMkc%6xM4%$'
 
