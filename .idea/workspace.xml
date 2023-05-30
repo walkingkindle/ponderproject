@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="refactoring local files">
+      <change afterPath="$PROJECT_DIR$/app/my_blueprint/templates/coming-soon.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/auth/sign up.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/auth/sign-in.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/sign up.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/sign-in.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,13 +100,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Making a new, see-post page and redirecting the user to that page whenever he writes a post.">
-      <created>1681224408088</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1681224408090</updated>
     </task>
     <task id="LOCAL-00051" summary="Creating an exception in case the user cannot find th post_data.">
       <created>1681231437022</created>
@@ -440,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685377885679</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="refactoring local files">
+      <created>1685456538352</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1685456538352</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="UnknownFeatures">
