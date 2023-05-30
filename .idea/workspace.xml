@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="adding more essentials">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/upload.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/upload.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Kindle Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Kindle Upload.html" afterDir="false" />
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="fixing an error where My Clippings filename go out of the box.">
+      <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/About Us.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Kindle Upload.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Upload File.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,13 +99,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Updating google log in">
-      <created>1681318876752</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1681318876753</updated>
     </task>
     <task id="LOCAL-00056" summary="Updating google and auth library to make it work">
       <created>1681390150485</created>
@@ -442,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685462790539</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="fixing an error where My Clippings filename go out of the box.">
+      <created>1685463886643</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1685463886643</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -460,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Minor log in changes" />
     <MESSAGE value="Fixed an error where each user can see everyone else's uploaded folders." />
     <MESSAGE value="Editing dashboard and refactoring log_in page." />
     <MESSAGE value="Implementing forgot password feature" />
@@ -485,6 +485,7 @@
     <MESSAGE value="refactoring local files" />
     <MESSAGE value="env" />
     <MESSAGE value="adding more essentials" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding more essentials" />
+    <MESSAGE value="fixing an error where My Clippings filename go out of the box." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing an error where My Clippings filename go out of the box." />
   </component>
 </project>

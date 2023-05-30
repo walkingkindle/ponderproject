@@ -189,7 +189,7 @@ def notifications():
 
 @app.route('/choose-your-path')
 def choose_path():
-    return render_template("Upload File.html", current_user=current_user)
+    return render_template("Upload-File.html", current_user=current_user)
 
 
 @app.route("/upload", methods=['GET', 'POST'])
@@ -209,7 +209,7 @@ def upload():
                 return redirect(url_for("nothing_selected", current_user=current_user))
         except FileNotFoundError:
             return redirect(url_for('nothing_selected'))
-    return render_template("Kindle Upload.html", current_user=current_user,not_uploaded=not_uploaded)
+    return render_template("Kindle-Upload.html", current_user=current_user,not_uploaded=not_uploaded)
 
 
 @app.route("/see-post/<int:post_id>", methods=["GET", "POST"])
@@ -486,7 +486,7 @@ def callback():
 
 @app.route("/about")
 def about():
-    return render_template("About us.html")
+    return render_template("About-us.html")
 
 @app.route('/write', methods=['GET', 'POST'])
 @login_required
