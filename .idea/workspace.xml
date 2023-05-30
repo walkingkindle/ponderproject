@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="refactoring local files">
-      <change afterPath="$PROJECT_DIR$/app/my_blueprint/templates/coming-soon.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/auth/sign up.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/auth/sign-in.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/sign up.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/sign-in.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,11 +59,11 @@
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\login-form\css\bootstrap" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Development\Ponderproject\app\templates\auth" />
       <recent name="C:\Development\Ponderproject\app" />
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject" />
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\static" />
       <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\my_blueprint" />
-      <recent name="C:\Users\Aleksa Hadzic\PycharmProjects\Ponderproject\coming-soon\templates" />
     </key>
   </component>
   <component name="RunManager">
@@ -100,13 +95,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Creating an exception in case the user cannot find th post_data.">
-      <created>1681231437022</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1681231437022</updated>
     </task>
     <task id="LOCAL-00052" summary="Making sure that show posts actually shows posts, lol&#10;Next up: Format the post so if the quote changes, it won't affect the layout!">
       <created>1681298687569</created>
@@ -444,7 +432,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685456538352</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="refactoring local files">
+      <created>1685456684823</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1685456684823</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="UnknownFeatures">
