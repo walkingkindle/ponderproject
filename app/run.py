@@ -81,7 +81,6 @@ with app.app_context():
 
 
 
-
 ALLOWED_EXTENSIONS = {'txt'}
 app.config['UPLOAD_FOLDER'] = 'static/files'
 login_manager = LoginManager()
@@ -106,6 +105,7 @@ flow = Flow.from_client_secrets_file(client_secrets_file=client_secrets_file,
 
 
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+
 
 
 

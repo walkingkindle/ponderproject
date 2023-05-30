@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/511589a382.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/icomoon-style.css">
+    <link rel="stylesheet" href="/static/owl.carousel.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="/static/sign-up-style.css">
+    <link rel="icon" type="image/x-icon" href="/static/favicon-32x32.png">
+    <title>Sign Up|Ponder</title>
+  </head>
+  <body>
+    <!-------NavBar ----->
+    <div class="container">
+      <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{url_for('home')}}">
+          <img src="/static/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">Ponder
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+              <li class="nav-item {% if request.path == url_for('home') %}active{% endif %}">
+                <a class="nav-link" aria-current="page" href="{{url_for('home')}}">Home</a>
+              </li>
+              <li class="nav-item {% if request.path == url_for('log_in') %}active{% endif %}">
+                <a class="nav-link" href="{{url_for('log_in')}}">Log in</a>
+              </li>
+              <li class="nav-item {% if request.path == url_for('register') %}active{% endif %}">
+                <a class="nav-link" href="{{url_for('register')}}">Register</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!---  Main Content ---->
+    {% macro render_field(field) %}
+    <dt>{{ field.label }}
+    <dd>
+      {{ field(**kwargs)|safe }}
+      {% if field.errors %}
+      <ul class=errors>
+        {% for error in field.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </dd>
+    {% endmacro %}
+    <div class="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="/static/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
+          </div>
+          <div class="col-md-6 contents">
+            <div class="row justify-content-center">
+              <div class="col-md-8">
+                <div class="mb-4">
+                  <h3>Sign Up</h3>
+                  <p class="mb-4">Register to access your quotes library.</p>
+                </div>
+                <form action="{{url_for('register')}}" method="post">
+                  <div class="form-group last mb-4">
+                    <input type="email" id="email" name="email" class="form-control" placeholder="E-mail adress">
+                  </div>
+                  <div class="form-group first">
+                    {{form.username(class_ = 'form-control',id_='username')}}
+                  </div>
+                  <div class="form-group last mb-4">
+                    {{form.password(class_ = 'form-control',id_='password',placeholder='Password')}}
+                  </div>
+                  <input type="submit" value="Sign Up" class="btn btn-block btn-outline-primary" id="sign-up-button">
+                  <span class="d-block text-left my-4 text-muted">&mdash; or sign up with &mdash;</span>
+                  <div class="social-login">
+                    <a href="{{url_for('my_blueprint.coming_soon')}}" class="twitter">
+                    <span> <i class="fab fa-twitter"></i></span>
+                    </a>
+                    <a  href="{{url_for('login_with_google')}}" id="google-log-in" class="google">
+                    <span class="fa fa-google mr-3"></span>
+                    </a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+  <footer class="footer-16371">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-9 text-center">
+          <div class="footer-site-logo mb-4">
+            <a href="{{url_for('home')}}">Ponder</a>
+          </div>
+          <ul class="list-unstyled nav-links mb-5">
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          </ul>
+          <div class="social mb-4">
+            <h3>Stay in touch</h3>
+            <ul class="list-unstyled">
+              <li class="in"><a href="#"><i class="bi bi-instagram"></i></a></li>
+              <li class="fb"><a href="#"><i class="bi bi-facebook"></i></a></li>
+              <li class="tw"><a href="#"><i class="bi bi-twitter"></i></a></li>
+              <li class="dr"><a href="#"><i class="bi bi-dribbble"></i></a></li>
+            </ul>
+          </div>
+          <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="walkingkindle" data-color="#5F7FFF" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
+          <div class="copyright">
+            <p class="mb-0"><small>&copy; Ponder. All Rights Reserved.</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</html>

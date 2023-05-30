@@ -4,146 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="updating local files">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="refactoring local files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-secret.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_blueprint/templates/coming-soon.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_blueprint/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Lato-Black.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Lato-BlackItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Lato-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Lato-BoldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Lato-Hairline.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Lato-HairlineItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Lato-Italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Lato-Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Lato-LightItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Lato-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-Black.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-BlackItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-BoldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-ExtraBold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-ExtraBoldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-ExtraLight.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-ExtraLightItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-Italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-LightItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-Medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-MediumItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-SemiBold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-SemiBoldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-Thin.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Poppins-ThinItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/about-styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/account-info-styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/android-chrome-192x192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/animated.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bg01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bg_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bootstrap.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bordered-pulled.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/coming-soon-animate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/coming-soon-font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/coming-soon-main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/coming-soon-select2.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/coming-soon-util.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/contact-me-styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/core.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/countdowntime.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/dashboard-styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/delete-user-styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/favicon-32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fixed-width.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/font-awesome.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/font-awesome.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/footer-styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icomoon-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/icons.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/jquery-3.2.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/kindle-logo img.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/larger.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/list.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/material-design-iconic-font.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/mixins.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/moment-timezone-with-data.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/moment-timezone.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/moment.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/new-sign-in.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/not-selected-styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/owl.carousel.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/path.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/popper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/popper.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/reset-password-styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/rotated-flipped.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/screen-reader.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/see-post-styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/select2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/select2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/select2.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/sign-in.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/sign-up-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/stacked.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tilt.jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/tooltip.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/undraw-contact.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/undraw_file_sync_ot38.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/undraw_remotely_2j6y.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/upload.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/upload.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/user-styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/variables.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/video-16-9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/write-styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/About Us.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Edit-User.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Kindle Upload.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Search.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Upload File.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Write.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account-info.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact-me.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/delete-user.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/file-not-selected.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset-password.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/see-post.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sign up.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sign-in.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_home_route.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_home_route.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,13 +96,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Fixing and adjusting the layout of dashboard.">
-      <created>1681217158009</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1681217158009</updated>
     </task>
     <task id="LOCAL-00050" summary="Making a new, see-post page and redirecting the user to that page whenever he writes a post.">
       <created>1681224408088</created>
@@ -577,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685373396961</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="refactoring local files">
+      <created>1685377885679</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1685377885679</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -595,7 +458,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implementing email confirmation." />
     <MESSAGE value="Fixed an error where confirmation mail alert does not show, as well as the expired value, if the session token expires" />
     <MESSAGE value="Adjusting the layout," />
     <MESSAGE value="Minor log in changes" />
@@ -620,6 +482,7 @@
     <MESSAGE value="updating requirements yet again" />
     <MESSAGE value="updating callback url" />
     <MESSAGE value="updating local files" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating local files" />
+    <MESSAGE value="refactoring local files" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring local files" />
   </component>
 </project>
