@@ -486,7 +486,7 @@ def callback():
 
 @app.route("/about")
 def about():
-    return render_template("About-us.html")
+    return render_template("about-us.html")
 
 @app.route('/write', methods=['GET', 'POST'])
 @login_required
