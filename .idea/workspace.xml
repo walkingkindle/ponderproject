@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="renaming files to resolve conflicts with google development.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="uploading missing photos from pages.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +51,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Development/Ponderproject/app",
-    "settings.editor.selected.configurable": "Errors"
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -96,20 +99,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Fixed an issue where the post tags appear with &lt;p&gt; instead of like normal text">
-      <created>1681395196603</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1681395196603</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Updating the layout of Write.html in case the user does not upload hisMy Clippings.txt">
-      <created>1681399365752</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1681399365753</updated>
     </task>
     <task id="LOCAL-00059" summary="Adding and customizing footers">
       <created>1681401049635</created>
@@ -440,7 +429,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685464216137</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="renaming files to resolve conflicts with google development.">
+      <created>1685464366471</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1685464366471</updated>
+    </task>
+    <task id="LOCAL-00107" summary="uploading missing photos from pages.">
+      <created>1685464480081</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1685464480081</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -458,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Editing dashboard and refactoring log_in page." />
     <MESSAGE value="Implementing forgot password feature" />
     <MESSAGE value="Fully Responsive index on smaller devices." />
     <MESSAGE value="Updating user information feature" />
@@ -483,6 +485,7 @@
     <MESSAGE value="adding more essentials" />
     <MESSAGE value="fixing an error where My Clippings filename go out of the box." />
     <MESSAGE value="renaming files to resolve conflicts with google development." />
-    <option name="LAST_COMMIT_MESSAGE" value="renaming files to resolve conflicts with google development." />
+    <MESSAGE value="uploading missing photos from pages." />
+    <option name="LAST_COMMIT_MESSAGE" value="uploading missing photos from pages." />
   </component>
 </project>

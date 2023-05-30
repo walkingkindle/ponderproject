@@ -3,7 +3,7 @@ import config
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 import requests
-
+import time
 def configure():
     """Protected info configuration"""
     load_dotenv()
@@ -54,7 +54,24 @@ def also_get_random_quote():
     return quote
 
 
+
+
+class UniqueIDGenerator:
+    def __init__(self):
+        self.counter = 0
+
+    def generate_id(self):
+        current_time = int(time.time() * 1000)
+        unique_id = int(str(current_time) + str(self.counter))
+        self.counter += 1
+        return unique_id
+
+
+
 def generate_custom_id():
-    """Random ID for the database"""
-    d_id = random.randint(0, 10000)
-    return d_id
+    unique_id = UniqueIDGenerator()
+    real_id = unique_id.generate_id()
+    return real_id
+
+
+

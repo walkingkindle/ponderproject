@@ -13,7 +13,7 @@ from database import users
 
 class User(users.Model, UserMixin):
     __tablename__ = "users"
-    id = users.Column(users.Integer, primary_key=True)
+    id = users.Column(users.Integer, primary_key=True,autoincrement=True)
     email = users.Column(users.String(250), nullable=False, unique=True)
     username = users.Column(users.String(250), nullable=True, unique=True)
     clippings_filename = users.Column(users.String(250), nullable=True)
@@ -28,7 +28,7 @@ class User(users.Model, UserMixin):
 
 class Posts(users.Model):
     __tablename__ = "posts"
-    id = users.Column(users.Integer, primary_key=True, nullable=True)
+    id = users.Column(users.Integer, primary_key=True, nullable=True,autoincrement=True)
     author_id = users.Column(users.String, users.ForeignKey('users.id'), nullable=True)
     quote_author = users.Column(users.String,nullable=True)
     user = relationship("User", back_populates="posts")

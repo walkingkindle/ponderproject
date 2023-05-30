@@ -15,6 +15,7 @@ from my_blueprint.views import my_blueprint
 # WERZEUG
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
+import uuid
 
 # MISCELLANIOUS
 import random
