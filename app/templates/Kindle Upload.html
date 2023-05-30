@@ -55,7 +55,7 @@
     <!----- Main Content ---->
     {% if not_uploaded %}
     <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" id="alert-div">
-              We couldn't find your My Clippings file. Either Upload it or write a post via <a href="{{ url_for('search_page') }}">writer route</a> or <a href="{{ url_for('write',redirect_from = 'home') }}">random quotes</a> .
+              We couldn't find your My Clippings file. Remember that the file name must be 'My Clippings'.
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
               </button>
@@ -100,16 +100,21 @@
       </div>
     </div>
     <script>
-      // Get the file input element and the label
-      var fileInput = document.getElementById('file-input');
-      var label = fileInput.nextElementSibling;
+  document.getElementById('file-input').addEventListener('change', function(event) {
+    var fileName = event.target.files[0].name;
+    var maxFileNameLength = 20; // Adjust this value as needed
+    var truncatedFileName = fileName.length > maxFileNameLength ? fileName.slice(0, maxFileNameLength) + '...' : fileName;
+    document.getElementById('file-label').innerHTML = truncatedFileName;
+  });
 
-      // Update the label text when the user selects a file
-      fileInput.addEventListener('change', function(event) {
-        var filename = event.target.value.split('\\').pop();
-        label.innerHTML = filename;
+     var fileInput = document.getElementById('file-input');
+     var label = fileInput.nextElementSibling;
+
+     fileInput.addEventListener('change', function(event) {
+     var filename = event.target.value.split('\\').pop();
+     label.innerHTML = filename;
       });
-    </script>
+</script>
   </body>
   <!----- Footer ----->
   <footer class="footer-16371">

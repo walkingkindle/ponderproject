@@ -14,7 +14,12 @@ body ::selection {
 .container {
 	text-align: center;
 }
-
+.custom-file-label {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
 #row1 {
 	margin-left: 300px;
 }
