@@ -344,7 +344,7 @@ def register():
         check_and_find = users.session.query(User).filter(or_(User.email == e_mail, User.username == username)).first()
         if check_and_find:
             has_account = True
-            return render_template("sign-in.html", has_account=has_account)
+            return render_template("auth/sign-in.html", has_account=has_account)
         else:
             token = s.dumps(e_mail,salt='email-confirm')
             link = url_for('confirm_email',token=token,_external=True,email=e_mail)
@@ -385,10 +385,10 @@ def log_in():
                 return redirect(url_for("choose_path", current_user=current_user))
             else:
                 wrong_password = True
-                return render_template("sign-in.html", wrong_password=wrong_password, email_doesnt_exist=False)
+                return render_template("auth/sign-in.html", wrong_password=wrong_password, email_doesnt_exist=False)
         else:
             email_doesnt_exist = True
-            return render_template("sign-in.html", email_doesnt_exist=email_doesnt_exist)
+            return render_template("auth/sign-in.html", email_doesnt_exist=email_doesnt_exist)
     else:
         entered_email = request.args.get('email', '')
         return render_template("auth/sign-in.html", email=entered_email,has_account=has_account)
