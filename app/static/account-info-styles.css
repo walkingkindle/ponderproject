@@ -24,6 +24,11 @@ body{
 	color: #fff;
 }
 
+@media(max-width: 1003px){
+
+
+}
+
 label.btn {
     margin-bottom: 0;
 }

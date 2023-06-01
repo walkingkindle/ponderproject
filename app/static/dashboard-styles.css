@@ -2390,14 +2390,19 @@ $rfs-breakpoint-unit-cache: unit($rfs-breakpoint);
 	top: 80px;
 	right: 10px;
 	text-align: center;
-	font-size: 50px;
+	font-size: 84px;
 	margin-top: 50px;
 	font-family: 'Poppins', sans-serif;
 	font-weight: 500;
-	font-size: 84px;
 	color: black;
 }
+@media(max-width: 1003px){
+ #dashboard-title2{
+ font-size: 70px;
+ margin-left: 20px;
+ }
 
+}
 
 #quote-title2 {
 	position: relative;

@@ -20,6 +20,11 @@ body ::selection {
     text-overflow: ellipsis;
     width: 100%;
   }
+  #featured-3{
+  margin-top: 200px;
+
+  }
+
 #row1 {
 	margin-left: 300px;
 }

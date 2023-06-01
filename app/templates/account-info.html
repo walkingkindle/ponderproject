@@ -2,8 +2,10 @@
 <html>
   <head>
     <title>Account Information|Ponder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Link to Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="/static/account-info-styles.css">
     <link rel="icon" type="image/x-icon" href="/static/favicon-32x32.png">
@@ -45,9 +47,6 @@
         <div class="col-md-3 pt-0">
           <div class="list-group list-group-flush account-settings-links">
             <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account-general">General</a>
-            <a class="list-group-item list-group-item-action" data-toggle="list" href="{{ url_for('reset_password') }}">Change password</a>
-
-
           </div>
         </div>
         <div class="col-md-9">
@@ -287,16 +286,16 @@
 
     <div class="text-right mt-3">
       <button  type="submit" class="btn btn-primary" id="upload-button">Save changes</button>&nbsp;
-      <button type="button" class="btn btn-default">Cancel</button>
+      <button type="button" class="btn btn-default" onclick="history.back()">Cancel</button>
     </div>
   </form>
   </div>
   </body>
   <!-- Link to Bootstrap JS -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="/static/jquery-3.2.1.min.js"></script>
+  <script src="/static/popper.js"></script>
+  <script src="/static/bootstrap.min.js"></script>
+  <script src="/static/main.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </html>

@@ -95,58 +95,66 @@
     </div>
   </section>
   <!--Main layout-->
-  <main class="mt-4 mb-5" id="main-div">
-    <div class="container">
-      <!--Grid row-->
-      <div class="row">
-        <!--Grid column-->
-        <div class="col-md-8 mb-4" id="main-div">
-          <!--Section: Post data-mdb-->
-          <section id="img-section" class="border-bottom mb-4">
-            {% if post.photo %}
-            <img id="main-img" src="{{ post.photo }}"
-              class="img-fluid shadow-2-strong rounded-5 mb-4" alt="" />
-            {% else %}
-            <img id="main-img" src="https://mdbootstrap.com/img/Photos/Slides/img%20(144).jpg"
-              class="img-fluid shadow-2-strong rounded-5 mb-4" alt="" />
-            {% endif %}
-            <div class="row align-items-center mb-4">
-              <div class="col-lg-6 text-center text-lg-start mb-3 m-lg-0">
-                <span> Published <u>{{post.date}}</u> by</span>
-                <a href="" class="text-dark">{{current_user.username}}</a>
-              </div>
-              <div class="col-lg-6 text-center text-lg-end">
-                <a href="https://www.facebook.com/sharer.php?u={{url_for('see_post', post_id=post.id)}}&t={{post.title}}" type="button" class=" button btn btn-primary px-3 me-1" style="background-color: #3b5998;">
+<main class="mt-4 mb-5" id="main-div">
+  <div class="container">
+    <!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-md-8 mb-4" id="main-div">
+        <!--Section: Post data-mdb-->
+        <section id="img-section" class="border-bottom mb-4">
+          {% if post.photo %}
+          <img id="main-img" src="{{ post.photo }}" class="img-fluid shadow-2-strong rounded-5 mb-4" alt="" />
+          {% else %}
+          <img id="main-img" src="https://mdbootstrap.com/img/Photos/Slides/img%20(144).jpg" class="img-fluid shadow-2-strong rounded-5 mb-4" alt="" />
+          {% endif %}
+          <div class="row align-items-center mb-4">
+            <div class="col-lg-6 text-center text-lg-start mb-3 m-lg-0">
+              <span> Published <u>{{post.date}}</u> by</span>
+              <a href="" class="text-dark">{{current_user.username}}</a>
+            </div>
+            <div class="col-lg-6 text-center text-lg-end">
+              <a href="https://www.facebook.com/sharer.php?u={{url_for('see_post', post_id=post.id)}}&t={{post.title}}" type="button" class="button btn btn-primary px-3 me-1" style="background-color: #3b5998;">
                 <i class="fab fa-facebook-f"></i>
-                </a>
-                <button type="button" class="btn btn-primary px-3 me-1" style="background-color: #55acee;">
+              </a>
+              <button type="button" class="btn btn-primary px-3 me-1" style="background-color: #55acee;">
                 <i class="fab fa-twitter"></i>
-                </button>
-                <button type="button" class="btn btn-primary px-3 me-1" style="background-color: #0082ca;">
+              </button>
+              <button type="button" class="btn btn-primary px-3 me-1" style="background-color: #0082ca;">
                 <i class="fab fa-linkedin"></i>
-                </button>
-                <button type="button" class="btn btn-primary px-3 me-1">
+              </button>
+              <button type="button" class="btn btn-primary px-3 me-1">
                 <i class="fas fa-comments"></i>
-                </button>
-              </div>
+              </button>
             </div>
-          </section>
-          <!--Section: Text-->
-          <div class="container">
-            <div class="row">
-              <section id="body-and-button">
-                <p>{{ post.body|safe }}</p>
-                <br>
-                {% if can_edit %}
-                <a class="btn btn-btn-primary btn-outline-dark btn-lg" href="{{url_for('edit_post',post_id=post.id)}}" id="edit-button">Edit</a>
-              </section>
+          </div>
+        </section>
+        <!--Section: Text-->
+        <div class="container">
+          <div class="row">
+            <section id="body-and-button">
+              <p>{{ post.body|safe }}</p>
+              <br>
+              {% if can_edit %}
+              <a class="btn btn-btn-primary btn-outline-dark btn-lg" href="{{url_for('edit_post',post_id=post.id)}}" id="edit-button">Edit</a>
               {% endif %}
-            </div>
+            </section>
           </div>
         </div>
       </div>
     </div>
-  </main>
+  </div>
+</main>
+
+<style>
+  /* CSS for small screens */
+  @media (max-width: 576px) {
+    #main-div {
+      margin-left: 0;
+    }
+  }
+</style>
+
   <footer class="footer-16371">
     <div class="container">
       <div class="row justify-content-center">
@@ -175,9 +183,9 @@
       </div>
     </div>
   </footer>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="/static/tilt.jquery.min.js"></script>
+  <script src="/static/popper.js"></script>
+  <script src="/static/bootstrap.min.js"></script>
+  <script src="/static/main.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </html>

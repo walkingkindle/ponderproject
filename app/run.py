@@ -413,7 +413,7 @@ def new_password(token):
 
 
 
-@app.route("/reset-password/",methods=["POST", "GET"])
+@app.route("/reset-password",methods=["POST", "GET"])
 def reset_password():
     email_form = ForgotPassword()
     if email_form.validate_on_submit():

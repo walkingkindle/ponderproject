@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixed an error of alignment in the dashboard page">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing responsiveness on more than one page.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/about-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/about-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/account-info-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/account-info-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/dashboard-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/dashboard-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/see-post-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/see-post-styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/upload.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/upload.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/Upload-File.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Upload-File.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/about-us.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/about-us.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/auth/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/sign up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/account-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/account-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/contact-me.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/contact-me.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/see-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/see-post.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,13 +105,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Adding the edit-post feature.">
-      <created>1681833507345</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1681833507345</updated>
     </task>
     <task id="LOCAL-00063" summary="Implementing and customizing the search page to return the search query from the google API">
       <created>1681921261417</created>
@@ -445,7 +442,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685628187188</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="Fixing responsiveness on more than one page.">
+      <created>1685633277504</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1685633277505</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -463,7 +467,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adjusting more of responsiveness" />
     <MESSAGE value="Fixing the error where the page is not narrow enough if the text is too large." />
     <MESSAGE value="Customizing about page" />
     <MESSAGE value="requirements.txt" />
@@ -488,6 +491,7 @@
     <MESSAGE value="Fixing the unique ids problem." />
     <MESSAGE value="Fixed an error where the sign in template couldnt be found" />
     <MESSAGE value="Fixed an error of alignment in the dashboard page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed an error of alignment in the dashboard page" />
+    <MESSAGE value="Fixing responsiveness on more than one page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing responsiveness on more than one page." />
   </component>
 </project>

@@ -8,9 +8,7 @@
   /* Margin to fix overlapping fixed navbar */
   margin-top: 45px;
  }
- #main-div{
- margin-left: -20px !important;
- }
+ margin-left: 0px;
 }
 #main-div{
  margin-left: 120px;
