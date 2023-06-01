@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing the unique ids problem." />
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixed an error where the sign in template couldnt be found">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Upload-File.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Upload-File.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,13 +99,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Fixed the google authentication so it redirects the user to the index page.">
-      <created>1681814034509</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1681814034509</updated>
     </task>
     <task id="LOCAL-00061" summary="Creating a user from google log in route">
       <created>1681830330698</created>
@@ -438,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685476181730</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="Fixed an error where the sign in template couldnt be found">
+      <created>1685476544083</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1685476544083</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -456,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fully Responsive index on smaller devices." />
     <MESSAGE value="Updating user information feature" />
     <MESSAGE value="Adjusting more of responsiveness" />
     <MESSAGE value="Fixing the error where the page is not narrow enough if the text is too large." />
@@ -481,6 +485,7 @@
     <MESSAGE value="renaming files to resolve conflicts with google development." />
     <MESSAGE value="uploading missing photos from pages." />
     <MESSAGE value="Fixing the unique ids problem." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing the unique ids problem." />
+    <MESSAGE value="Fixed an error where the sign in template couldnt be found" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed an error where the sign in template couldnt be found" />
   </component>
 </project>
