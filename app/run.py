@@ -454,7 +454,7 @@ def callback():
     pprint.pprint(id_info)
     user = users.session.query(User).filter_by(email=id_info['email']).first()
     if user:
-        return redirect("home",has_account=True)
+        return redirect(url_for('home',has_account=True))
     username = id_info['name']
     email = id_info['email']
     first_name = id_info['given_name']

@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adjusting responsiveness">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing an login-error">
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/contact-me.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/contact-me.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,13 +96,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00064" summary="Making the search page work">
-      <created>1681983082734</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1681983082734</updated>
     </task>
     <task id="LOCAL-00065" summary="Appending the search results from search.html onto a list">
       <created>1682081097518</created>
@@ -442,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685641512967</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="Fixing an login-error">
+      <created>1685645529800</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1685645529800</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -460,7 +458,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixing the error where the page is not narrow enough if the text is too large." />
     <MESSAGE value="Customizing about page" />
     <MESSAGE value="requirements.txt" />
     <MESSAGE value="Fixed an issue with the new log-in page" />
@@ -485,6 +482,7 @@
     <MESSAGE value="Fixed an error of alignment in the dashboard page" />
     <MESSAGE value="Fixing responsiveness on more than one page." />
     <MESSAGE value="Adjusting responsiveness" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusting responsiveness" />
+    <MESSAGE value="Fixing an login-error" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing an login-error" />
   </component>
 </project>
