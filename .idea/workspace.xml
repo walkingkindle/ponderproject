@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixed an error where the sign in template couldnt be found">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixed an error of alignment in the dashboard page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/about-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/about-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/upload.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/upload.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/Upload-File.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Upload-File.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/about-us.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/about-us.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/auth/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/sign up.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,13 +101,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Creating a user from google log in route">
-      <created>1681830330698</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1681830330698</updated>
     </task>
     <task id="LOCAL-00062" summary="Adding the edit-post feature.">
       <created>1681833507345</created>
@@ -443,7 +438,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685476544083</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="Fixed an error of alignment in the dashboard page">
+      <created>1685628187187</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1685628187188</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -461,7 +463,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updating user information feature" />
     <MESSAGE value="Adjusting more of responsiveness" />
     <MESSAGE value="Fixing the error where the page is not narrow enough if the text is too large." />
     <MESSAGE value="Customizing about page" />
@@ -486,6 +487,7 @@
     <MESSAGE value="uploading missing photos from pages." />
     <MESSAGE value="Fixing the unique ids problem." />
     <MESSAGE value="Fixed an error where the sign in template couldnt be found" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed an error where the sign in template couldnt be found" />
+    <MESSAGE value="Fixed an error of alignment in the dashboard page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed an error of alignment in the dashboard page" />
   </component>
 </project>

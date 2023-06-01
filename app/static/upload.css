@@ -23,6 +23,28 @@ body ::selection {
 #row1 {
 	margin-left: 300px;
 }
+@media(max-width:900px){
+  body{
+  margin-top: 200px;
+  }
+
+  #row1{
+  margin-left: 0px;
+  padding-bottom: 50px;
+  }
+  row{
+  padding-bottom: 50px;
+  }
+  .feature{
+  margin-top: 150px;
+  }
+  #kindle-auth{
+  margin-bottom: 120px;
+  }
+}
+
+
+
 
 .big-heading {
 	margin-top: 100px;
@@ -43,7 +65,8 @@ body ::selection {
     }
 
 
-/* TABLE */
+
+
 
 @import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
 
@@ -336,12 +359,6 @@ p {
 
 #upload-container {
 	margin-top: 100px;
-}
-@media(max-width: 1080px){
-    #upload-container{
-    position: relative;
-    left: 200px;
-    }
 }
 
 .card {

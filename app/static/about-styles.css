@@ -15,7 +15,7 @@
 	border-radius: 22px;
 }
 
-#contact-button:hover {
+#contact-button:hover{
 	background-color: #6E07F3;
 	color: #fff;
 }
@@ -23,11 +23,24 @@
 
 #about-section{
   margin-top: 300px;
+  align-text: center;
 }
 
 body ::selection {
   background: #6E07F3;
   color: #fff;
+}
+
+
+
+@media(max-width:800px){
+ #alex-img{
+ display : none;
+ }
+ #contact-me: hover{
+ background-color: #6E07F3;
+ color: #fff;
+ }
 }
 
 
