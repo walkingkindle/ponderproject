@@ -131,6 +131,7 @@ def home():
     sent = request.args.get("sent")
     email_sent = request.args.get('email_sent')
     expired = request.args.get('expired')
+    has_account = request.args.get('has_account')
     if expired:
         email = request.args.get('email')
         user = users.session.query(User).filter_by(email=email).first()
@@ -141,7 +142,7 @@ def home():
     if sent:
         print(sent)
     return render_template("Index.html", quote=engine.get_random_quote(), sent=sent, current_user=current_user,
-                           how_many=how_many,email_sent=email_sent,expired=expired)
+                           how_many=how_many,email_sent=email_sent,expired=expired,has_account=has_account)
 
 
 @app.route("/dashboard")
@@ -451,6 +452,9 @@ def callback():
         audience=os.getenv('GOOGLE_CLIENT_ID')
     )
     pprint.pprint(id_info)
+    user = users.session.query(User).filter_by(email=id_info['email']).first()
+    if user:
+        return redirect("home",has_account=True)
     username = id_info['name']
     email = id_info['email']
     first_name = id_info['given_name']

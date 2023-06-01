@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing responsiveness on more than one page.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adjusting responsiveness">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/account-info-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/account-info-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/dashboard-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/dashboard-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/see-post-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/see-post-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/upload.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/upload.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Upload-File.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Upload-File.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/account-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/account-info.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/contact-me.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/contact-me.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/see-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/see-post.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,13 +98,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Implementing and customizing the search page to return the search query from the google API">
-      <created>1681921261417</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1681921261417</updated>
     </task>
     <task id="LOCAL-00064" summary="Making the search page work">
       <created>1681983082734</created>
@@ -449,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685633277505</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="Adjusting responsiveness">
+      <created>1685641512967</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1685641512967</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -476,7 +469,6 @@
     <MESSAGE value="Fixed an error where when the matchine adress is found, it redirects the user to the log_in page" />
     <MESSAGE value="Reformatting and fixing the error in account, reset button" />
     <MESSAGE value="Creating tests" />
-    <MESSAGE value="Adjusting responsiveness" />
     <MESSAGE value="updating main-app" />
     <MESSAGE value="updating requirements.txt" />
     <MESSAGE value="updating requirements yet again" />
@@ -492,6 +484,7 @@
     <MESSAGE value="Fixed an error where the sign in template couldnt be found" />
     <MESSAGE value="Fixed an error of alignment in the dashboard page" />
     <MESSAGE value="Fixing responsiveness on more than one page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing responsiveness on more than one page." />
+    <MESSAGE value="Adjusting responsiveness" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusting responsiveness" />
   </component>
 </project>
