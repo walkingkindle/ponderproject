@@ -1,6 +1,8 @@
 # Ponderproject
 
 
+http://ponder.ink
+
 Ponder is a digital diary that helps people self-reflect and remember the passages, quotes and pages from their kindle,favorite books or just from a favorite author.
 To get started:
 1. Create an account and upload your 'My Clippings.txt' from your Kindle device.
@@ -30,3 +32,9 @@ Searchable quotes
 Upload your own Kindle 'My Clippings.txt' 
 ![image](https://user-images.githubusercontent.com/122030667/237044395-a97f5523-3d1f-447f-9769-865a6378d1d3.png)
 
+
+
+#TODO:
+
+1. Sometimes, the 'Become Wiser' > submit saves and returns a different quote from the one that has been wrote on.
+2. The post sharing buttons on see_post
