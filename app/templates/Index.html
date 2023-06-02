@@ -112,7 +112,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <h1 class="big-heading">Reflect on what matters most.</h1>
+          <h1 class="big-heading"><span class="auto-type"></span></h1>
         </div>
         <div class="col-md-6">
           {% if current_user.is_authenticated %}
@@ -247,9 +247,37 @@
       </div>
     </div>
   </footer>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="static/jquery-3.2.1.min.js"></script>
+  <script src="static/popper.js"></script>
+  <script src="static/bootstrap.min.js"></script>
+  <script src="static/main.js"></script>
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+<script>
+  var typed = new Typed(".auto-type", {
+    strings: ["Reflect on what matters most."],
+    typeSpeed: 50,
+    backSpeed: 150,
+    loop: false,
+    onComplete: function () {
+      highlightLastWord();
+    },
+    onStringTyped: function () {
+      highlightLastWord();
+    },
+  });
+  function highlightLastWord() {
+    var autoTypeElement = document.querySelector(".auto-type");
+    var words = autoTypeElement.innerText.split(" ");
+    var lastWord = words[words.length - 1];
+    var highlightedText = words.slice(0, words.length - 1).join(" ") + " ";
+    autoTypeElement.innerHTML =
+      highlightedText +
+      '<span class="highlight">' +
+      lastWord +
+      "</span>";
+  }
+</script>
+<script>
+</script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </html>

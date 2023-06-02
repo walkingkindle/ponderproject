@@ -117,15 +117,12 @@
               <a href="https://www.facebook.com/sharer.php?u={{url_for('see_post', post_id=post.id)}}&t={{post.title}}" type="button" class="button btn btn-primary px-3 me-1" style="background-color: #3b5998;">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <button type="button" class="btn btn-primary px-3 me-1" style="background-color: #55acee;">
+              <a type="button" href="{{ twitter }}" class="btn btn-primary px-3 me-1" style="background-color: #55acee;">
                 <i class="fab fa-twitter"></i>
-              </button>
-              <button type="button" class="btn btn-primary px-3 me-1" style="background-color: #0082ca;">
+              </a>
+              <a  type="button" href="{{ linkedin }}" class="btn btn-primary px-3 me-1" style="background-color: #0082ca;">
                 <i class="fab fa-linkedin"></i>
-              </button>
-              <button type="button" class="btn btn-primary px-3 me-1">
-                <i class="fas fa-comments"></i>
-              </button>
+              </a>
             </div>
           </div>
         </section>
@@ -183,6 +180,7 @@
       </div>
     </div>
   </footer>
+  <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
   <script src="/static/tilt.jquery.min.js"></script>
   <script src="/static/popper.js"></script>
   <script src="/static/bootstrap.min.js"></script>

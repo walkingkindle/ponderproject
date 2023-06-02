@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 import requests
 import time
+import pyshorteners
+
 def configure():
     """Protected info configuration"""
     load_dotenv()
@@ -66,6 +68,10 @@ class UniqueIDGenerator:
         self.counter += 1
         return unique_id
 
+def link_shortener(url):
+    obj = pyshorteners.Shortener()
+    link = obj.tinyurl.short(url)
+    return link
 
 
 def generate_custom_id():

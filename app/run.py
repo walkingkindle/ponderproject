@@ -3,7 +3,7 @@
 import config
 import forms
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, render_template, url_for, session, abort, redirect, request
+from flask import Flask, render_template, url_for, session, abort, redirect, request,session,g
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from flask_mail import Mail, Message
 from flask_bootstrap import Bootstrap
@@ -23,7 +23,7 @@ import pprint
 
 import datetime
 
-
+import pyshorteners as ps
 #email verification
 from itsdangerous.url_safe import URLSafeTimedSerializer
 from itsdangerous import SignatureExpired
@@ -62,7 +62,6 @@ from wikiquotes.managers.custom_exceptions import TitleNotFound
 # Initiating Flask APP
 app = initialize_app('sqlite:///users.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
 app.config['SECRET_KEY'] = os.getenv('flask_secret_key')
 app.config['MAX_CONTENT_PATH'] = 1000000
 app.config['MAIL_SERVER'] = "smtp.gmail.com"
@@ -71,6 +70,7 @@ app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = os.getenv('MY_EMAIL')
 app.config['MAIL_PASSWORD'] = os.getenv('MY_PASSWORD')
+app.config['SESSION_TYPE'] = 'filesystem'
 
 with app.app_context():
     users.create_all()
@@ -145,9 +145,10 @@ def home():
                            how_many=how_many,email_sent=email_sent,expired=expired,has_account=has_account)
 
 
-@app.route("/dashboard")
+@app.route("/dashboard",methods=["POST","GET"])
 @login_required
 def dashboard():
+    random_quote = request.args.get('quote')
     try:
         clippings_filename = "My_Clippings.txt" + str(current_user.id)
         quote_list = engine.extract_quotes_with_writers(clippings_path=app.config['UPLOAD_FOLDER'], filename=clippings_filename)
@@ -164,12 +165,6 @@ def dashboard():
         if request.method == 'POST':
             return redirect(url_for('write',quote=real_quote,writer=real_writer,redirect_from='dashboard'))
     except FileNotFoundError:
-        post = users.session.query(Posts).filter_by(author_id=current_user.id).first()
-        if post:
-            all_posts = Posts.query.all()
-            has_posts = True
-            return render_template('Dashboard.html',quote=engine.get_random_quote(),writer="-Unknown",all_posts=all_posts,has_posts=has_posts)
-        else:
             return redirect(url_for('upload',not_uploaded=True))
     return render_template("Dashboard.html", quote=real_quote, writer=real_writer, all_posts=all_posts)
 
@@ -218,13 +213,14 @@ def upload():
 @login_required
 def see_post(post_id):
     requested_post = Posts.query.get(post_id)
-    print(current_user.id)
-    print(requested_post.author_id)
     if int(current_user.id) == int(requested_post.author_id):
         can_edit = True
     else:
         can_edit = False
-    return render_template("see-post.html", post=requested_post,can_edit=can_edit)
+    share_link_twitter = engine.link_shortener("https://twitter.com/intent/tweet?text=http://ponder.ink/{{url_for('see_post',post_id=post.id)}}")
+    share_link_linkedin = engine.link_shortener("https://www.linkedin.com/shareArticle?mini=true&url=http://ponder.ink/{{url_for('see_post',post_id=post.id)}}")
+    share_link_facebook = engine.link_shortener("https://www.facebook.com/sharer/sharer.php?u=http%3A//ponder.ink/%7B%7Burl_for('see_post',post_id=post.id)%7D%7D")
+    return render_template("see-post.html", post=requested_post,can_edit=can_edit,twitter=share_link_twitter,facebook=share_link_facebook,linkedin=share_link_linkedin)
 
 
 @app.route('/nothing-here')
@@ -520,14 +516,11 @@ def write():
             )
             users.session.add(new_post)
             users.session.commit()
-            return redirect(url_for("see_post", quote=new_quote, form=form, current_user=current_user, post_id=post_id,
+            return redirect(url_for("see_post", form=form, current_user=current_user, post_id=post_id,
                                     redirect_from=redirect_from))
     elif redirect_from == 'dashboard':
-        print(redirect_from)
-        dashboard_quote = request.args.get("quote")
-        print(dashboard_quote)
+        quote = request.args.get('quote')
         writer = request.args.get("writer")
-        print(writer)
         body = form.body.data
         quote2 = form.quote.data
         quote_author = form.author.data
@@ -536,7 +529,7 @@ def write():
         formatted_datetime = current_date.strftime("%d/%m/%Y")
         if form.validate_on_submit():
             new_post = Posts(
-                quote=f"{dashboard_quote}, {writer}",
+                quote=f"{quote}, {writer}",
                 body=body,
                 id=post_id,
                 user=current_user,
@@ -546,10 +539,10 @@ def write():
             )
             users.session.add(new_post)
             users.session.commit()
-            return redirect(url_for("see_post", quote=dashboard_quote, form=form, current_user=current_user,
+            return redirect(url_for("see_post", quote=quote, form=form, current_user=current_user,
                                     post_id=post_id,
                                     redirect_from=redirect_from))
-        return render_template("Write.html", form=form, quote=dashboard_quote,writer=writer, current_user=current_user,
+        return render_template("Write.html", form=form, quote=quote,writer=writer, current_user=current_user,
                                redirect_from=redirect_from)
     return render_template("Write.html", form=form, current_user=current_user, quote=new_quote,
                            redirect_from=redirect_from)

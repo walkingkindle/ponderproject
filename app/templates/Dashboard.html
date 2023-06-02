@@ -89,13 +89,15 @@
         </div>
     </div>
 </section>
+    <form method="post" action="{{ url_for('dashboard') }}">
     <div class="container" id="button-div">
       <div class="row text-center">
           <div class="col lg-6 mx-auto">
-    <a id="ponder-button" class="btn btn-lg btn-outline-primary" href="{{url_for('write', redirect_from='dashboard')}}">Ponder</a>
+    <a id="ponder-button" type="submit" class="btn btn-lg btn-outline-primary" href="{{url_for('write', redirect_from='dashboard')}}">Ponder</a>
               </div>
       </div>
       </div>
+    </form>
     {% else %}
   <section class="py-5">
     <div class="container">

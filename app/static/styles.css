@@ -16,6 +16,26 @@ body ::selection {
 	margin-top: 250px;
 	margin-bottom: 250px;
 }
+
+.highlight {
+  animation: highlightAnimation 1s infinite;
+  background-color: #6E07F3;
+  color: white;
+}
+
+@keyframes highlightAnimation {
+  0% {
+    background-color: #6E07F3;
+  }
+  50% {
+    background-color: initial;
+  }
+  100% {
+    background-color: #6E07F3;
+  }
+}
+
+
 #ponder-img{
   margin-right: 10px;
 }
