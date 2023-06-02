@@ -258,26 +258,11 @@
     typeSpeed: 50,
     backSpeed: 150,
     loop: false,
-    onComplete: function () {
-      highlightLastWord();
-    },
-    onStringTyped: function () {
-      highlightLastWord();
-    },
   });
-  function highlightLastWord() {
-    var autoTypeElement = document.querySelector(".auto-type");
-    var words = autoTypeElement.innerText.split(" ");
-    var lastWord = words[words.length - 1];
-    var highlightedText = words.slice(0, words.length - 1).join(" ") + " ";
-    autoTypeElement.innerHTML =
-      highlightedText +
-      '<span class="highlight">' +
-      lastWord +
-      "</span>";
-  }
+  typed.cursor.remove();
+
 </script>
-<script>
-</script>
+
+
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </html>

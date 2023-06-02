@@ -377,7 +377,6 @@ def log_in():
         print(f"{user} is")
         if user:
             if check_password_hash(pwhash=user.password, password=entered_password) and user.confirmed:
-                print("is true")
                 login_user(user)
                 return redirect(url_for("choose_path", current_user=current_user))
             else:

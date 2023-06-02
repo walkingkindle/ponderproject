@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="updating requirements">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/engine.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/see-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/see-post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Upload-File.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Upload-File.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,20 +99,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00067" summary="Redirecting amazon auth to coming soon page.">
-      <created>1682518777683</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1682518777683</updated>
-    </task>
-    <task id="LOCAL-00068" summary="coming soon finalized">
-      <created>1682599326617</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1682599326617</updated>
     </task>
     <task id="LOCAL-00069" summary="Fixing redirect and dashboard">
       <created>1682599777074</created>
@@ -446,7 +429,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685645747849</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="Fixing Minor Bugs">
+      <created>1685727284137</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1685727284138</updated>
+    </task>
+    <task id="LOCAL-00117" summary="updating requirements">
+      <created>1685727339984</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1685727339984</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -464,8 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Customizing about page" />
-    <MESSAGE value="requirements.txt" />
     <MESSAGE value="Fixed an issue with the new log-in page" />
     <MESSAGE value="Fixing the issue where if the quote is too long or undesirable, the user can change it." />
     <MESSAGE value="updating dashboard" />
@@ -489,6 +484,8 @@
     <MESSAGE value="Fixing responsiveness on more than one page." />
     <MESSAGE value="Adjusting responsiveness" />
     <MESSAGE value="Fixing an login-error" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing an login-error" />
+    <MESSAGE value="Fixing Minor Bugs" />
+    <MESSAGE value="updating requirements" />
+    <option name="LAST_COMMIT_MESSAGE" value="updating requirements" />
   </component>
 </project>
