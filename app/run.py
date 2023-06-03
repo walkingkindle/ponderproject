@@ -233,6 +233,7 @@ def nothing_selected():
 def search_page():
     """A feature which gives the user a choice to search the books and authors in case he/she does not own a Kindle."""
     contribute = request.args.get('contribute')
+    not_given= request.args.get('not_given')
     print(contribute)
     books = []
     authors = []
@@ -244,7 +245,10 @@ def search_page():
         print(authors)
         for author in authors:
             try:
-                quote = wikiquotes.get_quotes(author=author, raw_language='en')
+                try:
+                    quote = wikiquotes.get_quotes(author=author, raw_language='en')
+                except KeyError:
+                    return redirect(url_for('search_page',not_given=True))
                 print(quote)
                 quotes_list.append(quote)
             except TitleNotFound:
@@ -257,7 +261,7 @@ def search_page():
             quote = random.choice(quotes_list)
             print(quotes_list[0])
             return redirect(url_for('paper_reader', redirect_from='search', quote=quote))
-    return render_template("Search.html",contribute=contribute,redirect_from='search')
+    return render_template("Search.html",contribute=contribute,redirect_from='search',not_given=not_given)
 
 @app.route("/contribute")
 @login_required

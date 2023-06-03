@@ -58,6 +58,14 @@
     </div>
     <!----- Main Part of the Page ----->
     <form action="{{ url_for('search_page') }}" method="post">
+      {% if not_given %}
+      <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" id="alert-div">
+        Please add at least one book before continuing.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endif %}
       <div class="container">
         <div class="row">
           <h2 class="big-heading">The Paper Reader</h2>
@@ -81,6 +89,7 @@
                  $.get(api_url, function(data) {
                     var books = data.items;
                     var bookList = [];
+                    var added = false;
                     for (var i = 0; i < books.length; i++) {
                        var title = books[i].volumeInfo.title;
                        var author = books[i].volumeInfo.authors[0];
@@ -97,6 +106,7 @@
                        var bookTitle = bookInfo[0];
                        var bookAuthor = bookInfo[1];
                        addBookToTable(bookTitle, bookAuthor);
+                       var added = true;
                     });
                  });
               } else {
@@ -125,6 +135,26 @@
                  "background-color": "#f8f8f8",
                  "box-shadow": "none"
               });
+            // Function to handle form submission
+            $("#submit-btn").on("click", function(event) {
+            var rowCount = $("#book-table tbody tr").length;
+            if (rowCount === 0) {
+            event.preventDefault();  // Prevent form submission
+            showAlert("Please add at least 1 book before continuing");
+            }
+            });
+
+            // Function to display Bootstrap alert
+              function showAlert(message) {
+              var alertHtml = `
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                ${message}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            `;
+            $("#alert-container").html(alertHtml);
            });
         });
       </script>
