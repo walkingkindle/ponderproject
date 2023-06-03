@@ -35,9 +35,9 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-              <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">
-                <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>
-              </li>
+<!--              <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">-->
+<!--                <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>-->
+<!--              </li>-->
               <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
                 <a class="nav-link" href="{{url_for('dashboard',redirect_from='home')}}">Dashboard</a>
               </li>

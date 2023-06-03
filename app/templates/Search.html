@@ -42,9 +42,9 @@
               <li class="nav-item {% if request.path == url_for('home') %}active{% endif %}">
                 <a class="nav-link" aria-current="page" href="{{url_for('home')}}">Home</a>
               </li>
-              <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">
-                <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>
-              </li>
+<!--              <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">-->
+<!--                <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>-->
+<!--              </li>-->
               <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
                 <a class="nav-link" href="{{url_for('dashboard')}}">Dashboard</a>
               </li>
@@ -69,7 +69,7 @@
               <input id="book-search" class="form-control" type="text" placeholder="Search for books and authors here">
             </div>
           </div>
-          <ul id="book-list" style="list-style-type: none; padding: 0; margin-bottom: 220px; width: 100vh; font-family: Roboto,Sans-Serif;"></ul>
+          <ul id="book-list" style="list-style-type: none; padding: 0; width: 100vh; font-family: Roboto,Sans-Serif;"></ul>
         </div>
       </div>
       <script>
@@ -115,9 +115,6 @@
                  newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin-left:50px;' type='text' readonly name='author' value='" + author + "'>"));
                  tableBody.prepend(newRow);
                  }
-
-
-           // Add hover effect to book list items
            $("#book-list").on("mouseenter", ".book-item", function() {
               $(this).css({
                  "background-color": "#ebebeb",

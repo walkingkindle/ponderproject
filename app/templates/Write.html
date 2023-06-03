@@ -55,9 +55,9 @@ config.toolbar = [
               <li class="nav-item {% if request.path == url_for('home') %}active{% endif %}">
                 <a class="nav-link" aria-current="page" href="{{url_for('home')}}">Home</a>
               </li>
-              <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">
-                <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>
-              </li>
+<!--              <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">-->
+<!--                <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>-->
+<!--              </li>-->
               <li class="nav-item {% if request.path == url_for('account',user_id=current_user.id) %}active{% endif %}">
                 <a class="nav-link" href="{{url_for('account',user_id=current_user.id)}}">Account</a>
               </li>

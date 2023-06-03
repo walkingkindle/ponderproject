@@ -41,9 +41,9 @@
             <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
               <a class="nav-link" href="{{url_for('dashboard')}}">Dashboard</a>
             </li>
-            <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">
-              <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>
-            </li>
+<!--            <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">-->
+<!--              <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>-->
+<!--            </li>-->
             <li class="nav-item {% if request.path == url_for('account',user_id=current_user.id) %}active{% endif %}">
               <a class="nav-link" href="{{url_for('account',redirect_from='dashboard',user_id=current_user.id)}}">Account</a>
             </li>

@@ -314,7 +314,7 @@ def confirm_email(token):
         return redirect(url_for("choose_path", current_user=current_user))
     except SignatureExpired:
         email = request.args.get('email')
-        return redirect(url_for('home',expired=True,email=email))
+        return redirect(url_for('choose_path',expired=True,email=email))
 
 
 
@@ -711,5 +711,5 @@ def log_out():
     return redirect(url_for('home'))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
