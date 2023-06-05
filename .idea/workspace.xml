@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Updating the navbar to adjust to user experience.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Created an exception where if the user has not added any books to the page, it returns with an alert-like error.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,13 +97,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00071" summary="Implementing email confirmation.">
-      <created>1682680328027</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1682680328028</updated>
     </task>
     <task id="LOCAL-00072" summary="Fixed an error where confirmation mail alert does not show, as well as the expired value, if the session token expires">
       <created>1682683865645</created>
@@ -442,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685792164116</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="Created an exception where if the user has not added any books to the page, it returns with an alert-like error.">
+      <created>1685804271118</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1685804271118</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -460,7 +459,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updating dashboard" />
     <MESSAGE value="Fixed an error where when the matchine adress is found, it redirects the user to the log_in page" />
     <MESSAGE value="Reformatting and fixing the error in account, reset button" />
     <MESSAGE value="Creating tests" />
@@ -485,6 +483,7 @@
     <MESSAGE value="updating requirements" />
     <MESSAGE value="fixing the blinking bug." />
     <MESSAGE value="Updating the navbar to adjust to user experience." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating the navbar to adjust to user experience." />
+    <MESSAGE value="Created an exception where if the user has not added any books to the page, it returns with an alert-like error." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created an exception where if the user has not added any books to the page, it returns with an alert-like error." />
   </component>
 </project>
