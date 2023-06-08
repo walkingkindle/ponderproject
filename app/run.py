@@ -349,11 +349,6 @@ def register():
             has_account = True
             return render_template("auth/sign-in.html", has_account=has_account)
         else:
-            token = s.dumps(e_mail,salt='email-confirm')
-            link = url_for('confirm_email',token=token,_external=True,email=e_mail)
-            msg = Message(' Confirm Email ', sender=app.config['MAIL_SENDER'], recipients=[e_mail],body=engine.confirmation_email(link))
-            mail.send(msg)
-            email_sent= True
             new_user = User(
                 email=e_mail,
                 password=hashed_password,
@@ -362,6 +357,11 @@ def register():
             )
             users.session.add(new_user)
             users.session.commit()
+            token = s.dumps(e_mail,salt='email-confirm')
+            link = url_for('confirm_email',token=token,_external=True,email=e_mail,user_id=new_user.id)
+            msg = Message(' Confirm Email ', sender=app.config['MAIL_SENDER'], recipients=[e_mail],body=engine.confirmation_email(link))
+            mail.send(msg)
+            email_sent= True
         return redirect(url_for('home',email_sent=email_sent,email=e_mail))
     return render_template("auth/sign up.html", current_user=current_user, form=form)
 
