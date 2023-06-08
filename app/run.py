@@ -188,7 +188,7 @@ def notifications():
 
 @app.route('/choose-your-path')
 def choose_path():
-    return render_template("Upload-File.html", current_user=current_user)
+    return render_template("Upload-File.html", current_user=current_user,user_id=current_user.id)
 
 
 @app.route("/upload", methods=['GET', 'POST'])
