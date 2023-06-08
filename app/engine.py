@@ -11,6 +11,7 @@ def configure():
     load_dotenv()
 
 def confirmation_email(link):
+    something = "something"
     confirm_email = random.choice(config.EMAIL_CONFIRMATIONS)
     return f"{confirm_email}\n P.S: Here is a link to confirm your email.\n {link}"
 
