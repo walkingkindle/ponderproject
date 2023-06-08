@@ -62,14 +62,14 @@ from wikiquotes.managers.custom_exceptions import TitleNotFound
 # Initiating Flask APP
 app = initialize_app('sqlite:///users.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = os.getenv('flask_secret_key')
+app.config['SECRET_KEY'] = os.urandom(24)
 app.config['MAX_CONTENT_PATH'] = 1000000
 app.config['MAIL_SERVER'] = "smtp.gmail.com"
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = os.getenv('MY_EMAIL')
-app.config['MAIL_PASSWORD'] = os.getenv('MY_PASSWORD')
+app.config['MAIL_USERNAME'] = config.email
+app.config['MAIL_PASSWORD'] = config.password
 app.config['SESSION_TYPE'] = 'filesystem'
 
 with app.app_context():
@@ -448,7 +448,7 @@ def callback():
     id_info = id_token.verify_oauth2_token(
         id_token=credentials._id_token,
         request=token_request,
-        audience=os.getenv('GOOGLE_CLIENT_ID')
+        audience=config.GOOGLE_CLIENT_ID
     )
     pprint.pprint(id_info)
     user = users.session.query(User).filter_by(email=id_info['email']).first()

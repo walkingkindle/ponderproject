@@ -1,6 +1,8 @@
-
 urlsafe_secret = 'If(CDsMkc%6xM4%$'
-
+email = "ponder.contactus@gmail.com"
+password = "hzlxopkevmmbpsni"
+GOOGLE_CLIENT_ID = "189199604424-0jjk99sperigk9s6eksd198dg6ol22ss.apps.googleusercontent.com"
+GOOGLE_CLIENT_SECRET = "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"
 EMAIL_CONFIRMATIONS = ["Dear sir/madam,\nI trust this message finds you well.\n I am writing to confirm that we have received your email and would like to thank you for taking the time to reach out to us.\nAs you may already know, it is crucial to take responsibility for one's actions in order to achieve success and meaning in life. By sending this email, you have demonstrated a level of conscientiousness that is admirable and worthy of respect."
                        "\nI am pleased to inform you that your message has been received loud and clear.\n Our team will carefully review your request and get back to you as soon as possible.\n Please rest assured that we are working diligently to ensure that your needs are met to the best of our abilities."
                        "In the meantime, I encourage you to continue striving towards your goals with courage and conviction.\n Remember, it is the small steps that we take each day that ultimately lead to a life of purpose and fulfillment."
