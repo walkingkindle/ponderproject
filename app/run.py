@@ -71,6 +71,7 @@ app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = config.email
 app.config['MAIL_PASSWORD'] = config.password
 app.config['SESSION_TYPE'] = 'filesystem'
+app.config['MAIL_SENDER'] = config.email
 
 with app.app_context():
     users.create_all()
@@ -349,7 +350,7 @@ def register():
         else:
             token = s.dumps(e_mail,salt='email-confirm')
             link = url_for('confirm_email',token=token,_external=True,email=e_mail)
-            msg = Message(' Confirm Email ', sender=app.config['MAIL_USERNAME'], recipients=[e_mail],body=engine.confirmation_email(link))
+            msg = Message(' Confirm Email ', sender=app.config['MAIL_SENDER'], recipients=[e_mail],body=engine.confirmation_email(link))
             mail.send(msg)
             email_sent= True
             new_user = User(
