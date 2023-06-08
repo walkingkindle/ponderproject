@@ -72,6 +72,7 @@ app.config['MAIL_USERNAME'] = config.email
 app.config['MAIL_PASSWORD'] = config.password
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['MAIL_SENDER'] = config.email
+app.config['MAIL_DEFAULT_ADDRESS'] = config.email
 
 with app.app_context():
     users.create_all()
@@ -316,7 +317,7 @@ def confirm_email(token):
         user.confirmed = True
         users.session.commit()
         login_user(user)
-        return redirect(url_for("choose_path", current_user=current_user))
+        return redirect(url_for("choose_path", current_user=current_user,user_id=current_user.id))
     except SignatureExpired:
         email = request.args.get('email')
         return redirect(url_for('choose_path',expired=True,email=email))
