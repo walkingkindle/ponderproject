@@ -90,6 +90,7 @@ config.toolbar = [
       </div>
       {% endif %}
     {% if redirect_from == 'home' %}
+      <form action="{{url_for('write')}}" value="{{ form.csrf_token }}" enctype="multipart/form-data">
     <h1 id="ponder-text">Reflect and Ponder</h1>
     <div class="container">
     <div class="row">
@@ -198,7 +199,7 @@ config.toolbar = [
       </div>
       {% endif %}
     </div>
-    </div>
+         </form>
     </div>
   </body>
   <footer class="footer-16371">
