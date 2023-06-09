@@ -188,9 +188,8 @@ def notifications():
 
 @app.route('/choose-your-path')
 def choose_path():
-    email = request.args.get('email')
-    user = users.session.query(User).filter_by(email=email).first()
-    return render_template("Upload-File.html", current_user=current_user,user_id=user.id)
+
+    return render_template("Upload-File.html", current_user=current_user,user_id=current_user.id)
 
 
 @app.route("/upload", methods=['GET', 'POST'])
