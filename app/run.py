@@ -65,7 +65,7 @@ from wikiquotes.managers.custom_exceptions import TitleNotFound
 app = initialize_app('sqlite:///users.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'If(CDsMkc%6xM4%$'
-app.config['CSRF_SECRET_KEY'] = 'If(CDsMkc%6xM4%$'
+app.config['CSRF_SECRET_KEY'] = 'If(CDsMkc%6xM4%$a'
 app.config['MAX_CONTENT_PATH'] = 1000000
 app.config['MAIL_SERVER'] = "smtp.gmail.com"
 app.config['MAIL_PORT'] = 465
