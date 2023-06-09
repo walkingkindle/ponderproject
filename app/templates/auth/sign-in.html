@@ -128,7 +128,7 @@
               <h3>Sign In to <strong>Ponder</strong></h3>
               <p class="mb-4">Sign in to access your Kindle quotes, and ponder</p>
             </div>
-            <form action="{{ url_for('log_in') }}" method="post">
+            <form action="{{ url_for('log_in') }}" method="post" value="{{ form.csrf_token }}">
               <div class="form-group first">
                 <input type="text" class="form-control" id="username" name="email" placeholder="E-mail">
               </div>
