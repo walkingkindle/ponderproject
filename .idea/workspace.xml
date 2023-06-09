@@ -98,13 +98,6 @@
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
     </task>
-    <task id="LOCAL-00080" summary="Adjusting more of responsiveness">
-      <created>1683569689081</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1683569689081</updated>
-    </task>
     <task id="LOCAL-00081" summary="Fixing the error where the page is not narrow enough if the text is too large.">
       <created>1683621257161</created>
       <option name="number" value="00081" />
@@ -441,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686249714399</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="Attempting to fix werzeug error in development.">
+      <created>1686300891731</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1686300891731</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="UnknownFeatures">
