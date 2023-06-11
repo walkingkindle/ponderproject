@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adjusting a new route to re-route the dashboard kindle mistakes.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing js error on write page.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
     </list>
@@ -97,13 +97,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00093" summary="updating requirements yet again">
-      <created>1684920157595</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1684920157595</updated>
     </task>
     <task id="LOCAL-00094" summary="updating requirements yet again">
       <created>1685189729184</created>
@@ -441,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686494513124</updated>
     </task>
-    <option name="localTasksCounter" value="142" />
+    <task id="LOCAL-00142" summary="Fixing js error on write page.">
+      <created>1686495480542</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1686495480542</updated>
+    </task>
+    <option name="localTasksCounter" value="143" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -459,7 +459,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactoring local files" />
     <MESSAGE value="env" />
     <MESSAGE value="adding more essentials" />
     <MESSAGE value="fixing an error where My Clippings filename go out of the box." />
@@ -484,6 +483,7 @@
     <MESSAGE value="Fixing invalid csrf token deployment error" />
     <MESSAGE value="fixing and updating links" />
     <MESSAGE value="Adjusting a new route to re-route the dashboard kindle mistakes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusting a new route to re-route the dashboard kindle mistakes." />
+    <MESSAGE value="Fixing js error on write page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing js error on write page." />
   </component>
 </project>

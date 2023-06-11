@@ -108,7 +108,7 @@ client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client-secret
 flow = Flow.from_client_secrets_file(client_secrets_file=client_secrets_file,
                                      scopes=["https://www.googleapis.com/auth/userinfo.profile",
                                              "https://www.googleapis.com/auth/userinfo.email", "openid"],
-                                     redirect_uri="http://ponder.ink/callback")
+                                     redirect_uri="https://www.ponder.ink/callback")
 
 
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
