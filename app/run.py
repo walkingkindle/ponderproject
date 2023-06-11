@@ -225,10 +225,10 @@ def see_post(post_id):
         can_edit = True
     else:
         can_edit = False
-    share_link_twitter = engine.link_shortener("https://twitter.com/intent/tweet?text=http://ponder.ink/{{url_for('see_post',post_id=post.id)}}")
-    share_link_linkedin = engine.link_shortener("https://www.linkedin.com/shareArticle?mini=true&url=http://ponder.ink/{{url_for('see_post',post_id=post.id)}}")
-    share_link_facebook = engine.link_shortener("https://www.facebook.com/sharer/sharer.php?u=http%3A//ponder.ink/%7B%7Burl_for('see_post',post_id=post.id)%7D%7D")
-    return render_template("see-post.html", post=requested_post,can_edit=can_edit,twitter=share_link_twitter,facebook=share_link_facebook,linkedin=share_link_linkedin)
+    # share_link_twitter = engine.link_shortener("https://twitter.com/intent/tweet?text=http://ponder.ink/{{url_for('see_post',post_id=post.id)}}")
+    # share_link_linkedin = engine.link_shortener("https://www.linkedin.com/shareArticle?mini=true&url=http://ponder.ink/{{url_for('see_post',post_id=post.id)}}")
+    # share_link_facebook = engine.link_shortener("https://www.facebook.com/sharer/sharer.php?u=http%3A//ponder.ink/%7B%7Burl_for('see_post',post_id=post.id)%7D%7D")
+    return render_template("see-post.html", post=requested_post,can_edit=can_edit)
 
 
 @app.route('/nothing-here')
