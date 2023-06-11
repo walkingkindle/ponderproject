@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="fixing and updating links">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adjusting a new route to re-route the dashboard kindle mistakes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Write.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,13 +97,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00091" summary="updating main-app">
-      <created>1684661451659</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1684661451659</updated>
     </task>
     <task id="LOCAL-00092" summary="updating requirements.txt">
       <created>1684762013343</created>
@@ -443,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686491838236</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="Adjusting a new route to re-route the dashboard kindle mistakes.">
+      <created>1686493824100</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1686493824100</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -461,7 +459,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updating local files" />
     <MESSAGE value="refactoring local files" />
     <MESSAGE value="env" />
     <MESSAGE value="adding more essentials" />
@@ -486,6 +483,7 @@
     <MESSAGE value="fixing atrribute not found error" />
     <MESSAGE value="Fixing invalid csrf token deployment error" />
     <MESSAGE value="fixing and updating links" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing and updating links" />
+    <MESSAGE value="Adjusting a new route to re-route the dashboard kindle mistakes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusting a new route to re-route the dashboard kindle mistakes." />
   </component>
 </project>

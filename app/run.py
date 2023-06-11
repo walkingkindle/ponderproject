@@ -536,7 +536,7 @@ def write():
     return render_template("Write.html", form=form, current_user=current_user, quote=new_quote,
                            redirect_from=redirect_from)
 
-@app.route("/write-from-kindle")
+@app.route("/write-from-kindle",methods=["POST","GET"])
 def write_from_kindle():
     redirect_from = "dashboard"
     form = Write()
