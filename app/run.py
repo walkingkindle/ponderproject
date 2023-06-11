@@ -169,7 +169,7 @@ def dashboard():
             real_writer = new_pair[1]
         all_posts = Posts.query.all()
         if request.method == 'POST':
-            return redirect(url_for('write',quote=real_quote,writer=real_writer,redirect_from='dashboard'))
+            return redirect(url_for('write-from-kindle',quote=real_quote,writer=real_writer,redirect_from='dashboard'))
     except FileNotFoundError:
             return redirect(url_for('upload',not_uploaded=True))
     return render_template("Dashboard.html", quote=real_quote, writer=real_writer, all_posts=all_posts)
@@ -515,8 +515,10 @@ def write():
         post_id = engine.generate_custom_id()
         quote_author = form.author.data
         current_date = datetime.datetime.now()
+        print(current_date)
         formatted_datetime = current_date.strftime("%d/%m/%Y")
         if form.validate_on_submit():
+            print("submitted")
             new_post = Posts(
                 quote=new_quote,
                 body=body,
@@ -528,38 +530,41 @@ def write():
             )
             users.session.add(new_post)
             users.session.commit()
+            print("new post entered into the database.")
             return redirect(url_for("see_post", form=form, current_user=current_user, post_id=post_id,
                                     redirect_from=redirect_from))
-    elif redirect_from == 'dashboard':
-        quote = request.args.get('quote')
-        writer = request.args.get("writer")
-        body = form.body.data
-        quote2 = form.quote.data
-        quote_author = form.author.data
-        post_id = engine.generate_custom_id()
-        current_date = datetime.datetime.now()
-        formatted_datetime = current_date.strftime("%d/%m/%Y")
-        if form.validate_on_submit():
-            new_post = Posts(
-                quote=f"{quote}, {writer}",
-                body=body,
-                id=post_id,
-                user=current_user,
-                date=formatted_datetime,
-                user_quote=quote2,
-                quote_author= quote_author
-            )
-            users.session.add(new_post)
-            users.session.commit()
-            return redirect(url_for("see_post", quote=quote, form=form, current_user=current_user,
-                                    post_id=post_id,
-                                    redirect_from=redirect_from))
-        return render_template("Write.html", form=form, quote=quote,writer=writer, current_user=current_user,
-                               redirect_from=redirect_from)
     return render_template("Write.html", form=form, current_user=current_user, quote=new_quote,
                            redirect_from=redirect_from)
 
-
+@app.route("/write-from-kindle")
+def write_from_kindle():
+    redirect_from = "dashboard"
+    form = Write()
+    quote = request.args.get('quote')
+    writer = request.args.get("writer")
+    body = form.body.data
+    quote2 = form.quote.data
+    quote_author = form.author.data
+    post_id = engine.generate_custom_id()
+    current_date = datetime.datetime.now()
+    formatted_datetime = current_date.strftime("%d/%m/%Y")
+    if form.validate_on_submit():
+        new_post = Posts(
+            quote=f"{quote}, {writer}",
+            body=body,
+            id=post_id,
+            user=current_user,
+            date=formatted_datetime,
+            user_quote=quote2,
+            quote_author=quote_author
+        )
+        users.session.add(new_post)
+        users.session.commit()
+        return redirect(url_for("see_post", quote=quote, form=form, current_user=current_user,
+                                post_id=post_id,
+                                redirect_from=redirect_from))
+    return render_template("Write.html", form=form, quote=quote, writer=writer, current_user=current_user,
+                           redirect_from=redirect_from)
 @app.route('/paper-reader', methods=["POST", "GET"])
 def paper_reader():
     """A feature that searches books from an API and gets famous quotes from them. Used in case the user does not own a

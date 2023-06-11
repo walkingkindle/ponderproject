@@ -93,7 +93,7 @@
     <div class="container" id="button-div">
       <div class="row text-center">
           <div class="col lg-6 mx-auto">
-    <a id="ponder-button" type="submit" class="btn btn-lg btn-outline-primary" href="{{url_for('write', redirect_from='dashboard')}}">Ponder</a>
+    <a id="ponder-button" type="submit" class="btn btn-lg btn-outline-primary" href="{{url_for('write-from-kindle', redirect_from='dashboard')}}">Ponder</a>
               </div>
       </div>
       </div>
@@ -128,7 +128,7 @@
       <div class="row text-center">
       <div class="col-lg-6 mx-auto">
           <form action="{{ url_for('dashboard') }}" method="post">
-              <a id="ponder-button" type="submit" class="btn btn-lg btn-outline-primary" href="{{url_for('write',quote=quote,writer=writer,redirect_from='dashboard')}}">Ponder</a>
+              <a id="ponder-button" type="submit" class="btn btn-lg btn-outline-primary" href="{{url_for('write_from_kindle',quote=quote,writer=writer,redirect_from='dashboard')}}">Ponder</a>
           </form>
       </div>
           </div>
