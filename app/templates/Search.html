@@ -81,82 +81,86 @@
         </div>
       </div>
       <script>
-        $(document).ready(function() {
-           $("#book-search").on("keyup", function() {
-              var query = $(this).val().trim();
-              if (query) {
-                 var api_url = "https://www.googleapis.com/books/v1/volumes?q=" + query;
-                 $.get(api_url, function(data) {
-                    var books = data.items;
-                    var bookList = [];
-                    var added = false;
-                    for (var i = 0; i < books.length; i++) {
-                       var title = books[i].volumeInfo.title;
-                       var author = books[i].volumeInfo.authors[0];
-                       var book = title + " by " + author;
-                       bookList.push(book);
-                    }
-                    var bookHtml = "";
-                    for (var i = 0; i < bookList.length; i++) {
-                       bookHtml += "<li style='padding: 10px; border: 1px solid #ccc; background-color: #f8f8f8; cursor: pointer; transition: background-color 0.3s ease-in-out;' class='book-item'>" + bookList[i] + "</li>";
-                    }
-                    $("#book-list").html(bookHtml);
-                    $("#book-list").off("click").on("click", ".book-item", function() {
-                       var bookInfo = $(this).text().split(" by ");
-                       var bookTitle = bookInfo[0];
-                       var bookAuthor = bookInfo[1];
-                       addBookToTable(bookTitle, bookAuthor);
-                       var added = true;
-                    });
-                 });
-              } else {
-                 $("#book-list").empty();
-              }
-           });
+       $(document).ready(function() {
+         $("#book-search").on("keyup", function() {
+            var query = $(this).val().trim();
+            if (query) {
+               var api_url = "https://www.googleapis.com/books/v1/volumes?q=" + query;
+               $.get(api_url, function(data) {
+                  var books = data.items;
+                  var bookList = [];
+                  var added = false;
+                  for (var i = 0; i < books.length; i++) {
+                     var title = books[i].volumeInfo.title;
+                     var author = books[i].volumeInfo.authors[0];
+                     var book = title + " by " + author;
+                     bookList.push(book);
+                  }
+                  var bookHtml = "";
+                  for (var i = 0; i < bookList.length; i++) {
+                     bookHtml += "<li style='padding: 10px; border: 1px solid #ccc; background-color: #f8f8f8; cursor: pointer; transition: background-color 0.3s ease-in-out;' class='book-item'>" + bookList[i] + "</li>";
+                  }
+                  $("#book-list").html(bookHtml);
+                  $("#book-list").off("click").on("click", ".book-item", function() {
+                     var bookInfo = $(this).text().split(" by ");
+                     var bookTitle = bookInfo[0];
+                     var bookAuthor = bookInfo[1];
+                     addBookToTable(bookTitle, bookAuthor);
+                     var added = true;
+                  });
+               });
+            } else {
+               $("#book-list").empty();
+            }
+         });
 
-             function addBookToTable(title, author) {
-                 var tableBody = $("#book-table tbody");
-                 var rowCount = tableBody.children().length;
+         function addBookToTable(title, author) {
+             var tableBody = $("#book-table tbody");
+             var rowCount = tableBody.children().length;
 
-                 var newRow = $("<tr>");
-                 newRow.append($("<th>").attr("scope", "row").html("<label class='customcheckbox'><input type='checkbox' class='listCheckbox'><span class='checkmark'></span></label>"));
-                 newRow.append($("<td>").text(rowCount + 1));
-                 newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin:0' type='text' readonly name='title' value='" + title + " by " + author + "'>"));
-                 newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin-left:50px;' type='text' readonly name='author' value='" + author + "'>"));
-                 tableBody.prepend(newRow);
-                 }
-           $("#book-list").on("mouseenter", ".book-item", function() {
-              $(this).css({
-                 "background-color": "#ebebeb",
-                 "box-shadow": "0px 0px 6px 0px rgba(0,0,0,0.3)"
-              });
-           }).on("mouseleave", ".book-item", function() {
-              $(this).css({
-                 "background-color": "#f8f8f8",
-                 "box-shadow": "none"
-              });
-            // Function to handle form submission
-            $("#submit-btn").on("click", function(event) {
+             var newRow = $("<tr>");
+             newRow.append($("<th>").attr("scope", "row").html("<label class='customcheckbox'><input type='checkbox' class='listCheckbox'><span class='checkmark'></span></label>"));
+             newRow.append($("<td>").text(rowCount + 1));
+             newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin:0' type='text' readonly name='title' value='" + title + " by " + author + "'>"));
+             newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin-left:50px;' type='text' readonly name='author' value='" + author + "'>"));
+             tableBody.prepend(newRow);
+         }
+
+         $("#book-list").on("mouseenter", ".book-item", function() {
+            $(this).css({
+               "background-color": "#ebebeb",
+               "box-shadow": "0px 0px 6px 0px rgba(0,0,0,0.3)"
+            });
+         }).on("mouseleave", ".book-item", function() {
+            $(this).css({
+               "background-color": "#f8f8f8",
+               "box-shadow": "none"
+            });
+         });
+
+         // Function to handle form submission
+         $("#submit-btn").on("click", function(event) {
             var rowCount = $("#book-table tbody tr").length;
             if (rowCount === 0) {
-            event.preventDefault();  // Prevent form submission
-            showAlert("Please add at least 1 book before continuing");
+               event.preventDefault();  // Prevent form submission
+               showAlert("Please add at least 1 book before continuing");
             }
-            });
+         });
 
-            // Function to display Bootstrap alert
-              function showAlert(message) {
-              var alertHtml = `
+         // Function to display Bootstrap alert
+         function showAlert(message) {
+            var alertHtml = `
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                ${message}
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
-              </button>
+               ${message}
+               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
             </div>
             `;
             $("#alert-container").html(alertHtml);
-           });
-        });
+         }
+      });
+
       </script>
       <div class="container">
         <div class="row">
