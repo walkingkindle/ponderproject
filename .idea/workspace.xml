@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adding a nice text-box on paper reader that better explains the user." />
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adding necessary files for packages.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,13 +97,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00098" summary="refactoring local files">
-      <created>1685377885679</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1685377885679</updated>
     </task>
     <task id="LOCAL-00099" summary="refactoring local files">
       <created>1685456538352</created>
@@ -438,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686576515557</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="Adding necessary files for packages.">
+      <created>1686576810185</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1686576810185</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -456,7 +459,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="renaming files to resolve conflicts with google development." />
     <MESSAGE value="uploading missing photos from pages." />
     <MESSAGE value="Fixing the unique ids problem." />
     <MESSAGE value="Fixed an error where the sign in template couldnt be found" />
@@ -481,6 +483,7 @@
     <MESSAGE value="updating callback function to match the https." />
     <MESSAGE value="Integrating toastr.js instead of Bootstrap Alerts." />
     <MESSAGE value="Adding a nice text-box on paper reader that better explains the user." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding a nice text-box on paper reader that better explains the user." />
+    <MESSAGE value="Adding necessary files for packages." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding necessary files for packages." />
   </component>
 </project>
