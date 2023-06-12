@@ -15,16 +15,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <title>Search|Ponder</title>
     <link rel="icon" type="image/x-icon" href="static/favicon-32x32.png">
     <!---- Font Awesome ----->
     <script src="https://kit.fontawesome.com/511589a382.js" crossorigin="anonymous"></script>
     <!---------------------- JSAUTOCOMPLETE ------------------------->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <!------------------- Sweet Alert -------------------->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!--- Toastr ------>
+    <link href="static/toastr.css" rel="stylesheet"/>
+    <script src="static/toastr.min.js"></script>
+    <script src="static/toastr.js.map"></script>
+    <link href="static/toastr.min.css"/>
   </head>
   <body>
     <!-------NavBar ----->
@@ -67,6 +73,16 @@
       </div>
       {% endif %}
       <div class="container">
+          <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          Swal.fire({
+            title: "Welcome to Paper Reader",
+            text: "Please search for any books you found helpful, click on the titles and we'll get our magic dwarves to carve out the highlights of those books for you!",
+            icon: "info",
+            confirmButtonText: "OK"
+          });
+        });
+        </script>
         <div class="row">
           <h2 class="big-heading">The Paper Reader</h2>
           <div class="input-group">
@@ -80,87 +96,84 @@
           <ul id="book-list" style="list-style-type: none; padding: 0; width: 100vh; font-family: Roboto,Sans-Serif;"></ul>
         </div>
       </div>
-      <script>
-       $(document).ready(function() {
-         $("#book-search").on("keyup", function() {
-            var query = $(this).val().trim();
-            if (query) {
-               var api_url = "https://www.googleapis.com/books/v1/volumes?q=" + query;
-               $.get(api_url, function(data) {
-                  var books = data.items;
-                  var bookList = [];
-                  var added = false;
-                  for (var i = 0; i < books.length; i++) {
-                     var title = books[i].volumeInfo.title;
-                     var author = books[i].volumeInfo.authors[0];
-                     var book = title + " by " + author;
-                     bookList.push(book);
-                  }
-                  var bookHtml = "";
-                  for (var i = 0; i < bookList.length; i++) {
-                     bookHtml += "<li style='padding: 10px; border: 1px solid #ccc; background-color: #f8f8f8; cursor: pointer; transition: background-color 0.3s ease-in-out;' class='book-item'>" + bookList[i] + "</li>";
-                  }
-                  $("#book-list").html(bookHtml);
-                  $("#book-list").off("click").on("click", ".book-item", function() {
-                     var bookInfo = $(this).text().split(" by ");
-                     var bookTitle = bookInfo[0];
-                     var bookAuthor = bookInfo[1];
-                     addBookToTable(bookTitle, bookAuthor);
-                     var added = true;
-                  });
-               });
-            } else {
-               $("#book-list").empty();
+  <script>
+    $(document).ready(function() {
+      $("#book-search").on("keyup", function() {
+        var query = $(this).val().trim();
+        if (query) {
+          var api_url = "https://www.googleapis.com/books/v1/volumes?q=" + query;
+          $.get(api_url, function(data) {
+            var books = data.items;
+            var bookList = [];
+            var added = false;
+            for (var i = 0; i < books.length; i++) {
+              var title = books[i].volumeInfo.title;
+              var author = books[i].volumeInfo.authors[0];
+              var book = title + " by " + author;
+              bookList.push(book);
             }
-         });
-
-         function addBookToTable(title, author) {
-             var tableBody = $("#book-table tbody");
-             var rowCount = tableBody.children().length;
-
-             var newRow = $("<tr>");
-             newRow.append($("<th>").attr("scope", "row").html("<label class='customcheckbox'><input type='checkbox' class='listCheckbox'><span class='checkmark'></span></label>"));
-             newRow.append($("<td>").text(rowCount + 1));
-             newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin:0' type='text' readonly name='title' value='" + title + " by " + author + "'>"));
-             newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin-left:50px;' type='text' readonly name='author' value='" + author + "'>"));
-             tableBody.prepend(newRow);
-         }
-
-         $("#book-list").on("mouseenter", ".book-item", function() {
-            $(this).css({
-               "background-color": "#ebebeb",
-               "box-shadow": "0px 0px 6px 0px rgba(0,0,0,0.3)"
-            });
-         }).on("mouseleave", ".book-item", function() {
-            $(this).css({
-               "background-color": "#f8f8f8",
-               "box-shadow": "none"
-            });
-         });
-
-         // Function to handle form submission
-         $("#submit-btn").on("click", function(event) {
-            var rowCount = $("#book-table tbody tr").length;
-            if (rowCount === 0) {
-               event.preventDefault();  // Prevent form submission
-               showAlert("Please add at least 1 book before continuing");
+            var bookHtml = "";
+            for (var i = 0; i < bookList.length; i++) {
+              bookHtml += "<li style='padding: 10px; border: 1px solid #ccc; background-color: #f8f8f8; cursor: pointer; transition: background-color 0.3s ease-in-out;' class='book-item'>" + bookList[i] + "</li>";
             }
-         });
-
-         // Function to display Bootstrap alert
-         function showAlert(message) {
-            var alertHtml = `
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-               ${message}
-               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-               </button>
-            </div>
-            `;
-            $("#alert-container").html(alertHtml);
-         }
+            $("#book-list").html(bookHtml);
+            $("#book-list").off("click").on("click", ".book-item", function() {
+              var bookInfo = $(this).text().split(" by ");
+              var bookTitle = bookInfo[0];
+              var bookAuthor = bookInfo[1];
+              addBookToTable(bookTitle, bookAuthor);
+              Swal.fire({
+                title: "Book Added!",
+                text: "Book added successfully! Please check out the table below.",
+                icon: "success",
+                confirmButtonText: "OK"
+              });
+              var added = true;
+            });
+          });
+        } else {
+          $("#book-list").empty();
+        }
       });
 
+      function addBookToTable(title, author) {
+        var tableBody = $("#book-table tbody");
+        var rowCount = tableBody.children().length;
+
+        var newRow = $("<tr>");
+        newRow.append($("<th>").attr("scope", "row").html("<label class='customcheckbox'><input type='checkbox' class='listCheckbox'><span class='checkmark'></span></label>"));
+        newRow.append($("<td>").text(rowCount + 1));
+        newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin:0' type='text' readonly name='title' value='" + title + " by " + author + "'>"));
+        newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin-left:50px;' type='text' readonly name='author' value='" + author + "'>"));
+        tableBody.prepend(newRow);
+      }
+
+      $("#book-list").on("mouseenter", ".book-item", function() {
+        $(this).css({
+          "background-color": "#ebebeb",
+          "box-shadow": "0px 0px 6px 0px rgba(0,0,0,0.3)"
+        });
+      }).on("mouseleave", ".book-item", function() {
+        $(this).css({
+          "background-color": "#f8f8f8",
+          "box-shadow": "none"
+        });
+      });
+
+      // Function to handle form submission
+      $("#submit-btn").on("click", function(event) {
+        var rowCount = $("#book-table tbody tr").length;
+        if (rowCount === 0) {
+          event.preventDefault();  // Prevent form submission
+          Swal.fire({
+            title: "Error",
+            text: "Please add at least 1 book before continuing",
+            icon: "error",
+            confirmButtonText: "OK"
+          });
+        }
+      });
+    });
       </script>
       <div class="container">
         <div class="row">

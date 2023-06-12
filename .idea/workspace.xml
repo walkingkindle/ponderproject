@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="updating callback function to match the https.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Integrating toastr.js instead of Bootstrap Alerts.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Upload-File.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Upload-File.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/auth/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/sign-in.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,13 +98,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00095" summary="updating callback url">
-      <created>1685189940870</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1685189940870</updated>
     </task>
     <task id="LOCAL-00096" summary="updating local files">
       <created>1685373332556</created>
@@ -444,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686497060555</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="Integrating toastr.js instead of Bootstrap Alerts.">
+      <created>1686565132618</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1686565132619</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -462,7 +460,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adding more essentials" />
     <MESSAGE value="fixing an error where My Clippings filename go out of the box." />
     <MESSAGE value="renaming files to resolve conflicts with google development." />
     <MESSAGE value="uploading missing photos from pages." />
@@ -487,6 +484,7 @@
     <MESSAGE value="Adjusting a new route to re-route the dashboard kindle mistakes." />
     <MESSAGE value="Fixing js error on write page." />
     <MESSAGE value="updating callback function to match the https." />
-    <option name="LAST_COMMIT_MESSAGE" value="updating callback function to match the https." />
+    <MESSAGE value="Integrating toastr.js instead of Bootstrap Alerts." />
+    <option name="LAST_COMMIT_MESSAGE" value="Integrating toastr.js instead of Bootstrap Alerts." />
   </component>
 </project>
