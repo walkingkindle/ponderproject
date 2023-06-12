@@ -15,10 +15,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <title>Ponder|Home</title>
     <link rel="icon" type="image/x-icon" href="/static/favicon-32x32.png">
+        <!--- Toastr ------>
+    <link href="static/toastr.css" rel="stylesheet"/>
+    <script src="static/toastr.min.js"></script>
+    <script src="static/toastr.js.map"></script>
+    <link href="static/toastr.min.css"/>
     <!---- Font Awesome ----->
     <script src="https://kit.fontawesome.com/511589a382.js" crossorigin="anonymous"></script>
   </head>
@@ -79,35 +84,25 @@
     {% endif %}
     <!-- Front Page -->
     {% if sent %}
-    <div class="alert alert-success text-center" role="alert" id="alert-div">
-      <h4 class="alert-heading">Well done!</h4>
-      <p>Your Message was successfully sent!</p>
-      <hr>
-    </div>
+  <script>
+    $(function() {
+      toastr.success("Well Done! Your message was sent sucessfully!");
+    });
+  </script>
     {% endif %}
     {% if email_sent %}
-    <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" id="alert-div">
-    <strong>Confirmation email</strong> has been sent to your inbox.
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-    </div>
+  <script>
+    $(function() {
+      toastr.success("Well Done! Confirmation email has been sent to your inbox!");
+    });
+  </script>
     {% endif %}
     {% if expired %}
-    <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" id="alert-div">
-  <strong>Confirmation link</strong> has expired. Please try registering again or contact us <a href="{{url_for('contact')}}">here.</a>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  </div>
-    {% endif %}
-    {% if has_account %}
-    <div class="alert alert-warning alert-dismissible fade show text-center" role="alert" id="alert-div">
-    It looks like you already have an account. Please log in using your E-Mail and Password.
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
+  <script>
+    $(function() {
+      toastr.warning("Your confirmation link expired. Please register again.");
+    });
+  </script>
     {% endif %}
     <div class="container">
       <div class="row">
@@ -247,7 +242,6 @@
       </div>
     </div>
   </footer>
-  <script src="static/jquery-3.2.1.min.js"></script>
   <script src="static/popper.js"></script>
   <script src="static/bootstrap.min.js"></script>
   <script src="static/main.js"></script>

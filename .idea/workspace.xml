@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing js error on write page.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="updating callback function to match the https.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Upload-File.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Upload-File.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/auth/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/sign-in.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,13 +100,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00094" summary="updating requirements yet again">
-      <created>1685189729184</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1685189729184</updated>
     </task>
     <task id="LOCAL-00095" summary="updating callback url">
       <created>1685189940870</created>
@@ -441,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686495480542</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="updating callback function to match the https.">
+      <created>1686497060555</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1686497060555</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -459,7 +462,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="env" />
     <MESSAGE value="adding more essentials" />
     <MESSAGE value="fixing an error where My Clippings filename go out of the box." />
     <MESSAGE value="renaming files to resolve conflicts with google development." />
@@ -484,6 +486,7 @@
     <MESSAGE value="fixing and updating links" />
     <MESSAGE value="Adjusting a new route to re-route the dashboard kindle mistakes." />
     <MESSAGE value="Fixing js error on write page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing js error on write page." />
+    <MESSAGE value="updating callback function to match the https." />
+    <option name="LAST_COMMIT_MESSAGE" value="updating callback function to match the https." />
   </component>
 </project>

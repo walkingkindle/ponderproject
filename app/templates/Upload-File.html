@@ -15,12 +15,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <title>Choosing Destiny|Ponder</title>
     <link rel="icon" type="image/x-icon" href="static/favicon-32x32.png">
     <!---- Font Awesome ----->
     <script src="https://kit.fontawesome.com/511589a382.js" crossorigin="anonymous"></script>
+
+        <!--- Toastr ------>
+    <link href="static/toastr.css" rel="stylesheet"/>
+    <script src="static/toastr.min.js"></script>
+    <script src="static/toastr.js.map"></script>
+    <link href="static/toastr.min.css"/>
   </head>
   <body>
     <!-------NavBar ----->
@@ -54,12 +60,9 @@
     </div>
     <!---- Main Content ---->
     {% if quote_not_found %}
-    <div class="aler alert-warning alert-dismissible fade show" role="alert">
-      You should write your quote before heading to the dashboard.
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
+    $(function() {
+      toastr.warning("You should write upload your Kindle My Clippings file before heading to the dashboard.");
+    });
     {% endif %}
    <div class="container">
   <div class="row" id="row1">
