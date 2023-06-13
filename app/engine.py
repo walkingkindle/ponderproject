@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import requests
 import time
 import pyshorteners
+import re
 
 def configure():
     """Protected info configuration"""
@@ -37,6 +38,24 @@ def extract_quotes_with_writers(filename, clippings_path):
                 pair_list = [[quotes_formatted[i], quotes_formatted[i + 1]] for i in
                              range(0, len(quotes_formatted) - 1, 2)]
         return pair_list
+
+
+
+def get_writer_only(full_title):
+    pattern = r'\((.*?)\)'  # Pattern to match text within parentheses
+    matches = re.findall(pattern, full_title)  # Find all matches within parentheses
+
+    if len(matches) >= 1:
+        writer_name = matches[-1]  # Last match is the writer name
+        if len(matches) >= 2:
+            year = matches[-2]  # Second-to-last match is the year
+            return f"{writer_name}, {year}"
+        else:
+            return writer_name
+    else:
+        return None
+
+
 
 
 def get_random_quote():

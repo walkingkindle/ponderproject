@@ -135,6 +135,7 @@ def load_user(user_id):
 def home():
     """Main index route"""
     sent = request.args.get("sent")
+    profile_photo_updated = request.args.get('profile_photo_updated')
     email_sent = request.args.get('email_sent')
     expired = request.args.get('expired')
     has_account = request.args.get('has_account')
@@ -148,7 +149,7 @@ def home():
     if sent:
         print(sent)
     return render_template("Index.html", quote=engine.get_random_quote(), sent=sent, current_user=current_user,
-                           how_many=how_many,email_sent=email_sent,expired=expired,has_account=has_account)
+                           how_many=how_many,email_sent=email_sent,expired=expired,has_account=has_account,profile_photo_updated=profile_photo_updated)
 
 
 @app.route("/dashboard",methods=["POST","GET"])
@@ -539,9 +540,13 @@ def write():
 @app.route("/write-from-kindle",methods=["POST","GET"])
 def write_from_kindle():
     redirect_from = "dashboard"
-    form = Write()
     quote = request.args.get('quote')
     writer = request.args.get("writer")
+    print(writer)
+    real_writer = engine.get_writer_only(writer)
+    form = forms.Write(
+        author= real_writer
+    )
     body = form.body.data
     quote2 = form.quote.data
     quote_author = form.author.data
@@ -700,7 +705,7 @@ def account(user_id):
         user.first_name = name
         user.continent = continent
         users.session.commit()
-        return redirect(url_for('home'))
+        return redirect(url_for('home',profile_photo_updated=True))
     if user.user_photo:
         img_path = '/static/files/' + user.user_photo
         return render_template("account-info.html",user=user,img_path=img_path)
