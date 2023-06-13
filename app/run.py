@@ -175,6 +175,12 @@ def dashboard():
             return redirect(url_for('upload',not_uploaded=True))
     return render_template("Dashboard.html", quote=real_quote, writer=real_writer, all_posts=all_posts)
 
+@app.route("/select",methods=["POST","GET"])
+def select():
+    clippings_filename = "My_Clippings.txt" + str(current_user.id)
+    book_list = engine.get_all_writers(clippings_path=app.config['UPLOAD_FOLDER'],filename=clippings_filename)
+    return render_template('select.html',book_list=book_list)
+
 
 @app.route('/notification')
 def notifications():
@@ -210,7 +216,7 @@ def upload():
             current_user.clippings_filename = file.filename + str(current_user.id)
             users.session.commit()
             if file:
-                return redirect(url_for("dashboard", redirect_from="upload", current_user=current_user))
+                return redirect(url_for("select", redirect_from="upload", current_user=current_user))
             else:
                 return redirect(url_for("nothing_selected", current_user=current_user))
         except FileNotFoundError:

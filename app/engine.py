@@ -44,7 +44,6 @@ def extract_quotes_with_writers(filename, clippings_path):
 def get_writer_only(full_title):
     pattern = r'\((.*?)\)'  # Pattern to match text within parentheses
     matches = re.findall(pattern, full_title)  # Find all matches within parentheses
-
     if len(matches) >= 1:
         writer_name = matches[-1]  # Last match is the writer name
         if len(matches) >= 2:
@@ -55,7 +54,13 @@ def get_writer_only(full_title):
     else:
         return None
 
-
+def get_all_writers(clippings_path,filename):
+    with open(rf"{clippings_path}/{filename}", "r", encoding="utf-8") as text_file:
+        text = text_file.read()
+        lines = text.splitlines()
+        matches = [line for line in lines if re.match(r'^.*\([^()]+\)$', line)]
+        unique_matches = list(set(matches))
+        return unique_matches
 
 
 def get_random_quote():
