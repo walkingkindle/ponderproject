@@ -3,7 +3,7 @@
 
 http://www.ponder.ink
 
-Ponder is a digital diary that helps people self-reflect and remember the passages, quotes and pages from their kindle,favorite books or just from a favorite author.
+Ponder is a digital diary that helps people self-reflect and remember the passages, quotes and pages from their kindle, favorite books or author.
 To get started:
 1. Create an account and upload your 'My Clippings.txt' from your Kindle device.
 2. My program will extract quotes from it and format them nicely, and then randomly choose one of the quotes for you.
