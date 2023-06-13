@@ -73,14 +73,12 @@
       </div>
       {% endif %}
       <div class="container">
-          <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        <script>
           Swal.fire({
-            title: "Welcome to Paper Reader",
-            text: "Please search for any books you found helpful, click on the titles and we'll secure the most popular highlights from the chosen books!"
-            icon: "info",
-            confirmButtonText: "OK"
-          });
+          title: "Welcome to Paper Reader",
+          text: "Please search for any books you found helpful, click on the titles and we'll secure the most popular highlights from the chosen books!",
+          icon: "info",
+          confirmButtonText: "OK"
         });
         </script>
         <div class="row">
@@ -96,85 +94,123 @@
           <ul id="book-list" style="list-style-type: none; padding: 0; width: 100vh; font-family: Roboto,Sans-Serif;"></ul>
         </div>
       </div>
-  <script>
-    $(document).ready(function() {
-      $("#book-search").on("keyup", function() {
-        var query = $(this).val().trim();
-        if (query) {
-          var api_url = "https://www.googleapis.com/books/v1/volumes?q=" + query;
-          $.get(api_url, function(data) {
-            var books = data.items;
-            var bookList = [];
-            var added = false;
-            for (var i = 0; i < books.length; i++) {
-              var title = books[i].volumeInfo.title;
-              var author = books[i].volumeInfo.authors[0];
-              var book = title + " by " + author;
-              bookList.push(book);
-            }
-            var bookHtml = "";
-            for (var i = 0; i < bookList.length; i++) {
-              bookHtml += "<li style='padding: 10px; border: 1px solid #ccc; background-color: #f8f8f8; cursor: pointer; transition: background-color 0.3s ease-in-out;' class='book-item'>" + bookList[i] + "</li>";
-            }
-            $("#book-list").html(bookHtml);
-            $("#book-list").off("click").on("click", ".book-item", function() {
-              var bookInfo = $(this).text().split(" by ");
-              var bookTitle = bookInfo[0];
-              var bookAuthor = bookInfo[1];
-              addBookToTable(bookTitle, bookAuthor);
-              Swal.fire({
-                title: "Book Added!",
-                text: "Book added successfully! Please check out the table below.",
-                icon: "success",
-                confirmButtonText: "OK"
-              });
-              var added = true;
-            });
-          });
-        } else {
-          $("#book-list").empty();
+<script>
+  $(document).ready(function() {
+    $("#book-search").on("keyup", function() {
+      var query = $(this).val().trim();
+      if (query) {
+        var api_url = "https://www.googleapis.com/books/v1/volumes?q=" + query;
+        $.get(api_url, function(data) {
+          var books = data.items;
+          var bookList = [];
+          for (var i = 0; i < books.length; i++) {
+            var title = books[i].volumeInfo.title;
+            var authors = books[i].volumeInfo.authors || ["Unknown Author"];
+            var author = authors[0];
+            var book = title + " by " + author;
+            bookList.push(book);
+          }
+          var bookHtml = "";
+          for (var i = 0; i < bookList.length; i++) {
+            bookHtml += "<li style='padding: 10px; border: 1px solid #ccc; background-color: #f8f8f8; cursor: pointer; transition: background-color 0.3s ease-in-out;' class='book-item'>" + bookList[i] + "</li>";
+          }
+          $("#book-list").html(bookHtml);
+        });
+      } else {
+        $("#book-list").empty();
+      }
+    });
+
+    function isBookInTable(title) {
+      var tableRows = $("#book-table tbody tr");
+      var found = false;
+      tableRows.each(function() {
+        var rowTitle = $(this).find("input[name='title']").val();
+        if (rowTitle && rowTitle.trim() !== "") {
+          var bookTitle = rowTitle.split(" by ")[0]; // Extract only the book title
+          if (bookTitle === title) {
+            found = true;
+            return false; // Exit the loop if a match is found
+          }
         }
       });
+      return found;
+    }
 
-      function addBookToTable(title, author) {
-        var tableBody = $("#book-table tbody");
-        var rowCount = tableBody.children().length;
 
-        var newRow = $("<tr>");
-        newRow.append($("<th>").attr("scope", "row").html("<label class='customcheckbox'><input type='checkbox' class='listCheckbox'><span class='checkmark'></span></label>"));
-        newRow.append($("<td>").text(rowCount + 1));
-        newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin:0' type='text' readonly name='title' value='" + title + " by " + author + "'>"));
-        newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin-left:50px;' type='text' readonly name='author' value='" + author + "'>"));
-        tableBody.prepend(newRow);
+
+
+    // Event binding for book item click
+    $("#book-list").on("click", ".book-item", function() {
+      var bookInfo = $(this).text().split(" by ");
+      var bookTitle = bookInfo[0];
+      var bookAuthor = bookInfo[1];
+
+      // Check if the book is already in the table
+      var bookExists = isBookInTable(bookTitle);
+      console.log(bookExists);
+      if (bookExists) {
+        Swal.fire({
+          title: "Error",
+          text: "You can't add two books with the same name",
+          icon: "error",
+          confirmButtonText: "OK"
+        });
+        return;
       }
 
-      $("#book-list").on("mouseenter", ".book-item", function() {
-        $(this).css({
-          "background-color": "#ebebeb",
-          "box-shadow": "0px 0px 6px 0px rgba(0,0,0,0.3)"
-        });
-      }).on("mouseleave", ".book-item", function() {
-        $(this).css({
-          "background-color": "#f8f8f8",
-          "box-shadow": "none"
-        });
-      });
-
-      // Function to handle form submission
-      $("#submit-btn").on("click", function(event) {
-        var rowCount = $("#book-table tbody tr").length;
-        if (rowCount === 0) {
-          event.preventDefault();  // Prevent form submission
-          Swal.fire({
-            title: "Error",
-            text: "Please add at least 1 book before continuing",
-            icon: "error",
-            confirmButtonText: "OK"
-          });
-        }
+      addBookToTable(bookTitle, bookAuthor);
+      Swal.fire({
+        title: "Book Added!",
+        text: "Book added successfully! Please check out the table below.",
+        icon: "success",
+        confirmButtonText: "OK"
       });
     });
-      </script>
+
+    function addBookToTable(title, author) {
+      var tableBody = $("#book-table tbody");
+      var rowCount = tableBody.children().length;
+
+      var newRow = $("<tr>");
+      newRow.append($("<th>").attr("scope", "row").html("<label class='customcheckbox'><input type='checkbox' class='listCheckbox'><span class='checkmark'></span></label>"));
+      newRow.append($("<td>").text(rowCount + 1));
+      newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin:0' type='text' readonly name='title' value='" + title + " by " + author + "'>"));
+      newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin-left:50px;' type='text' readonly name='author' value='" + author + "'>"));
+      tableBody.prepend(newRow);
+    }
+
+    $("#book-list").on("mouseenter", ".book-item", function() {
+      $(this).css({
+        "background-color": "#ebebeb",
+        "box-shadow": "0px 0px 6px 0px rgba(0,0,0,0.3)"
+      });
+    }).on("mouseleave", ".book-item", function() {
+      $(this).css({
+        "background-color": "#f8f8f8",
+        "box-shadow": "none"
+      });
+    });
+
+    // Function to handle form submission
+    $("#submit-btn").on("click", function(event) {
+      var rowCount = $("#book-table tbody tr").length;
+      if (rowCount === 0) {
+        event.preventDefault(); // Prevent form submission
+        Swal.fire({
+          title: "Error",
+          text: "Please add at least 1 book before continuing",
+          icon: "error",
+          confirmButtonText: "OK"
+        });
+      }
+    });
+  });
+</script>
+
+
+
+
       <div class="container">
         <div class="row">
           <div class="col-12">
