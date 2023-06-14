@@ -1,5 +1,7 @@
 # ----------------------------------------------------------------------IMPORTS------------------------------------------
 # FLASK
+import json
+
 import config
 import forms
 from flask_sqlalchemy import SQLAlchemy
@@ -179,6 +181,9 @@ def dashboard():
 def select():
     clippings_filename = "My_Clippings.txt" + str(current_user.id)
     book_list = engine.get_all_writers(clippings_path=app.config['UPLOAD_FOLDER'],filename=clippings_filename)
+    if request.method == 'POST':
+        selected_items = request.form.get('selected_items')
+
     return render_template('select.html',book_list=book_list)
 
 

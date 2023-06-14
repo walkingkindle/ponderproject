@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing an error where the Author name wouldn't be shown in the Flask Create Post form.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Creating an option for the user to select a book from his/her highlights.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/engine.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/select.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/select.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,16 +43,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Aleksa Hadzic/OneDrive/Desktop/test project",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Development/Ponderproject&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Development\Ponderproject\app" />
@@ -98,13 +98,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00102" summary="adding more essentials">
-      <created>1685462109821</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1685462109821</updated>
     </task>
     <task id="LOCAL-00103" summary="adding more essentials">
       <created>1685462790539</created>
@@ -442,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686660885847</updated>
     </task>
-    <option name="localTasksCounter" value="151" />
+    <task id="LOCAL-00151" summary="Creating an option for the user to select a book from his/her highlights.">
+      <created>1686666981457</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1686666981457</updated>
+    </task>
+    <option name="localTasksCounter" value="152" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -460,7 +460,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed an error of alignment in the dashboard page" />
     <MESSAGE value="Fixing responsiveness on more than one page." />
     <MESSAGE value="Adjusting responsiveness" />
     <MESSAGE value="Fixing an login-error" />
@@ -485,6 +484,7 @@
     <MESSAGE value="Fixing toastr on deployment server." />
     <MESSAGE value="Fixing an error on search html, where if the user tries to append books with the same name, a box message shows up." />
     <MESSAGE value="Fixing an error where the Author name wouldn't be shown in the Flask Create Post form." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing an error where the Author name wouldn't be shown in the Flask Create Post form." />
+    <MESSAGE value="Creating an option for the user to select a book from his/her highlights." />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating an option for the user to select a book from his/her highlights." />
   </component>
 </project>

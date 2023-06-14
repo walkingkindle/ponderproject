@@ -60,15 +60,16 @@
 
 <!----- Little instruction ----->
 
-<script>
-      Swal.fire({
-      title: "Welcome to Paper Reader",
-      text: ""Here, you select the books from your Kindle device that you wish to get quotes from. The rest goes to recycling."",
-      icon: "info",
-      confirmButtonText: "OK"
-      });
-</script>
+        <script>
+          Swal.fire({
+          title: "Your Books",
+          text: "Tick the box on the side to select books you'd like to receive highlights from.",
+          icon: "info",
+          confirmButtonText: "OK"
+        });
+        </script>
 <!----------------------------- Tables ------------------------>
+<form action="{{url_for('select')}}" method="post">
 <div class="container">
   <div class="row">
     <div class="col">
@@ -81,7 +82,7 @@
         <tbody>
         {% for book in book_list %}
           <tr>
-            <th scope="row"><input type="checkbox" id="ponder-checkbox-1"></th>
+            <th scope="row"><input type="checkbox" name="selected_items" id="selected-items" value="{{book}}"></th>
             <td>{{ book }}</td>
           </tr>
         {% endfor %}
@@ -92,19 +93,35 @@
 
   <div class="row justify-content-center">
     <div class="col-auto">
-      <button id="submit-button" class="btn btn-lg btn-outline-primary">Submit</button>
+      <button type="submit" id="submit-button" class="btn btn-lg btn-outline-primary">Submit</button>
     </div>
   </div>
 </div>
+   </form>
 
 
-<script language="JavaScript">
-function toggle(source) {
-  checkboxes = document.getElementsByName('foo');
-  for(var checkbox in checkboxes)
-    checkbox.checked = source.checked;
-}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.querySelector('form');
+    form.addEventListener('submit', function() {
+      var checkedRowData = [];
+      var checkboxes = document.getElementsByName('selected_items');
+      for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+          var rowData = [];
+          var cells = checkboxes[i].parentNode.parentNode.getElementsByTagName('td');
+          for (var j = 0; j < cells.length; j++) {
+            rowData.push(cells[j].textContent);
+          }
+          checkedRowData.push(rowData);
+        }
+      }
+      document.getElementById('selected_items').value = JSON.stringify(checkedRowData);
+    });
+  });
 </script>
+
 </body>
    <footer class="footer-16371">
     <div class="container">
