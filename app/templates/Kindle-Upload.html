@@ -25,6 +25,9 @@
     <script src="static/toastr.min.js"></script>
     <script src="static/toastr.js.map"></script>
     <link href="static/toastr.min.css"/>
+
+            <!------------------- Sweet Alert -------------------->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <!-------NavBar ----->
@@ -64,6 +67,15 @@
     });
     {% endif %}
     </script>
+    <!----- Little instruction ----->
+        <script>
+          Swal.fire({
+          title: "Welcome to Tech Reader",
+          text: "Upload your Kindle quotes manually by plugging in your Kindle Device via USB, and then going to Kindle/Documents. There you will find My Clippings.txt",
+          icon: "info",
+          confirmButtonText: "Got it!"
+        });
+        </script>
     <h2 class="big-heading" id="heading2">The Tech Reader</h2>
     <div class="container" id="upload-container" >
       <div class="row">

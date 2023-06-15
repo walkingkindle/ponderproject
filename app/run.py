@@ -158,6 +158,7 @@ def home():
 @login_required
 def dashboard():
     random_quote = request.args.get('quote')
+    username = current_user.username
     try:
         clippings_filename = "My_Clippings.txt" + str(current_user.id)
         quote_list = engine.extract_quotes_with_writers(clippings_path=app.config['UPLOAD_FOLDER'], filename=clippings_filename)
@@ -175,7 +176,7 @@ def dashboard():
             return redirect(url_for('write-from-kindle',quote=real_quote,writer=real_writer,redirect_from='dashboard'))
     except FileNotFoundError:
             return redirect(url_for('upload',not_uploaded=True))
-    return render_template("Dashboard.html", quote=real_quote, writer=real_writer, all_posts=all_posts)
+    return render_template("Dashboard.html", quote=real_quote, writer=real_writer, all_posts=all_posts,username=username)
 
 @app.route("/select",methods=["POST","GET"])
 def select():
@@ -183,7 +184,6 @@ def select():
     book_list = engine.get_all_writers(clippings_path=app.config['UPLOAD_FOLDER'],filename=clippings_filename)
     if request.method == 'POST':
         selected_items = request.form.get('selected_items')
-
     return render_template('select.html',book_list=book_list)
 
 
@@ -221,7 +221,7 @@ def upload():
             current_user.clippings_filename = file.filename + str(current_user.id)
             users.session.commit()
             if file:
-                return redirect(url_for("select", redirect_from="upload", current_user=current_user))
+                return redirect(url_for("dashboard", redirect_from="upload", current_user=current_user))
             else:
                 return redirect(url_for("nothing_selected", current_user=current_user))
         except FileNotFoundError:
