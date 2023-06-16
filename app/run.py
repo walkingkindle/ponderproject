@@ -158,6 +158,7 @@ def home():
 @login_required
 def dashboard():
     random_quote = request.args.get('quote')
+    post_images = ["/static/europe-street-1.jpg","/static/europe-street-2.jpg","/static/europe-street-3.jpg"]
     username = current_user.username
     try:
         clippings_filename = "My_Clippings.txt" + str(current_user.id)
@@ -176,7 +177,7 @@ def dashboard():
             return redirect(url_for('write-from-kindle',quote=real_quote,writer=real_writer,redirect_from='dashboard'))
     except FileNotFoundError:
             return redirect(url_for('upload',not_uploaded=True))
-    return render_template("Dashboard.html", quote=real_quote, writer=real_writer, all_posts=all_posts,username=username)
+    return render_template("Dashboard.html", quote=real_quote, all_posts=all_posts, writer=real_writer,username=username,post_images=random.choice(post_images))
 
 @app.route("/select",methods=["POST","GET"])
 def select():

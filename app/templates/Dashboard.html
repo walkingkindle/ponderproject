@@ -28,9 +28,19 @@
 
     <!--------------- Devicon ------------------>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+        <!------------------- Sweet Alert -------------------->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
-    -----NavBar ---
+  <script>
+          Swal.fire({
+          title: "Welcome to your Daily Quote Page",
+          text: "It looks like we parsed all your quotes, and formatted them! Refresh to get a different quote. Click on the write button to save the quote as a post!",
+          icon: "info",
+          confirmButtonText: "OK"
+        });
+   </script>
     <div class="container">
       <div class="row row-cols-12">
         <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top justify-content-center">
@@ -49,71 +59,106 @@
             </ul>
             </div>
           </div>
+
         <div class="col mx-auto">
+          <div class="ponder-logo-div">
           <a class="navbar-brand mx-auto" href="{{url_for('home')}}" id="ponder-logo">
           <img id="ponder-img"  src="/static/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">Ponder
           </a>
         </div>
+        </div>
           <div class="col mr-auto col-sm-1">
             <div class="color-box">
-            <i class="devicon-twitter-original"></i>
-             <i class="devicon-linkedin-plain"></i>
-              <i class="devicon-facebook-plain"></i>
+            <i class="devicon-twitter-original links"></i>
+             <i class="devicon-linkedin-plain links"></i>
+              <i class="devicon-facebook-plain links"></i>
             </div>
           </div>
         </nav>
       </div>
       </div>
 
-
-<section class="vh-100 bg-light">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col col-lg-10 col-xl-8">
-        <figure class="note note-primary p-4">
-          <blockquote class="blockquote">
-            <p class="pb-2">
-              "If it's a good idea, go ahead and do it. It's much easier to apologize than it is to get
-              permission."
-            </p>
-          </blockquote>
-          <figcaption class="blockquote-footer mb-0">
-            Grace Hopper
-          </figcaption>
-        </figure>
-
-        <figure class="note note-secondary p-4">
-          <blockquote class="blockquote">
-            <p class="pb-2">
-              "Science and everyday life cannot and should not be separated."
-            </p>
-          </blockquote>
-          <figcaption class="blockquote-footer mb-0">
-            Rosalind Franklin
-          </figcaption>
-        </figure>
-
-        <figure class="note note-success p-4">
-          <blockquote class="blockquote">
-            <p class="pb-2">
-              "Science makes people reach selflessly for truth and objectivity; it teaches people to accept
-              reality, with wonder and admiration, not to mention the deep awe and joy that the natural order
-              of things brings to the true scientist."
-            </p>
-          </blockquote>
-          <figcaption class="blockquote-footer mb-0">
-            Lise Meitner
-          </figcaption>
-        </figure>
+      <div class="container justify-content-center" id="quoteoftheday">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center">
+            <h3 style="font-size:25px;"> Your quote of the day:</h3>
+            <div class="small-line"></div>
+            </div>
+          </div>
+        <div class="row-justify-content-center" id="ponder-quote-box">
+          <div class="col-12 justify-content-center">
+            <blockquote class="quote-ponder blockquote text-center">"{{ quote }}"</blockquote>
+            <footer class="text-center">-{{ writer }}</footer>
+          </div>
+        </div>
       </div>
+  <div class="container" id="btn-container">
+  <div class="row justify-content-center" id="btn-row">
+    <div class="col-12 col-lg-3 justify-content-center">
+      <a href="{{ url_for('write_from_kindle') }}" class="btn btn-lg btn-outline-primary" id="write-button">Write about this quote</a>
     </div>
   </div>
-</section>
-
-
-
-
-
+</div><div class="container" id="posts-container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h3 class="other-posts-title">Your other Posts:</h3>
+      <div class="small-line2"></div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    {% for post in all_posts %}
+    <div class="col-12 col-md-4">
+      <a href="{{ url_for('see_post',post_id=post.id) }}" style="text-align:center;">
+        <div class="card" id="card-div">
+          <img src="{{post_images}}" alt="kindle" class="card-img">
+          <div class="card-body">
+            <h1 class="card-title">{{post.user_quote}}</h1>
+            <p class="card-sub-title"> {{post.quote_author}}</p>
+            <p class="card-info">{{post.body|safe}}"</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 
 
    </body>
+
+
+  <!----------- Footer ------------>
+  <footer class="footer-16371">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-9 text-center">
+          <div class="footer-site-logo mb-4">
+            <a href="{{url_for('home')}}">Ponder</a>
+          </div>
+          <ul class="list-unstyled nav-links mb-5">
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{url_for('contact')}}">Contact</a></li>
+          </ul>
+          <div class="social mb-4">
+            <h3><i>Stay in touch</i></h3>
+            <ul class="list-unstyled">
+              <li class="in"><a href="#"><i class="bi bi-instagram"></i></a></li>
+              <li class="fb"><a href="#"><i class="bi bi-facebook"></i></a></li>
+              <li class="tw"><a href="#"><i class="bi bi-twitter"></i></a></li>
+              <li class="dr"><a href="https://www.github.com/walkingkindle"><i class="bi bi-github"></i></a></li>
+            </ul>
+          </div>
+          <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="walkingkindle" data-color="#5F7FFF" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
+          <div class="copyright">
+            <p class="mb-0"><small>&copy; Ponder. All Rights Reserved.</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="static/popper.js"></script>
+  <script src="static/bootstrap.min.js"></script>
+  <script src="static/main.js"></script>
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>

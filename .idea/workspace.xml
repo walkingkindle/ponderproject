@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing bugs in the select app, and modifying.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Reformatting dashboard.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/dashboard-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/dashboard-styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,13 +99,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00104" summary="fixing an error where My Clippings filename go out of the box.">
-      <created>1685463886643</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1685463886643</updated>
     </task>
     <task id="LOCAL-00105" summary="renaming files to resolve conflicts with google development.">
       <created>1685464216137</created>
@@ -445,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686761147375</updated>
     </task>
-    <option name="localTasksCounter" value="153" />
+    <task id="LOCAL-00153" summary="Reformatting dashboard.">
+      <created>1686861387568</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1686861387568</updated>
+    </task>
+    <option name="localTasksCounter" value="154" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -463,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adjusting responsiveness" />
     <MESSAGE value="Fixing an login-error" />
     <MESSAGE value="Fixing Minor Bugs" />
     <MESSAGE value="updating requirements" />
@@ -488,6 +485,7 @@
     <MESSAGE value="Fixing an error where the Author name wouldn't be shown in the Flask Create Post form." />
     <MESSAGE value="Creating an option for the user to select a book from his/her highlights." />
     <MESSAGE value="Fixing bugs in the select app, and modifying." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing bugs in the select app, and modifying." />
+    <MESSAGE value="Reformatting dashboard." />
+    <option name="LAST_COMMIT_MESSAGE" value="Reformatting dashboard." />
   </component>
 </project>

@@ -4,57 +4,188 @@
   padding 0;
   box-sizing: border-box;
 }
-
-#quote-block{
-    margin-top: 100px;
-    margin-left: 50px;
+.color-box{
+ border-style: solid;
+ border-radius: 22px;
+ border-color: #fff;
+ justify-content: center;
+ text-align: center;
+ position: relative;
+ bottom: 10px;
+ background-color: #ECE5C7;
+}
+.links{
+  font-size: 20px;
+  position: relative;
+  top: 3px;
+  color: #fff;
 }
 
-#main-navbar{
- font-size: 25px;
+
+
+#write-button{
+  margin-bottom: 70px;
+  border-style: solid;
+  border-radius: 22px;
+  border-color: #ECE5C7;
+  background-color: #fff;
+  color: black;
 }
-.d-inline-block align-text-top{
-  size:45px;
+#write-button:hover{
+   background-color: #ECE5C7;
+   color: #fff;
 }
+
 #ponder-logo{
-  position: relative;
-  left: 70px;
-  top: 40px;
-
+ position: relative;
+ left: 60px;
 }
 
-.color-box {
-   border-style: solid;
+#quoteoftheday{
+   margin-top: 120px;
+
+}
+#btn-container{
+    margin-top: 50px;
+}
+
+h3{
+  text-align: center;
+  font-size: 10px;
+}
+.small-line{
+   border-style: solid none none none;
+   width: 100%;
+   border-width: thin;
+}
+.quote-ponder{
+  padding-top: 10px;
+  font-weight: 600;
+
+}
+#ponder-quote-box {
+  margin-top: 60px;
+  border: 2px solid #333;
+  padding: 50px;
+  font-size: 14px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ECE5C7;
+}
+footer{
+   font-size: 1rem;
+
+}
+.other-posts-title{
+  text-align: left;
+}
+#posts-container{
+ margin-top: 150px;
+}
+.small-line2{
+   border-style: solid none none none;
+   border-width: thin;
+}
+a{
+  color: #f9f9f9;
+}
+.card{
+  margin-top: 30px;
+  transition: all 0.3s;
+}
+.card-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.card:hover{
+   transform: scale(1.15);
+   align-text: left;
+   margin-top: 30px;
+}
+.card-btn{
    border-radius: 22px;
-   padding: 7px;
-  color:  #9575DE;
-  background-color: white; /* Initial background color */
-  transition: background-color 0.5s; /* Add a smooth transition effect */
-  font-size: 25px;
+   background-color: #ECE5C7;
+}
+@media(max-width: 967px){
+  #ponder-logo{
+    left: -15px;
+  }
+  .small-line{
+   left: 20px;
+  }
+  #btn-container{
+   justify-items: center;
+   text-align: center;
+  }
 }
 
-.color-box:hover {
-  background-color: white; /* Change to white on hover */
-}
-.devicon-facebook-plain{
-  position: relative;
-  left: 5px;
-}
-.devicon-linkedin-plain{
-  position:relative;
-  left:3px;
+body {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
+
+.footer-16371{
+  margin-top: 100px;
+  background-color: #f5f5f5;
+
 }
 
+footer{
 
+}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
 
+a {
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease; }
+  a, a:hover {
+    text-decoration: none !important; }
 
+.content {
+  height: 70vh; }
 
-
-
-
-
-
-
-
-
-
+.footer-16371 {
+  padding: 7rem 0;
+  font-family: "Poppins", sans-serif; }
+  .footer-16371 .footer-site-logo {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900; }
+    .footer-16371 .footer-site-logo a {
+      color: #4200ff; }
+  .footer-16371 .nav-links {
+    padding: 0;
+    margin: 0; }
+    .footer-16371 .nav-links li {
+      display: inline-block; }
+      .footer-16371 .nav-links li a {
+        padding: 10px;
+        color: #000; }
+        .footer-16371 .nav-links li a:hover {
+          color: #4200ff; }
+  .footer-16371 .social h3 {
+    font-weight: bold;
+    font-size: 18px;
+    color: #000; }
+  .footer-16371 .social ul li {
+    display: inline-block; }
+    .footer-16371 .social ul li a {
+      display: inline-block;
+      padding: 10px; }
+    .footer-16371 .social ul li.in a {
+      color: #df588a; }
+    .footer-16371 .social ul li.tw a {
+      color: #15b8ff; }
+    .footer-16371 .social ul li.fb a {
+      color: #3742d0; }
+    .footer-16371 .social ul li.dr a {
+      color: #fa38c1; }
+    .footer-16371 .social ul li.pin a {
+      color: #dd4d5a; }
+  .footer-16371 .copyright {
+    color: #999999; }
