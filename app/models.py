@@ -24,6 +24,7 @@ class User(users.Model, UserMixin):
     continent = users.Column(users.String(250), nullable=True)
     user_photo = users.Column(users.String(250),nullable=True)
     posts = relationship("Posts", back_populates="user")
+    books = relationship("Books",back_populates="highlight_owner")
 
 
 class Posts(users.Model):
@@ -39,7 +40,14 @@ class Posts(users.Model):
     photo = users.Column(users.String(500), nullable=True)
 
 
-
+class Books(users.Model):
+    __tablename__ = "highlights"
+    id = users.Column(users.Integer, primary_key=True, nullable=True, autoincrement=True)
+    highlight_id = users.Column(users.String, users.ForeignKey('users.id'), nullable=True)
+    highlight_owner = relationship("User",back_populates="books")
+    original_quote = users.Column(users.String,nullable=False)
+    writer_quote = users.Column(users.String,nullable=False)
+    date_added = users.Column(users.String,nullable=True)
 
 
 

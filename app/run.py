@@ -36,7 +36,7 @@ from itsdangerous import SignatureExpired
 #PIL for small images
 from PIL import Image
 
-from models import User,Posts
+from models import User, Posts, Books
 from database import users,initialize_app
 # SQL
 from sqlalchemy.orm import relationship
@@ -165,26 +165,53 @@ def dashboard():
         quote_list = engine.extract_quotes_with_writers(clippings_path=app.config['UPLOAD_FOLDER'], filename=clippings_filename)
         quote_pair = random.choice(quote_list)
         real_quote = quote_pair[1]
-        print(real_quote)
         real_writer = quote_pair[0]
-        print(real_writer)
         if real_quote == real_writer:
+            print("this is true")
             new_pair = random.choice(quote_list)
             real_quote = new_pair[0]
             real_writer = new_pair[1]
         all_posts = Posts.query.all()
+        print(real_quote)
+        print(real_writer)
         if request.method == 'POST':
-            return redirect(url_for('write-from-kindle',quote=real_quote,writer=real_writer,redirect_from='dashboard'))
+            return redirect(url_for('write_from_kindle',quote=real_quote,writer=real_writer,redirect_from='dashboard'))
     except FileNotFoundError:
             return redirect(url_for('upload',not_uploaded=True))
     return render_template("Dashboard.html", quote=real_quote, all_posts=all_posts, writer=real_writer,username=username,post_images=random.choice(post_images))
 
 @app.route("/select",methods=["POST","GET"])
+@login_required
 def select():
     clippings_filename = "My_Clippings.txt" + str(current_user.id)
     book_list = engine.get_all_writers(clippings_path=app.config['UPLOAD_FOLDER'],filename=clippings_filename)
+    highlights = engine.format_kindle_clippings(clippings_path=app.config['UPLOAD_FOLDER'],filename=clippings_filename)
     if request.method == 'POST':
-        selected_items = request.form.get('selected_items')
+        selected_items = request.form.get('selected-books')
+        book_list = selected_items.split("||")
+        print(book_list)
+        real_selected_highlights = []
+        for highlight in highlights:
+            parts = highlight.split("\n")
+            if parts[0] in book_list:
+                #this does not evaluate to true fix it
+                writer = parts[0]
+                quote = parts[1]
+                date = parts[2]
+                real_selected_highlights.append({
+                    "writer": writer,
+                    "quote": quote,
+                    "date": date
+                })
+        for highlight in real_selected_highlights:
+            new_highlight = Books(
+                id=engine.generate_custom_id(),
+                highlight_owner=current_user,
+                original_quote= highlight["quote"],
+                writer_quote=highlight["writer"],
+                date_added=highlight["date"]
+            )
+        return ("Sucess!")
     return render_template('select.html',book_list=book_list)
 
 
@@ -222,7 +249,7 @@ def upload():
             current_user.clippings_filename = file.filename + str(current_user.id)
             users.session.commit()
             if file:
-                return redirect(url_for("dashboard", redirect_from="upload", current_user=current_user))
+                return redirect(url_for("select", redirect_from="upload", current_user=current_user))
             else:
                 return redirect(url_for("nothing_selected", current_user=current_user))
         except FileNotFoundError:
@@ -551,9 +578,10 @@ def write():
 
 @app.route("/write-from-kindle",methods=["POST","GET"])
 def write_from_kindle():
-    redirect_from = "dashboard"
-    quote = request.args.get('quote')
-    writer = request.args.get("writer")
+    redirect_from = request.args.get('dashboard')
+    quote = request.form.get('quote')
+    print(quote)
+    writer = request.form.get("writer")
     print(writer)
     real_writer = engine.get_writer_only(writer)
     form = forms.Write(

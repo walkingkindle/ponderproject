@@ -54,6 +54,23 @@ def get_writer_only(full_title):
     else:
         return None
 
+def format_kindle_clippings(clippings_path,filename):
+    with open(rf"{clippings_path}/{filename}", "r", encoding="utf-8") as file:
+        content = file.read()
+
+    highlights = content.split('==========')
+    highlight_list = []
+
+    for highlight in highlights:
+        highlight = highlight.strip()
+        if highlight:
+            highlight_list.append(highlight)
+
+    highlight_list.sort()
+
+    return highlight_list
+
+
 def get_all_writers(clippings_path,filename):
     with open(rf"{clippings_path}/{filename}", "r", encoding="utf-8") as text_file:
         text = text_file.read()
