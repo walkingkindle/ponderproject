@@ -35,6 +35,4 @@ Upload your own Kindle 'My Clippings.txt'
 
 
 #TODO:
-
-1. Sometimes, the 'Become Wiser' > submit saves and returns a different quote from the one that has been wrote on.
 2. The post sharing buttons on see_post
