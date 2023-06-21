@@ -132,11 +132,25 @@ def allowed_file(filename):
 
 
 
-@app.route("/my-ponder",methods=["GET","POST"])
+@app.route("/my-ponder", methods=["GET", "POST"])
 @login_required
 def my_ponder_selections():
-    all_books = Books.query.all()
-    return render_template("my-ponder.html")
+    book_list = users.session.query(Books.writer_quote).filter(Books.highlight_id == current_user.id).all()
+    book_list = [engine.format_string(book[0]) for book in book_list]
+    book_list = list(set(book_list))
+    if request.method == "POST":
+        print("ok")
+        selected_items = request.form.get('selected-books')
+        book_list = selected_items.split("||")
+        print(book_list)
+        for writer in book_list:
+            writer_query = users.session.query(Books).filter_by(writer_quote=writer)
+            for book in writer_query:
+                users.session.delete(book)
+            users.session.commit()
+        return redirect(url_for('dashboard'))
+    return render_template("select.html", is_edit=True, current_user=current_user, book_list=book_list)
+
 
 
 
@@ -429,7 +443,10 @@ def log_in():
         if user:
             if check_password_hash(pwhash=user.password, password=entered_password) and user.confirmed:
                 login_user(user)
-                return redirect(url_for("choose_path", current_user=current_user))
+                if users.session.query(Books).filter_by(highlight_id=current_user.id).first():
+                    return redirect(url_for('dashboard',current_user=current_user))
+                else:
+                    return redirect(url_for("choose_path", current_user=current_user))
             else:
                 wrong_password = True
                 return render_template("auth/sign-in.html", wrong_password=wrong_password, email_doesnt_exist=False)

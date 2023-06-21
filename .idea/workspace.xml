@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adding some images and a new page, which will show all the books and selections the user has, with delete options.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/engine.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/my-ponder.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/my-ponder.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/select-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/select-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/my-ponder.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/my-ponder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/select.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/select.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,13 +103,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00110" summary="Fixed an error of alignment in the dashboard page">
-      <created>1685628187187</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL-00110" />
-      <option name="project" value="LOCAL" />
-      <updated>1685628187188</updated>
     </task>
     <task id="LOCAL-00111" summary="Fixing responsiveness on more than one page.">
       <created>1685633277504</created>
@@ -441,7 +440,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687352295517</updated>
     </task>
-    <option name="localTasksCounter" value="159" />
+    <task id="LOCAL-00159" summary="Adding some images and a new page, which will show all the books and selections the user has, with delete options.">
+      <created>1687352987414</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1687352987414</updated>
+    </task>
+    <option name="localTasksCounter" value="160" />
     <servers />
   </component>
   <component name="UnknownFeatures">

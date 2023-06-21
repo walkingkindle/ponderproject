@@ -57,18 +57,63 @@
         </div>
       </nav>
     </div>
-
+{% if is_edit %}
 <!----- Little instruction ----->
-
         <script>
           Swal.fire({
           title: "Your Books",
-          text: "Tick the box on the side to select books you'd like to receive highlights from.",
+          text: "Check the boxes and press submit to remove any books from our database.",
           icon: "info",
           confirmButtonText: "OK"
         });
         </script>
 <!----------------------------- Tables ------------------------>
+
+<form action="{{url_for('my_ponder_selections')}}" method="post">
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" colspan="2">Your Books Selections</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for book in book_list %}
+          <tr>
+            <th scope="row"><input type="checkbox" name="selected_items" id="selected-items" value="{{book}}"></th>
+            <td>{{ book }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+  <div class="col">
+    <input type="text" id="selected-books" name="selected-books" readonly>
+  </div>
+</div>
+
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <button type="submit" id="submit-button" class="btn btn-lg btn-outline-primary">Submit</button>
+    </div>
+  </div>
+</div>
+   </form>
+
+
+{% else %}
+<script>
+         Swal.fire({
+         title: "Your Books",
+         text: "Tick the box on the side to select books you'd like to receive highlights from.",
+         icon: "info",
+         confirmButtonText: "OK"
+       });
+</script>
 <form action="{{url_for('select')}}" method="post">
 <div class="container">
   <div class="row">
@@ -105,6 +150,7 @@
 </div>
    </form>
 
+{% endif%}
 
 
 <script>

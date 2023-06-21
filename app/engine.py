@@ -90,6 +90,19 @@ def get_random_quote():
     return find_quote.text
 
 
+def format_string(input_string):
+    cleaned_string = input_string.strip('()')
+    tuple_string = tuple(cleaned_string.split(','))
+
+    if len(tuple_string) < 2:
+        return input_string  # Return the original string if it doesn't have the expected format
+
+    book_title = tuple_string[0].strip("'")
+    author = tuple_string[1].strip("'")
+    formatted_string = f"{book_title} - {author}"
+    return formatted_string
+
+
 def also_get_random_quote():
     """Scrapes the random quote of the internet."""
     response = requests.get('https://api.quotable.io/random')
