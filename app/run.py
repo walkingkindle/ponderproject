@@ -298,7 +298,6 @@ def search_page():
         print(quotes_list)
         if len(quotes_list) > 0:
             quote = random.choice(quotes_list)
-            print(quotes_list[0])
             return redirect(url_for('paper_reader', redirect_from='search', quote=quote))
     return render_template("Search.html",contribute=contribute,redirect_from='search',not_given=not_given)
 
@@ -614,6 +613,14 @@ def paper_reader():
             date=formatted_datetime,
             user_quote=quote2
         )
+        new_book = Books(
+            id = engine.generate_custom_id(),
+            highlight_owner= current_user,
+            original_quote=f"{quote}",
+            writer_quote= author,
+            date_added=formatted_datetime
+        )
+        users.session.add(new_book)
         users.session.add(new_post)
         users.session.commit()
         return redirect(url_for("see_post", quote=str(quote), form=form, current_user=current_user, post_id=new_post.id))

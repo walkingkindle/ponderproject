@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Updating database and fixing responsiveness. Addded new table &quot;Books&quot; so that the user can actually choose which books can he add .">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Implementing and fixing bugs on the select page, as well as parsing select page into and from the dashboard">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/engine.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/see-post-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/see-post-styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Search.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,13 +100,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00107" summary="uploading missing photos from pages.">
-      <created>1685464480081</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1685464480081</updated>
     </task>
     <task id="LOCAL-00108" summary="Fixing the unique ids problem.">
       <created>1685476181729</created>
@@ -443,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687093905306</updated>
     </task>
-    <option name="localTasksCounter" value="156" />
+    <task id="LOCAL-00156" summary="Implementing and fixing bugs on the select page, as well as parsing select page into and from the dashboard">
+      <created>1687350373704</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1687350373704</updated>
+    </task>
+    <option name="localTasksCounter" value="157" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -461,7 +462,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updating requirements" />
     <MESSAGE value="fixing the blinking bug." />
     <MESSAGE value="Updating the navbar to adjust to user experience." />
     <MESSAGE value="Created an exception where if the user has not added any books to the page, it returns with an alert-like error." />
@@ -486,6 +486,7 @@
     <MESSAGE value="Reformatting dashboard." />
     <MESSAGE value="Finallizing reformatted Dashboard." />
     <MESSAGE value="Updating database and fixing responsiveness. Addded new table &quot;Books&quot; so that the user can actually choose which books can he add ." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating database and fixing responsiveness. Addded new table &quot;Books&quot; so that the user can actually choose which books can he add ." />
+    <MESSAGE value="Implementing and fixing bugs on the select page, as well as parsing select page into and from the dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing and fixing bugs on the select page, as well as parsing select page into and from the dashboard" />
   </component>
 </project>
