@@ -41,7 +41,7 @@ from database import users,initialize_app
 # SQL
 from sqlalchemy.orm import relationship
 from forms import Write, Register,ForgotPassword,ResetPassword
-from sqlalchemy import or_
+from sqlalchemy import or_, func
 
 # GOOGLE AUTH
 import google.auth.transport.requests
@@ -157,28 +157,18 @@ def home():
 @app.route("/dashboard",methods=["POST","GET"])
 @login_required
 def dashboard():
-    random_quote = request.args.get('quote')
     post_images = ["/static/europe-street-1.jpg","/static/europe-street-2.jpg","/static/europe-street-3.jpg"]
     username = current_user.username
-    try:
-        clippings_filename = "My_Clippings.txt" + str(current_user.id)
-        quote_list = engine.extract_quotes_with_writers(clippings_path=app.config['UPLOAD_FOLDER'], filename=clippings_filename)
-        quote_pair = random.choice(quote_list)
-        real_quote = quote_pair[1]
-        real_writer = quote_pair[0]
-        if real_quote == real_writer:
-            print("this is true")
-            new_pair = random.choice(quote_list)
-            real_quote = new_pair[0]
-            real_writer = new_pair[1]
-        all_posts = Posts.query.all()
-        print(real_quote)
-        print(real_writer)
-        if request.method == 'POST':
-            return redirect(url_for('write_from_kindle',quote=real_quote,writer=real_writer,redirect_from='dashboard'))
-    except FileNotFoundError:
-            return redirect(url_for('upload',not_uploaded=True))
-    return render_template("Dashboard.html", quote=real_quote, all_posts=all_posts, writer=real_writer,username=username,post_images=random.choice(post_images))
+    random_quote = users.session.query(Books).order_by(func.random()).first()
+    id = random_quote.id
+    print(f"here is the dashboard id: {id}")
+    quote = random_quote.original_quote
+    print(f"here is the quote I got in dashboard code: {quote}")
+    writer = random_quote.writer_quote
+    if request.method == "POST":
+        print(f"here is the quote I got in dashboard code: {quote}")
+        return redirect(url_for('write_from_kindle',quote_id=id))
+    return render_template("Dashboard.html",quote_id=random_quote.id, quote=quote, writer=writer, username=username,post_images=random.choice(post_images))
 
 @app.route("/select",methods=["POST","GET"])
 @login_required
@@ -188,21 +178,20 @@ def select():
     highlights = engine.format_kindle_clippings(clippings_path=app.config['UPLOAD_FOLDER'],filename=clippings_filename)
     if request.method == 'POST':
         selected_items = request.form.get('selected-books')
-        book_list = selected_items.split("||")
-        print(book_list)
+        real_book_list = selected_items.split("||")
         real_selected_highlights = []
         for highlight in highlights:
             parts = highlight.split("\n")
-            if parts[0] in book_list:
-                #this does not evaluate to true fix it
-                writer = parts[0]
-                quote = parts[1]
-                date = parts[2]
-                real_selected_highlights.append({
-                    "writer": writer,
-                    "quote": quote,
-                    "date": date
-                })
+            for book in real_book_list:
+                if book.strip() in highlight:
+                    writer = parts[0]
+                    quote = parts[3]
+                    date = parts[1]
+                    real_selected_highlights.append({
+                        "writer": writer,
+                        "quote": quote,
+                        "date": date
+                    })
         for highlight in real_selected_highlights:
             new_highlight = Books(
                 id=engine.generate_custom_id(),
@@ -211,7 +200,9 @@ def select():
                 writer_quote=highlight["writer"],
                 date_added=highlight["date"]
             )
-        return ("Sucess!")
+            users.session.add(new_highlight)
+            users.session.commit()
+        return redirect(url_for('dashboard'))
     return render_template('select.html',book_list=book_list)
 
 
@@ -318,16 +309,13 @@ def contribute():
     contribute = True
     form = forms.ContributeForm()
     if form.validate_on_submit():
-        # Set the parameters for the new quote
         page_title = "Wikiquote:Quote of the day"
         section_title = "May 12, 2023"
         quote_text = form.quote.data
         quote_author = current_user.username
 
-        # Set the API endpoint for creating a new section
         api_url = "https://en.wikiquote.org/w/api.php"
 
-        # Set the parameters for the API request
         params = {
             "action": "edit",
             "format": "json",
@@ -337,15 +325,12 @@ def contribute():
             "text": f"'''{quote_author}:''' {quote_text}"
         }
 
-        # Set the headers for the API request (including the user agent)
         headers = {
             "User-Agent": "MyWikiquoteBot/1.0"
         }
 
-        # Send the API request
         response = requests.post(api_url, params=params, headers=headers)
 
-        # Check if the request was successful
         if response.status_code == 200:
             print("New quote added successfully!")
         else:
@@ -576,16 +561,12 @@ def write():
     return render_template("Write.html", form=form, current_user=current_user, quote=new_quote,
                            redirect_from=redirect_from)
 
-@app.route("/write-from-kindle",methods=["POST","GET"])
-def write_from_kindle():
-    redirect_from = request.args.get('dashboard')
-    quote = request.form.get('quote')
-    print(quote)
-    writer = request.form.get("writer")
-    print(writer)
-    real_writer = engine.get_writer_only(writer)
+@app.route("/write-from-kindle/<int:quote_id>",methods=["POST","GET"])
+@login_required
+def write_from_kindle(quote_id):
+    quote_row = Books.query.get(quote_id)
     form = forms.Write(
-        author= real_writer
+        author= quote_row.writer_quote
     )
     body = form.body.data
     quote2 = form.quote.data
@@ -595,7 +576,7 @@ def write_from_kindle():
     formatted_datetime = current_date.strftime("%d/%m/%Y")
     if form.validate_on_submit():
         new_post = Posts(
-            quote=f"{quote}, {writer}",
+            quote=f"{quote_row.original_quote}, {quote_row.writer_quote}",
             body=body,
             id=post_id,
             user=current_user,
@@ -605,11 +586,11 @@ def write_from_kindle():
         )
         users.session.add(new_post)
         users.session.commit()
-        return redirect(url_for("see_post", quote=quote, form=form, current_user=current_user,
-                                post_id=post_id,
-                                redirect_from=redirect_from))
-    return render_template("Write.html", form=form, quote=quote, writer=writer, current_user=current_user,
-                           redirect_from=redirect_from)
+        return redirect(url_for("see_post", quote=quote_row.original_quote, form=form, current_user=current_user,
+                                post_id=post_id))
+    return render_template("Write.html", form=form, quote=quote_row.original_quote, writer=quote_row.writer_quote, current_user=current_user)
+
+
 @app.route('/paper-reader', methods=["POST", "GET"])
 def paper_reader():
     """A feature that searches books from an API and gets famous quotes from them. Used in case the user does not own a

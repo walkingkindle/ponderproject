@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Finallizing reformatted Dashboard.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Updating database and fixing responsiveness. Addded new table &quot;Books&quot; so that the user can actually choose which books can he add .">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/engine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/upload.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/upload.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/select.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/select.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,16 +44,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Aleksa Hadzic/OneDrive/Desktop/test project",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aleksa Hadzic/OneDrive/Desktop/test project&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Development\Ponderproject\app" />
@@ -102,13 +99,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00106" summary="renaming files to resolve conflicts with google development.">
-      <created>1685464366471</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1685464366471</updated>
     </task>
     <task id="LOCAL-00107" summary="uploading missing photos from pages.">
       <created>1685464480081</created>
@@ -446,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686937484781</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="Updating database and fixing responsiveness. Addded new table &quot;Books&quot; so that the user can actually choose which books can he add .">
+      <created>1687093905305</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1687093905306</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -464,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixing Minor Bugs" />
     <MESSAGE value="updating requirements" />
     <MESSAGE value="fixing the blinking bug." />
     <MESSAGE value="Updating the navbar to adjust to user experience." />
@@ -489,6 +485,7 @@
     <MESSAGE value="Fixing bugs in the select app, and modifying." />
     <MESSAGE value="Reformatting dashboard." />
     <MESSAGE value="Finallizing reformatted Dashboard." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finallizing reformatted Dashboard." />
+    <MESSAGE value="Updating database and fixing responsiveness. Addded new table &quot;Books&quot; so that the user can actually choose which books can he add ." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating database and fixing responsiveness. Addded new table &quot;Books&quot; so that the user can actually choose which books can he add ." />
   </component>
 </project>

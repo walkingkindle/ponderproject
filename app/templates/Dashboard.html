@@ -77,7 +77,7 @@
         </nav>
       </div>
       </div>
-
+          <form action="{{ url_for('dashboard') }}" method="post">
       <div class="container justify-content-center" id="quoteoftheday">
         <div class="row justify-content-center">
           <div class="col-12 text-center">
@@ -92,15 +92,15 @@
           </div>
         </div>
       </div>
-        <form action="{{ url_for('dashboard') }}" method="post">
+
   <div class="container" id="btn-container">
   <div class="row justify-content-center" id="btn-row">
     <div class="col-12 col-lg-3 justify-content-center">
-      <a href="{{ url_for('write_from_kindle',redirect_from='dashboard') }}" type="submit" class="btn btn-lg btn-outline-primary" id="write-button">Write about this quote</a>
+        <a href="{{url_for('write_from_kindle',quote_id=quote_id)}}" type="submit" class="btn btn btn-lg btn-outline-primary" id="write-button">Write about this quote</a>
     </div>
   </div>
 </div>
-        </form>
+          </form>
   <div class="container" id="posts-container">
   <div class="row justify-content-center">
     <div class="col-12">

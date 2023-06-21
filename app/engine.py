@@ -6,6 +6,7 @@ import requests
 import time
 import pyshorteners
 import re
+import string
 
 def configure():
     """Protected info configuration"""
