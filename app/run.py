@@ -127,6 +127,22 @@ def allowed_file(filename):
 
 
 # -------------------------------------- FLASK ROUTES -----------------------------------------------------------------
+
+
+
+
+
+@app.route("/my-ponder",methods=["GET","POST"])
+@login_required
+def my_ponder_selections():
+    return render_template("my-ponder.html")
+
+
+
+
+
+
+
 @login_manager.user_loader
 def load_user(user_id):
     """Loads the user id"""

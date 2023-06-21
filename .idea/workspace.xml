@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Implementing and fixing bugs on the select page, as well as parsing select page into and from the dashboard">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adding an option on paper reader, that adds a book to the database as well.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/see-post-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/see-post-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Search.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,13 +97,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00108" summary="Fixing the unique ids problem.">
-      <created>1685476181729</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1685476181730</updated>
     </task>
     <task id="LOCAL-00109" summary="Fixed an error where the sign in template couldnt be found">
       <created>1685476544083</created>
@@ -444,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687350373704</updated>
     </task>
-    <option name="localTasksCounter" value="157" />
+    <task id="LOCAL-00157" summary="Adding an option on paper reader, that adds a book to the database as well.">
+      <created>1687351672840</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1687351672840</updated>
+    </task>
+    <option name="localTasksCounter" value="158" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -462,7 +459,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixing the blinking bug." />
     <MESSAGE value="Updating the navbar to adjust to user experience." />
     <MESSAGE value="Created an exception where if the user has not added any books to the page, it returns with an alert-like error." />
     <MESSAGE value="add new requirements.txt" />
@@ -487,6 +483,7 @@
     <MESSAGE value="Finallizing reformatted Dashboard." />
     <MESSAGE value="Updating database and fixing responsiveness. Addded new table &quot;Books&quot; so that the user can actually choose which books can he add ." />
     <MESSAGE value="Implementing and fixing bugs on the select page, as well as parsing select page into and from the dashboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing and fixing bugs on the select page, as well as parsing select page into and from the dashboard" />
+    <MESSAGE value="Adding an option on paper reader, that adds a book to the database as well." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding an option on paper reader, that adds a book to the database as well." />
   </component>
 </project>
