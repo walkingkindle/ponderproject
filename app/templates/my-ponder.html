@@ -73,6 +73,33 @@
       </div>
 
 
+<!--------------------- Main Content -------------------------->
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <table>
+      <thead class="thead-dark">
+        <tr>
+         <th scope="col">Book Writer</th>
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for book in all_books %}
+        <tr>
+          <th scope="row">1</th>
+          <td>{{ book.writer_quote }}</td>
+          <td>Delete button</td>
+        </tr>
+        {% endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
 
 </body>
 </html>

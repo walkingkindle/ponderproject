@@ -135,6 +135,7 @@ def allowed_file(filename):
 @app.route("/my-ponder",methods=["GET","POST"])
 @login_required
 def my_ponder_selections():
+    all_books = Books.query.all()
     return render_template("my-ponder.html")
 
 
@@ -177,12 +178,9 @@ def dashboard():
     username = current_user.username
     random_quote = users.session.query(Books).order_by(func.random()).first()
     id = random_quote.id
-    print(f"here is the dashboard id: {id}")
     quote = random_quote.original_quote
-    print(f"here is the quote I got in dashboard code: {quote}")
     writer = random_quote.writer_quote
     if request.method == "POST":
-        print(f"here is the quote I got in dashboard code: {quote}")
         return redirect(url_for('write_from_kindle',quote_id=id))
     return render_template("Dashboard.html",quote_id=random_quote.id, quote=quote, writer=writer, username=username,post_images=random.choice(post_images))
 
