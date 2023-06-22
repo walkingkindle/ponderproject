@@ -40,166 +40,61 @@ config.toolbar = [
     <script src="https://kit.fontawesome.com/511589a382.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <!-------NavBar ----->
     <div class="container">
-      <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{{url_for('home')}}">
-          <img src="/static/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">Ponder
-          </a>
+      <div class="row row-cols-12">
+        <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top justify-content-center">
+        <div class="col-5">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-              <li class="nav-item {% if request.path == url_for('home') %}active{% endif %}">
-                <a class="nav-link" aria-current="page" href="{{url_for('home')}}">Home</a>
-              </li>
-<!--              <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">-->
-<!--                <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>-->
-<!--              </li>-->
-              <li class="nav-item {% if request.path == url_for('account',user_id=current_user.id) %}active{% endif %}">
-                <a class="nav-link" href="{{url_for('account',user_id=current_user.id)}}">Account</a>
-              </li>
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
               <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
                 <a class="nav-link" href="{{url_for('dashboard')}}">Dashboard</a>
               </li>
+              <li class="nav-item {% if request.path == url_for('account',user_id=current_user.id) %}active{% endif %}">
+                <a class="nav-link" href="{{url_for('account',user_id=current_user.id)}}">Account</a>
+              </li>
+              <li class="nav-item {% if request.path == url_for('search_page',user_id=current_user.id) %}active{% endif %}">
+                <a class="nav-link" href="{{url_for('search_page',user_id=current_user.id)}}">Paper Reader</a>
+              </li>
             </ul>
+            </div>
           </div>
+
+        <div class="col mx-auto">
+          <div class="ponder-logo-div">
+          <a class="navbar-brand mx-auto" href="{{url_for('home')}}" id="ponder-logo">
+          <img id="ponder-img"  src="/static/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">Ponder
+          </a>
         </div>
-      </nav>
-    </div>
-    {% if contribute %}
-        <h1 id="ponder-text">Reflect and Ponder</h1>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          {% if quote|length > 200 %}
-          <div style="height: 800px; overflow-y: scroll; width: 800px;">
-            {{ quote }}
-          </div>
-          {% else %}
-          <blockquote class="blockquote text-center">
-            <p id="quote-text" class="mb-0">{{quote}}</p>
-          </blockquote>
-          {% endif %}
-          <div class="form-group" id="form-div">
-            {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary btn lg"}) }}
-          </div>
         </div>
+          <div class="col mr-auto col-sm-1">
+            <div class="color-box">
+            <i class="devicon-twitter-original links"></i>
+             <i class="devicon-linkedin-plain links"></i>
+              <i class="devicon-facebook-plain links"></i>
+            </div>
+          </div>
+        </nav>
       </div>
-      {% endif %}
-    {% if redirect_from == 'home' %}
-    <h1 id="ponder-text">Reflect and Ponder</h1>
-    <div class="container">
+      </div>
+    <!--------------------------- Main Part of the Page ---------------------------------->
+  <div class="container">
     <div class="row">
-      <div class="col-md-6 mx-auto">
-        {% if quote|length > 200 %}
-        <div style="height: 800px; overflow-y: scroll; width: 800px;">
-          {{ quote }}
-        </div>
-        {% else %}
-        <blockquote class="blockquote text-center">
-          <p id="quote-text" class="mb-0">{{quote}}</p>
-        </blockquote>
-        {% if not_found %}
-        <a href="{{url_for('contribute')}}" class="btn btn-primary">Add quotes</a>
-        {% endif %}
-        {% endif %}
-        <div class="form-group" id="form-div">
-          {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary btn lg"}) }}
-        </div>
-      </div>
+
+
     </div>
-    {% elif redirect_from == 'dashboard' %}
-    <h1 id="ponder-text">Reflect and Ponder</h1>
-    <div class="container">
-    <div class="row">
-      <div class="col-md-6 mx-auto">
-        {% if quote|length > 300 %}
-        <div style="height: 200px; overflow-y: scroll;">
-          <p id="quote-text" class="mb-0">{{quote}}</p>
-        </div>
-        {% else %}
-        <blockquote class="blockquote text-center">
-          <p id="quote-text" class="mb-0">{{quote}}</p>
-        </blockquote>
-        {% endif %}
-        <div class="form-group" id="form-div">
-          {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary btn lg"}) }}
-        </div>
-      </div>
-    </div>
-    {% elif redirect_from == 'search' %}
-    <h1 id="ponder-text">Reflect and Ponder</h1>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          {% if quote|length > 200 %}
-          <div  style="height: 800px; overflow-y: scroll; width: 800px;">
-            {{ quote }}
-          </div>
-          {% else %}
-          <blockquote class="blockquote text-center">
-            <p id="quote-text"  class="mb-0">{{quote}}</p>
-          </blockquote>
-          {% endif %}
-          {% if contribute %}
-          <a href="url_for('contribute')">contribute</a>
-          {% endif %}
-          <div class="form-group" id="form-div">
-            {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary btn lg"}) }}
-          </div>
-        </div>
-      </div>
-      {% else %}
-      {% if is_edit %}
-      <h1 id="ponder-text">Edit Post</h1>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 mx-auto">
-            {% if quote|length > 200 %}
-            <div style="height: 200px; overflow-y: scroll;">
-              {{ quote }}
-            </div>
-            {% else %}
-            <blockquote class="blockquote text-center">
-              <p id="quote-text" class="mb-0">{{quote}}</p>
-            </blockquote>
-            {% endif %}
-            <div class="form-group" id="form-div">
-              {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary btn lg"}) }}
-            </div>
-          </div>
-        </div>
-        {% else %}
-        <h1 id="ponder-text">Reflect and Ponder</h1>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 mx-auto">
-              {% if quote|length > 200 %}
-              <div style="height: 600px; overflow-y: scroll; width: 600px;">
-                {{ quote }}
-              </div>
-              {% else %}
-              <blockquote class="blockquote text-center">
-                <p id="quote-text" class="mb-0">{{quote}}</p>
-              </blockquote>
-              {% endif %}
-              <div class="form-group" id="form-div">
-                {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary btn lg"}) }}
-              </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {% endif %}
-        </div>
-      </div>
-      {% endif %}
-    </div>
-    </div>
-  </body>
+
+  </div>
+
+
+
+
+
+
+
+
   <footer class="footer-16371">
     <div class="container">
       <div class="row justify-content-center">

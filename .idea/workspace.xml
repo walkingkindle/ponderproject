@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Creating an exception when the user has more than 3 posts, the posts row becomes a carousel.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Creating an option for the user to view and delete books if need be.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/select.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/select.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/write-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/write-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/about-us.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/about-us.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/account-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/account-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/contact-me.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/contact-me.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,13 +102,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00114" summary="Fixing an login-error">
-      <created>1685645650085</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1685645650085</updated>
     </task>
     <task id="LOCAL-00115" summary="Fixing an login-error">
       <created>1685645747849</created>
@@ -442,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687446394915</updated>
     </task>
-    <option name="localTasksCounter" value="163" />
+    <task id="LOCAL-00163" summary="Creating an option for the user to view and delete books if need be.">
+      <created>1687447340744</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1687447340744</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -460,7 +464,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixing deployment bug Atrribute id not found." />
     <MESSAGE value="Attempting to fix werzeug error in development." />
     <MESSAGE value="fixing atrribute not found error" />
     <MESSAGE value="Fixing invalid csrf token deployment error" />
@@ -485,6 +488,7 @@
     <MESSAGE value="Finalizing page select and creating a condtion instead of making a new page, thus following the DRY principle." />
     <MESSAGE value="Fixing an error where the expired mail won't show." />
     <MESSAGE value="Creating an exception when the user has more than 3 posts, the posts row becomes a carousel." />
-    <option name="LAST_COMMIT_MESSAGE" value="Creating an exception when the user has more than 3 posts, the posts row becomes a carousel." />
+    <MESSAGE value="Creating an option for the user to view and delete books if need be." />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating an option for the user to view and delete books if need be." />
   </component>
 </project>

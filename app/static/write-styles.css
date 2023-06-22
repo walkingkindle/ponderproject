@@ -5,65 +5,29 @@ body ::selection {
   background: #6E07F3;
   color: #fff;
 }
-#quote-div{
-  display: block;
-  text-align: center;
-  justify-items: center;
-  align-items: center;
+#quote-box{
+  border-style: solid;
+  border-width: thin;
+  border-radius: 23px;
+  margin-top: 100px;
+  background-color: #FFDEB4;
 }
-.form-group {
-  display: block;
-  align-items: center;
-  justify-items: center;
-  text-align: center;
-  margin-top: 250px;
+#ponder-logo{
+ position: relative;
+ left: 60px;
 }
-#submit{
- width: 200px;
+.card-body{
  border-radius: 22px;
- background-color: #fff;
- color: #6E07F3;
- border-color: #6E07F3;
 }
-#submit:hover{
-    background-color: #6E07F3;
-    color: #fff;
+#post-container{
+  margin-bottom: 100px;
 }
-#ponder-text {
-  white-space: nowrap;
-  padding: 110px;
-  text-align: center;
-}
-
-.control-label {
-  font-size: 20px;
-  font-weight: 600;
-  color: #6E07F3;
-  padding: 40px;
-}
-
-
-#quote-text{
-  font-size: 20px;
-  font-weight: 600;
-  padding: 40px;
-  }
-
-@media(max-width: 1068px)
-{
-   #ponder-text{
-      position: relative;
-      right: 95px;
-    }
-}
-
-
-
 /* Footer */
 
 
 footer{
   margin-top: 300px;
+  margin-bottom:  200px;
   background-color: #f5f5f5;
 }
 h1, h2, h3, h4, h5, h6,

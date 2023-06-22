@@ -605,30 +605,28 @@ def write():
 @login_required
 def write_from_kindle(quote_id):
     quote_row = Books.query.get(quote_id)
-    form = forms.Write(
-        author= quote_row.writer_quote
-    )
-    body = form.body.data
-    quote2 = form.quote.data
-    quote_author = form.author.data
     post_id = engine.generate_custom_id()
+    body = request.form.get("body")
+    user_quote = quote_row.original_quote
+    quote_author = quote_row.writer_quote
+    post_title = request.form.get("title")
     current_date = datetime.datetime.now()
     formatted_datetime = current_date.strftime("%d/%m/%Y")
-    if form.validate_on_submit():
+    if request.method == "POST":
         new_post = Posts(
             quote=f"{quote_row.original_quote}, {quote_row.writer_quote}",
             body=body,
             id=post_id,
             user=current_user,
             date=formatted_datetime,
-            user_quote=quote2,
+            user_quote=post_title,
             quote_author=quote_author
         )
         users.session.add(new_post)
         users.session.commit()
-        return redirect(url_for("see_post", quote=quote_row.original_quote, form=form, current_user=current_user,
+        return redirect(url_for("see_post", quote=quote_row.original_quote, current_user=current_user,
                                 post_id=post_id))
-    return render_template("Write.html", form=form, quote=quote_row.original_quote, writer=quote_row.writer_quote, current_user=current_user)
+    return render_template("Write.html", quote=quote_row.original_quote, writer=quote_row.writer_quote, current_user=current_user)
 
 
 @app.route('/paper-reader', methods=["POST", "GET"])
