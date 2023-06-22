@@ -122,6 +122,13 @@
     });
   </script>
    {% endif %}
+   {% if expired %}
+   <script>
+      $(function() {
+      toastr.warning("Login to Ponder failed. Looks like the link we sent you expired, please try registering again.");
+    });
+   </script>
+   {% endif %}
 
   <div id="main-content" class="content">
     <div class="container">

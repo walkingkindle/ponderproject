@@ -94,7 +94,7 @@ ALLOWED_EXTENSIONS = {'txt'}
 app.config['UPLOAD_FOLDER'] = 'static/files'
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = "login"
+login_manager.login_view = "log_in"
 bootstrap = Bootstrap(app)
 ckeditor = CKEditor(app)
 mail = Mail(app)
@@ -250,6 +250,7 @@ def notifications():
 
 
 @app.route('/choose-your-path')
+@login_required
 def choose_path():
     user_id = session.get('id')
     print(user_id)
@@ -378,7 +379,7 @@ def confirm_email(token):
         return redirect(url_for("choose_path", current_user=current_user,user_id=current_user.id))
     except SignatureExpired:
         email = request.args.get('email')
-        return redirect(url_for('choose_path',expired=True,email=email))
+        return redirect(url_for('log_in',expired=True,email=email))
 
 
 
@@ -435,6 +436,8 @@ def login_with_google():
 @app.route("/log_in", methods=["POST", "GET"])
 def log_in():
     has_account = request.args.get('has_account')
+    expired = request.args.get("expired")
+    print(expired)
     if request.method == 'POST':
         entered_email = request.form.get('email')
         entered_password = request.form.get('password')
@@ -455,7 +458,7 @@ def log_in():
             return render_template("auth/sign-in.html", email_doesnt_exist=email_doesnt_exist)
     else:
         entered_email = request.args.get('email', '')
-        return render_template("auth/sign-in.html", email=entered_email,has_account=has_account)
+        return render_template("auth/sign-in.html", email=entered_email,has_account=has_account,expired=expired)
 
 
 
