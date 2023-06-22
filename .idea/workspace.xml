@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Finalizing page select and creating a condtion instead of making a new page, thus following the DRY principle.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing an error where the expired mail won't show.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Upload-File.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Upload-File.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/auth/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/sign-in.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/dashboard-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/dashboard-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Dashboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,13 +99,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00112" summary="Adjusting responsiveness">
-      <created>1685641512967</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1685641512967</updated>
     </task>
     <task id="LOCAL-00113" summary="Fixing an login-error">
       <created>1685645529800</created>
@@ -443,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687360193398</updated>
     </task>
-    <option name="localTasksCounter" value="161" />
+    <task id="LOCAL-00161" summary="Fixing an error where the expired mail won't show.">
+      <created>1687442875757</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1687442875757</updated>
+    </task>
+    <option name="localTasksCounter" value="162" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -461,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add new requirements.txt" />
     <MESSAGE value="Changing basic auth" />
     <MESSAGE value="Fixing deployment bug Atrribute id not found." />
     <MESSAGE value="Attempting to fix werzeug error in development." />
@@ -486,6 +485,7 @@
     <MESSAGE value="Adding an option on paper reader, that adds a book to the database as well." />
     <MESSAGE value="Adding some images and a new page, which will show all the books and selections the user has, with delete options." />
     <MESSAGE value="Finalizing page select and creating a condtion instead of making a new page, thus following the DRY principle." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalizing page select and creating a condtion instead of making a new page, thus following the DRY principle." />
+    <MESSAGE value="Fixing an error where the expired mail won't show." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing an error where the expired mail won't show." />
   </component>
 </project>

@@ -104,6 +104,7 @@
   </div>
 </div>
           </form>
+  {% if post_count <= 3 %}
   <div class="container" id="posts-container">
   <div class="row justify-content-center">
     <div class="col-12">
@@ -130,7 +131,51 @@
     {% endfor %}
   </div>
 </div>
+{% else %}
+<div class="container" id="posts-container">
+  <div id="carouselControls" class="carousel slide" data-ride="carousel">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <h3 class="other-posts-title">Your other Posts:</h3>
+        <div class="small-line2"></div>
+      </div>
+    </div>
 
+    <div class="carousel-inner justify-content-center">
+      {% for post in all_posts %}
+      <div class="carousel-item{% if loop.first %} active{% endif %}">
+        <div class="container">
+          <div class="row" id="carousel-row">
+            <div class="col-12 col-md-4 justify-content-center">
+              <a href="{{ url_for('see_post', post_id=post.id) }}" style="text-align: center;">
+                <div class="card" id="card-div">
+                  <img src="{{ post_images }}" alt="kindle" class="card-img">
+                  <div class="card-body">
+                    <h1 class="card-title">{{ post.user_quote }}</h1>
+                    <p class="card-sub-title">{{ post.quote_author }}</p>
+                    <p class="card-info">{{ post.body|safe }}</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+{% endif %}
 
    </body>
 

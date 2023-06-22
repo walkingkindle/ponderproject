@@ -194,9 +194,12 @@ def dashboard():
     id = random_quote.id
     quote = random_quote.original_quote
     writer = random_quote.writer_quote
+    all_posts = users.session.query(Posts).all()
+    post_count = len(all_posts)
+    print(post_count)
     if request.method == "POST":
         return redirect(url_for('write_from_kindle',quote_id=id))
-    return render_template("Dashboard.html",quote_id=random_quote.id, quote=quote, writer=writer, username=username,post_images=random.choice(post_images))
+    return render_template("Dashboard.html",quote_id=random_quote.id, quote=quote, writer=writer, username=username,post_images=random.choice(post_images),all_posts=all_posts,post_count=post_count)
 
 @app.route("/select",methods=["POST","GET"])
 @login_required

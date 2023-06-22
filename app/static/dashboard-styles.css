@@ -21,6 +21,22 @@
   color: #fff;
 }
 
+.carousel-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1) brightness(0.5);
+  }
+#carousel-row{
+ position: relative;
+ right: 160px;
+}
+
+
+
 
 
 #write-button{
