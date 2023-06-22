@@ -139,12 +139,12 @@ def my_ponder_selections():
     book_list = [engine.format_string(book[0]) for book in book_list]
     book_list = list(set(book_list))
     if request.method == "POST":
-        print("ok")
         selected_items = request.form.get('selected-books')
         book_list = selected_items.split("||")
         print(book_list)
         for writer in book_list:
             writer_query = users.session.query(Books).filter_by(writer_quote=writer)
+            print(writer_query)
             for book in writer_query:
                 users.session.delete(book)
             users.session.commit()
@@ -190,7 +190,7 @@ def home():
 def dashboard():
     post_images = ["/static/europe-street-1.jpg","/static/europe-street-2.jpg","/static/europe-street-3.jpg"]
     username = current_user.username
-    random_quote = users.session.query(Books).order_by(func.random()).first()
+    random_quote = users.session.query(Books).filter_by(highlight_id=current_user.id).order_by(func.random()).first()
     id = random_quote.id
     quote = random_quote.original_quote
     writer = random_quote.writer_quote
@@ -205,36 +205,40 @@ def dashboard():
 @login_required
 def select():
     clippings_filename = "My_Clippings.txt" + str(current_user.id)
+    nothing_selected = request.args.get("nothing_selected")
     book_list = engine.get_all_writers(clippings_path=app.config['UPLOAD_FOLDER'],filename=clippings_filename)
     highlights = engine.format_kindle_clippings(clippings_path=app.config['UPLOAD_FOLDER'],filename=clippings_filename)
-    if request.method == 'POST':
-        selected_items = request.form.get('selected-books')
-        real_book_list = selected_items.split("||")
-        real_selected_highlights = []
-        for highlight in highlights:
-            parts = highlight.split("\n")
-            for book in real_book_list:
-                if book.strip() in highlight:
-                    writer = parts[0]
-                    quote = parts[3]
-                    date = parts[1]
-                    real_selected_highlights.append({
-                        "writer": writer,
-                        "quote": quote,
-                        "date": date
-                    })
-        for highlight in real_selected_highlights:
-            new_highlight = Books(
-                id=engine.generate_custom_id(),
-                highlight_owner=current_user,
-                original_quote= highlight["quote"],
-                writer_quote=highlight["writer"],
-                date_added=highlight["date"]
-            )
-            users.session.add(new_highlight)
-            users.session.commit()
-        return redirect(url_for('dashboard'))
-    return render_template('select.html',book_list=book_list)
+    try:
+        if request.method == 'POST':
+            selected_items = request.form.get('selected-books')
+            real_book_list = selected_items.split("||")
+            real_selected_highlights = []
+            for highlight in highlights:
+                parts = highlight.split("\n")
+                for book in real_book_list:
+                    if book.strip() in highlight:
+                        writer = parts[0]
+                        quote = parts[3]
+                        date = parts[1]
+                        real_selected_highlights.append({
+                            "writer": writer,
+                            "quote": quote,
+                            "date": date
+                        })
+            for highlight in real_selected_highlights:
+                new_highlight = Books(
+                    id=engine.generate_custom_id(),
+                    highlight_owner=current_user,
+                    original_quote= highlight["quote"],
+                    writer_quote=highlight["writer"],
+                    date_added=highlight["date"]
+                )
+                users.session.add(new_highlight)
+                users.session.commit()
+            return redirect(url_for('dashboard'))
+        return render_template('select.html',book_list=book_list,nothing_selected=nothing_selected)
+    except IndexError:
+        return redirect(url_for('select',nothing_selected=True))
 
 
 @app.route('/notification')

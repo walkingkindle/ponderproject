@@ -114,6 +114,16 @@
          confirmButtonText: "OK"
        });
 </script>
+{% if nothing_selected %}
+<script>
+     Swal.fire({
+     title: "Error",
+     text: "Please choose at least one book before continuing.",
+     icon: "error",
+     confirmButtonText: "OK"
+     });
+</script>
+{% endif %}
 <form action="{{url_for('select')}}" method="post">
 <div class="container">
   <div class="row">
