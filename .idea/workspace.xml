@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing other minor issues.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/write-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/write-styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Write.html" afterDir="false" />
     </list>
@@ -98,13 +99,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00116" summary="Fixing Minor Bugs">
-      <created>1685727284137</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1685727284138</updated>
     </task>
     <task id="LOCAL-00117" summary="updating requirements">
       <created>1685727339984</created>
@@ -442,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687451968711</updated>
     </task>
-    <option name="localTasksCounter" value="165" />
+    <task id="LOCAL-00165" summary="Fixing other minor issues.">
+      <created>1687553195978</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1687553195978</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="UnknownFeatures">

@@ -288,14 +288,10 @@ def upload():
 @login_required
 def see_post(post_id):
     requested_post = Posts.query.get(post_id)
-    if int(current_user.id) == int(requested_post.author_id):
-        can_edit = True
-    else:
-        can_edit = False
     # share_link_twitter = engine.link_shortener("https://twitter.com/intent/tweet?text=http://ponder.ink/{{url_for('see_post',post_id=post.id)}}")
     # share_link_linkedin = engine.link_shortener("https://www.linkedin.com/shareArticle?mini=true&url=http://ponder.ink/{{url_for('see_post',post_id=post.id)}}")
     # share_link_facebook = engine.link_shortener("https://www.facebook.com/sharer/sharer.php?u=http%3A//ponder.ink/%7B%7Burl_for('see_post',post_id=post.id)%7D%7D")
-    return render_template("see-post.html", post=requested_post,can_edit=can_edit)
+    return render_template("see-post.html", post=requested_post)
 
 
 @app.route('/nothing-here')
@@ -591,7 +587,8 @@ def write():
                 user=current_user,
                 date=formatted_datetime,
                 user_quote=quote2,
-                quote_author=quote_author
+                quote_author=quote_author,
+                author_id=current_user.id
             )
             users.session.add(new_post)
             users.session.commit()
@@ -605,14 +602,16 @@ def write():
 @login_required
 def write_from_kindle(quote_id):
     quote_row = Books.query.get(quote_id)
-    post_id = engine.generate_custom_id()
-    body = request.form.get("body")
-    user_quote = quote_row.original_quote
-    quote_author = quote_row.writer_quote
-    post_title = request.form.get("title")
-    current_date = datetime.datetime.now()
-    formatted_datetime = current_date.strftime("%d/%m/%Y")
     if request.method == "POST":
+        user_quote = quote_row.original_quote
+        quote_author = quote_row.writer_quote
+        current_date = datetime.datetime.now()
+        formatted_datetime = current_date.strftime("%d/%m/%Y")
+        post_id = engine.generate_custom_id()
+        body = request.form.get("body")
+        print(f"{body} is the body")
+        post_title = request.form.get("post-title")
+        print(f"{post_title} is the title of the post")
         new_post = Posts(
             quote=f"{quote_row.original_quote}, {quote_row.writer_quote}",
             body=body,
@@ -620,13 +619,14 @@ def write_from_kindle(quote_id):
             user=current_user,
             date=formatted_datetime,
             user_quote=post_title,
-            quote_author=quote_author
+            quote_author=quote_author,
+            author_id=current_user.id
         )
         users.session.add(new_post)
         users.session.commit()
         return redirect(url_for("see_post", quote=quote_row.original_quote, current_user=current_user,
                                 post_id=post_id))
-    return render_template("Write.html", quote=quote_row.original_quote, writer=quote_row.writer_quote, current_user=current_user)
+    return render_template("Write.html", quote=quote_row.original_quote, writer=quote_row.writer_quote, current_user=current_user,quote_id=quote_row.id)
 
 
 @app.route('/paper-reader', methods=["POST", "GET"])
