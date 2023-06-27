@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Creating a different, more stylized write page.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Finalizing page.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/write-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/write-script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/dashboard-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/dashboard-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/select.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/select.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,13 +100,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00118" summary="fixing the blinking bug.">
-      <created>1685728927588</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL-00118" />
-      <option name="project" value="LOCAL" />
-      <updated>1685728927588</updated>
     </task>
     <task id="LOCAL-00119" summary="Updating the navbar to adjust to user experience.">
       <created>1685792164116</created>
@@ -443,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687781706761</updated>
     </task>
-    <option name="localTasksCounter" value="167" />
+    <task id="LOCAL-00167" summary="Finalizing page.">
+      <created>1687878571868</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1687878571869</updated>
+    </task>
+    <option name="localTasksCounter" value="168" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -461,7 +462,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixing invalid csrf token deployment error" />
     <MESSAGE value="fixing and updating links" />
     <MESSAGE value="Adjusting a new route to re-route the dashboard kindle mistakes." />
     <MESSAGE value="Fixing js error on write page." />
@@ -486,6 +486,7 @@
     <MESSAGE value="Creating an option for the user to view and delete books if need be." />
     <MESSAGE value="Fixing other minor issues." />
     <MESSAGE value="Creating a different, more stylized write page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Creating a different, more stylized write page." />
+    <MESSAGE value="Finalizing page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizing page." />
   </component>
 </project>

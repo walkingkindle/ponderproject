@@ -28,6 +28,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css"/>
     <!---- Font Awesome ----->
     <script src="https://kit.fontawesome.com/511589a382.js" crossorigin="anonymous"></script>
+
+                <!------------------- Sweet Alert -------------------->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <!-------NavBar ----->
@@ -87,29 +90,78 @@
     <!-- Front Page -->
     {% if sent %}
   <script>
-    $(function() {
-      toastr.success("Well Done! Your message was sent sucessfully!");
-    });
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: 'success',
+  title: 'Well Done! Message sent sucessfully!'
+})
   </script>
     {% endif %}
     {% if email_sent %}
   <script>
-    $(function() {
-      toastr.success("Well Done! Confirmation email has been sent to your inbox!");
-    });
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: 'info',
+  title: 'Confirmation email has been sent to your inbox'
+})
   </script>
     {% endif %}
     {% if expired %}
   <script>
-    $(function() {
-      toastr.warning("Your confirmation link expired. Please register again.");
-    });
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
   </script>
     {% endif %}
     {% if profile_photo_updated %}
     <script>
     $(function() {
-      toastr.success("Profile photo updated!");
+      const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: 'success',
+  title: 'Profile photo updated'
+})
     });
     </script>
     {% endif %}
