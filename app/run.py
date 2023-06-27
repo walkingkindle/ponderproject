@@ -299,39 +299,62 @@ def nothing_selected():
     return render_template("file-not-selected.html")
 
 
-@app.route("/search-page", methods=['POST', 'GET'])
-@login_required
+
+@app.route("/search-page")
 def search_page():
-    """A feature which gives the user a choice to search the books and authors in case he/she does not own a Kindle."""
-    contribute = request.args.get('contribute')
-    not_given= request.args.get('not_given')
-    print(contribute)
-    books = []
-    authors = []
-    quotes_list = []
-    if request.method == 'POST':
-        for i in range(1, 6):
-            author = request.form.get('author')
-            authors.append(author)
-        print(authors)
-        for author in authors:
-            try:
-                try:
-                    quote = wikiquotes.get_quotes(author=author, raw_language='en')
-                except KeyError:
-                    return redirect(url_for('search_page',not_given=True))
-                print(quote)
-                quotes_list.append(quote)
-            except TitleNotFound:
-                quote = "If you're seeing this, it means that we couldn't find any quotes on this author/book." \
-                        "Click on the link below to contribute to the quote API with more quotes."
-                contribute = True
-                return redirect(url_for('paper_reader',quote=quote,contribute=contribute))
-        print(quotes_list)
-        if len(quotes_list) > 0:
-            quote = random.choice(quotes_list)
-            return redirect(url_for('paper_reader', redirect_from='search', quote=quote))
-    return render_template("Search.html",contribute=contribute,redirect_from='search',not_given=not_given)
+    return redirect(url_for('my_blueprint.coming_soon'))
+
+
+# LAGGING WITH THE LATEST DATABASE UPDATES, UPDATE AS NECESSARY
+# @app.route("/search-page", methods=['POST', 'GET'])
+# @login_required
+# def search_page():
+#     """A feature which gives the user a choice to search the books and authors in case he/she does not own a Kindle."""
+#     contribute = request.args.get('contribute')
+#     not_given= request.args.get('not_given')
+#     print(contribute)
+#     books = []
+#     authors = []
+#     quotes_list = []
+#     if request.method == 'POST':
+#         for i in range(1, 6):
+#             author = request.form.get('author')
+#             authors.append(author)
+#         print(authors)
+#         for author in authors:
+#             try:
+#                 try:
+#                     quote = wikiquotes.get_quotes(author=author, raw_language='en')
+#                 except KeyError:
+#                     return redirect(url_for('search_page',not_given=True))
+#                 print(quote)
+#                 quotes_list.append(quote)
+#             except TitleNotFound:
+#                 quote = "If you're seeing this, it means that we couldn't find any quotes on this author/book." \
+#                         "Click on the link below to contribute to the quote API with more quotes."
+#                 contribute = True
+#         print(quotes_list)
+#         id = engine.generate_custom_id()
+#         current_date = datetime.datetime.now()
+#         formatted_datetime = current_date.strftime("%d/%m/%Y")
+#         print(len(authors))
+#         print(quotes_list)
+#         for i in range(len(authors)):
+#             print(type(authors[i]))
+#             print(authors[i])
+#             new_book = Books(
+#                 id=id,
+#                 highlight_id=current_user.id,
+#                 highlight_owner = current_user,
+#                 original_quote = quotes_list[i],
+#                 writer_quote=authors[i],
+#                 date_added= formatted_datetime
+#             )
+#             users.session.add(new_book)
+#             users.session.commit()
+#         quote_id =  users.session.query(Books).filter_by(date_added=formatted_datetime).order_by(func.random()).first()
+#         return redirect(url_for('paper_reader', quote_id=quote_id))
+#     return render_template("Search.html",contribute=contribute,redirect_from='search',not_given=not_given)
 
 @app.route("/contribute")
 @login_required
@@ -629,8 +652,8 @@ def write_from_kindle(quote_id):
     return render_template("Write.html", quote=quote_row.original_quote, writer=quote_row.writer_quote, current_user=current_user,quote_id=quote_row.id)
 
 
-@app.route('/paper-reader', methods=["POST", "GET"])
-def paper_reader():
+@app.route('/paper-reader/<int:quote_id>', methods=["POST", "GET"])
+def paper_reader(quote_id):
     """A feature that searches books from an API and gets famous quotes from them. Used in case the user does not own a
      Kindle"""
     contribute = request.args.get('contribute')
