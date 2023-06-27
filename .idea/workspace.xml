@@ -4,12 +4,221 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Finalizing page.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="fixing minor write.html issues.">
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.min.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.min.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/ajax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/ajax/jsonp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/ajax/load.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/ajax/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/ajax/var/location.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/ajax/var/nonce.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/ajax/var/rquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/ajax/xhr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/attributes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/attributes/attr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/attributes/classes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/attributes/prop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/attributes/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/attributes/val.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/callbacks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/DOMEval.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/access.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/camelCase.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/isAttached.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/nodeName.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/parseHTML.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/parseXML.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/ready-no-deferred.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/ready.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/readyException.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/stripAndCollapse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/toType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/var/rhtml.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/core/var/rsingleTag.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/css.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/addGetHookIf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/adjustCSS.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/curCSS.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/finalPropName.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/hiddenVisibleSelectors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/showHide.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/var/cssExpand.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/var/getStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/var/isHiddenWithinTree.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/var/rboxStyle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/var/rcustomProp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/var/rnumnonpx.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/css/var/swap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/data/Data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/data/var/acceptData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/data/var/dataPriv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/data/var/dataUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/deferred.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/deferred/exceptionHook.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/deprecated.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/deprecated/ajax-event-alias.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/deprecated/event.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/dimensions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/effects.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/effects/Tween.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/effects/animatedSelector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/event.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/event/trigger.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/exports/amd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/exports/global.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/manipulation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/_evalUrl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/buildFragment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/getAll.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/setGlobalEval.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/var/rscriptType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/var/rtagName.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/wrapMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/offset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/queue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/queue/delay.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/selector-native.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/selector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/selector/contains.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/selector/escapeSelector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/serialize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/traversing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/traversing/findFilter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/traversing/var/dir.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/traversing/var/rneedsContext.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/traversing/var/siblings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/ObjectFunctionString.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/arr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/class2type.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/document.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/documentElement.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/flat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/fnToString.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/getProto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/hasOwn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/indexOf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/isFunction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/isWindow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/pnum.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/pop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/push.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/rcheckableType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/rcssNum.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/rnothtmlwhite.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/rtrimCSS.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/slice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/sort.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/splice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/toString.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/var/whitespace.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/jquery/src/wrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/mosha-vue-toastify/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/mosha-vue-toastify/README-zh_CN.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/mosha-vue-toastify/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/mosha-vue-toastify/dist/config.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/mosha-vue-toastify/dist/createToast.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/mosha-vue-toastify/dist/hooks/useCustomStyle.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/mosha-vue-toastify/dist/hooks/useScreenSize.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/mosha-vue-toastify/dist/hooks/useSwipe.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/mosha-vue-toastify/dist/hooks/useTimer.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/mosha-vue-toastify/dist/hooks/useTransitionType.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/mosha-vue-toastify/dist/main.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/mosha-vue-toastify/dist/mosha-vue-toastify.es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/mosha-vue-toastify/dist/mosha-vue-toastify.umd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/mosha-vue-toastify/dist/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/mosha-vue-toastify/dist/types.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/mosha-vue-toastify/dist/util.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/mosha-vue-toastify/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/.jscsrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/build/toastr.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/build/toastr.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/build/toastr.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/build/toastr.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/gulpfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/content/content/toastr.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/content/content/toastr.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/content/content/toastr.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/content/content/toastr.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/content/scripts/toastr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/content/scripts/toastr.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/content/scripts/toastr.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.0.0.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.0.0.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.0.1.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.0.1.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.0.2.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.0.2.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.0.3.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.0.3.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.1.0.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.1.0.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.1.1.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.1.1.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.1.2.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.1.2.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.1.3.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.1.4.1.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.1.4.1.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.1.4.2.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.1.4.2.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.1.4.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.1.4.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.1.5.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.1.5.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.2.0.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.2.0.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.2.1.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.2.1.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.2.2.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.2.2.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.3.0.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.3.0.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.3.1.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.1.3.1.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.2.0.0-rc1.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.2.0.0-rc1.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.2.0.1.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.2.0.1.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.2.0.2.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.2.0.2.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.2.0.3.nupkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/nuget/toastr.2.0.3.nuspec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/release checklist.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/tests/qunit/qunit.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/tests/qunit/qunit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/tests/toastr-tests.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/tests/unit/qunit-helper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/tests/unit/toastr-tests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/tests/unit/x.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/toastr-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/toastr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/toastr.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/toastr/toastr.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/dashboard-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/dashboard-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/select.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/select.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,13 +309,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00119" summary="Updating the navbar to adjust to user experience.">
-      <created>1685792164116</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1685792164116</updated>
     </task>
     <task id="LOCAL-00120" summary="Created an exception where if the user has not added any books to the page, it returns with an alert-like error.">
       <created>1685804271118</created>
@@ -444,7 +646,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687878571869</updated>
     </task>
-    <option name="localTasksCounter" value="168" />
+    <task id="LOCAL-00168" summary="fixing minor write.html issues.">
+      <created>1687879797521</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1687879797521</updated>
+    </task>
+    <option name="localTasksCounter" value="169" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -462,7 +671,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixing and updating links" />
     <MESSAGE value="Adjusting a new route to re-route the dashboard kindle mistakes." />
     <MESSAGE value="Fixing js error on write page." />
     <MESSAGE value="updating callback function to match the https." />
@@ -487,6 +695,7 @@
     <MESSAGE value="Fixing other minor issues." />
     <MESSAGE value="Creating a different, more stylized write page." />
     <MESSAGE value="Finalizing page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalizing page." />
+    <MESSAGE value="fixing minor write.html issues." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing minor write.html issues." />
   </component>
 </project>

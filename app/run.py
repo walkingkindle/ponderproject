@@ -194,7 +194,7 @@ def dashboard():
     id = random_quote.id
     quote = random_quote.original_quote
     writer = random_quote.writer_quote
-    all_posts = users.session.query(Posts).all()
+    all_posts = users.session.query(Posts).filter_by(author_id=current_user.id).all()
     post_count = len(all_posts)
     print(post_count)
     if request.method == "POST":
