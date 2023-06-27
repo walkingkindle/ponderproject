@@ -154,7 +154,7 @@ config.toolbar = [
 
       <!--------- List -------->
       <button id="insertOrderedList" class="option-button">
-        <i class=".fa-solid fa-list col"></i>
+        <i class="fa-solid fa-list col"></i>
       </button>
       <button id="insertUnorderedList" class="option-button">
         <i class="fa-solid fa-list"></i>
@@ -216,15 +216,18 @@ config.toolbar = [
         <label for="backColor">Highlight Color</label>
       </div>
     </div>
-    <div id="text-input" contenteditable="true">
-    </div>
+
+    <div id="text-input" contenteditable="true"></div>
 </div>
+
+
+
 
 
 <div class="container justify-content-center" id="button-cont">
   <div class="row justify-content-center">
     <div class="col-2 justify-content-center">
-      <button class="btn btn-lg btn-outline-primary" id="submit-button" type="submit">Create Post</button>
+      <button class="btn btn-lg btn-outline-primary" id="submit-button">Create Post</button>
     </div>
 
   </div>
@@ -232,6 +235,20 @@ config.toolbar = [
 </div>
 </form>
 
+<script>
+  // Get the contenteditable div
+  var contentDiv = document.getElementById('text-input');
+
+  // Update the hidden input field when the form is submitted
+  document.querySelector('form').addEventListener('submit', function() {
+    var content = contentDiv.innerHTML;
+    var hiddenInput = document.createElement('input');
+    hiddenInput.setAttribute('type', 'hidden');
+    hiddenInput.setAttribute('name', 'content');
+    hiddenInput.setAttribute('value', content);
+    this.appendChild(hiddenInput);
+  });
+</script>
 
 
 

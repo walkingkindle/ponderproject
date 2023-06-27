@@ -59,22 +59,25 @@ const modifyText = (command, defaultUi, value) => {
   document.execCommand(command, defaultUi, value);
 };
 
+
 // For basic operations which don't need value parameter
 optionsButtons.forEach((button) => {
-  button.addEventListener("click", () => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
     modifyText(button.id, false, null);
   });
 });
-
 // Options that require value parameter (e.g., colors, fonts)
 advancedOptionButton.forEach((button) => {
-  button.addEventListener("change", () => {
+  button.addEventListener("change", (event) => {
+    event.preventDefault();
     modifyText(button.id, false, button.value);
   });
 });
 
 // Link
-linkButton.addEventListener("click", () => {
+linkButton.addEventListener("click", (event) => {
+  event.preventDefault();
   let userLink = prompt("Enter a URL");
   // If link has http, then pass directly; otherwise, add https
   if (/http/i.test(userLink)) {

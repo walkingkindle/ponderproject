@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing other minor issues.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Creating a different, more stylized write page.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/write-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/write-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/write-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/write-script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Write.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,13 +99,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00117" summary="updating requirements">
-      <created>1685727339984</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1685727339984</updated>
     </task>
     <task id="LOCAL-00118" summary="fixing the blinking bug.">
       <created>1685728927588</created>
@@ -443,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687553195978</updated>
     </task>
-    <option name="localTasksCounter" value="166" />
+    <task id="LOCAL-00166" summary="Creating a different, more stylized write page.">
+      <created>1687781706760</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1687781706761</updated>
+    </task>
+    <option name="localTasksCounter" value="167" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -461,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixing atrribute not found error" />
     <MESSAGE value="Fixing invalid csrf token deployment error" />
     <MESSAGE value="fixing and updating links" />
     <MESSAGE value="Adjusting a new route to re-route the dashboard kindle mistakes." />
@@ -486,6 +485,7 @@
     <MESSAGE value="Creating an exception when the user has more than 3 posts, the posts row becomes a carousel." />
     <MESSAGE value="Creating an option for the user to view and delete books if need be." />
     <MESSAGE value="Fixing other minor issues." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing other minor issues." />
+    <MESSAGE value="Creating a different, more stylized write page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating a different, more stylized write page." />
   </component>
 </project>

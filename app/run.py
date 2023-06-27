@@ -608,7 +608,7 @@ def write_from_kindle(quote_id):
         current_date = datetime.datetime.now()
         formatted_datetime = current_date.strftime("%d/%m/%Y")
         post_id = engine.generate_custom_id()
-        body = request.form.get("body")
+        body = request.form.get("content")
         print(f"{body} is the body")
         post_title = request.form.get("post-title")
         print(f"{post_title} is the title of the post")
