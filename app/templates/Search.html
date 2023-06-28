@@ -48,9 +48,6 @@
               <li class="nav-item {% if request.path == url_for('home') %}active{% endif %}">
                 <a class="nav-link" aria-current="page" href="{{url_for('home')}}">Home</a>
               </li>
-<!--              <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">-->
-<!--                <a class="nav-link" href="{{url_for('log_out')}}">Log out</a>-->
-<!--              </li>-->
               <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
                 <a class="nav-link" href="{{url_for('dashboard')}}">Dashboard</a>
               </li>
@@ -84,14 +81,11 @@
         <div class="row">
           <h2 class="big-heading">The Paper Reader</h2>
           <div class="input-group">
-            <div class="input-group-label">
-              <label for="book-search" class="input-group-text">Enter Book Titles, or Authors Here:</label>
-            </div>
             <div class="input-group-field">
-              <input id="book-search" class="form-control" type="text" placeholder="Search for books and authors here">
+              <input id="book-search" class="form-control text-center" type="text" placeholder="Search for books and authors here">
             </div>
           </div>
-          <ul id="book-list" style="list-style-type: none; padding: 0; width: 100vh; font-family: Roboto,Sans-Serif;"></ul>
+          <ul id="book-list" style="list-style-type: none; padding: 0; width: 100vh; font-family: Poppins,Sans-Serif;"></ul>
         </div>
       </div>
 <script>
@@ -112,7 +106,7 @@
           }
           var bookHtml = "";
           for (var i = 0; i < bookList.length; i++) {
-            bookHtml += "<li style='padding: 10px; border: 1px solid #ccc; background-color: #f8f8f8; cursor: pointer; transition: background-color 0.3s ease-in-out;' class='book-item'>" + bookList[i] + "</li>";
+            bookHtml += "<li style='padding: 10px; margin-top: 15px; margin-bottom:15px;  width:100%; justify-content: center; border: 1px solid #ccc; background-color: #f8f8f8; cursor: pointer; transition: background-color 0.3s ease-in-out;' class='book-item'>" + bookList[i] + "</li>";
           }
           $("#book-list").html(bookHtml);
         });
@@ -176,7 +170,7 @@
       newRow.append($("<th>").attr("scope", "row").html("<label class='customcheckbox'><input type='checkbox' class='listCheckbox'><span class='checkmark'></span></label>"));
       newRow.append($("<td>").text(rowCount + 1));
       newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin:0' type='text' readonly name='title' value='" + title + " by " + author + "'>"));
-      newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin-left:50px;' type='text' readonly name='author' value='" + author + "'>"));
+      newRow.append($("<td>").html("<input style='border:none; outline:none; background-color:transparent; padding:0; margin-left:0px;' type='text' readonly name='author' value='" + author + "'>"));
       tableBody.prepend(newRow);
     }
 

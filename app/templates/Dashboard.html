@@ -57,7 +57,7 @@
                 <a class="nav-link" href="{{url_for('account',user_id=current_user.id)}}">Account</a>
               </li>
               <li class="nav-item {% if request.path == url_for('search_page',user_id=current_user.id) %}active{% endif %}">
-                <a class="nav-link" href="{{url_for('my_blueprint.coming_soon')}}">Paper Reader</a>
+                <a class="nav-link" href="{{url_for('search_page')}}">Paper Reader</a>
               </li>
             </ul>
             </div>

@@ -300,61 +300,58 @@ def nothing_selected():
 
 
 
-@app.route("/search-page")
-def search_page():
-    return redirect(url_for('my_blueprint.coming_soon'))
+# @app.route("/search-page")
+# def search_page():
+#     return redirect(url_for('my_blueprint.coming_soon'))
 
 
 # LAGGING WITH THE LATEST DATABASE UPDATES, UPDATE AS NECESSARY
-# @app.route("/search-page", methods=['POST', 'GET'])
-# @login_required
-# def search_page():
-#     """A feature which gives the user a choice to search the books and authors in case he/she does not own a Kindle."""
-#     contribute = request.args.get('contribute')
-#     not_given= request.args.get('not_given')
-#     print(contribute)
-#     books = []
-#     authors = []
-#     quotes_list = []
-#     if request.method == 'POST':
-#         for i in range(1, 6):
-#             author = request.form.get('author')
-#             authors.append(author)
-#         print(authors)
-#         for author in authors:
-#             try:
-#                 try:
-#                     quote = wikiquotes.get_quotes(author=author, raw_language='en')
-#                 except KeyError:
-#                     return redirect(url_for('search_page',not_given=True))
-#                 print(quote)
-#                 quotes_list.append(quote)
-#             except TitleNotFound:
-#                 quote = "If you're seeing this, it means that we couldn't find any quotes on this author/book." \
-#                         "Click on the link below to contribute to the quote API with more quotes."
-#                 contribute = True
-#         print(quotes_list)
-#         id = engine.generate_custom_id()
-#         current_date = datetime.datetime.now()
-#         formatted_datetime = current_date.strftime("%d/%m/%Y")
-#         print(len(authors))
-#         print(quotes_list)
-#         for i in range(len(authors)):
-#             print(type(authors[i]))
-#             print(authors[i])
-#             new_book = Books(
-#                 id=id,
-#                 highlight_id=current_user.id,
-#                 highlight_owner = current_user,
-#                 original_quote = quotes_list[i],
-#                 writer_quote=authors[i],
-#                 date_added= formatted_datetime
-#             )
-#             users.session.add(new_book)
-#             users.session.commit()
-#         quote_id =  users.session.query(Books).filter_by(date_added=formatted_datetime).order_by(func.random()).first()
-#         return redirect(url_for('paper_reader', quote_id=quote_id))
-#     return render_template("Search.html",contribute=contribute,redirect_from='search',not_given=not_given)
+@app.route("/search-page", methods=['POST', 'GET'])
+@login_required
+def search_page():
+    """A feature which gives the user a choice to search the books and authors in case he/she does not own a Kindle."""
+    not_given= request.args.get('not_given')
+    selected_highlights = []
+    authors = []
+    current_date = datetime.datetime.now()
+    formatted_datetime = current_date.strftime("%d/%m/%Y")
+    if request.method == 'POST':
+        for i in range(1, 6):
+            author = request.form.get('author')
+            authors.append(author)
+        print(authors)
+        for author in authors:
+            try:
+                try:
+                    #an exception for user not searching anything in the page.
+                    quote = wikiquotes.get_quotes(author=author, raw_language='en')
+                    selected_highlights.append({
+                        "author" : author,
+                        "quote" : quote,
+                        "date" : formatted_datetime
+                    })
+                    print(selected_highlights)
+                except KeyError:
+                    return redirect(url_for('search_page',not_given=True))
+            except TitleNotFound:
+                #an exception when the API cannot find books with the designated name.
+                quote = "If you're seeing this, it means that we couldn't find any quotes on this author/book." \
+                        "Click on the link below to contribute to the quote API with more quotes."
+                contribute = True
+            for higlight in selected_highlights:
+                new_highlight = Books(
+                    id = engine.generate_custom_id(),
+                    highlight_owner = current_user,
+                    original_quote = str(higlight['quote']),
+                    writer_quote = higlight['author'],
+                    date_added = higlight['date']
+                )
+                users.session.add(new_highlight)
+                users.session.commit()
+        quote_row=  users.session.query(Books).filter_by(date_added=formatted_datetime).order_by(func.random()).first()
+        quote_id = quote_row.id
+        return redirect(url_for('paper_reader', quote_id=quote_id))
+    return render_template("Search.html",redirect_from='search',not_given=not_given)
 
 @app.route("/contribute")
 @login_required
@@ -656,37 +653,28 @@ def write_from_kindle(quote_id):
 def paper_reader(quote_id):
     """A feature that searches books from an API and gets famous quotes from them. Used in case the user does not own a
      Kindle"""
-    contribute = request.args.get('contribute')
-    form = Write()
-    quote = str(request.args.get('quote'))
-    body = form.body.data
-    quote2 = form.quote.data
-    author = form.author.data
-    post_id = engine.generate_custom_id()
-    current_date = datetime.datetime.now()
-    formatted_datetime = current_date.strftime("%d/%m/%Y")
-    if form.validate_on_submit():
+    quote_row = users.session.query(Books).filter_by(id=quote_id).first()
+    quote = quote_row.original_quote
+    writer = quote_row.writer_quote
+    body = request.form.get("content")
+    post_title = request.form.get("post-title")
+    current_datetime = datetime.datetime.now()
+    formatted_datetime = current_datetime.strftime("%d/%m/%Y")
+    #data mismatch?
+    if request.method == "POST":
         new_post = Posts(
             quote=f"{quote}",
             body=body,
-            id=post_id,
-            quote_author = author,
+            id=engine.generate_custom_id(),
+            quote_author = writer,
             user=current_user,
             date=formatted_datetime,
-            user_quote=quote2
+            user_quote=post_title
         )
-        new_book = Books(
-            id = engine.generate_custom_id(),
-            highlight_owner= current_user,
-            original_quote=f"{quote}",
-            writer_quote= author,
-            date_added=formatted_datetime
-        )
-        users.session.add(new_book)
         users.session.add(new_post)
         users.session.commit()
-        return redirect(url_for("see_post", quote=str(quote), form=form, current_user=current_user, post_id=new_post.id))
-    return render_template("Write.html", form=form, current_user=current_user, quote=str(quote),contribute=contribute)
+        return redirect(url_for("see_post", current_user=current_user, post_id=new_post.id))
+    return render_template("Write.html", current_user=current_user,contribute=contribute,quote=quote,writer=writer,quote_id=quote_row.id)
 
 @app.route("/reset/<int:user_id>")
 def reset_photo(user_id):
