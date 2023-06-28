@@ -86,13 +86,11 @@ class Register(FlaskForm):
     submit = SubmitField("Register")
 
 
-    #fix the email validator so that it works.
-
 class ResetPassword(FlaskForm):
-    new_password = PasswordField("Enter a new password",validators=[DataRequired()],render_kw={"placeholder": "Password"})
+    new_password = PasswordField("Enter a new password",validators=[DataRequired()],render_kw={"placeholder": "Password", "class":"input-form"})
     submit = SubmitField("Change Password")
 
 
 class ForgotPassword(FlaskForm):
-    email = StringField("Please enter your E-mail",validators=[DataRequired()],render_kw={"placeholder":"email"})
+    email = StringField("Please enter your E-mail",validators=[DataRequired()],render_kw={"placeholder":"email","class":"input-form"})
     submit = SubmitField("Submit")

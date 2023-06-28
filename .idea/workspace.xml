@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing search page.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Helping the Write page work better.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/engine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/reset-password-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/reset-password-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/reset-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/reset-password.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,13 +99,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00123" summary="Changing basic auth">
-      <created>1686229002284</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1686229002284</updated>
     </task>
     <task id="LOCAL-00124" summary="Changing basic auth">
       <created>1686230087701</created>
@@ -445,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687948184185</updated>
     </task>
-    <option name="localTasksCounter" value="172" />
+    <task id="LOCAL-00172" summary="Helping the Write page work better.">
+      <created>1687969844356</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1687969844357</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -463,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Integrating toastr.js instead of Bootstrap Alerts." />
     <MESSAGE value="Adding a nice text-box on paper reader that better explains the user." />
     <MESSAGE value="Adding necessary files for packages." />
     <MESSAGE value="Fixing toastr on deployment server." />
@@ -488,6 +485,7 @@
     <MESSAGE value="Fixing a bug where dashboard shows all posts instead of that of the users's." />
     <MESSAGE value="Pulling search_page from production in order to resuscitate from bugs." />
     <MESSAGE value="Fixing search page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing search page." />
+    <MESSAGE value="Helping the Write page work better." />
+    <option name="LAST_COMMIT_MESSAGE" value="Helping the Write page work better." />
   </component>
 </project>
