@@ -104,9 +104,9 @@ config.toolbar = [
       </div>
       <div class="col mt-5 justify-content-center" id="quote-div">
         {% if redirect_from == 'home' %}
-        <blockquote class="text-center">"{{ quote[0] }}</blockquote>
+        <blockquote class="text-center" id="ponder-quote">"{{ quote[0] }}</blockquote>
         {% else %}
-        <blockquote class="text-center">{{ quote }}</blockquote>
+        <blockquote class="text-center" id="ponder-quote">{{ quote }}</blockquote>
         {% endif %}
         <p class="text-center">- {{ writer }}</p>
       </div>

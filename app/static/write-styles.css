@@ -125,6 +125,16 @@ input [type="color"]::-moz-color-swatch{
 
 }
 
+blockquote{
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+#ponder-quote{
+  font-weight: 600;
+  margin-top: 10px;
+
+}
 
 #ponder-logo{
  position: relative;
