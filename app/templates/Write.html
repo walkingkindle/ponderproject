@@ -103,7 +103,11 @@ config.toolbar = [
 
       </div>
       <div class="col mt-5 justify-content-center" id="quote-div">
-      <blockquote class="text-center">{{ quote[0] }}</blockquote>
+        {% if redirect_from == 'home' %}
+        <blockquote class="text-center">"{{ quote[0] }}</blockquote>
+        {% else %}
+        <blockquote class="text-center">{{ quote }}</blockquote>
+        {% endif %}
         <p class="text-center">- {{ writer }}</p>
       </div>
 
@@ -111,7 +115,7 @@ config.toolbar = [
 
   </div>
   {% if redirect_from == "home" %}
-  <form action="{{url_for('write')}}" method="post">
+  <form action="{{ url_for('write') }}" method="post">
     {% else %}
     <form action="{{ url_for('write_from_kindle',quote_id=quote_id) }}" method="post">
       {% endif %}

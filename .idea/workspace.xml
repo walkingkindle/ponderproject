@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Helping the Write page work better.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/reset-password-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/reset-password-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/reset-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/reset-password.html" afterDir="false" />
-    </list>
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Updating reset password." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,13 +94,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00124" summary="Changing basic auth">
-      <created>1686230087701</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1686230087701</updated>
     </task>
     <task id="LOCAL-00125" summary="Fixing deployment bug Atrribute id not found.">
       <created>1686237081889</created>
@@ -443,7 +431,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687969844357</updated>
     </task>
-    <option name="localTasksCounter" value="173" />
+    <task id="LOCAL-00173" summary="Updating reset password.">
+      <created>1687970699845</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1687970699845</updated>
+    </task>
+    <option name="localTasksCounter" value="174" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -461,7 +456,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding a nice text-box on paper reader that better explains the user." />
     <MESSAGE value="Adding necessary files for packages." />
     <MESSAGE value="Fixing toastr on deployment server." />
     <MESSAGE value="Fixing an error on search html, where if the user tries to append books with the same name, a box message shows up." />
@@ -486,6 +480,7 @@
     <MESSAGE value="Pulling search_page from production in order to resuscitate from bugs." />
     <MESSAGE value="Fixing search page." />
     <MESSAGE value="Helping the Write page work better." />
-    <option name="LAST_COMMIT_MESSAGE" value="Helping the Write page work better." />
+    <MESSAGE value="Updating reset password." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating reset password." />
   </component>
 </project>
