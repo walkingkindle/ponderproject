@@ -13,7 +13,6 @@ def configure():
     load_dotenv()
 
 def confirmation_email(link):
-    something = "something"
     confirm_email = random.choice(config.EMAIL_CONFIRMATIONS)
     return f"{confirm_email}\n P.S: Here is a link to confirm your email.\n {link}"
 
@@ -86,8 +85,9 @@ def get_random_quote():
     the_request = requests.get(url="https://www.litquotes.com/random-words-of-wisdom.php").content
     soup = BeautifulSoup(the_request, 'html.parser')
     find_quote = soup.find('span')
-    print(find_quote.text)
-    return find_quote.text
+    writer = soup.find('a', href=lambda href: href and href.startswith('/quote_author_resp.php?AName='))
+    content = [find_quote.text,writer.text]
+    return content
 
 
 def format_string(input_string):

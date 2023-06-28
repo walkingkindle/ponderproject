@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Pulling search_page from production in order to resuscitate from bugs.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing search page.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/engine.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Write.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,13 +101,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00122" summary="Changing basic auth">
-      <created>1686228576640</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
-      <option name="project" value="LOCAL" />
-      <updated>1686228576641</updated>
     </task>
     <task id="LOCAL-00123" summary="Changing basic auth">
       <created>1686229002284</created>
@@ -444,7 +438,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687891620632</updated>
     </task>
-    <option name="localTasksCounter" value="171" />
+    <task id="LOCAL-00171" summary="Fixing search page.">
+      <created>1687948184185</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1687948184185</updated>
+    </task>
+    <option name="localTasksCounter" value="172" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -462,7 +463,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updating callback function to match the https." />
     <MESSAGE value="Integrating toastr.js instead of Bootstrap Alerts." />
     <MESSAGE value="Adding a nice text-box on paper reader that better explains the user." />
     <MESSAGE value="Adding necessary files for packages." />
@@ -487,6 +487,7 @@
     <MESSAGE value="fixing minor write.html issues." />
     <MESSAGE value="Fixing a bug where dashboard shows all posts instead of that of the users's." />
     <MESSAGE value="Pulling search_page from production in order to resuscitate from bugs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Pulling search_page from production in order to resuscitate from bugs." />
+    <MESSAGE value="Fixing search page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing search page." />
   </component>
 </project>

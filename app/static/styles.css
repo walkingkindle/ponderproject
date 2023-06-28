@@ -51,6 +51,7 @@ body ::selection {
 	color: #fff;
 }
 
+
 @media (max-width: 967px) {
 	.big-heading {
 		font-size: 58px;
@@ -106,19 +107,23 @@ body ::selection {
 	align-items: center;
 	height: 100%;
 }
+.quote-container::selection{
+   background: ffffff !important;
+}
 
 .quote-text {
 	width: 85%;
 	margin: 0;
 	color: #ffffff;
 	text-align: center;
+	margin-top: 40px;
 }
 
 .book-title {
 	color: #ffffff;
 	margin-bottom: 0;
 	text-align: center;
-	margin-top: 20px;
+	padding-top: 100px;
 }
 /* FEATURES */
 

@@ -167,6 +167,9 @@ def load_user(user_id):
 @app.route("/")
 def home():
     """Main index route"""
+    real_quote = engine.get_random_quote()
+    quote = real_quote[0]
+    writer = real_quote[1]
     sent = request.args.get("sent")
     profile_photo_updated = request.args.get('profile_photo_updated')
     email_sent = request.args.get('email_sent')
@@ -181,7 +184,7 @@ def home():
     how_many = User.query.count()
     if sent:
         print(sent)
-    return render_template("Index.html", quote=engine.get_random_quote(), sent=sent, current_user=current_user,
+    return render_template("Index.html", quote=quote, writer=writer, sent=sent, current_user=current_user,
                            how_many=how_many,email_sent=email_sent,expired=expired,has_account=has_account,profile_photo_updated=profile_photo_updated)
 
 
@@ -585,38 +588,31 @@ def about():
 @app.route('/write', methods=['GET', 'POST'])
 @login_required
 def write():
-    """Based on the redirect, write page will show different quotes."""
-    form = Write()
+    """This route will redirect the user to a random quote, which will then become a part of his library, after the post comment."""
     new_quote = engine.get_random_quote()
-    redirect_from = request.args.get("redirect_from")
-    if redirect_from == 'home':
-        print(redirect_from)
-        body = form.body.data
-        quote2 = form.quote.data
-        post_id = engine.generate_custom_id()
-        quote_author = form.author.data
-        current_date = datetime.datetime.now()
-        print(current_date)
-        formatted_datetime = current_date.strftime("%d/%m/%Y")
-        if form.validate_on_submit():
-            print("submitted")
-            new_post = Posts(
-                quote=new_quote,
-                body=body,
-                id=post_id,
-                user=current_user,
-                date=formatted_datetime,
-                user_quote=quote2,
-                quote_author=quote_author,
-                author_id=current_user.id
+    quote = new_quote[0]
+    print(quote)
+    writer = new_quote[1]
+    body = request.form.get("content")
+    post_title = request.form.get("post-title")
+    post_id = engine.generate_custom_id()
+    current_date = datetime.datetime.now()
+    formatted_datetime = current_date.strftime("%d/%m/%Y")
+    if request.method == "POST":
+        new_post = Posts(
+            quote=quote,
+            body=body,
+            id=post_id,
+            user=current_user,
+            date=formatted_datetime,
+            user_quote=post_title,
+            quote_author=writer,
+            author_id=current_user.id
             )
-            users.session.add(new_post)
-            users.session.commit()
-            print("new post entered into the database.")
-            return redirect(url_for("see_post", form=form, current_user=current_user, post_id=post_id,
-                                    redirect_from=redirect_from))
-    return render_template("Write.html", form=form, current_user=current_user, quote=new_quote,
-                           redirect_from=redirect_from)
+        users.session.add(new_post)
+        users.session.commit()
+        return redirect(url_for("see_post", current_user=current_user, post_id=post_id))
+    return render_template("Write.html", current_user=current_user, quote=new_quote, writer=writer,redirect_from="home")
 
 @app.route("/write-from-kindle/<int:quote_id>",methods=["POST","GET"])
 @login_required
