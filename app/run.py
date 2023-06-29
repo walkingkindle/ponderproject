@@ -107,7 +107,7 @@ oauth.init_app(app)
 TWITTER_CLIENT_ID = config.TWITTER_CLIENT_ID
 TWITTER_CLIENT_SECRET = config.TWITTER_CLIENT_SECRET
 twitter_blueprint = make_twitter_blueprint(
-    api_key= config.TWITTER_API_KEY,api_secret=config.TWITTER_API_SECRET_KEY
+    api_key= config.TWITTER_API_KEY,api_secret=config.TWITTER_API_SECRET_KEY,redirect_url="http://127.0.0.1:5000/twitter_login"
 )
 app.register_blueprint(twitter_blueprint,url_prefix="/twitter_login")
 
@@ -420,6 +420,7 @@ def confirm_email(token):
 
 @app.route("/twitter_login")
 def twitter_login():
+    print(request.url)
     if not twitter.authorized:
         return redirect(url_for('twitter.login'))
     account_info = twitter.get('account/settings.json')
@@ -429,6 +430,8 @@ def twitter_login():
         account_info_json = account_info.json()
         return f"sucess, {account_info_json['screen_name']}"
     return "request_failed"
+
+
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = Register()
@@ -472,6 +475,7 @@ def login_with_google():
 def log_in():
     has_account = request.args.get('has_account')
     expired = request.args.get("expired")
+    reset = request.args.get("reset")
     print(expired)
     if request.method == 'POST':
         entered_email = request.form.get('email')
@@ -493,7 +497,7 @@ def log_in():
             return render_template("auth/sign-in.html", email_doesnt_exist=email_doesnt_exist)
     else:
         entered_email = request.args.get('email', '')
-        return render_template("auth/sign-in.html", email=entered_email,has_account=has_account,expired=expired)
+        return render_template("auth/sign-in.html", email=entered_email,has_account=has_account,expired=expired,reset=reset)
 
 
 
@@ -507,7 +511,7 @@ def new_password(token):
         hashed_password = generate_password_hash(password=password, method="pbkdf2:sha256", salt_length=8)
         user.password = hashed_password
         users.session.commit()
-        return redirect(url_for('home'))
+        return redirect(url_for('log_in',reset=True))
     return render_template('reset-password.html',form=form)
 
 

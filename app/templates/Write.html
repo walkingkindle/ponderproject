@@ -46,6 +46,21 @@ config.toolbar = [
   </head>
   <body>
   <script>
+  $(document).ready(function(){
+
+    if (screen.width > 800) {
+    swal.fire({ position: 'center', customClass: 'swal-height', showConfirmButton: false,
+    width: 600, padding: 150, background: '#fff url(../custom/media/misc/IMAGE2.jpg)
+    no-repeat', backdrop: 'rgba(10, 10, 10, 0.65)', timer: 10000 });
+    }
+    if (screen.width >= 800) {
+    swal.fire({ position: 'center', customClass: 'swal-height', showConfirmButton: false,
+    width: 600, padding: 150, background: '#fff url(../custom/media/misc/IMAGE1.jpg)
+    no-repeat', backdrop: 'rgba(10, 10, 10, 0.65)', timer: 10000 });
+    }
+    });
+    </script>
+  <script>
           Swal.fire({
           title: "Turn the quote Into a Post",
           text: "Why write about a quote? Perhaps it has helped you in life, brought you wisdom or made you feel better about yourself. Furthermore, if you try to explain the quote to yourself(or someone else) it helps you retain it.",
@@ -53,8 +68,6 @@ config.toolbar = [
           confirmButtonText: "Alright!"
         });
   </script>
-
-
     <div class="container">
       <div class="row row-cols-12">
         <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top justify-content-center">
@@ -138,7 +151,7 @@ config.toolbar = [
 
 
     <div class="container" id="text-editor-div">
-      <div class="options">
+      <div class="options d-flex justify-content-center">
         <!----------- Text Format ------------>
         <button id="bold" class="option-button format">
           <i class="fa-solid fa-bold"></i>
@@ -234,7 +247,7 @@ config.toolbar = [
 
 <div class="container justify-content-center" id="button-cont">
   <div class="row justify-content-center">
-    <div class="col-2 justify-content-center">
+    <div class="col-12 text-center">
       <button class="btn btn-lg btn-outline-primary" id="submit-button">Create Post</button>
     </div>
 

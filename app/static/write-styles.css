@@ -135,6 +135,21 @@ blockquote{
   margin-top: 10px;
 
 }
+.swal-height {
+    height: 600px;
+    width: 600px;
+}
+
+@media (max-width: 915px) {
+  .swal2-modal {
+    margin-left: -170px;
+    width: 70%;
+    height: 70%;
+  }
+  #ponder-logo{
+    display: none;
+  }
+}
 
 #ponder-logo{
  position: relative;

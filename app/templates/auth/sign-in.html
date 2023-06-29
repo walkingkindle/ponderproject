@@ -101,6 +101,13 @@
       </nav>
     </div>
     {% endif %}
+     {% if reset %}
+  <script>
+    $(function() {
+      toastr.sucess("Password reset was a sucess. Please sign in with your new information.");
+    });
+  </script>
+  {% endif %}
   {% if email_doesnt_exist %}
   <script>
     $(function() {
