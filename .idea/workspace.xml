@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adjusting responsiveness." />
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adjusting font size">
+      <change beforePath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Upload-File.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Upload-File.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,13 +97,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00131" summary="Fixing invalid csrf token deployment error">
-      <created>1686303309187</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
-      <option name="project" value="LOCAL" />
-      <updated>1686303309187</updated>
     </task>
     <task id="LOCAL-00132" summary="Fixing invalid csrf token deployment error">
       <created>1686311431572</created>
@@ -438,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688056563276</updated>
     </task>
-    <option name="localTasksCounter" value="180" />
+    <task id="LOCAL-00180" summary="Adjusting font size">
+      <created>1688056744046</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1688056744047</updated>
+    </task>
+    <option name="localTasksCounter" value="181" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -456,7 +459,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Creating an option for the user to select a book from his/her highlights." />
     <MESSAGE value="Fixing bugs in the select app, and modifying." />
     <MESSAGE value="Reformatting dashboard." />
     <MESSAGE value="Finallizing reformatted Dashboard." />
@@ -481,6 +483,7 @@
     <MESSAGE value="Attempting to implement twitter log_in" />
     <MESSAGE value="Fixing a log in exception." />
     <MESSAGE value="Adjusting responsiveness." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusting responsiveness." />
+    <MESSAGE value="Adjusting font size" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusting font size" />
   </component>
 </project>

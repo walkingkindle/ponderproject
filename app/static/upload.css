@@ -25,9 +25,6 @@ body ::selection {
 
   }
 
-#row1 {
-	margin-left: 300px;
-}
 @media(max-width:900px){
   body{
   margin-top: 200px;

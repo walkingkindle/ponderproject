@@ -41,12 +41,6 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-<!--              <li class="nav-item {% if request.path == url_for('home') %}active{% endif %}">-->
-<!--                <a class="nav-link" aria-current="page" href="{{url_for('home')}}">Home</a>-->
-<!--              </li>-->
-<!--              <li class="nav-item {% if request.path == url_for('log_out') %}active{% endif %}">-->
-<!--                <a class="nav-link" href="{{ url_for('log_out') }}">Log out</a>-->
-<!--              </li>-->
               <li class="nav-item {% if request.path == url_for('dashboard') %}active{% endif %}">
                 <a class="nav-link" href="{{url_for('dashboard')}}">Dashboard</a>
               </li>
@@ -61,10 +55,10 @@
       toastr.warning("You should write upload your Kindle My Clippings file before heading to the dashboard.");
     });
     {% endif %}
-   <div class="container">
-  <div class="row" id="row1">
-    <div class="col-md-6">
-      <h1 class="big-heading">Which Type are you?</h1>
+   <div class="container justify-content-center">
+  <div class="row justify-content-center" id="row1">
+    <div class="col-md-12 justify-content-center">
+      <h1 class="big-heading text-center">Which Type are you?</h1>
     </div>
   </div>
 </div>
