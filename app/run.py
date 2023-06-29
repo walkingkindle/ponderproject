@@ -182,6 +182,8 @@ def home():
     email_sent = request.args.get('email_sent')
     expired = request.args.get('expired')
     has_account = request.args.get('has_account')
+    if has_account:
+        return redirect(url_for('log_in',has_account=has_account))
     if expired:
         email = request.args.get('email')
         user = users.session.query(User).filter_by(email=email).first()
@@ -421,7 +423,8 @@ def twitter_login():
     if not twitter.authorized:
         return redirect(url_for('twitter.login'))
     account_info = twitter.get('account/settings.json')
-
+    if twitter.authorized:
+        print("true")
     if account_info.ok:
         account_info_json = account_info.json()
         return f"sucess, {account_info_json['screen_name']}"

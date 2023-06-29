@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing minor changes.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Attempting to implement twitter log_in">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/auth/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/sign-in.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,13 +97,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00127" summary="Attempting to fix werzeug error in development.">
-      <created>1686249284478</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1686249284478</updated>
     </task>
     <task id="LOCAL-00128" summary="Attempting to fix werzeug error in development.">
       <created>1686249714399</created>
@@ -442,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687972092674</updated>
     </task>
-    <option name="localTasksCounter" value="176" />
+    <task id="LOCAL-00176" summary="Attempting to implement twitter log_in">
+      <created>1688026136926</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1688026136927</updated>
+    </task>
+    <option name="localTasksCounter" value="177" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -460,7 +459,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixing toastr on deployment server." />
     <MESSAGE value="Fixing an error on search html, where if the user tries to append books with the same name, a box message shows up." />
     <MESSAGE value="Fixing an error where the Author name wouldn't be shown in the Flask Create Post form." />
     <MESSAGE value="Creating an option for the user to select a book from his/her highlights." />
@@ -485,6 +483,7 @@
     <MESSAGE value="Helping the Write page work better." />
     <MESSAGE value="Updating reset password." />
     <MESSAGE value="Fixing minor changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing minor changes." />
+    <MESSAGE value="Attempting to implement twitter log_in" />
+    <option name="LAST_COMMIT_MESSAGE" value="Attempting to implement twitter log_in" />
   </component>
 </project>
