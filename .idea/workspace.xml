@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing a log in exception.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/write-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/write-styles.css" afterDir="false" />
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adjusting responsiveness.">
+      <change beforePath="$PROJECT_DIR$/app/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Edit-User.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Edit-User.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Upload-File.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Upload-File.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/about-us.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/about-us.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/auth/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/sign up.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/auth/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/sign-in.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/see-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/see-post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/select.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/select.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,13 +108,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00129" summary="Attempting to fix werzeug error in development.">
-      <created>1686300891731</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1686300891731</updated>
     </task>
     <task id="LOCAL-00130" summary="fixing atrribute not found error">
       <created>1686301778885</created>
@@ -444,7 +445,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688027348789</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL-00178" summary="Adjusting responsiveness.">
+      <created>1688056147222</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1688056147222</updated>
+    </task>
+    <option name="localTasksCounter" value="179" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -462,7 +470,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixing an error where the Author name wouldn't be shown in the Flask Create Post form." />
     <MESSAGE value="Creating an option for the user to select a book from his/her highlights." />
     <MESSAGE value="Fixing bugs in the select app, and modifying." />
     <MESSAGE value="Reformatting dashboard." />
@@ -487,6 +494,7 @@
     <MESSAGE value="Fixing minor changes." />
     <MESSAGE value="Attempting to implement twitter log_in" />
     <MESSAGE value="Fixing a log in exception." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing a log in exception." />
+    <MESSAGE value="Adjusting responsiveness." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusting responsiveness." />
   </component>
 </project>
