@@ -13,7 +13,7 @@ from flask_ckeditor import CKEditor
 from flask_session import Session
 from flask_wtf.csrf import CSRFProtect
 from sqlalchemy.exc import IntegrityError
-
+from flask_dance.contrib.twitter import make_twitter_blueprint,twitter
 import engine
 from my_blueprint.views import my_blueprint
 # WERZEUG
@@ -45,7 +45,7 @@ from sqlalchemy import or_, func
 
 # GOOGLE AUTH
 import google.auth.transport.requests
-from authlib.integrations.flask_client import OAuth
+from authlib.integrations.flask_client import OAuth,OAuthError
 import os
 import pathlib
 import requests
@@ -104,6 +104,13 @@ s = URLSafeTimedSerializer(config.urlsafe_secret)
 # OATH GOOGLE
 oauth = OAuth(app)
 oauth.init_app(app)
+TWITTER_CLIENT_ID = config.TWITTER_CLIENT_ID
+TWITTER_CLIENT_SECRET = config.TWITTER_CLIENT_SECRET
+twitter_blueprint = make_twitter_blueprint(
+    api_key= config.TWITTER_API_KEY,api_secret=config.TWITTER_API_SECRET_KEY
+)
+app.register_blueprint(twitter_blueprint,url_prefix="/twitter_login")
+
 
 
 client_secrets_file = os.path.join(pathlib.Path(__file__).parent, "client-secret.json")
@@ -409,17 +416,16 @@ def confirm_email(token):
 
 
 
-@app.route('/login_with_twitter')
-def login_with_twitter():
-    pass
-    #needs website link
+@app.route("/twitter_login")
+def twitter_login():
+    if not twitter.authorized:
+        return redirect(url_for('twitter.login'))
+    account_info = twitter.get('account/settings.json')
 
-@app.route("/twitter-authorized")
-def twitter():
-    pass
-    #needs website link
-
-
+    if account_info.ok:
+        account_info_json = account_info.json()
+        return f"sucess, {account_info_json['screen_name']}"
+    return "request_failed"
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = Register()
