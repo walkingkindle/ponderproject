@@ -202,8 +202,11 @@ def home():
 def dashboard():
     post_images = ["/static/europe-street-1.jpg","/static/europe-street-2.jpg","/static/europe-street-3.jpg"]
     username = current_user.username
-    random_quote = users.session.query(Books).filter_by(highlight_id=current_user.id).order_by(func.random()).first()
-    id = random_quote.id
+    try:
+        random_quote = users.session.query(Books).filter_by(highlight_id=current_user.id).order_by(func.random()).first()
+        id = random_quote.id
+    except AttributeError:
+        return redirect(url_for('upload',not_uploaded=True))
     quote = random_quote.original_quote
     writer = random_quote.writer_quote
     all_posts = users.session.query(Posts).filter_by(author_id=current_user.id).all()
