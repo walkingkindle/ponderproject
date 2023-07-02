@@ -107,7 +107,8 @@ oauth.init_app(app)
 TWITTER_CLIENT_ID = config.TWITTER_CLIENT_ID
 TWITTER_CLIENT_SECRET = config.TWITTER_CLIENT_SECRET
 twitter_blueprint = make_twitter_blueprint(
-    api_key= config.TWITTER_API_KEY,api_secret=config.TWITTER_API_SECRET_KEY,redirect_url="http://127.0.0.1:5000/twitter_login"
+    api_key= config.TWITTER_API_KEY,api_secret=config.TWITTER_API_SECRET_KEY,redirect_url="http://127.0.0.1:5000/"
+                                                                                          "twitter_login"
 )
 app.register_blueprint(twitter_blueprint,url_prefix="/twitter_login")
 
@@ -194,7 +195,8 @@ def home():
     if sent:
         print(sent)
     return render_template("Index.html", quote=quote, writer=writer, sent=sent, current_user=current_user,
-                           how_many=how_many,email_sent=email_sent,expired=expired,has_account=has_account,profile_photo_updated=profile_photo_updated)
+                           how_many=how_many,email_sent=email_sent,expired=expired,has_account=has_account,
+                           profile_photo_updated=profile_photo_updated)
 
 
 @app.route("/dashboard",methods=["POST","GET"])
@@ -203,7 +205,8 @@ def dashboard():
     post_images = ["/static/europe-street-1.jpg","/static/europe-street-2.jpg","/static/europe-street-3.jpg"]
     username = current_user.username
     try:
-        random_quote = users.session.query(Books).filter_by(highlight_id=current_user.id).order_by(func.random()).first()
+        random_quote = users.session.query(Books).filter_by(highlight_id=current_user.id).\
+            order_by(func.random()).first()
         id = random_quote.id
     except AttributeError:
         return redirect(url_for('upload',not_uploaded=True))
@@ -214,7 +217,9 @@ def dashboard():
     print(post_count)
     if request.method == "POST":
         return redirect(url_for('write_from_kindle',quote_id=id))
-    return render_template("Dashboard.html",quote_id=random_quote.id, quote=quote, writer=writer, username=username,post_images=random.choice(post_images),all_posts=all_posts,post_count=post_count)
+    return render_template("Dashboard.html",quote_id=random_quote.id, quote=quote, writer=writer,
+                           username=username,post_images=random.choice(post_images),
+                           all_posts=all_posts,post_count=post_count)
 
 @app.route("/select",methods=["POST","GET"])
 @login_required
@@ -246,7 +251,8 @@ def select():
                     highlight_owner=current_user,
                     original_quote= highlight["quote"],
                     writer_quote=highlight["writer"],
-                    date_added=highlight["date"]
+                    date_added=highlight["date"],
+                    paper=False
                 )
                 users.session.add(new_highlight)
                 users.session.commit()
@@ -303,9 +309,6 @@ def upload():
 @login_required
 def see_post(post_id):
     requested_post = Posts.query.get(post_id)
-    # share_link_twitter = engine.link_shortener("https://twitter.com/intent/tweet?text=http://ponder.ink/{{url_for('see_post',post_id=post.id)}}")
-    # share_link_linkedin = engine.link_shortener("https://www.linkedin.com/shareArticle?mini=true&url=http://ponder.ink/{{url_for('see_post',post_id=post.id)}}")
-    # share_link_facebook = engine.link_shortener("https://www.facebook.com/sharer/sharer.php?u=http%3A//ponder.ink/%7B%7Burl_for('see_post',post_id=post.id)%7D%7D")
     return render_template("see-post.html", post=requested_post)
 
 
@@ -315,16 +318,12 @@ def nothing_selected():
 
 
 
-# @app.route("/search-page")
-# def search_page():
-#     return redirect(url_for('my_blueprint.coming_soon'))
-
-
 # LAGGING WITH THE LATEST DATABASE UPDATES, UPDATE AS NECESSARY
 @app.route("/search-page", methods=['POST', 'GET'])
 @login_required
 def search_page():
-    """A feature which gives the user a choice to search the books and authors in case he/she does not own a Kindle."""
+    """A feature which gives the user a choice to
+     search the books and authors in case he/she does not own a Kindle."""
     not_given= request.args.get('not_given')
     selected_highlights = []
     authors = []
@@ -338,15 +337,15 @@ def search_page():
         for author in authors:
             try:
                 try:
-                    #an exception for user not searching anything in the page.
                     quote = wikiquotes.get_quotes(author=author, raw_language='en')
-                    selected_highlights.append({
-                        "author" : author,
-                        "quote" : quote,
-                        "date" : formatted_datetime
-                    })
-                    print(selected_highlights)
+                    for q in quote:
+                        selected_highlights.append({
+                            "author" : author,
+                            "quote" : q,
+                            "date" : formatted_datetime
+                        })
                 except KeyError:
+                    #an exception for user not searching anything in the page.
                     return redirect(url_for('search_page',not_given=True))
             except TitleNotFound:
                 #an exception when the API cannot find books with the designated name.
@@ -359,13 +358,12 @@ def search_page():
                     highlight_owner = current_user,
                     original_quote = str(higlight['quote']),
                     writer_quote = higlight['author'],
-                    date_added = higlight['date']
+                    date_added = higlight['date'],
+                    paper = True
                 )
                 users.session.add(new_highlight)
                 users.session.commit()
-        quote_row=  users.session.query(Books).filter_by(date_added=formatted_datetime).order_by(func.random()).first()
-        quote_id = quote_row.id
-        return redirect(url_for('paper_reader', quote_id=quote_id))
+        return redirect(url_for('paper_reader'))
     return render_template("Search.html",redirect_from='search',not_given=not_given)
 
 @app.route("/contribute")
@@ -460,7 +458,8 @@ def register():
             token = s.dumps(e_mail,salt='email-confirm')
             link = url_for('confirm_email',token=token,_external=True,email=e_mail,user_id=new_user.id)
             session['id'] = new_user.id
-            msg = Message(' Confirm Email ', sender=app.config['MAIL_SENDER'], recipients=[e_mail],body=engine.confirmation_email(link))
+            msg = Message(' Confirm Email ', sender=app.config['MAIL_SENDER'],
+                          recipients=[e_mail],body=engine.confirmation_email(link))
             mail.send(msg)
             email_sent= True
         return redirect(url_for('home',email_sent=email_sent,email=e_mail))
@@ -500,7 +499,8 @@ def log_in():
             return render_template("auth/sign-in.html", email_doesnt_exist=email_doesnt_exist)
     else:
         entered_email = request.args.get('email', '')
-        return render_template("auth/sign-in.html", email=entered_email,has_account=has_account,expired=expired,reset=reset)
+        return render_template("auth/sign-in.html", email=entered_email,has_account=has_account,
+                               expired=expired,reset=reset)
 
 
 
@@ -604,7 +604,8 @@ def about():
 @app.route('/write', methods=['GET', 'POST'])
 @login_required
 def write():
-    """This route will redirect the user to a random quote, which will then become a part of his library, after the post comment."""
+    """This route will redirect the user to a random quote,
+     which will then become a part of his library, after the post comment."""
     new_quote = engine.get_random_quote()
     quote = new_quote[0]
     print(quote)
@@ -658,21 +659,22 @@ def write_from_kindle(quote_id):
         users.session.commit()
         return redirect(url_for("see_post", quote=quote_row.original_quote, current_user=current_user,
                                 post_id=post_id))
-    return render_template("Write.html", quote=quote_row.original_quote, writer=quote_row.writer_quote, current_user=current_user,quote_id=quote_row.id)
+    return render_template("Write.html", quote=quote_row.original_quote, writer=quote_row.writer_quote,
+                           current_user=current_user,quote_id=quote_row.id)
 
 
-@app.route('/paper-reader/<int:quote_id>', methods=["POST", "GET"])
-def paper_reader(quote_id):
+@app.route('/paper-reader/', methods=["POST", "GET"])
+def paper_reader():
     """A feature that searches books from an API and gets famous quotes from them. Used in case the user does not own a
      Kindle"""
-    quote_row = users.session.query(Books).filter_by(id=quote_id).first()
+    quote_row = users.session.query(Books).filter_by(paper=True).order_by(func.random()).first()
     quote = quote_row.original_quote
+    print(f"quote is{quote}")
     writer = quote_row.writer_quote
     body = request.form.get("content")
     post_title = request.form.get("post-title")
     current_datetime = datetime.datetime.now()
     formatted_datetime = current_datetime.strftime("%d/%m/%Y")
-    #data mismatch?
     if request.method == "POST":
         new_post = Posts(
             quote=f"{quote}",
@@ -686,7 +688,8 @@ def paper_reader(quote_id):
         users.session.add(new_post)
         users.session.commit()
         return redirect(url_for("see_post", current_user=current_user, post_id=new_post.id))
-    return render_template("Write.html", current_user=current_user,contribute=contribute,quote=quote,writer=writer,quote_id=quote_row.id)
+    return render_template("Write.html", current_user=current_user,contribute=contribute,
+                           quote=quote,writer=writer,quote_id=quote_row.id)
 
 @app.route("/reset/<int:user_id>")
 def reset_photo(user_id):

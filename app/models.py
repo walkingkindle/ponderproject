@@ -48,6 +48,7 @@ class Books(users.Model):
     original_quote = users.Column(users.String,nullable=False)
     writer_quote = users.Column(users.String,nullable=False)
     date_added = users.Column(users.String,nullable=True)
+    paper = users.Column(users.Boolean)
 
 
 

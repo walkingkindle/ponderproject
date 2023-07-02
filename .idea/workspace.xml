@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing responsiveness on choose_path">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Creating an exception where the user who has not uploaded his My Clippings gets redirected to the 'upload' route instead.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/see-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/see-post.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,13 +98,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00133" summary="Fixing invalid csrf token deployment error">
-      <created>1686312096549</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1686312096549</updated>
     </task>
     <task id="LOCAL-00134" summary="Fixing invalid csrf token deployment error">
       <created>1686312556375</created>
@@ -443,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688057272394</updated>
     </task>
-    <option name="localTasksCounter" value="182" />
+    <task id="LOCAL-00182" summary="Creating an exception where the user who has not uploaded his My Clippings gets redirected to the 'upload' route instead.">
+      <created>1688057652181</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1688057652181</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -461,7 +460,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Reformatting dashboard." />
     <MESSAGE value="Finallizing reformatted Dashboard." />
     <MESSAGE value="Updating database and fixing responsiveness. Addded new table &quot;Books&quot; so that the user can actually choose which books can he add ." />
     <MESSAGE value="Implementing and fixing bugs on the select page, as well as parsing select page into and from the dashboard" />
@@ -486,6 +484,7 @@
     <MESSAGE value="Adjusting responsiveness." />
     <MESSAGE value="Adjusting font size" />
     <MESSAGE value="Fixing responsiveness on choose_path" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing responsiveness on choose_path" />
+    <MESSAGE value="Creating an exception where the user who has not uploaded his My Clippings gets redirected to the 'upload' route instead." />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating an exception where the user who has not uploaded his My Clippings gets redirected to the 'upload' route instead." />
   </component>
 </project>
