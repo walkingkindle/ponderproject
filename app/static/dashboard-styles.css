@@ -51,6 +51,7 @@
 #write-button{
   margin-bottom: 70px;
   border-style: solid;
+  border-width: medium;
   border-radius: 22px;
   border-color: #ECE5C7;
   background-color: #fff;

@@ -84,7 +84,22 @@ with app.app_context():
     users.create_all()
 
 
-
+def create_sample_post(current_user):
+    """Just creating a sample post to show the user what posts, or quote comments really are, so to speak."""
+    sample_post = Posts(
+        quote="“It is important to expect nothing, to take every experience,"
+              " including the negative ones, as merely steps on the path, and to proceed.”",
+        body="Here goes something you can write about the quote, for example: This quote means... Or Ram Dass was...",
+        id=engine.generate_custom_id(),
+        user=current_user,
+        date= None,
+        user_quote="Sample Post",
+        quote_author="Ram Dass",
+        author_id=current_user.id
+    )
+    users.session.add(sample_post)
+    users.session.commit()
+    return "Sucess!"
 
 
 
@@ -202,6 +217,7 @@ def home():
 @app.route("/dashboard",methods=["POST","GET"])
 @login_required
 def dashboard():
+    all_posts = users.session.query(Posts).filter_by(author_id=current_user.id).all()
     post_images = ["/static/europe-street-1.jpg","/static/europe-street-2.jpg","/static/europe-street-3.jpg"]
     username = current_user.username
     try:
@@ -228,38 +244,46 @@ def select():
     nothing_selected = request.args.get("nothing_selected")
     book_list = engine.get_all_writers(clippings_path=app.config['UPLOAD_FOLDER'],filename=clippings_filename)
     highlights = engine.format_kindle_clippings(clippings_path=app.config['UPLOAD_FOLDER'],filename=clippings_filename)
-    try:
-        if request.method == 'POST':
-            selected_items = request.form.get('selected-books')
-            real_book_list = selected_items.split("||")
-            real_selected_highlights = []
-            for highlight in highlights:
-                parts = highlight.split("\n")
-                for book in real_book_list:
-                    if book.strip() in highlight:
-                        writer = parts[0]
-                        quote = parts[3]
-                        date = parts[1]
-                        real_selected_highlights.append({
-                            "writer": writer,
-                            "quote": quote,
-                            "date": date
-                        })
-            for highlight in real_selected_highlights:
-                new_highlight = Books(
-                    id=engine.generate_custom_id(),
-                    highlight_owner=current_user,
-                    original_quote= highlight["quote"],
-                    writer_quote=highlight["writer"],
-                    date_added=highlight["date"],
-                    paper=False
+    if request.method == 'POST':
+        selected_items = request.form.get('selected-books')
+        real_book_list = selected_items.split("||")
+        real_selected_highlights = []
+        for highlight in highlights:
+            parts = highlight.split("\n")
+            for book in real_book_list:
+                if book.strip() in highlight:
+                 try:
+                    writer = parts[0]
+                    quote = parts[3]
+                    print(quote)
+                    date = parts[1]
+                    real_selected_highlights.append({
+                        "writer": writer,
+                        "quote": quote,
+                        "date": date
+                    })
+                 except IndexError:
+                    pass # an exception raised after noticing that sometimes, there are highlights saved with a writer,
+                    # date added, but no actual highlights. In this case, skip these highlights and continue onto the
+                   # other hihglights that the book might have had
+        for highlight in real_selected_highlights:
+            new_highlight = Books(
+                id=engine.generate_custom_id(),
+                highlight_owner=current_user,
+                original_quote= highlight["quote"],
+                writer_quote=highlight["writer"],
+                date_added=highlight["date"],
+                paper=False
                 )
-                users.session.add(new_highlight)
-                users.session.commit()
-            return redirect(url_for('dashboard'))
-        return render_template('select.html',book_list=book_list,nothing_selected=nothing_selected)
-    except IndexError:
-        return redirect(url_for('select',nothing_selected=True))
+            users.session.add(new_highlight)
+            users.session.commit()
+        posts = users.session.query(Posts).filter_by(author_id=current_user.id).first()
+        if posts == None:
+            create_sample_post(current_user=current_user)
+        return redirect(url_for('dashboard'))
+    return render_template('select.html',book_list=book_list,nothing_selected=nothing_selected)
+    # except IndexError:
+    #     return redirect(url_for('select',nothing_selected=True))
 
 
 @app.route('/notification')
@@ -333,12 +357,15 @@ def search_page():
         for i in range(1, 6):
             author = request.form.get('author')
             authors.append(author)
-        print(authors)
-        for author in authors:
+        real_authors = set(authors)
+        print(real_authors)
+        for author in real_authors:
             try:
                 try:
                     quote = wikiquotes.get_quotes(author=author, raw_language='en')
-                    for q in quote:
+                    real_quotes = set(quote)
+                    print(real_quotes)
+                    for q in real_quotes:
                         selected_highlights.append({
                             "author" : author,
                             "quote" : q,

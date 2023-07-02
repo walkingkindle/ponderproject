@@ -8,6 +8,8 @@ import pyshorteners
 import re
 import string
 
+
+
 def configure():
     """Protected info configuration"""
     load_dotenv()
@@ -69,6 +71,9 @@ def format_kindle_clippings(clippings_path,filename):
     highlight_list.sort()
 
     return highlight_list
+
+
+
 
 
 def get_all_writers(clippings_path,filename):

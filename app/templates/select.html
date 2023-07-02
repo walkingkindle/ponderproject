@@ -84,7 +84,7 @@
         <tbody>
         {% for book in book_list %}
           <tr>
-            <th scope="row"><input type="checkbox" name="selected_items" id="selected-items" value="{{book}}"></th>
+            <th scope="row" style="width: 1%;"><input type="checkbox" name="selected_items" id="selected-items" value="{{book}}"></th>
             <td>{{ book }}</td>
           </tr>
         {% endfor %}
@@ -97,13 +97,17 @@
     <input type="text" id="selected-books" name="selected-books" readonly>
   </div>
 </div>
-
+  <div class="container-fluid">
   <div class="row justify-content-center">
-    <div class="col-auto">
-      <button type="submit" id="submit-button" class="btn btn-lg btn-outline-primary">Submit</button>
+    <div class="col-6 col-md-3 justify-content-center" style="display:flex;">
+      <button type="submit" id="delete-button" class="btn btn-lg btn-outline-danger">Delete</button>
+    </div>
+    <div class="col-6 col-md-3 justify-content-center" style="display: flex;">
+      <a class="btn btn-lg btn-outline-info" href="{{ url_for('upload') }}">Add Books</a>
     </div>
   </div>
 </div>
+  </div>
    </form>
 
 
@@ -111,21 +115,11 @@
 <script>
          Swal.fire({
          title: "Your Books",
-         text: "Tick the box on the side to select books you'd like to receive highlights from.",
+         text: "Tick the box on the side to select books you'd like to receive highlights from. Press submit without ticking anything to select all books.",
          icon: "info",
          confirmButtonText: "OK"
        });
 </script>
-{% if nothing_selected %}
-<script>
-     Swal.fire({
-     title: "Error",
-     text: "Please choose at least one book before continuing.",
-     icon: "error",
-     confirmButtonText: "OK"
-     });
-</script>
-{% endif %}
 <form action="{{url_for('select')}}" method="post">
 <div class="container">
   <div class="row">
@@ -136,7 +130,7 @@
             <th scope="col" colspan="2">Your Kindle Selections</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="text-center">
         {% for book in book_list %}
           <tr>
             <th scope="row"><input type="checkbox" name="selected_items" id="selected-items" value="{{book}}"></th>
