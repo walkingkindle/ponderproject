@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing an exception where the paper reader will store and display all the quotes at once, rather than one at a time.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing an exception where if I click on the select page, it sometimes throws, please select at least one book.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/engine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/dashboard-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/dashboard-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/select-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/select-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/see-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/see-post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/select.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/select.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/contact-me.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/contact-me.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,13 +98,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00135" summary="Fixing invalid csrf token deployment error">
-      <created>1686312715526</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1686312715526</updated>
     </task>
     <task id="LOCAL-00136" summary="Fixing invalid csrf token deployment error">
       <created>1686314676672</created>
@@ -448,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688288457067</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <task id="LOCAL-00184" summary="Fixing an exception where if I click on the select page, it sometimes throws, please select at least one book.">
+      <created>1688295480690</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1688295480690</updated>
+    </task>
+    <option name="localTasksCounter" value="185" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -466,7 +460,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updating database and fixing responsiveness. Addded new table &quot;Books&quot; so that the user can actually choose which books can he add ." />
     <MESSAGE value="Implementing and fixing bugs on the select page, as well as parsing select page into and from the dashboard" />
     <MESSAGE value="Adding an option on paper reader, that adds a book to the database as well." />
     <MESSAGE value="Adding some images and a new page, which will show all the books and selections the user has, with delete options." />
@@ -491,6 +484,7 @@
     <MESSAGE value="Fixing responsiveness on choose_path" />
     <MESSAGE value="Creating an exception where the user who has not uploaded his My Clippings gets redirected to the 'upload' route instead." />
     <MESSAGE value="Fixing an exception where the paper reader will store and display all the quotes at once, rather than one at a time." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing an exception where the paper reader will store and display all the quotes at once, rather than one at a time." />
+    <MESSAGE value="Fixing an exception where if I click on the select page, it sometimes throws, please select at least one book." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing an exception where if I click on the select page, it sometimes throws, please select at least one book." />
   </component>
 </project>
