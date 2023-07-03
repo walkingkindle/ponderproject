@@ -81,6 +81,7 @@ app.config['MAIL_SENDER'] = config.email
 app.config['MAIL_DEFAULT_ADDRESS'] = config.email
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
+app.config['SESSION_COOKIE_SAMESITE'] = "Lax"
 Session(app)
 with app.app_context():
     users.create_all()
