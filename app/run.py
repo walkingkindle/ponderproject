@@ -2,6 +2,8 @@
 # FLASK
 import json
 
+from oauthlib.oauth2 import MismatchingStateError
+
 import config
 import forms
 from flask_sqlalchemy import SQLAlchemy
@@ -488,6 +490,7 @@ def twitter_login():
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = Register()
+    googlep = request.args.get("google_log_in_problem")
     if request.method == 'POST':
         e_mail = request.form.get("email")
         password = form.password.data
@@ -515,7 +518,7 @@ def register():
             mail.send(msg)
             email_sent= True
         return redirect(url_for('home',email_sent=email_sent,email=e_mail))
-    return render_template("auth/sign up.html", current_user=current_user, form=form)
+    return render_template("auth/sign up.html", current_user=current_user, form=form,googlep=googlep)
 
 
 @app.route('/login-with-google')
@@ -597,7 +600,10 @@ def reset_password():
 @app.route("/callback")
 def callback():
     """Google auth callback"""
-    flow.fetch_token(authorization_response=request.url)
+    try:
+        flow.fetch_token(authorization_response=request.url)
+    except MismatchingStateError:
+        return redirect(url_for('register',google_log_in_problem=True))
 
     if not session["state"] == request.args['state']:
         abort(500)

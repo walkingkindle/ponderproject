@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixed an exception where you can't send a blank message on contact me page.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Implementing next and previous buttons!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/dashboard-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/dashboard-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/write-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/write-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Write.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/contact-me.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/contact-me.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/auth/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/sign up.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,13 +98,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00137" summary="Fixing invalid csrf token deployment error">
-      <created>1686314691196</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1686314691196</updated>
     </task>
     <task id="LOCAL-00138" summary="Fixing invalid csrf token deployment error">
       <created>1686488879474</created>
@@ -446,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688391339460</updated>
     </task>
-    <option name="localTasksCounter" value="186" />
+    <task id="LOCAL-00186" summary="Implementing next and previous buttons!">
+      <created>1688394197300</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1688394197300</updated>
+    </task>
+    <option name="localTasksCounter" value="187" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -464,7 +460,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding an option on paper reader, that adds a book to the database as well." />
     <MESSAGE value="Adding some images and a new page, which will show all the books and selections the user has, with delete options." />
     <MESSAGE value="Finalizing page select and creating a condtion instead of making a new page, thus following the DRY principle." />
     <MESSAGE value="Fixing an error where the expired mail won't show." />
@@ -489,6 +484,7 @@
     <MESSAGE value="Fixing an exception where the paper reader will store and display all the quotes at once, rather than one at a time." />
     <MESSAGE value="Fixing an exception where if I click on the select page, it sometimes throws, please select at least one book." />
     <MESSAGE value="Fixed an exception where you can't send a blank message on contact me page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed an exception where you can't send a blank message on contact me page." />
+    <MESSAGE value="Implementing next and previous buttons!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing next and previous buttons!" />
   </component>
 </project>
