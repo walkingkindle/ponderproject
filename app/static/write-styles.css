@@ -7,8 +7,8 @@ body ::selection {
 }
 
 #quote-div{
-  padding-top: 40px;
-  padding-bottom: 40px;
+  text-align: center;
+  padding: 50px;
   border-style: solid;
   border-width: thin;
   border-radius: 22px;

@@ -46,7 +46,14 @@
 
 }
 
+#previous{
+  display: flex;
 
+}
+#next{
+  display:  flex;
+
+}
 
 #write-button{
   margin-bottom: 70px;

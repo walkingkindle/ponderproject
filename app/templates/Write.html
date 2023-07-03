@@ -119,7 +119,7 @@ config.toolbar = [
         {% if redirect_from == 'home' %}
         <blockquote class="text-center" id="ponder-quote">"{{ quote[0] }}</blockquote>
         {% else %}
-        <blockquote class="text-center" id="ponder-quote">{{ quote }}</blockquote>
+        <blockquote class="text-center" id="ponder-quote">"{{ quote }}"</blockquote>
         {% endif %}
         <p class="text-center">- {{ writer }}</p>
       </div>

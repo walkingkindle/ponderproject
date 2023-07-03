@@ -214,28 +214,53 @@ def home():
                            profile_photo_updated=profile_photo_updated)
 
 
-@app.route("/dashboard",methods=["POST","GET"])
+
+
+@app.route("/dashboard", methods=["POST", "GET"])
 @login_required
 def dashboard():
     all_posts = users.session.query(Posts).filter_by(author_id=current_user.id).all()
-    post_images = ["/static/europe-street-1.jpg","/static/europe-street-2.jpg","/static/europe-street-3.jpg"]
+    post_images = ["/static/europe-street-1.jpg", "/static/europe-street-2.jpg", "/static/europe-street-3.jpg"]
     username = current_user.username
+    current_index = session.get('quote_index', 0)
     try:
-        random_quote = users.session.query(Books).filter_by(highlight_id=current_user.id).\
-            order_by(func.random()).first()
+        all_quotes = users.session.query(Books).filter_by(highlight_id=current_user.id).all()
+
+        random_quote = all_quotes[current_index]
         id = random_quote.id
+
+        quote = random_quote.original_quote
+        writer = random_quote.writer_quote
     except AttributeError:
-        return redirect(url_for('upload',not_uploaded=True))
-    quote = random_quote.original_quote
-    writer = random_quote.writer_quote
+        return redirect(url_for('upload', not_uploaded=True))
     all_posts = users.session.query(Posts).filter_by(author_id=current_user.id).all()
     post_count = len(all_posts)
-    print(post_count)
     if request.method == "POST":
-        return redirect(url_for('write_from_kindle',quote_id=id))
-    return render_template("Dashboard.html",quote_id=random_quote.id, quote=quote, writer=writer,
-                           username=username,post_images=random.choice(post_images),
-                           all_posts=all_posts,post_count=post_count)
+      return redirect(url_for('write_from_kindle', quote_id=id))
+    session['quote_index'] = current_index
+    return render_template("Dashboard.html", quote_id=random_quote.id, quote=quote, writer=writer,
+                           username=username, post_images=random.choice(post_images),
+                           all_posts=all_posts, post_count=post_count)
+
+@app.route("/dashboard/previous", methods=["POST","GET"])
+@login_required
+def dashboard_previous():
+    all_quotes = users.session.query(Books).filter_by(highlight_id=current_user.id).all()
+    current_index = session.get('quote_index', 0)
+    current_index = (current_index - 1) % len(all_quotes)
+    session['quote_index'] = current_index
+
+    return redirect(url_for('dashboard'))
+
+@app.route("/dashboard/next", methods=["POST","GET"])
+@login_required
+def dashboard_next():
+    all_quotes = users.session.query(Books).filter_by(highlight_id=current_user.id).all()
+    current_index = session.get('quote_index', 0)
+    current_index = (current_index + 1) % len(all_quotes)
+    session['quote_index'] = current_index
+
+    return redirect(url_for('dashboard'))
 
 @app.route("/select",methods=["POST","GET"])
 @login_required
@@ -586,7 +611,6 @@ def callback():
         request=token_request,
         audience=config.GOOGLE_CLIENT_ID
     )
-    pprint.pprint(id_info)
     user = users.session.query(User).filter_by(email=id_info['email']).first()
     if user:
         return redirect(url_for('home',has_account=True))

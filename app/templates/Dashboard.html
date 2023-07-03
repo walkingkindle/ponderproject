@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/static/material-design-iconic-font.min.css">
     <!-- Main css -->
     <link rel="stylesheet" type="text/css" href="/static/dashboard-styles.css">
     <!-- Required meta tags -->
@@ -77,7 +77,7 @@
       <div class="container justify-content-center" id="quoteoftheday">
         <div class="row justify-content-center">
           <div class="col-12 text-center">
-            <h3 style="font-size:25px;"> Your quote of the day:</h3>
+            <h3 style="font-size:25px;"> Your Kindle Highlights:</h3>
             <div class="small-line"></div>
             </div>
           </div>
@@ -91,8 +91,14 @@
 
   <div class="container" id="btn-container">
   <div class="row justify-content-center" id="btn-row">
-    <div class="col-12 col-lg-3 justify-content-center">
+    <div class="col-6 col-lg-3 justify-content-center" id="previous">
+        <a href="{{ url_for('dashboard_previous') }}" class="btn btn btn-lg btn-outline-primary" id="write-button">Previous Quote</a>
+    </div>
+    <div class="col-6 col-lg-3 justify-content-center">
         <a href="{{url_for('write_from_kindle',quote_id=quote_id)}}" type="submit" class="btn btn btn-lg btn-outline-primary" id="write-button">Write about this quote</a>
+    </div>
+    <div class="col-6 col-lg-3 justify-content-center" id="next">
+        <a href="{{ url_for('dashboard_next') }}"  class="btn btn btn-lg btn-outline-primary" id="write-button">Next Quote</a>
     </div>
   </div>
 </div>
