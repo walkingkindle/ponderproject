@@ -113,7 +113,6 @@ config.toolbar = [
       <div class="col-12 mt-5 justify-content-center">
         <h3 class="text-center">Reflect and Ponder - Save Quote into a Post</h3>
         <div class="small-line"></div>
-
       </div>
       <div class="col mt-5 justify-content-center" id="quote-div">
         {% if redirect_from == 'home' %}
@@ -129,7 +128,9 @@ config.toolbar = [
   </div>
   {% if redirect_from == "home" %}
   <form action="{{ url_for('write') }}" method="post">
-    {% else %}
+    {% elif is_edit %}
+    <form action="{{ url_for('edit_post',post_id=post_id) }}" method="post">
+      {% else %}
     <form action="{{ url_for('write_from_kindle',quote_id=quote_id) }}" method="post">
       {% endif %}
     <div class="container-fluid mt-2">
@@ -140,7 +141,11 @@ config.toolbar = [
         <div class="row-fluid d-flex justify-content-center text-center">
           <div class="form-group d-flex justify-content-center">
             <div class="col-20 mt-2 d-flex justify-content-center">
+              {% if is_edit %}
+              <input type="text" name="post-title" value="{{ post.user_quote }}">
+              {% else %}
               <input type="text" placeholder="e.g. This quote is about being honest" name="post-title">
+              {% endif %}
             </div>
           </div>
           </div>
@@ -200,10 +205,10 @@ config.toolbar = [
       <button id="justifyLeft" class="option-button align">
         <i class="fa-solid fa-align-left"></i>
       </button>
-      <button id="justifyCenter" class="option-button-align">
+      <button id="justifyCenter" class="option-button align">
         <i class="fa-solid fa-align-center"></i>
       </button>
-      <button id="justifyRight" class="option button align">
+      <button id="justifyRight" class="option-button align">
         <i class="fa-solid fa-align-right"></i>
       </button>
       <button id="justifyFull" class="option-button align">
@@ -237,8 +242,14 @@ config.toolbar = [
         <label for="backColor">Highlight Color</label>
       </div>
     </div>
+    {% if is_edit %}
+    <div id="text-input" contenteditable="true" class="stretch" value="post.body">
+      {{ post.body|safe }}
+    </div>
+      {% else %}
+      <div id="text-input" class="stretch" contenteditable="true"></div>
+      {% endif %}
 
-    <div id="text-input" contenteditable="true"></div>
 </div>
 
 
@@ -248,9 +259,12 @@ config.toolbar = [
 <div class="container justify-content-center" id="button-cont">
   <div class="row justify-content-center">
     <div class="col-12 text-center">
-      <button class="btn btn-lg btn-outline-primary" id="submit-button">Create Post</button>
+      {% if is_edit %}
+      <button class="btn btn-lg btn-outline-primary" type="submit" id="submit-button">Submit Changes</button>
+      {% else %}
+      <button class="btn btn-lg btn-outline-primary" type="submit" id="submit-button">Create Post</button>
+      {% endif %}
     </div>
-
   </div>
 
 </div>

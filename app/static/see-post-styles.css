@@ -21,16 +21,24 @@
    border-radius: 22px;
    color:#6E07F3;
    background-color:#fff;
-   margin-right: 500px;
-   position: relative;
-   left: 250px;
-   top: 50px;
 }
 #edit-button:hover{
   color: #fff;
   background-color: #6E07F3;
 }
+#text-box{
+  display: flex;
 
+}
+.small-line{
+   border-style: solid none none none;
+   border-width: thin;
+   padding: 50px;
+}
+#buttons-div{
+  display: flex;
+
+}
 
 @media(max-width: 1280px){
  #edit-button{
@@ -53,7 +61,14 @@
     }
 
 }
+#delete-button{
+  border-radius: 22px;
 
+}
+#buttons{
+   margin-top: 80px;
+
+}
 
 body {
   font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }

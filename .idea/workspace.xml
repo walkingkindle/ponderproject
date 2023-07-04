@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Raising an exception for auth mismatch error.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Attempting to fix url_mismatch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/auth/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/sign up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/see-post-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/see-post-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/write-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/write-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/see-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/see-post.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,13 +101,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00139" summary="fixing and updating links">
-      <created>1686491838236</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1686491838236</updated>
     </task>
     <task id="LOCAL-00140" summary="Adjusting a new route to re-route the dashboard kindle mistakes.">
       <created>1686493824100</created>
@@ -442,7 +438,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688395378660</updated>
     </task>
-    <option name="localTasksCounter" value="188" />
+    <task id="LOCAL-00188" summary="Attempting to fix url_mismatch">
+      <created>1688395743394</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1688395743394</updated>
+    </task>
+    <option name="localTasksCounter" value="189" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -460,7 +463,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finalizing page select and creating a condtion instead of making a new page, thus following the DRY principle." />
     <MESSAGE value="Fixing an error where the expired mail won't show." />
     <MESSAGE value="Creating an exception when the user has more than 3 posts, the posts row becomes a carousel." />
     <MESSAGE value="Creating an option for the user to view and delete books if need be." />
@@ -485,6 +487,7 @@
     <MESSAGE value="Fixed an exception where you can't send a blank message on contact me page." />
     <MESSAGE value="Implementing next and previous buttons!" />
     <MESSAGE value="Raising an exception for auth mismatch error." />
-    <option name="LAST_COMMIT_MESSAGE" value="Raising an exception for auth mismatch error." />
+    <MESSAGE value="Attempting to fix url_mismatch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Attempting to fix url_mismatch" />
   </component>
 </project>

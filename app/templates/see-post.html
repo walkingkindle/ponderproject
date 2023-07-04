@@ -22,6 +22,8 @@
     <link rel="icon" type="image/x-icon" href="/static/favicon-32x32.png">
     <!---- Font Awesome ----->
     <script src="https://kit.fontawesome.com/511589a382.js" crossorigin="anonymous"></script>
+                <!------------------- Sweet Alert -------------------->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <!----------------------- NAVBAR -------------------------->
   <div class="container">
@@ -113,22 +115,51 @@
             <div class="col-lg-6 text-center text-lg-end">
             </div>
           </div>
-        </section>
-        <!--Section: Text-->
-        <div class="container">
-          <div class="row">
-            <section id="body-and-button">
-              <p>{{ post.body|safe }}</p>
-              <br>
-              {% if can_edit %}
-              <a class="btn btn-btn-primary btn-outline-dark btn-lg" href="{{url_for('edit_post',post_id=post.id)}}" id="edit-button">Edit</a>
-              {% endif %}
-            </section>
-          </div>
+          </section>
+         </div>
+    </div>
+    <div class="container justify-content-center" id="text-box">
+      <div class="row">
+        <div class="col">
+          <p>{{ post.body|safe }}</p>
         </div>
       </div>
     </div>
   </div>
+        <!--Section: Text-->
+        <script>
+          function deletePost(postId) {
+            Swal.fire({
+              title: 'Are you sure?',
+              text: "You won't be able to revert this!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                // Redirect to the delete route with the post ID
+                window.location.href = `/delete-post/${postId}`;
+              }
+            });
+          }
+        </script>
+          <div class="container" id="buttons">
+                <div class="row justify-content-center">
+                <div class="col-12 justify-content-center">
+                  <div class="small-line"></div>
+                </div>
+                </div>
+                <div class=" row justify-content-center">
+                <div class="col-2 justify-content-center" id="buttons-div">
+                <a class="btn btn-btn-primary btn-outline-dark btn-lg" href="{{ url_for('edit_post',post_id=post.id,is_edit=True) }}" id="edit-button">Edit Post</a>
+                </div>
+                <div class="col-2 justify-content-center" id="buttons-div">
+                <a class="btn btn-btn-primary btn-outline-danger btn-lg" href="#" onclick="deletePost({{ post.id }})" id="delete-button">Delete Post</a>
+                </div>
+              </div>
+          </div>
 </main>
 
 <style>

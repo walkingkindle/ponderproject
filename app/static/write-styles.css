@@ -20,6 +20,11 @@ body ::selection {
   border-width: thin;
 
 }
+.stretch {
+  min-height: 200px;
+  height: auto;
+  overflow-y: auto;
+}
 
 input{
    width: 800px;

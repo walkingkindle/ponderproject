@@ -283,7 +283,6 @@ def select():
                  try:
                     writer = parts[0]
                     quote = parts[3]
-                    print(quote)
                     date = parts[1]
                     real_selected_highlights.append({
                         "writer": writer,
@@ -319,8 +318,6 @@ def notifications():
     """The 'feature in progress' page. Using this whenever I haven't built a feature yet."""
     name = request.args.get('name')
     email = request.args.get('email')
-    print(name)
-    print(email)
     msg = Message(subject=f"Hi {name}",
                   body=f'Thanks for subscribing. You will receive a notification once we get'
                        f' the feature up and running. \n',
@@ -333,7 +330,6 @@ def notifications():
 @login_required
 def choose_path():
     user_id = session.get('id')
-    print(user_id)
     return render_template("Upload-File.html", current_user=current_user,user_id=user_id)
 
 
@@ -386,13 +382,11 @@ def search_page():
             author = request.form.get('author')
             authors.append(author)
         real_authors = set(authors)
-        print(real_authors)
         for author in real_authors:
             try:
                 try:
                     quote = wikiquotes.get_quotes(author=author, raw_language='en')
                     real_quotes = set(quote)
-                    print(real_quotes)
                     for q in real_quotes:
                         selected_highlights.append({
                             "author" : author,
@@ -761,24 +755,30 @@ def reset_photo(user_id):
 
 
 @app.route("/edit-post/<int:post_id>", methods=['GET', 'POST'])
+@login_required
 def edit_post(post_id):
-    post = Posts.query.get(post_id)
-    quote = post.quote
-    edit_form = forms.Write_Edit(
-        quote=post.user_quote,
-        body=post.body,
-        author = post.quote_author,
-        real_quote = post.quote
-    )
-    if edit_form.validate_on_submit():
-        post.quote = edit_form.real_quote.data
-        post.quote_author = edit_form.author.data
-        post.user_quote = edit_form.quote.data
-        post.body = edit_form.body.data
-        post.author = current_user
+    is_edit = request.args.get("is_edit")
+    quote_row = users.session.query(Posts).filter_by(id=post_id).first()
+    quote = quote_row.quote
+    quote_author = quote_row.quote_author
+    if request.method == "POST":
+        print("YEEEEA")
+        body = request.form.get("content")
+        post_title = request.form.get("post-title")
+        quote_row.body = body
+        quote_row.user_quote = post_title
         users.session.commit()
-        return redirect(url_for('see_post', post_id=post.id))
-    return render_template('Write.html', form=edit_form, is_edit=True, current_user=current_user, quote=quote)
+        return redirect(url_for('see_post',post_id=quote_row.id))
+    return render_template("Write.html",is_edit=is_edit,quote=quote,writer=quote_author,post_id=post_id,post=quote_row)
+
+@app.route("/delete-post/<int:post_id>")
+@login_required
+def delete_post(post_id):
+    post = users.session.query(Posts).filter_by(id=post_id).first()
+    users.session.delete(post)
+    users.session.commit()
+    return redirect(url_for('dashboard'))
+
 
 
 @app.route("/contact-me", methods=["GET", "POST"])
