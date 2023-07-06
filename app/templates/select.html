@@ -62,12 +62,16 @@
 {% if is_edit %}
 <!----- Little instruction ----->
         <script>
-          Swal.fire({
-          title: "Your Books",
-          text: "Check the boxes and press submit to remove any books from our database.",
-          icon: "info",
-          confirmButtonText: "OK"
+          var popupShown = localStorage.getItem("popupShownselect");
+           if (!popupShown) {
+              Swal.fire({
+              title: "Your Books",
+              text: "Check the boxes and press submit to remove any books from our database.",
+              icon: "info",
+              confirmButtonText: "OK"
         });
+              localStorage.setItem("popupShownselect", true);
+        }
         </script>
 <!----------------------------- Tables ------------------------>
 

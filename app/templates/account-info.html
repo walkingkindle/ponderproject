@@ -57,12 +57,16 @@
       </nav>
     </div>
     <script>
+         var popupShown = localStorage.getItem("popupShownaccount");
+         if (!popupShown) {
          Swal.fire({
          title: "Your Account",
          text: "This is your account information. Adjust settings and press 'save changes' to apply all changes. Keep in mind that the app supports only small images, and up to 800kb.",
          icon: "info",
          confirmButtonText: "OK"
        });
+       localStorage.setItem("popupShownaccount", true);
+    }
     </script>
     <!------- Account information ------------>
    <div class="container light-style flex-grow-1 container-p-y" id="info-container">

@@ -4,21 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing Write page, adding edit and delete post buttons.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adjusting responsiveness and adding names.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Edit-User.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Edit-User.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Upload-File.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Upload-File.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Write.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/about-us.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/about-us.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/account-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/account-info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/auth/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/sign up.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/auth/sign-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/sign-in.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/my-ponder.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/my-ponder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/reset-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/reset-password.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/see-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/see-post.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/select.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/select.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,13 +102,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00142" summary="Fixing js error on write page.">
-      <created>1686495480542</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1686495480542</updated>
     </task>
     <task id="LOCAL-00143" summary="updating callback function to match the https.">
       <created>1686497060555</created>
@@ -454,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688469511876</updated>
     </task>
-    <option name="localTasksCounter" value="191" />
+    <task id="LOCAL-00191" summary="Adjusting responsiveness and adding names.">
+      <created>1688648477014</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1688648477014</updated>
+    </task>
+    <option name="localTasksCounter" value="192" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -472,7 +464,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Creating an exception when the user has more than 3 posts, the posts row becomes a carousel." />
     <MESSAGE value="Creating an option for the user to view and delete books if need be." />
     <MESSAGE value="Fixing other minor issues." />
     <MESSAGE value="Creating a different, more stylized write page." />
@@ -497,6 +488,7 @@
     <MESSAGE value="Raising an exception for auth mismatch error." />
     <MESSAGE value="Attempting to fix url_mismatch" />
     <MESSAGE value="Fixing Write page, adding edit and delete post buttons." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing Write page, adding edit and delete post buttons." />
+    <MESSAGE value="Adjusting responsiveness and adding names." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusting responsiveness and adding names." />
   </component>
 </project>

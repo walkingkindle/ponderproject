@@ -70,14 +70,20 @@
       </div>
       {% endif %}
       <div class="container">
-        <script>
-          Swal.fire({
-          title: "Welcome to Paper Reader",
-          text: "Please search for any books you found helpful, click on the titles and we'll secure the most popular highlights from the chosen books!",
-          icon: "info",
-          confirmButtonText: "OK"
-        });
-        </script>
+  <script>
+    var popupShown = localStorage.getItem("popupShownsearch");
+
+    if (!popupShown) {
+      Swal.fire({
+        title: "Welcome to Paper Reader",
+        text: "Please search for any books you found helpful, click on the titles, and we'll secure the most popular highlights from the chosen books!",
+        icon: "info",
+        confirmButtonText: "OK"
+      });
+
+      localStorage.setItem("popupShownsearch", true);
+    }
+  </script>
         <div class="row">
           <h2 class="big-heading">The Paper Reader</h2>
           <div class="input-group">

@@ -69,12 +69,16 @@
     </script>
     <!----- Little instruction ----->
         <script>
+           var popupShown = localStorage.getItem("popupShownupload");
+           if (!popupShown) {
           Swal.fire({
           title: "Welcome to Tech Reader",
           text: "Upload your Kindle quotes manually by plugging in your Kindle Device via USB, and then going to Kindle/Documents. There you will find My Clippings.txt",
           icon: "info",
           confirmButtonText: "Got it!"
         });
+        localStorage.setItem("popupShownupload", true);
+        }
        </script>
     <h2 class="big-heading" id="heading2">The Tech Reader</h2>
     <div class="container" id="upload-container" >
