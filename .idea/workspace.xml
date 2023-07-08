@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adjusting responsiveness and adding names.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adjusting swal.fire">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Write.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/account-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/account-info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/select.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/select.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/auth/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/sign up.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,13 +98,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00143" summary="updating callback function to match the https.">
-      <created>1686497060555</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1686497060555</updated>
     </task>
     <task id="LOCAL-00144" summary="Integrating toastr.js instead of Bootstrap Alerts.">
       <created>1686565132618</created>
@@ -446,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688648477014</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL-00192" summary="Adjusting swal.fire">
+      <created>1688649836595</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1688649836595</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -464,7 +460,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Creating an option for the user to view and delete books if need be." />
     <MESSAGE value="Fixing other minor issues." />
     <MESSAGE value="Creating a different, more stylized write page." />
     <MESSAGE value="Finalizing page." />
@@ -489,6 +484,7 @@
     <MESSAGE value="Attempting to fix url_mismatch" />
     <MESSAGE value="Fixing Write page, adding edit and delete post buttons." />
     <MESSAGE value="Adjusting responsiveness and adding names." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusting responsiveness and adding names." />
+    <MESSAGE value="Adjusting swal.fire" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusting swal.fire" />
   </component>
 </project>

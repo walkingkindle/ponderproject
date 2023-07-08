@@ -222,18 +222,23 @@ def home():
 @app.route("/dashboard", methods=["POST", "GET"])
 @login_required
 def dashboard():
-    all_posts = users.session.query(Posts).filter_by(author_id=current_user.id).all()
     post_images = ["/static/europe-street-1.jpg", "/static/europe-street-2.jpg", "/static/europe-street-3.jpg"]
     username = current_user.username
     current_index = session.get('quote_index', 0)
     try:
         all_quotes = users.session.query(Books).filter_by(highlight_id=current_user.id).all()
+        try:
+            random_quote = all_quotes[current_index]
+            id = random_quote.id
 
-        random_quote = all_quotes[current_index]
-        id = random_quote.id
+            quote = random_quote.original_quote
+            writer = random_quote.writer_quote
+        except IndexError:              #There is only one book or one quote in the database.
+            random_quote = users.session.query(Books).filter_by(highlight_id=current_user.id).first()
+            id = random_quote.id
+            quote = random_quote.original_quote
+            writer = random_quote.writer_quote
 
-        quote = random_quote.original_quote
-        writer = random_quote.writer_quote
     except AttributeError:
         return redirect(url_for('upload', not_uploaded=True))
     all_posts = users.session.query(Posts).filter_by(author_id=current_user.id).all()
