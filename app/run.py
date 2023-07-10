@@ -238,7 +238,6 @@ def dashboard():
             id = random_quote.id
             quote = random_quote.original_quote
             writer = random_quote.writer_quote
-
     except AttributeError:
         return redirect(url_for('upload', not_uploaded=True))
     all_posts = users.session.query(Posts).filter_by(author_id=current_user.id).all()
@@ -725,6 +724,7 @@ def paper_reader():
     """A feature that searches books from an API and gets famous quotes from them. Used in case the user does not own a
      Kindle"""
     quote_row = users.session.query(Books).filter_by(paper=True).order_by(func.random()).first()
+    paper = quote_row.paper
     quote = quote_row.original_quote
     print(f"quote is{quote}")
     writer = quote_row.writer_quote
@@ -746,7 +746,7 @@ def paper_reader():
         users.session.commit()
         return redirect(url_for("see_post", current_user=current_user, post_id=new_post.id))
     return render_template("Write.html", current_user=current_user,contribute=contribute,
-                           quote=quote,writer=writer,quote_id=quote_row.id)
+                           quote=quote,writer=writer,quote_id=quote_row.id,paper=paper)
 
 @app.route("/reset/<int:user_id>")
 def reset_photo(user_id):

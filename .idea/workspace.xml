@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Adjusting swal.fire">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="Fixing an exception where the Dashboard page will show an Index error if there is only one quote.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/auth/sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/auth/sign up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/write-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/write-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Write.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,16 +44,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Aleksa Hadzic/OneDrive/Desktop/test project&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Aleksa Hadzic/OneDrive/Desktop/test project",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Development\Ponderproject\app" />
@@ -98,13 +99,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00144" summary="Integrating toastr.js instead of Bootstrap Alerts.">
-      <created>1686565132618</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL-00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1686565132619</updated>
     </task>
     <task id="LOCAL-00145" summary="Adding a nice text-box on paper reader that better explains the user.">
       <created>1686576414585</created>
@@ -442,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688649836595</updated>
     </task>
-    <option name="localTasksCounter" value="193" />
+    <task id="LOCAL-00193" summary="Fixing an exception where the Dashboard page will show an Index error if there is only one quote.">
+      <created>1688815000707</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1688815000708</updated>
+    </task>
+    <option name="localTasksCounter" value="194" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -460,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixing other minor issues." />
     <MESSAGE value="Creating a different, more stylized write page." />
     <MESSAGE value="Finalizing page." />
     <MESSAGE value="fixing minor write.html issues." />
@@ -485,6 +485,7 @@
     <MESSAGE value="Fixing Write page, adding edit and delete post buttons." />
     <MESSAGE value="Adjusting responsiveness and adding names." />
     <MESSAGE value="Adjusting swal.fire" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusting swal.fire" />
+    <MESSAGE value="Fixing an exception where the Dashboard page will show an Index error if there is only one quote." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing an exception where the Dashboard page will show an Index error if there is only one quote." />
   </component>
 </project>

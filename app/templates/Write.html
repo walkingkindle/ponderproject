@@ -87,7 +87,7 @@ config.toolbar = [
     <!--------------------------- Main Part of the Page ---------------------------------->
   <div class="container mt-5">
     <div class="row">
-      <div class="col-12 mt-5 justify-content-center">
+      <div class="col-12 mt-7 justify-content-center">
         <h3 class="text-center">Reflect and Ponder - Save Quote into a Post</h3>
         <div class="small-line"></div>
       </div>
@@ -98,11 +98,25 @@ config.toolbar = [
         <blockquote class="text-center" id="ponder-quote">"{{ quote }}"</blockquote>
         {% endif %}
         <p class="text-center">- {{ writer }}</p>
+        {% if paper %}
+        <a class="text-center" onclick="swalFunction()" href="#" style="font-size: 15px;"> Not the Quote you expected? </a>
+        {% endif %}
       </div>
 
     </div>
 
+
   </div>
+  <script>
+   function swalFunction () {
+     Swal.fire(
+     'Is it really from this writer??',
+     'The users sometimes experience a slight issue where a quote seems to be misattributed or false. To fix this, try to search for another book by the same writer.',
+     'question'
+     )
+    }
+  </script>
+
   {% if redirect_from == "home" %}
   <form action="{{ url_for('write') }}" method="post">
     {% elif is_edit %}
@@ -230,6 +244,23 @@ config.toolbar = [
 </div>
 
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var tooltips = document.querySelectorAll('.tooltip');
+
+  tooltips.forEach(function(tooltip) {
+    tooltip.addEventListener('mouseenter', function() {
+      var tooltipBox = this.nextElementSibling;
+      tooltipBox.style.display = 'block';
+    });
+
+    tooltip.addEventListener('mouseleave', function() {
+      var tooltipBox = this.nextElementSibling;
+      tooltipBox.style.display = 'none';
+    });
+  });
+});
+</script>
 
 
 
