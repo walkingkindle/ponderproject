@@ -39,6 +39,15 @@
   display: flex;
 
 }
+.post-title-anchor{
+   border-style: none;
+   padding-top: 10px;
+   font-size: 1.5rem;
+   border-width: thin;
+   border-radius: 22px;
+   align-text-center;
+
+}
 
 @media(max-width: 1280px){
  #edit-button{
