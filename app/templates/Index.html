@@ -1,54 +1,19 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+{% extends "base.html" %}
+     {% block head %}
+     {{ super() }}
     <link rel="stylesheet" type="text/css" href="/static/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <title>Ponder - Your Personal Quote Library</title>
-    <link rel="icon" type="image/x-icon" href="/static/favicon-32x32.png">
-        <!--- Toastr ------>
-    <link href="static/toastr.css" rel="stylesheet"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.js.map" charset="utf-8" content="application/javascript"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css"/>
-    <!---- Font Awesome ----->
-    <script src="https://kit.fontawesome.com/511589a382.js" crossorigin="anonymous"></script>
-
-                <!------------------- Sweet Alert -------------------->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  </head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQ19Z2ZTMQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FQ19Z2ZTMQ');
-</script>
-  <body>
+    <title>Ponder - Your Digital Higlight Library</title>
+     {% endblock %}
     <!-------NavBar ----->
+     {% block content %}
+     <body>
     {% if current_user.is_authenticated %}
     <div class="container">
       <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="{{url_for('home')}}">
-          <img id="ponder-img"  src="/static/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">Ponder
+          <img id="ponder-img"  src="/static/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -281,49 +246,10 @@ Toast.fire({
         </div>
       </div>
     </div>
-  </body>
-  <!----------- Footer ------------>
-  <footer class="footer-16371">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-9 text-center">
-          <div class="footer-site-logo mb-4">
-            <a href="{{url_for('home')}}">Ponder</a>
-          </div>
-          <ul class="list-unstyled nav-links mb-5">
-            <li><a href="{{ url_for('about') }}">About</a></li>
-            <li><a href="{{url_for('contact')}}">Contact</a></li>
-          </ul>
-          <div class="social mb-4">
-          </div>
-          <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="walkingkindle" data-color="#5F7FFF" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
-          {% if how_many == 1 %}
-          <p style="padding-top: 100px;" class="text-muted" id="users-count">Ponder has <mark>{{ how_many }}</mark> active user.</p>
-          {% else %}
-          <p style="padding-top: 100px;" class="text-muted" id="users-count">Ponder has <mark>{{ how_many }}</mark> active users.</p>
-          {% endif %}
-          <div class="copyright">
-            <p class="mb-0"><small>&copy; Ponder. All Rights Reserved.</small></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <script src="static/popper.js"></script>
-  <script src="static/bootstrap.min.js"></script>
-  <script src="static/main.js"></script>
-<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-<script>
-  var typed = new Typed(".auto-type", {
-    strings: ["Reflect on what matters most."],
-    typeSpeed: 50,
-    backSpeed: 150,
-    loop: false,
-  });
-  typed.cursor.remove();
+     </body>
+     {% endblock %}
+     {% block footer %}
 
-</script>
+     {{ super() }}
 
-
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-</html>
+     {% endblock %}

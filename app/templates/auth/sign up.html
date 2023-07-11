@@ -1,36 +1,11 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQ19Z2ZTMQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FQ19Z2ZTMQ');
-</script>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/511589a382.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/static/icomoon-style.css">
-    <link rel="stylesheet" href="/static/owl.carousel.min.css">
-    <!-- Bootstrap CSS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <link rel="stylesheet" href="/static/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <!-- Style -->
-    <link rel="stylesheet" href="/static/sign-up-style.css">
-    <link rel="icon" type="image/x-icon" href="/static/favicon-32x32.png">
-    <title>Sign Up | Ponder</title>
-
-    <!------------------- Sweet Alert -------------------->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  </head>
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="static/sign-up-style.css">
+<title>Sign Up | Ponder</title>
+{% endblock %}
+{% block content %}
   <body>
     <!-------NavBar ----->
     <div class="container">
@@ -135,25 +110,7 @@ Toast.fire({
     <script src="static/bootstrap.min.js"></script>
     <script src="static/main.js"></script>
   </body>
-  <footer class="footer-16371">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-9 text-center">
-          <div class="footer-site-logo mb-4">
-            <a href="{{url_for('home')}}">Ponder</a>
-          </div>
-          <ul class="list-unstyled nav-links mb-5">
-            <li><a href="{{ url_for('about') }}">About</a></li>
-            <li><a href="{{ url_for('contact') }}">Contact</a></li>
-          </ul>
-          <div class="social mb-4">
-          </div>
-          <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="walkingkindle" data-color="#5F7FFF" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
-          <div class="copyright">
-            <p class="mb-0"><small>&copy; Ponder. All Rights Reserved.</small></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+{% endblock %}
+{% block footer %}
+ {% endblock %}
 </html>
