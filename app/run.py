@@ -276,7 +276,10 @@ def dashboard_next():
 def select():
     clippings_filename = "My_Clippings.txt" + str(current_user.id)
     nothing_selected = request.args.get("nothing_selected")
-    book_list = engine.get_all_writers(clippings_path=app.config['UPLOAD_FOLDER'],filename=clippings_filename)
+    try:
+        book_list = engine.get_all_writers(clippings_path=app.config['UPLOAD_FOLDER'],filename=clippings_filename)
+    except FileNotFoundError:
+        return redirect(url_for('upload',not_uploaded=True))
     highlights = engine.format_kindle_clippings(clippings_path=app.config['UPLOAD_FOLDER'],filename=clippings_filename)
     if request.method == 'POST':
         selected_items = request.form.get('selected-books')

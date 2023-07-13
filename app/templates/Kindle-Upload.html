@@ -20,10 +20,7 @@
     <link rel="icon" type="image/x-icon" href="static/favicon-32x32.png">
     <!---- Font Awesome ----->
     <script src="https://kit.fontawesome.com/511589a382.js" crossorigin="anonymous"></script>
-    <link href="static/toastr.css" rel="stylesheet"/>
-    <script src="static/toastr.min.js"></script>
-    <script src="static/toastr.js.map"></script>
-    <link href="static/toastr.min.css"/>
+
 
             <!------------------- Sweet Alert -------------------->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -43,7 +40,7 @@
       <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="{{url_for('home')}}">
-          <img src="/static/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">Ponder
+          <img src="/static/android-chrome-192x192.png" alt="" width="50" height="44" class="d-inline-block align-text-top">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -69,12 +66,28 @@
     </div>
     <!----- Main Content ---->
     {% if not_uploaded %}
-    <script>
-    $(function() {
-      toastr.warning("We couldn't find your 'My Clippings' file. Remember that the file name must be 'My Clippings'.");
+<script>
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  });
+
+  $(function() {
+    Toast.fire({
+      icon: 'warning',
+      title: 'Parsing failed',
+      text: 'We couldn\'t find your My Clippings file, or you uploaded an invalid file." ',
     });
+  });
+</script>
     {% endif %}
-    </script>
     <!----- Little instruction ----->
         <script>
            var popupShown = localStorage.getItem("popupShownupload");

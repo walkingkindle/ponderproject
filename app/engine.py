@@ -42,7 +42,6 @@ def extract_quotes_with_writers(filename, clippings_path):
         return pair_list
 
 
-
 def get_writer_only(full_title):
     pattern = r'\((.*?)\)'  # Pattern to match text within parentheses
     matches = re.findall(pattern, full_title)  # Find all matches within parentheses
