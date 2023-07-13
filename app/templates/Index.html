@@ -3,6 +3,7 @@
      {% block head %}
      {{ super() }}
     <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <title>Ponder - Your Digital Higlight Library</title>
      {% endblock %}
     <!-------NavBar ----->
@@ -249,7 +250,14 @@ Toast.fire({
      </body>
      {% endblock %}
      {% block footer %}
-
      {{ super() }}
-
+<script>
+        var typed = new Typed(".auto-type", {
+            strings: ["Reflect on what matters most."],
+            typeSpeed: 75,
+            backSpeed: 150,
+            loop: false,
+        });
+        typed.cursor.remove();
+    </script>
      {% endblock %}

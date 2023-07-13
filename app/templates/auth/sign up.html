@@ -1,8 +1,11 @@
 <!doctype html>
+<html>
 {% extends "base.html" %}
 {% block head %}
 {{ super() }}
 <link rel="stylesheet" href="static/sign-up-style.css">
+
+<script src="https://kit.fontawesome.com/511589a382.js" crossorigin="anonymous"></script>
 <title>Sign Up | Ponder</title>
 {% endblock %}
 {% block content %}
@@ -34,19 +37,6 @@
       </nav>
     </div>
     <!---  Main Content ---->
-    {% macro render_field(field) %}
-    <dt>{{ field.label }}
-    <dd>
-      {{ field(**kwargs)|safe }}
-      {% if field.errors %}
-      <ul class=errors>
-        {% for error in field.errors %}
-        <li>{{ error }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    </dd>
-    {% endmacro %}
     {% if googlep %}
     <script>
     const Toast = Swal.mixin({
@@ -112,5 +102,7 @@ Toast.fire({
   </body>
 {% endblock %}
 {% block footer %}
+  {{ super() }}
+
  {% endblock %}
 </html>

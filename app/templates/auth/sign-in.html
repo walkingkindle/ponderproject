@@ -4,6 +4,10 @@
  {% block head %}
   <title>Log In | Ponder</title>
   <link rel="stylesheet" type="text/css" href="/static/styles.css">
+<link rel="stylesheet" type="text/css" href="/static/new-sign-in.css">
+
+     <!---- Font Awesome ----->
+    <script src="https://kit.fontawesome.com/511589a382.js" crossorigin="anonymous"></script>
   {{ super() }}
 {% endblock %}
 {% block content %}
@@ -62,41 +66,126 @@
       </nav>
     </div>
     {% endif %}
-     {% if reset %}
-  <script>
-    $(function() {
-      toastr.sucess("Password reset was a sucess. Please sign in with your new information.");
+ {% if reset %}
+<script>
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  });
+
+  $(function() {
+    Toast.fire({
+      icon: 'success',
+      title: 'Password reset was a success',
+      text: 'Please sign in with your new information.'
     });
-  </script>
-  {% endif %}
-  {% if email_doesnt_exist %}
-  <script>
-    $(function() {
-      toastr.warning("Login to Ponder failed. Looks like we couldn't find an email that matches with your account.");
+  });
+</script>
+{% endif %}
+
+{% if email_doesnt_exist %}
+<script>
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  });
+
+  $(function() {
+    Toast.fire({
+      icon: 'warning',
+      title: 'Login to Ponder failed',
+      text: 'Looks like we couldn\'t find an email that matches with your account.'
     });
-  </script>
-  {% endif %}
-     {% if wrong_password %}
-  <script>
-    $(function() {
-      toastr.warning("Login to Ponder failed. You entered an incorrect password or your email hasn't been confirmed.");
+  });
+</script>
+{% endif %}
+
+{% if wrong_password %}
+<script>
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  });
+
+  $(function() {
+    Toast.fire({
+      icon: 'warning',
+      title: 'Login to Ponder failed',
+      text: 'You entered an incorrect password or your email hasn\'t been confirmed.'
     });
-  </script>
-  {% endif %}
-   {% if has_account %}
-  <script>
-    $(function() {
-      toastr.info("Looks like there is already an account with this information. Log in instead?");
+  });
+</script>
+{% endif %}
+
+{% if has_account %}
+<script>
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  });
+
+  $(function() {
+    Toast.fire({
+      icon: 'info',
+      title: 'Looks like there is already an account with this information',
+      text: 'Log in instead?'
     });
-  </script>
-   {% endif %}
-   {% if expired %}
-   <script>
-      $(function() {
-      toastr.warning("Login to Ponder failed. Looks like the link we sent you expired, please try registering again.");
+  });
+</script>
+{% endif %}
+
+{% if expired %}
+<script>
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  });
+
+  $(function() {
+    Toast.fire({
+      icon: 'warning',
+      title: 'Login to Ponder failed',
+      text: 'Looks like the link we sent you expired, please try registering again.'
     });
-   </script>
-   {% endif %}
+  });
+</script>
+{% endif %}
+
 
   <div id="main-content" class="content">
     <div class="container">
@@ -146,9 +235,10 @@
     </div>
   </div>
 
+    <!--- Toastr ------>
 
     <script src="/static/popper.min.js"></script>
-    <script src="/static/bootstrap.min.js"></script>
+    <script src="static/bootstrap.min.js"></script>
     <script src="static/main.js"></script>
   </body>
 <!----------- Footer ------------>

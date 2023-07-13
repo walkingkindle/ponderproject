@@ -46,6 +46,11 @@
 
 }
 
+#ponder-img{
+  position: relative;
+  bottom: 5px;
+}
+
 #previous{
   display: flex;
 
@@ -56,6 +61,7 @@
 }
 
 #write-button{
+  padding: 0.5rem;
   margin-bottom: 70px;
   border-style: solid;
   border-width: medium;
@@ -112,6 +118,7 @@ footer{
 }
 .other-posts-title{
   text-align: left;
+  font-size: 1.75rem;
 }
 #posts-container{
  margin-top: 150px;
@@ -119,9 +126,6 @@ footer{
 .small-line2{
    border-style: solid none none none;
    border-width: thin;
-}
-a{
-  color: #f9f9f9;
 }
 .card{
   margin-top: 30px;
