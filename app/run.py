@@ -205,7 +205,7 @@ def home():
         return redirect(url_for('log_in',has_account=has_account))
     if expired:
         email = request.args.get('email')
-        user = users.session.query(User).filter_by(email=email).first_or_404()
+        user = users.session.query(User).filter_by(email=email).first()
         if user:
             users.session.delete(user)
             users.session.commit()
@@ -236,7 +236,7 @@ def dashboard():
             quote = random_quote.original_quote
             writer = random_quote.writer_quote
         except IndexError:              #There is only one book or one quote in the database.
-            random_quote = users.session.query(Books).filter_by(highlight_id=current_user.id).first_or_404()
+            random_quote = users.session.query(Books).filter_by(highlight_id=current_user.id).first()
             id = random_quote.id
             quote = random_quote.original_quote
             writer = random_quote.writer_quote
@@ -310,7 +310,7 @@ def select():
                 )
             users.session.add(new_highlight)
             users.session.commit()
-        posts = users.session.query(Posts).filter_by(author_id=current_user.id).first_or_404()
+        posts = users.session.query(Posts).filter_by(author_id=current_user.id).first()
         if posts == None:
             create_sample_post(current_user=current_user)
         return redirect(url_for('dashboard'))
@@ -463,7 +463,7 @@ def contribute():
 def confirm_email(token):
     try:
         email = s.loads(token,salt='email-confirm',max_age=7200)
-        user = users.session.query(User).filter_by(email=email).first_or_404()
+        user = users.session.query(User).filter_by(email=email).first()
         user.confirmed = True
         users.session.commit()
         login_user(user)
@@ -498,7 +498,7 @@ def register():
         username = form.username.data
         hashed_password = generate_password_hash(password=password, method="pbkdf2:sha256", salt_length=8)
         user_id = engine.generate_custom_id()
-        check_and_find = users.session.query(User).filter(or_(User.email == e_mail, User.username == username)).first_or_404()
+        check_and_find = users.session.query(User).filter(or_(User.email == e_mail, User.username == username)).first()
         if check_and_find:
             has_account = True
             return render_template("auth/sign-in.html", has_account=has_account)
@@ -538,12 +538,12 @@ def log_in():
     if request.method == 'POST':
         entered_email = request.form.get('email')
         entered_password = request.form.get('password')
-        user = users.session.query(User).filter_by(email=entered_email).first_or_404()
+        user = users.session.query(User).filter_by(email=entered_email).first()
         print(f"{user} is")
         if user:
             if check_password_hash(pwhash=user.password, password=entered_password) and user.confirmed:
                 login_user(user)
-                if users.session.query(Books).filter_by(highlight_id=current_user.id).first_or_404():
+                if users.session.query(Books).filter_by(highlight_id=current_user.id).first():
                     return redirect(url_for('dashboard',current_user=current_user))
                 else:
                     return redirect(url_for("choose_path", current_user=current_user))
@@ -566,7 +566,7 @@ def new_password(token):
     if form.validate_on_submit():
         email = s.loads(token,salt='password-reset',max_age=600)
         password = form.new_password.data
-        user = users.session.query(User).filter_by(email=email).first_or_404()
+        user = users.session.query(User).filter_by(email=email).first()
         hashed_password = generate_password_hash(password=password, method="pbkdf2:sha256", salt_length=8)
         user.password = hashed_password
         users.session.commit()
@@ -583,7 +583,7 @@ def reset_password():
     email_form = ForgotPassword()
     if email_form.validate_on_submit():
         e_mail = email_form.email.data
-        user = users.session.query(User).filter_by(email=e_mail).first_or_404()
+        user = users.session.query(User).filter_by(email=e_mail).first()
         if user:
             user_id = user.id
             token = s.dumps(e_mail, salt='password-reset')
@@ -618,14 +618,14 @@ def callback():
         request=token_request,
         audience=config.GOOGLE_CLIENT_ID
     )
-    user = users.session.query(User).filter_by(email=id_info['email']).first_or_404()
+    user = users.session.query(User).filter_by(email=id_info['email']).first()
     if user:
         return redirect(url_for('home',has_account=True))
     username = id_info['name']
     email = id_info['email']
     first_name = id_info['given_name']
     last_name = id_info['family_name']
-    user = users.session.query(User).filter_by(email=email).first_or_404()
+    user = users.session.query(User).filter_by(email=email).first()
     if user:
         login_user(user)
         return redirect(url_for('home', current_user=current_user))
@@ -725,7 +725,7 @@ def write_from_kindle(quote_id):
 def paper_reader():
     """A feature that searches books from an API and gets famous quotes from them. Used in case the user does not own a
      Kindle"""
-    quote_row = users.session.query(Books).filter_by(paper=True).order_by(func.random()).first_or_404()
+    quote_row = users.session.query(Books).filter_by(paper=True).order_by(func.random()).first()
     paper = quote_row.paper
     quote = quote_row.original_quote
     print(f"quote is{quote}")
@@ -752,7 +752,7 @@ def paper_reader():
 
 @app.route("/reset/<int:user_id>")
 def reset_photo(user_id):
-    user = users.session.query(User).filter_by(id=user_id).first_or_404()
+    user = users.session.query(User).filter_by(id=user_id).first()
     user.user_photo = None
     users.session.commit()
     return redirect(url_for('account',user_id=user_id))
@@ -765,7 +765,7 @@ def reset_photo(user_id):
 @login_required
 def edit_post(post_id):
     is_edit = request.args.get("is_edit")
-    quote_row = users.session.query(Posts).filter_by(id=post_id).first_or_404()
+    quote_row = users.session.query(Posts).filter_by(id=post_id).first()
     quote = quote_row.quote
     quote_author = quote_row.quote_author
     if request.method == "POST":
@@ -781,7 +781,7 @@ def edit_post(post_id):
 @app.route("/delete-post/<int:post_id>")
 @login_required
 def delete_post(post_id):
-    post = users.session.query(Posts).filter_by(id=post_id).first_or_404()
+    post = users.session.query(Posts).filter_by(id=post_id).first()
     users.session.delete(post)
     users.session.commit()
     return redirect(url_for('dashboard'))
@@ -843,7 +843,7 @@ def edit_user():
 @app.route("/account/<int:user_id>", methods=["GET", "POST"])
 @login_required
 def account(user_id):
-    user = users.session.query(User).filter_by(id=user_id).first_or_404()
+    user = users.session.query(User).filter_by(id=user_id).first()
 
     if request.method == "POST":
         photo = request.files['photo']
