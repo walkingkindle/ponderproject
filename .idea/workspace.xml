@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="fixing minor deployment error.">
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="fixing error on upload not appearing and creating an exception for when the user tries to upload a different file from 'My Clippings'">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/engine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/account-info-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/account-info-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Edit-User.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Edit-User.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Kindle-Upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Upload-File.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Upload-File.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/Write.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/Write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/account-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/account-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/my-ponder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/reset-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/reset-password.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/select.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/select.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,13 +107,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00152" summary="Fixing bugs in the select app, and modifying.">
-      <created>1686761147374</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1686761147375</updated>
     </task>
     <task id="LOCAL-00153" summary="Reformatting dashboard.">
       <created>1686861387568</created>
@@ -443,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689256261781</updated>
     </task>
-    <option name="localTasksCounter" value="201" />
+    <task id="LOCAL-00201" summary="fixing error on upload not appearing and creating an exception for when the user tries to upload a different file from 'My Clippings'">
+      <created>1689257132327</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1689257132327</updated>
+    </task>
+    <option name="localTasksCounter" value="202" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -473,7 +481,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixing search page." />
     <MESSAGE value="Helping the Write page work better." />
     <MESSAGE value="Updating reset password." />
     <MESSAGE value="Fixing minor changes." />
@@ -498,6 +505,7 @@
     <MESSAGE value="Refactoring" />
     <MESSAGE value="Refactoring. Kicking out footer and head so that I can create base.html and save space.&#10;Adding exceptions and 404." />
     <MESSAGE value="fixing minor deployment error." />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing minor deployment error." />
+    <MESSAGE value="fixing error on upload not appearing and creating an exception for when the user tries to upload a different file from 'My Clippings'" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing error on upload not appearing and creating an exception for when the user tries to upload a different file from 'My Clippings'" />
   </component>
 </project>
