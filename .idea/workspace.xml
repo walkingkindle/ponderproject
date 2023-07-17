@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="finishing refactoring.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="23ff3b05-4e67-4d7d-ae89-a9c5a0358788" name="Changes" comment="fixing a small development bug.">
+      <change beforePath="$PROJECT_DIR$/app/templates/see-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/see-post.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,20 +96,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677689105388</updated>
-    </task>
-    <task id="LOCAL-00154" summary="Finallizing reformatted Dashboard.">
-      <created>1686937484780</created>
-      <option name="number" value="00154" />
-      <option name="presentableId" value="LOCAL-00154" />
-      <option name="project" value="LOCAL" />
-      <updated>1686937484781</updated>
-    </task>
-    <task id="LOCAL-00155" summary="Updating database and fixing responsiveness. Addded new table &quot;Books&quot; so that the user can actually choose which books can he add .">
-      <created>1687093905305</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1687093905306</updated>
     </task>
     <task id="LOCAL-00156" summary="Implementing and fixing bugs on the select page, as well as parsing select page into and from the dashboard">
       <created>1687350373704</created>
@@ -440,7 +426,21 @@
       <option name="project" value="LOCAL" />
       <updated>1689418538404</updated>
     </task>
-    <option name="localTasksCounter" value="203" />
+    <task id="LOCAL-00203" summary="fixing a small development bug.">
+      <created>1689589297481</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1689589297481</updated>
+    </task>
+    <task id="LOCAL-00204" summary="fixing a small development bug.">
+      <created>1689589416327</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1689589416327</updated>
+    </task>
+    <option name="localTasksCounter" value="205" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -470,7 +470,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updating reset password." />
     <MESSAGE value="Fixing minor changes." />
     <MESSAGE value="Attempting to implement twitter log_in" />
     <MESSAGE value="Fixing a log in exception." />
@@ -495,6 +494,7 @@
     <MESSAGE value="fixing minor deployment error." />
     <MESSAGE value="fixing error on upload not appearing and creating an exception for when the user tries to upload a different file from 'My Clippings'" />
     <MESSAGE value="finishing refactoring." />
-    <option name="LAST_COMMIT_MESSAGE" value="finishing refactoring." />
+    <MESSAGE value="fixing a small development bug." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing a small development bug." />
   </component>
 </project>
